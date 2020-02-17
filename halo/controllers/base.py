@@ -1,4 +1,4 @@
-import json, math, bcrypt, re, time
+import json, math, time
 from django.conf import settings
 from django.http import HttpResponse
 from django.core import serializers
@@ -53,14 +53,6 @@ def get_utc_epoch_time(days=0):
 
 def epoch_strftime(utc_time, regex):
     return time.strftime(regex, time.localtime(int(utc_time)))
-
-
-def validate_password(password, hashed_password):
-    return bcrypt.hashpw(password.encode('utf8'), hashed_password.encode('utf8')) == hashed_password
-
-
-def create_password(password):
-    return bcrypt.hashpw(password.encode('utf8'), bcrypt.gensalt())
 
 
 def array_to_dict(array):

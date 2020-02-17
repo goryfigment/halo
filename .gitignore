@@ -100,5 +100,7 @@ ENV/
 # Files I don't want git to see
 node_modules
 settings_secret.py
+settings.py
 migrations
 cookies.json
+package-lock.json
