@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{gt}}</title>
+    <link rel='shortcut icon' type='image/x-icon' href="{% static 'bundle/assets/whey2ez/whey2ez.ico' %}" />
+    <script>
+        var globals = {};
+        globals.base_url = '{{base_url}}';
+        globals.ranks = {{ranks|safe}};
+        globals.gamertag = '{{gt}}';
+    </script>
+</head>
+<body>
+    {% csrf_token %}
+    <div id="input-wrapper">
+        <h2>Halo Ranks</h2>
+        <input id="search" autocomplete="off" />
+    </div>
+
+    <div id="wrapper"></div>
+</body>
+</html>

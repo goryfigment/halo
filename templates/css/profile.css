@@ -1,0 +1,45 @@
+#input-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 10px 0;
+    background: #2c2c2c;
+}
+
+h2 {
+    margin: 0 10px;
+}
+
+input {
+    width: 300px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h5 {
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    margin: 0;
+    font-size: 20px;
+}
+
+h3 {
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    font-size: 60px;
+    margin: 0;
+}
+
+#ranks-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: calc(100% - 500px);
+    margin: 0 auto;
+}
+
+#ranks-wrapper div {
+    flex: 0 0 33%;
+    background: #171717;
+    border: 0.5px solid #202020;
+}

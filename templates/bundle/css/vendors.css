@@ -1,0 +1,89 @@
+@font-face {
+    font-family: Rajdhani;
+    font-display: swap;
+    src: local('Rajdhani'), url(/templates/bundle/assets/fonts/Rajdhani/Rajdhani-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Rajdhani;
+    font-display: swap;
+    src: local('Rajdhani'), url(/templates/bundle/assets/fonts/Rajdhani/Rajdhani-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto;
+    font-display: swap;
+    src: local('Roboto'), url(/templates/bundle/assets/fonts/Roboto/Roboto-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto;
+    font-display: swap;
+    src: local('Roboto'), url(/templates/bundle/assets/fonts/Roboto/Roboto-Italic.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto;
+    font-display: swap;
+    src: local('Roboto'), url(/templates/bundle/assets/fonts/Roboto/Roboto-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto;
+    font-display: swap;
+    src: local('Roboto'), url(/templates/bundle/assets/fonts/Roboto/Roboto-BoldItalic.ttf);
+    font-weight: bold;
+    font-style: italic;
+}
+
+body {
+    background: #131313;
+    color: whitesmoke;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', 'Rajdhani', sans-serif;
+}
+
+h1, h2 {
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
+input {
+    outline: none;
+    border: none;
+    border-radius: 1px;
+    height: 43px;
+    line-height: 20px;
+    padding: 0 8px;
+    background-color: #ffffff;
+    color: #1b1a1a;
+    font-size: 16px;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #353535 inset;
+    -webkit-text-fill-color: #c2c3c3;
+}
