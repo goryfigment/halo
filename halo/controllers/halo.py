@@ -5,6 +5,8 @@ import requests
 import urllib3
 import os
 from .. import settings_secret
+from bs4 import BeautifulSoup
+from base import decimal_format
 
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -108,4 +110,41 @@ def halo_ranks(gt):
 
     return r.json()
 
+
+def service_record(gt):
+    endpoint = 'https://www.halowaypoint.com/en-us/games/halo-the-master-chief-collection/xbox-one/service-records/players/' + gt
+
+    data = (requests.get(endpoint,
+                              headers={
+                                  'user-agent': USER_AGENT,
+                                  'referer': oauth20_authorize,
+                                  'host': 'www.halowaypoint.com'
+                              },
+                              verify=False,
+                              allow_redirects=False,
+                            cookies=json.load(open(cookie_json))
+                         )).text
+
+    soup = BeautifulSoup(data, 'html5lib')
+
+    numeric_medium = soup.findAll("h3", {"class": "numeric--medium"})
+    value_element = soup.findAll("div", {"class": "value"})
+
+    kills = int(value_element[0].get_text())
+    death = int(value_element[1].get_text())
+
+    wins = int(value_element[2].get_text())
+    loss = int(value_element[3].get_text())
+
+    return {
+        'emblem': soup.findAll("img", {"class": "emblem"})[0]['src'],
+        'playtime': numeric_medium[0].get_text().split(':')[0].replace('.', ' days ') + ' hours',
+        'total_matches': numeric_medium[1].get_text(),
+        'kills': kills,
+        'death': death,
+        'kd_ratio': decimal_format(float(kills)/float(death), 2, False),
+        'wins': wins,
+        'loss': loss,
+        'wl_ratio': decimal_format(float(wins)/float(loss), 2, False)
+    }
 

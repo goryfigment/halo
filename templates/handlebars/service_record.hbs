@@ -1,0 +1,8 @@
+<div id="player-container">
+    <img id="emblem" src="{{record.emblem}}">
+    <h6>{{gt}}</h6>
+</div>
+<div id="service-container">
+    <h6>{{ranks.[0].rank}}</h6>
+    <img id="rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcRank ranks.[0].rank record.wins) '.png'}}" />
+</div>

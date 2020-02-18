@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from halo.controllers import site
+from halo.controllers import site, profile
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^$', site.home, name='home'),
     url(r'^profile/(?P<gt>.*)', site.profile),
+
+    url(r'^service-record/', profile.service_record),
 ]

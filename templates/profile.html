@@ -15,10 +15,16 @@
 <body>
     {% csrf_token %}
     <div id="input-wrapper">
-        <h2>Halo Ranks</h2>
+        <h2>MCC Stats</h2>
         <input id="search" autocomplete="off" />
     </div>
 
-    <div id="wrapper"></div>
+    <div id="wrapper">
+        <div id="left-wrapper">
+            <div id="service-record"></div>
+            <div id="player-details"></div>
+        </div>
+        <div id="right-wrapper"></div>
+    </div>
 </body>
 </html>

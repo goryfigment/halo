@@ -3,7 +3,9 @@
     width: 100%;
     align-items: center;
     padding: 10px 0;
-    background: #2c2c2c;
+    background: #171717;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
+    margin-bottom: 20px;
 }
 
 h2 {
@@ -18,28 +20,153 @@ h1 {
     text-align: center;
 }
 
-h5 {
-    font-family: 'Rajdhani', 'Roboto', sans-serif;
-    margin: 0;
-    font-size: 20px;
+#wrapper {
+    display: flex;
+    width: calc(100vw - 200px);
 }
 
-h3 {
-    font-family: 'Rajdhani', 'Roboto', sans-serif;
-    font-size: 60px;
-    margin: 0;
+#left-wrapper {
+    width: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#ranks-wrapper {
+#right-wrapper {
+    background: #0b0b0b;
+    margin: 10px 10px 0 10px;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    width: calc(100% - 500px);
-    margin: 0 auto;
+    height: 449px;
 }
 
-#ranks-wrapper div {
-    flex: 0 0 33%;
-    background: #171717;
-    border: 0.5px solid #202020;
+/*SERVICE RECORD*/
+#service-record {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    background: #20457c;
+    width: 440px;
+    margin: 10px 0;
+    justify-content: space-between;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
 }
+
+#player-container {
+    display: flex;
+    align-items: center;
+}
+
+#emblem {
+    height: 63px;
+    margin: 7px 10px;
+}
+
+#player-container h6 {
+    margin: 0;
+    font-size: 23px;
+}
+
+#service-container {
+    display: flex;
+    align-items: center;
+    background: #0d2441;
+    padding: 0 4px;
+    height: 77px;
+}
+
+#service-container h6 {
+    font-size: 40px;
+}
+
+#rank {
+    height: 45px;
+    margin: 10px 3px;
+}
+/*SERVICE RECORD*/
+
+/*PLAYER DETAILS*/
+#player-details {
+    background: #0b0b0b;
+    border-radius: 2px;
+    width: 440px;
+    padding-bottom: 20px;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
+}
+
+#player-details h2 {
+    padding: 12px 0;
+}
+
+#exp {
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    border-top: 1px solid #1e1e1e;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 10px 0;
+}
+
+#playtime {
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.stat-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.stat-item {
+    background: #202020;
+    padding: 8px 7px;
+    border-radius: 4px;
+    width: 115px;
+}
+
+.stat-item div:first-child {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #c2c1c1;
+}
+
+.stat-item div:nth-child(2) {
+    font-weight: bold;
+    font-size: 19px;
+}
+/*PLAYER DETAILS*/
+
+/*HALO RANKS*/
+#right-wrapper div {
+    flex: 0 0 33%;
+    position: relative;
+}
+
+#right-wrapper h5 {
+    margin: 15px 0;
+}
+
+#right-wrapper h3 {
+    font-size: 70px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
+#right-wrapper img {
+    opacity: 0.25;
+    bottom: 0;
+    right: 0;
+    height: 110px;
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+/*HALO RANKS*/

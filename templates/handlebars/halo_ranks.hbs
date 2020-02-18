@@ -1,0 +1,7 @@
+{{#each this}}
+    <div>
+        <h5>{{playlist}}</h5>
+        <h3>{{rank}}</h3>
+        <img class="halo-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcMajorRank rank record.wins) '.png'}}" />
+    </div>
+{{/each}}
