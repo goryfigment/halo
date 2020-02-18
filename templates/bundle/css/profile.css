@@ -183,6 +183,10 @@ h1 {
     width: 115px;
 }
 
+#playtime-item {
+    width: 123px;
+}
+
 .stat-item div:first-child {
     font-weight: bold;
     margin-bottom: 5px;
@@ -206,6 +210,7 @@ h1 {
 
 #right-wrapper h5 {
     margin: 15px 0;
+    max-height: 15px;
 }
 
 #right-wrapper h3 {

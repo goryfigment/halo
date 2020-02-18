@@ -53,8 +53,12 @@ def get_xbox_auth():
 
     ppft = re.search(R_PPFT, response_one.text).group(1)
     ppsx = re.search(R_PPSX, response_one.text).group(1)
-    post = re.search(R_URLPOST, response_one.text).group(1)
-    print post
+    try:
+        post = re.search(R_URLPOST, response_one.text).group(1)
+    except:
+        post = re.search(R_URLPOST, response_one.text).group(1)
+        print response_one.text
+        print post
 
     response_two = s.post(post,
                           data={
