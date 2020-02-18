@@ -8,6 +8,7 @@ var helper = require('./../js/helpers.js');
 var serviceRecordTemplate = require('./../handlebars/service_record.hbs');
 var playerDetailsTemplate = require('./../handlebars/player_details.hbs');
 var haloRanksTemplate = require('./../handlebars/halo_ranks.hbs');
+var privateTemplate = require('./../handlebars/private.hbs');
 
 function sendRequest(url, data, request_type, success, error, exception) {
     $.ajax({
@@ -34,6 +35,10 @@ function serviceRecordSuccess(response) {
 
 function serviceRecordError() {
     console.log("Service Record error!");
+    var $leftWrapper = $('#left-wrapper');
+
+    $leftWrapper.empty();
+    $leftWrapper.append(privateTemplate({}));
 }
 
 $(document).ready(function() {
@@ -50,3 +55,18 @@ $(document).on('keyup', '#search', function (e) {
     }
 });
 //SEARCH//
+
+//PRIVATE/
+$(document).on('click', '#private-tutorial', function (e) {
+    e.stopPropagation();
+    $('#overlay').addClass('active');
+});
+
+$(document).on('click', '#overlay img', function (e) {
+    e.stopPropagation();
+});
+
+$(document).on('click', '#overlay', function (e) {
+    $('#overlay').removeClass('active');
+});
+//PRIVATE//
