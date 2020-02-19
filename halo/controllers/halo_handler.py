@@ -52,12 +52,15 @@ def get_xbox_auth():
                          },
                          verify=False
     )
-    ppft = re.search(R_PPFT, response_one.text).group(1)
-    ppsx = re.search(R_PPSX, response_one.text).group(1)
+
     try:
+        ppft = re.search(R_PPFT, response_one.text).group(1)
+        ppsx = re.search(R_PPSX, response_one.text).group(1)
         post = re.search(R_URLPOST, response_one.text).group(1)
     except AttributeError:
         response_one = s.get(oauth20_authorize, headers={'user-agent': USER_AGENT, 'host': 'login.live.com'}, verify=False)
+        ppft = re.search(R_PPFT, response_one.text).group(1)
+        ppsx = re.search(R_PPSX, response_one.text).group(1)
         post = re.search(R_URLPOST, response_one.text).group(1)
 
     response_two = s.post(post,
