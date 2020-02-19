@@ -14,6 +14,7 @@ module.exports = {
         //500: './templates/js/error.js',
         home: './templates/js/home.js',
         profile: './templates/js/profile.js',
+        leaderboard: './templates/js/leaderboard.js'
     },
     output: {path: __dirname + '/templates/bundle', filename: 'js/[name].js', publicPath: '/templates/bundle/'},
     module: {
@@ -40,6 +41,7 @@ module.exports = {
         //new HtmlWebpackPlugin({filename: '500.html', chunks: ['vendors','error'], minify: {collapseWhitespace: true}, hash: true, template: './templates/500.html'}),
         new HtmlWebpackPlugin({filename: 'home.html', chunks: ['vendors','home'], minify: {collapseWhitespace: true}, hash: true, template: './templates/home.html'}),
         new HtmlWebpackPlugin({filename: 'profile.html', chunks: ['vendors','profile'], minify: {collapseWhitespace: true}, hash: true, template: './templates/profile.html'}),
+        new HtmlWebpackPlugin({filename: 'leaderboard.html', chunks: ['vendors','leaderboard'], minify: {collapseWhitespace: true}, hash: true, template: './templates/leaderboard.html'})
     ],
     resolve: {
         alias: {

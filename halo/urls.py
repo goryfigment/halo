@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from halo.controllers import site, profile
+from halo.controllers import site, profile, leaderboard
 
 urlpatterns = [
     url(r'^$', site.home, name='home'),
     url(r'^profile/(?P<gt>.*)', site.profile),
 
     url(r'^service-record/', profile.service_record),
+
+    # LEADERBOARDS
+    url(r'^leaderboards/most-kills', leaderboard.most_kills),
 ]
