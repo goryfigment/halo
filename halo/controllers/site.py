@@ -1,9 +1,8 @@
-import time
 import json
-from django.http import HttpResponseBadRequest
 from django.shortcuts import render
-from base import get_base_url
-from halo import get_xbox_auth, halo_ranks
+from base import get_base_url, model_to_dict, decimal_format
+from halo_handler import get_xbox_auth, halo_ranks
+from halo.models import Player, Ranks
 
 
 def error_page(request):
@@ -41,15 +40,20 @@ def profile(request, gt):
         get_xbox_auth()
         ranks = halo_ranks(gt)
 
-    rank_list = []
+    player = Player.objects.filter(gamertag=gt)
 
-    for playlist, rank in ranks.iteritems():
-        rank_list.append({'playlist': playlist, 'rank': rank[0]['SkillRank']})
+    if player.exists():
+        player = model_to_dict(player[0])
+        player['kd_ratio'] = decimal_format(float(player['kills'])/float(player['deaths']), 2, False)
+        player['wl_ratio'] = decimal_format(float(player['wins'])/float(player['losses']), 2, False)
+    else:
+        player = {}
 
     data = {
         'base_url': get_base_url(),
-        'ranks': json.dumps(sort_ranks(rank_list)),
-        'gt': ranks['H3 Team Slayer'][0]['Gamertag']
+        'ranks': json.dumps(ranks),
+        'gt': ranks['H3 Team Slayer'][0]['Gamertag'],
+        'player': json.dumps(player)
     }
 
     return render(request, 'profile.html', data)

@@ -1,6 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
-from django_mysql.models import JSONField
 import time
 
 
@@ -10,14 +8,15 @@ def get_utc_epoch_time():
 
 class Player(models.Model):
     gamertag = models.CharField(unique=True, max_length=20)
-    playtime = models.CharField(unique=True, max_length=255)
+    playtime = models.CharField(max_length=255)
+    emblem = models.CharField(max_length=255)
     matches = models.IntegerField(default=0)
     wins = models.IntegerField(default=0)
     losses = models.IntegerField(default=0)
     kills = models.IntegerField(default=0)
     deaths = models.IntegerField(default=0)
 
-    hits = models.IntegerField(default=0)
+    hits = models.IntegerField(default=1)
     last_updated = models.IntegerField(default=get_utc_epoch_time, blank=True)
 
     class Meta:

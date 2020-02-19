@@ -27,10 +27,13 @@ function sendRequest(url, data, request_type, success, error, exception) {
 }
 
 function serviceRecordSuccess(response) {
-    console.log(JSON.stringify(response));
+    var $serviceRecord = $('#service-record');
+    var $playerDetails = $('#player-details');
+    $serviceRecord.empty();
+    $playerDetails.empty();
 
-    $('#service-record').append(serviceRecordTemplate({'ranks': globals.ranks, 'gt': globals.gamertag, 'record': response}));
-    $('#player-details').append(playerDetailsTemplate(response));
+    $serviceRecord.append(serviceRecordTemplate({'ranks': globals.sorted_ranks, 'gt': globals.gamertag, 'record': response}));
+    $playerDetails.append(playerDetailsTemplate(response));
 }
 
 function serviceRecordError() {
@@ -42,9 +45,30 @@ function serviceRecordError() {
 }
 
 $(document).ready(function() {
-    //$('#wrapper').append(profileTemplate({'ranks': globals.ranks, 'gt': globals.gamertag}));
-    $('#right-wrapper').append(haloRanksTemplate(globals.ranks));
-    sendRequest('/service-record/', {gt: globals.gamertag}, 'GET', serviceRecordSuccess, serviceRecordError);
+    var ranks = globals.ranks;
+    var sorted_ranks = [];
+    for (var playlist in ranks) {
+        if (ranks.hasOwnProperty(playlist)) {
+            sorted_ranks.push({
+                'playlist': playlist,
+                'rank': ranks[playlist][0]['SkillRank']
+            });
+        }
+    }
+
+    sorted_ranks.sort(function(a, b) {
+        return b['rank'] - a['rank'];
+    });
+
+    globals.sorted_ranks = sorted_ranks;
+
+    if(!$.isEmptyObject(globals.player)) {
+        $('#service-record').append(serviceRecordTemplate({'ranks': sorted_ranks, 'gt': globals.gamertag, 'record': globals.player}));
+        $('#player-details').append(playerDetailsTemplate(globals.player));
+    }
+
+    $('#right-wrapper').append(haloRanksTemplate(sorted_ranks));
+    sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, ranks: globals.ranks}), 'POST', serviceRecordSuccess, serviceRecordError);
 });
 
 //SEARCH//
@@ -66,7 +90,7 @@ $(document).on('click', '#overlay img', function (e) {
     e.stopPropagation();
 });
 
-$(document).on('click', '#overlay', function (e) {
+$(document).on('click', '#overlay', function () {
     $('#overlay').removeClass('active');
 });
 //PRIVATE//
