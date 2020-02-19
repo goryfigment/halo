@@ -52,15 +52,13 @@ def get_xbox_auth():
                          },
                          verify=False
     )
-
     ppft = re.search(R_PPFT, response_one.text).group(1)
     ppsx = re.search(R_PPSX, response_one.text).group(1)
     try:
         post = re.search(R_URLPOST, response_one.text).group(1)
-    except:
+    except AttributeError:
+        response_one = s.get(oauth20_authorize, headers={'user-agent': USER_AGENT, 'host': 'login.live.com'}, verify=False)
         post = re.search(R_URLPOST, response_one.text).group(1)
-        print response_one.text
-        print post
 
     response_two = s.post(post,
                           data={
@@ -144,6 +142,8 @@ def service_record(gt, ranks):
     matches = numeric_medium[1].get_text()
     wins = int(value_element[2].get_text())
     losses = int(value_element[3].get_text())
+    kd_ratio = decimal_format(float(kills)/float(deaths), 2, False)
+    wl_ratio = decimal_format(float(wins)/float(losses), 2, False)
 
     ######################
     player = Player.objects.filter(gamertag=gt)
@@ -203,9 +203,9 @@ def service_record(gt, ranks):
         'matches': matches,
         'kills': kills,
         'deaths': deaths,
-        'kd_ratio': decimal_format(float(kills)/float(deaths), 2, False),
+        'kd_ratio': kd_ratio,
         'wins': wins,
         'losses': losses,
-        'wl_ratio': decimal_format(float(wins)/float(losses), 2, False)
+        'wl_ratio': wl_ratio
     }
 
