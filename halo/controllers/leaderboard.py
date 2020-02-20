@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from base import decimal_format, sort_list
+from base import decimal_format, sort_list, get_base_url
 from halo.models import Player, Ranks
 
 
@@ -125,52 +125,52 @@ def most_50s(request):
 def h3_team_slayer(request):
     sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h3_team_slayer').order_by('-h3_team_slayer', '-player__matches'))
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h3_team_slayer', 'title': 'Halo 3: Team Slayer'})
+    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h3_team_slayer', 'title': 'Halo 3: Team Slayer', 'base_url': get_base_url()})
 
 
 def h3_team_hardcore(request):
     sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h3_team_hardcore').order_by('-h3_team_hardcore', '-player__matches'))
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h3_team_hardcore', 'title': 'Halo 3: Team Hardcore'})
+    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h3_team_hardcore', 'title': 'Halo 3: Team Hardcore', 'base_url': get_base_url()})
 
 
 def h3_team_doubles(request):
     sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h3_team_doubles').order_by('-h3_team_doubles', '-player__matches'))
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h3_team_doubles', 'title': 'Halo 3: Team Doubles'})
+    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h3_team_doubles', 'title': 'Halo 3: Team Doubles', 'base_url': get_base_url()})
 
 
 def ms_2v2_series(request):
     sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'ms_2v2_series').order_by('-ms_2v2_series', '-player__matches'))
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'ms_2v2_series', 'title': 'Halo 3: MS 2v2 Series'})
+    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'ms_2v2_series', 'title': 'Halo 3: MS 2v2 Series', 'base_url': get_base_url()})
 
 
 def hce_team_doubles(request):
     sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'hce_team_doubles').order_by('-hce_team_doubles', '-player__matches'))
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'hce_team_doubles', 'title': 'Halo 1: Team Doubles'})
+    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'hce_team_doubles', 'title': 'Halo 1: Team Doubles', 'base_url': get_base_url()})
 
 
 def h2c_team_hardcore(request):
     sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h2c_team_hardcore').order_by('-h2c_team_hardcore', '-player__matches'))
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h2c_team_hardcore', 'title': 'Halo 2 Classic: Team Hardcore'})
+    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h2c_team_hardcore', 'title': 'Halo 2 Classic: Team Hardcore', 'base_url': get_base_url()})
 
 
 def halo_reach_team_hardcore(request):
     sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'halo_reach_team_hardcore').order_by('-halo_reach_team_hardcore', '-player__matches'))
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'halo_reach_team_hardcore', 'title': 'Halo Reach: Team Hardcore'})
+    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'halo_reach_team_hardcore', 'title': 'Halo Reach: Team Hardcore', 'base_url': get_base_url()})
 
 
 def halo_reach_invasion(request):
     sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'halo_reach_invasion').order_by('-halo_reach_invasion', '-player__matches'))
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'halo_reach_invasion', 'title': 'Halo Reach: Team Invasion'})
+    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'halo_reach_invasion', 'title': 'Halo Reach: Team Invasion', 'base_url': get_base_url()})
 
 
 def halo_reach_team_slayer(request):
     sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'halo_reach_team_slayer').order_by('-halo_reach_team_slayer', '-player__matches'))
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'halo_reach_team_slayer', 'title': 'Halo Reach: Team Slayer'})
+    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'halo_reach_team_slayer', 'title': 'Halo Reach: Team Slayer', 'base_url': get_base_url()})

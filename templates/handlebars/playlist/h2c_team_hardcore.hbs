@@ -11,6 +11,7 @@
         {{#each this}}
             <tr>
                 <td class="number-right">
+                    <img class="halo-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcMajorRank h2c_team_hardcore) '.png'}}" />
                     {{inc @index}}
                 </td>
                 <td><a href="/profile/{{player__gamertag}}">{{player__gamertag}}</a></td>

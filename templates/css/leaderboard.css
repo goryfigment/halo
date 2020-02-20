@@ -82,6 +82,12 @@ table a {
 .number-right {
     text-align: right;
 }
+
+.halo-rank {
+    height: 16px;
+    position: relative;
+    top: 2px;
+}
 /* TABLE */
 
 #first {
