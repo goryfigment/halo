@@ -23,6 +23,26 @@ urlpatterns = [
 
     url(r'^service-record/', profile.service_record),
 
-    # LEADERBOARDS
-    url(r'^leaderboards/most-kills', leaderboard.most_kills),
+    # GENERAL LEADERBOARDS
+    url(r'^leaderboards/kills', leaderboard.most_kills),
+    url(r'^leaderboards/deaths', leaderboard.most_deaths),
+    url(r'^leaderboards/wins', leaderboard.most_wins),
+    url(r'^leaderboards/losses', leaderboard.most_losses),
+    url(r'^leaderboards/matches', leaderboard.most_matches),
+    url(r'^leaderboards/wl', leaderboard.best_wl),
+    url(r'^leaderboards/kd', leaderboard.best_kd),
+    url(r'^leaderboards/playtime', leaderboard.most_playtime),
+    url(r'^leaderboards/most-50s', leaderboard.most_50s),
+
+    # PLAYLIST LEADERBOARDS
+    url(r'^leaderboards/h3-team-slayer', leaderboard.h3_team_slayer),
+    url(r'^leaderboards/h3-team-hardcore', leaderboard.h3_team_hardcore),
+    url(r'^leaderboards/h3-team-doubles', leaderboard.h3_team_doubles),
+    url(r'^leaderboards/ms-2v2-series', leaderboard.ms_2v2_series),
+    url(r'^leaderboards/hce-team-doubles', leaderboard.hce_team_doubles),
+    url(r'^leaderboards/h2c-team-hardcore', leaderboard.h2c_team_hardcore),
+    url(r'^leaderboards/halo-reach-team-hardcore', leaderboard.halo_reach_team_hardcore),
+    url(r'^leaderboards/halo-reach-invasion', leaderboard.halo_reach_invasion),
+    url(r'^leaderboards/halo-reach-team-slayer', leaderboard.halo_reach_team_slayer),
+
 ]

@@ -30,11 +30,15 @@ input:-webkit-autofill {
     -webkit-text-fill-color: #c2c3c3;
 }
 
+#search-button {
+    display: none;
+}
+
 #form-wrapper {
     margin-top: 50px;
 }
 
-h2 {
+#title {
     margin-top: 100px;
 }
 

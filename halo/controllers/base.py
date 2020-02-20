@@ -13,6 +13,10 @@ def render_json(data):
     return HttpResponse(json.dumps(data), 'application/json')
 
 
+def sort_list(current_list, key):
+    return sorted(current_list, key=lambda i: i[key], reverse=True)
+
+
 def decimal_format(f, n, round_decimal):
     d = '{:0.' + str(n) + 'f}'
     if round_decimal:

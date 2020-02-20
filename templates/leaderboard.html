@@ -7,19 +7,22 @@
     <link rel='shortcut icon' type='image/x-icon' href="{% static 'bundle/assets/whey2ez/whey2ez.ico' %}" />
     <script>
         var globals = {};
-        globals.base_url = '{{base_url}}';
+        globals.type = '{{type}}';
         globals.leaderboard = {{leaderboard|safe}};
     </script>
+
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 <body>
     {% csrf_token %}
-    <div id="input-wrapper">
-        <a id="home-link" href="/">MCC Stats</a>
-        <input id="search" autocomplete="off" />
-    </div>
+    <%= require('html-loader!./partial/header.html') %>
+
+    <h1><i class="fas fa-chess-rook"></i> {{title}} Leaderboard</h1>
 
     <div id="leaderboard-wrapper">
 
     </div>
+
+    <div id="overlay"></div>
 </body>
 </html>

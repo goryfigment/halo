@@ -1,1 +1,1 @@
-webpackJsonp([2],{30:function(n,exports,o){o(10),o(31),o(11);var $=o(12);o(5);$(document).on("keyup","#search",function(n){if(13==n.keyCode){var o=$(this);window.location.href="/profile/"+o.val().trim()}})},31:function(n,exports){}},[30]);
+webpackJsonp([2],{31:function(n,exports,c){c(12),c(32),c(13);c(14),c(7);c(64)},32:function(n,exports){}},[31]);

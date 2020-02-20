@@ -1,0 +1,35 @@
+<table id="leaderboard-table">
+    <thead>
+        <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Player</th>
+            <th scope="col">Number</th>
+            <th scope="col">Games</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each this}}
+            {{#ifCond fifty '>' 0}}
+                <tr>
+                    <td class="number-right">
+                        {{#ifCond (inc @index) '==' 1}}
+                            <span id="first"><i class="fas fa-crown"></i></span> {{inc @index}}
+                        {{/ifCond}}
+                        {{#ifCond (inc @index) '==' 2}}
+                            <span id="second"><i class="fas fa-crown"></i></span> {{inc @index}}
+                        {{/ifCond}}
+                        {{#ifCond (inc @index) '==' 3}}
+                            <span id="third"><i class="fas fa-crown"></i></span> {{inc @index}}
+                        {{/ifCond}}
+                        {{#ifCond (inc @index) '>' 3}}
+                            {{inc @index}}
+                        {{/ifCond}}
+                    </td>
+                    <td><a href="/profile/{{player__gamertag}}">{{player__gamertag}}</a></td>
+                    <td class="number">{{fifty}}</td>
+                    <td class="number-right">{{numCommaFormat player__matches}}</td>
+                </tr>
+            {{/ifCond}}
+        {{/each}}
+    </tbody>
+</table>

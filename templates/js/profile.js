@@ -4,11 +4,13 @@ require('./../library/fontawesome/fontawesome.js');
 
 var $ = require('jquery');
 var helper = require('./../js/helpers.js');
+require('./../js/general.js');
 
 var serviceRecordTemplate = require('./../handlebars/service_record.hbs');
 var playerDetailsTemplate = require('./../handlebars/player_details.hbs');
 var haloRanksTemplate = require('./../handlebars/halo_ranks.hbs');
 var privateTemplate = require('./../handlebars/private.hbs');
+var privateTutorialTemplate = require('./../handlebars/overlay/private_tutorial.hbs');
 
 function sendRequest(url, data, request_type, success, error, exception) {
     $.ajax({
@@ -71,26 +73,16 @@ $(document).ready(function() {
     sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, ranks: globals.ranks}), 'POST', serviceRecordSuccess, serviceRecordError);
 });
 
-//SEARCH//
-$(document).on('keyup', '#search', function (e) {
-    if (e.keyCode == 13) {
-        var $search = $(this);
-        window.location.href = '/profile/' + $search.val().trim();
-    }
-});
-//SEARCH//
-
 //PRIVATE/
 $(document).on('click', '#private-tutorial', function (e) {
     e.stopPropagation();
-    $('#overlay').addClass('active');
+    var $overlay = $('#overlay');
+    $overlay.empty();
+    $overlay.append(privateTutorialTemplate({}));
+    $overlay.addClass('active');
 });
 
 $(document).on('click', '#overlay img', function (e) {
     e.stopPropagation();
-});
-
-$(document).on('click', '#overlay', function () {
-    $('#overlay').removeClass('active');
 });
 //PRIVATE//

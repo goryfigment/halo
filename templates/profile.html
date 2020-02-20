@@ -17,10 +17,8 @@
 </head>
 <body>
     {% csrf_token %}
-    <div id="input-wrapper">
-        <a id="home-link" href="/">MCC Stats</a>
-        <input id="search" autocomplete="off" />
-    </div>
+
+    <%= require('html-loader!./partial/header.html') %>
 
     <div id="wrapper">
         <div id="left-wrapper">
@@ -30,8 +28,6 @@
         <div id="right-wrapper"></div>
     </div>
 
-    <div id="overlay">
-        <img src="{% static 'bundle/assets/private.png' %}" />
-    </div>
+    <div id="overlay"></div>
 </body>
 </html>

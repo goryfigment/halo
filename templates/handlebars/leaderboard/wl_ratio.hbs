@@ -3,7 +3,7 @@
         <tr>
             <th scope="col">Rank</th>
             <th scope="col">Player</th>
-            <th scope="col">Kills</th>
+            <th scope="col">W/L Ratio</th>
             <th scope="col">Games</th>
         </tr>
     </thead>
@@ -25,7 +25,7 @@
                     {{/ifCond}}
                 </td>
                 <td><a href="/profile/{{gamertag}}">{{gamertag}}</a></td>
-                <td class="number">{{numCommaFormat kills}}</td>
+                <td class="number">{{numCommaFormat wl_ratio}}</td>
                 <td class="number-right">{{numCommaFormat matches}}</td>
             </tr>
         {{/each}}
