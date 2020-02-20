@@ -12,18 +12,11 @@
             {{#ifCond fifty '>' 0}}
                 <tr>
                     <td class="number-right">
-                        {{#ifCond (inc @index) '==' 1}}
-                            <span id="first"><i class="fas fa-crown"></i></span> {{inc @index}}
+                        {{#ifCond (tieHandler fifty) '==' 1}}
+                            <img class="halo-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/general_g4.png'}}" />
                         {{/ifCond}}
-                        {{#ifCond (inc @index) '==' 2}}
-                            <span id="second"><i class="fas fa-crown"></i></span> {{inc @index}}
-                        {{/ifCond}}
-                        {{#ifCond (inc @index) '==' 3}}
-                            <span id="third"><i class="fas fa-crown"></i></span> {{inc @index}}
-                        {{/ifCond}}
-                        {{#ifCond (inc @index) '>' 3}}
-                            {{inc @index}}
-                        {{/ifCond}}
+
+                        {{tieHandler fifty}}
                     </td>
                     <td><a href="/profile/{{player__gamertag}}">{{player__gamertag}}</a></td>
                     <td class="number">{{fifty}}</td>
