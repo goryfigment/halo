@@ -62,7 +62,9 @@ def most_playtime(request):
     for player in sorted_playtime:
         playtime = player['playtime'].replace(' hours', '').replace(' days ', '')
         epoch_hours = int(playtime[-2:])*3600
-        epoch_days = int(playtime[:-2])*86400
+
+        if len(playtime.strip()) > 0:
+            epoch_days = int(playtime[:-2])*86400
 
         player['epoch'] = epoch_hours + epoch_days
 
