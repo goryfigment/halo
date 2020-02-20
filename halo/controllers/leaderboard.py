@@ -116,8 +116,6 @@ def most_50s(request):
 
     sorted_50s = sort_list(sorted_50s, 'fifty')
 
-    print sorted_50s
-
     return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_50s), 'type': 'most_50s', 'title': "Most 50's"})
 
 
