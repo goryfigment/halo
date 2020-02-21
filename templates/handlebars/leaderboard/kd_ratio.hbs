@@ -10,29 +10,27 @@
     </thead>
     <tbody>
         {{#each this}}
-            {{#ifCond matches '>=' 250}}
-                <tr>
-                    <td class="butter-ranks number-right">
-                        <img class="exp-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcRank ranks.[0].rank wins) '.png'}}" />
+            <tr>
+                <td class="butter-ranks number-right">
+                    <!--<img class="exp-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcRank ranks.[0].rank wins) '.png'}}" />-->
 
-                        {{#ifCond (inc @index) '==' 1}}
-                            <span id="first"><i class="fas fa-crown"></i></span> {{inc @index}}
-                        {{/ifCond}}
-                        {{#ifCond (inc @index) '==' 2}}
-                            <span id="second"><i class="fas fa-crown"></i></span> {{inc @index}}
-                        {{/ifCond}}
-                        {{#ifCond (inc @index) '==' 3}}
-                            <span id="third"><i class="fas fa-crown"></i></span> {{inc @index}}
-                        {{/ifCond}}
-                        {{#ifCond (inc @index) '>' 3}}
-                            {{inc @index}}
-                        {{/ifCond}}
-                    </td>
-                    <td><a href="/profile/{{gamertag}}"> <img class="emblem" src="{{emblem}}" /> <span class="gamertag">{{gamertag}}</span></a></td>
-                    <td class="number">{{numCommaFormat kd_ratio}}</td>
-                    <td class="number-right">{{numCommaFormat matches}}</td>
-                </tr>
-            {{/ifCond}}
+                    {{#ifCond (inc @index) '==' 1}}
+                        <span id="first"><i class="fas fa-crown"></i></span> {{inc @index}}
+                    {{/ifCond}}
+                    {{#ifCond (inc @index) '==' 2}}
+                        <span id="second"><i class="fas fa-crown"></i></span> {{inc @index}}
+                    {{/ifCond}}
+                    {{#ifCond (inc @index) '==' 3}}
+                        <span id="third"><i class="fas fa-crown"></i></span> {{inc @index}}
+                    {{/ifCond}}
+                    {{#ifCond (inc @index) '>' 3}}
+                        {{inc @index}}
+                    {{/ifCond}}
+                </td>
+                <td><a href="/profile/{{gamertag}}"> <img class="emblem" src="{{emblem}}" /> <span class="gamertag">{{gamertag}}</span></a></td>
+                <td class="number">{{numCommaFormat kd_ratio}}</td>
+                <td class="number-right">{{numCommaFormat matches}}</td>
+            </tr>
         {{/each}}
     </tbody>
 </table>

@@ -35,7 +35,7 @@ def most_matches(request):
 
 
 def best_wl(request):
-    sorted_wl = list(Player.objects.all().values('gamertag', 'wins', 'losses', 'matches', 'emblem', 'id'))
+    sorted_wl = list(Player.objects.filter(matches__gte=250).values('gamertag', 'wins', 'losses', 'matches', 'emblem', 'id'))
 
     for player in sorted_wl:
         player['wl_ratio'] = decimal_format(float(player['wins'])/float(player['losses']), 2, False)
@@ -55,7 +55,7 @@ def best_wl(request):
 
 
 def best_kd(request):
-    sorted_kd = list(Player.objects.all().values('gamertag', 'kills', 'deaths', 'matches', 'emblem', 'id', 'wins'))
+    sorted_kd = list(Player.objects.filter(matches__gte=250).values('gamertag', 'kills', 'deaths', 'matches', 'emblem', 'id', 'wins'))
 
     for player in sorted_kd:
         player['kd_ratio'] = decimal_format(float(player['kills'])/float(player['deaths']), 2, False)
