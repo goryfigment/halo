@@ -12,7 +12,9 @@
         {{#each this}}
             {{#ifCond matches '>=' 250}}
                 <tr>
-                    <td class="number-right">
+                    <td class="butter-ranks number-right">
+                        <img class="exp-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcRank ranks.[0].rank wins) '.png'}}" />
+
                         {{#ifCond (inc @index) '==' 1}}
                             <span id="first"><i class="fas fa-crown"></i></span> {{inc @index}}
                         {{/ifCond}}

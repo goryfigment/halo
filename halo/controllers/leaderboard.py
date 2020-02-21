@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from base import decimal_format, sort_list, get_base_url, sort_float
+from base import decimal_format, sort_list, get_base_url, sort_float, model_to_dict
 from halo.models import Player, Ranks
 
 
@@ -35,10 +35,17 @@ def most_matches(request):
 
 
 def best_wl(request):
-    sorted_wl = list(Player.objects.all().values('gamertag', 'wins', 'losses', 'matches', 'emblem'))
+    sorted_wl = list(Player.objects.all().values('gamertag', 'wins', 'losses', 'matches', 'emblem', 'id'))
 
     for player in sorted_wl:
         player['wl_ratio'] = decimal_format(float(player['wins'])/float(player['losses']), 2, False)
+        ranks = model_to_dict(Ranks.objects.get(player=player['id']))
+        rank_list = []
+
+        for playlist, rank in ranks.iteritems():
+            rank_list.append({'playlist': playlist, 'rank': rank})
+
+        player['ranks'] = sort_list(rank_list, 'rank')
 
     sorted_wl = sort_float(sorted_wl, 'wl_ratio')
 
@@ -46,10 +53,17 @@ def best_wl(request):
 
 
 def best_kd(request):
-    sorted_kd = list(Player.objects.all().values('gamertag', 'kills', 'deaths', 'matches', 'emblem'))
+    sorted_kd = list(Player.objects.all().values('gamertag', 'kills', 'deaths', 'matches', 'emblem', 'id', 'wins'))
 
     for player in sorted_kd:
         player['kd_ratio'] = decimal_format(float(player['kills'])/float(player['deaths']), 2, False)
+        ranks = model_to_dict(Ranks.objects.get(player=player['id']))
+        rank_list = []
+
+        for playlist, rank in ranks.iteritems():
+            rank_list.append({'playlist': playlist, 'rank': rank})
+
+        player['ranks'] = sort_list(rank_list, 'rank')
 
     sorted_kd = sort_float(sorted_kd, 'kd_ratio')
 

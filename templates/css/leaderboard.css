@@ -110,6 +110,18 @@ p {
     color: #ff5c5c;
 }
 
+.butter-ranks {
+    padding-left: 30px;
+}
+
+.exp-rank {
+    height: 27px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 2;
+}
+
 .rank {
     margin-right: 2px;
 }
