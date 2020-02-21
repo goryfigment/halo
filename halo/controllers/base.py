@@ -17,6 +17,10 @@ def sort_list(current_list, key):
     return sorted(current_list, key=lambda i: i[key], reverse=True)
 
 
+def sort_float(current_list, key):
+    return sorted(current_list, key=lambda i: float(i[key]), reverse=True)
+
+
 def decimal_format(f, n, round_decimal):
     d = '{:0.' + str(n) + 'f}'
     if round_decimal:

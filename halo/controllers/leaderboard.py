@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from base import decimal_format, sort_list, get_base_url
+from base import decimal_format, sort_list, get_base_url, sort_float
 from halo.models import Player, Ranks
 
 
@@ -40,7 +40,7 @@ def best_wl(request):
     for player in sorted_wl:
         player['wl_ratio'] = decimal_format(float(player['wins'])/float(player['losses']), 2, False)
 
-    sorted_wl = sort_list(sorted_wl, 'wl_ratio')
+    sorted_wl = sort_float(sorted_wl, 'wl_ratio')
 
     return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_wl), 'type': 'best_wl', 'title': 'W/L Ratio'})
 
@@ -51,7 +51,7 @@ def best_kd(request):
     for player in sorted_kd:
         player['kd_ratio'] = decimal_format(float(player['kills'])/float(player['deaths']), 2, False)
 
-    sorted_kd = sort_list(sorted_kd, 'kd_ratio')
+    sorted_kd = sort_float(sorted_kd, 'kd_ratio')
 
     return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_kd), 'type': 'best_kd', 'title': 'K/D Ratio'})
 
