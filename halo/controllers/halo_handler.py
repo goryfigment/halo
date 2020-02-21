@@ -159,7 +159,6 @@ def service_record(gt, ranks):
         player.losses = losses
         player.kills = kills
         player.deaths = deaths
-        player.hits += 1
         player.last_updated = int(round(time.time()))
         player.save()
 

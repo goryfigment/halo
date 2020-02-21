@@ -184,6 +184,24 @@ h1 {
             box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
 }
 
+#player-details-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+#profile-hits {
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 7px 10px 10px 10px;
+}
+
 #player-details h2 {
     padding: 12px 0;
 }

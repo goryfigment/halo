@@ -35,6 +35,9 @@ function serviceRecordSuccess(response) {
     $playerDetails.empty();
 
     $serviceRecord.append(serviceRecordTemplate({'ranks': globals.sorted_ranks, 'gt': globals.gamertag, 'record': response}));
+
+    response['hits'] = globals.player['hits'];
+
     $playerDetails.append(playerDetailsTemplate(response));
 }
 

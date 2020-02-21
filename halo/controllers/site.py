@@ -40,10 +40,13 @@ def profile(request, gt):
         get_xbox_auth()
         ranks = halo_ranks(gt)
 
-    player = Player.objects.filter(gamertag=gt)
+    player_obj = Player.objects.filter(gamertag=gt)
 
-    if player.exists():
-        player = model_to_dict(player[0])
+    if player_obj.exists():
+        player_obj = Player.objects.get(gamertag=gt)
+        player_obj.hits += 1
+        player_obj.save()
+        player = model_to_dict(player_obj)
         player['kd_ratio'] = decimal_format(float(player['kills'])/float(player['deaths']), 2, False)
         player['wl_ratio'] = decimal_format(float(player['wins'])/float(player['losses']), 2, False)
     else:
