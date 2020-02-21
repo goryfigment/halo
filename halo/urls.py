@@ -20,6 +20,7 @@ from halo.controllers import site, profile, leaderboard
 urlpatterns = [
     url(r'^$', site.home, name='home'),
     url(r'^profile/(?P<gt>.*)', site.profile),
+    url(r'^database/(?P<gt>.*)', site.update_database),
 
     url(r'^service-record/', profile.service_record),
 

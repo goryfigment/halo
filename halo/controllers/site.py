@@ -1,7 +1,7 @@
 import json
 from django.shortcuts import render
 from base import get_base_url, model_to_dict, decimal_format
-from halo_handler import get_xbox_auth, halo_ranks
+from halo_handler import get_xbox_auth, halo_ranks, service_record
 from halo.models import Player, Ranks
 
 
@@ -57,6 +57,36 @@ def profile(request, gt):
         'ranks': json.dumps(ranks),
         'gt': ranks['H3 Team Slayer'][0]['Gamertag'],
         'player': json.dumps(player)
+    }
+
+    return render(request, 'profile.html', data)
+
+
+def update_database(request, gt):
+    try:
+        ranks = halo_ranks(gt)
+        service_record(gt, ranks)
+    except:
+        get_xbox_auth()
+        ranks = halo_ranks(gt)
+
+    player_obj = Player.objects.filter(gamertag=gt)
+
+    if player_obj.exists():
+        player_obj = Player.objects.get(gamertag=gt)
+        player_obj.hits += 1
+        player_obj.save()
+        player = model_to_dict(player_obj)
+        player['kd_ratio'] = decimal_format(float(player['kills'])/float(player['deaths']), 2, False)
+        player['wl_ratio'] = decimal_format(float(player['wins'])/float(player['losses']), 2, False)
+    else:
+        player = {}
+
+    data = {
+        'base_url': get_base_url(),
+        'ranks': json.dumps(ranks),
+        'gt': gt,
+        'player': player
     }
 
     return render(request, 'profile.html', data)
