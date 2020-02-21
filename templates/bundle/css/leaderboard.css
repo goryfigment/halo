@@ -63,6 +63,7 @@ table td {
     padding: 8px;
     font-size: 16px;
     font-weight: bold;
+    position: relative;
 }
 
 table td:nth-child(2) {
@@ -83,8 +84,9 @@ table a {
     color: #a5a5a5;
 }
 
-.number {
+.number-rank {
     text-align: center;
+    padding-left: 25px;
 }
 
 .number-right {
@@ -92,9 +94,10 @@ table a {
 }
 
 .halo-rank {
-    height: 16px;
-    position: relative;
-    top: 2px;
+    height: 25px;
+    position: absolute;
+    top: 6.5px;
+    left: 5px;
 }
 /* TABLE */
 
@@ -114,3 +117,19 @@ table a {
 p {
     color: #ff5c5c;
 }
+
+.rank {
+    margin-right: 2px;
+}
+
+.emblem {
+    height: 30px;
+    position: absolute;
+    top: 4px;
+}
+
+.gamertag {
+    margin-left: 40px;
+}
+
+

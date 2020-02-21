@@ -3,7 +3,6 @@
         <tr>
             <th scope="col">Rank</th>
             <th scope="col">Player</th>
-            <th scope="col">Rank</th>
             <th scope="col">Games</th>
         </tr>
     </thead>
@@ -11,12 +10,11 @@
         {{#each this}}
             {{#ifCond ms_2v2_series '>' 1}}
                 <tr>
-                    <td class="number-right">
+                    <td class="number-rank">
                         <img class="halo-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcMajorRank ms_2v2_series) '.png'}}" />
-                        {{inc @index}}
+                        <span class="rank">{{ms_2v2_series}}</span>
                     </td>
-                    <td><a href="/profile/{{player__gamertag}}">{{player__gamertag}}</a></td>
-                    <td class="number">{{ms_2v2_series}}</td>
+                    <td><a href="/profile/{{player__gamertag}}"> <img class="emblem" src="{{player__emblem}}" /> <span class="gamertag">{{player__gamertag}}</span></a></td>
                     <td class="number-right">{{numCommaFormat player__matches}}</td>
                 </tr>
             {{/ifCond}}

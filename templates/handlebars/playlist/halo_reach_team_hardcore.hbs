@@ -3,7 +3,6 @@
         <tr>
             <th scope="col">Rank</th>
             <th scope="col">Player</th>
-            <th scope="col">Rank</th>
             <th scope="col">Games</th>
         </tr>
     </thead>
@@ -11,12 +10,11 @@
         {{#each this}}
             {{#ifCond halo_reach_team_hardcore '>' 1}}
                 <tr>
-                    <td class="number-right">
+                    <td class="number-rank">
                         <img class="halo-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcMajorRank halo_reach_team_hardcore) '.png'}}" />
-                        {{inc @index}}
+                        <span class="rank">{{halo_reach_team_hardcore}}</span>
                     </td>
-                    <td><a href="/profile/{{player__gamertag}}">{{player__gamertag}}</a></td>
-                    <td class="number">{{halo_reach_team_hardcore}}</td>
+                    <td><a href="/profile/{{player__gamertag}}"> <img class="emblem" src="{{player__emblem}}" /> <span class="gamertag">{{player__gamertag}}</span></a></td>
                     <td class="number-right">{{numCommaFormat player__matches}}</td>
                 </tr>
             {{/ifCond}}
