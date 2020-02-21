@@ -40,10 +40,12 @@ def best_wl(request):
     for player in sorted_wl:
         player['wl_ratio'] = decimal_format(float(player['wins'])/float(player['losses']), 2, False)
         ranks = model_to_dict(Ranks.objects.get(player=player['id']))
+        del ranks['player']
+        del ranks['id']
         rank_list = []
 
         for playlist, rank in ranks.iteritems():
-            rank_list.append({'playlist': playlist, 'rank': rank})
+            rank_list.append({'rank': rank})
 
         player['ranks'] = sort_list(rank_list, 'rank')
 
@@ -58,10 +60,12 @@ def best_kd(request):
     for player in sorted_kd:
         player['kd_ratio'] = decimal_format(float(player['kills'])/float(player['deaths']), 2, False)
         ranks = model_to_dict(Ranks.objects.get(player=player['id']))
+        del ranks['player']
+        del ranks['id']
         rank_list = []
 
         for playlist, rank in ranks.iteritems():
-            rank_list.append({'playlist': playlist, 'rank': rank})
+            rank_list.append({'rank': rank})
 
         player['ranks'] = sort_list(rank_list, 'rank')
 
