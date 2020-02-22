@@ -12,7 +12,8 @@ def most_kills(request):
         'type': 'most_kills',
         'title': 'Kills',
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -35,7 +36,8 @@ def most_deaths(request):
         'type': 'most_deaths',
         'title': 'Deaths',
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -58,7 +60,8 @@ def most_wins(request):
         'type': 'most_wins',
         'title': 'Wins',
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -81,7 +84,8 @@ def most_losses(request):
         'type': 'most_losses',
         'title': 'Losses',
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -104,7 +108,8 @@ def most_matches(request):
         'type': 'most_matches',
         'title': 'Matches',
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -127,7 +132,8 @@ def best_wl(request):
         'type': 'best_wl',
         'title': 'W/L Ratio',
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -164,7 +170,8 @@ def best_kd(request):
         'type': 'best_kd',
         'title': 'K/D Ratio',
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -201,7 +208,8 @@ def most_playtime(request):
         'type': 'most_playtime',
         'title': 'Playtime',
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -315,7 +323,8 @@ def h3_team_slayer(request):
         'type': 'h3_team_slayer',
         'title': "Halo 3: Team Slayer",
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -338,7 +347,8 @@ def h3_team_hardcore(request):
         'type': 'h3_team_hardcore',
         'title': "Halo 3: Team Hardcore",
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -361,7 +371,8 @@ def h3_team_doubles(request):
         'type': 'h3_team_doubles',
         'title': "Halo 3: Team Doubles",
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -384,7 +395,8 @@ def ms_2v2_series(request):
         'type': 'ms_2v2_series',
         'title': "Halo 3: MS 2v2 Series",
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -407,7 +419,8 @@ def hce_team_doubles(request):
         'type': 'hce_team_doubles',
         'title': "Halo 1: Team Doubles",
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -430,7 +443,8 @@ def h2c_team_hardcore(request):
         'type': 'h2c_team_hardcore',
         'title': "Halo 2 Classic: Team Hardcore",
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -453,7 +467,8 @@ def halo_reach_team_hardcore(request):
         'type': 'halo_reach_team_hardcore',
         'title': "Halo Reach: Team Hardcore",
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -476,7 +491,8 @@ def halo_reach_invasion(request):
         'type': 'halo_reach_invasion',
         'title': "Halo Reach: Team Invasion",
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -499,7 +515,8 @@ def halo_reach_team_slayer(request):
         'type': 'halo_reach_team_slayer',
         'title': "Halo Reach: Team Slayer",
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
