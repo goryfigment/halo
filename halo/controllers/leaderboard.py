@@ -244,7 +244,8 @@ def most_50s(request):
         'type': 'most_50s',
         'title': "Most 50's",
         'base_url': get_base_url(),
-        'page': 1
+        'page': 1,
+        'rank': 0
     }
 
     if 'page' in request.GET:
@@ -252,6 +253,10 @@ def most_50s(request):
         first_record += (page - 1) * 100
         last_record += (page - 1) * 100
         data['page'] = page
+
+        if page > 1:
+            data['rank'] = 3
+
 
     sorted_50s = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h3_team_slayer',
                                                   'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series',
