@@ -1,0 +1,33 @@
+<li class="{{#ifCond page '==' 1}}active{{/ifCond}}">
+    {{#ifCond page '<=' 3}}
+        1
+    {{else}}
+        {{math page '-' 2}}
+    {{/ifCond}}
+</li>
+
+<li class="{{#ifCond page '==' 2}}active{{/ifCond}}">
+    {{#ifCond page '<=' 3}}
+        2
+    {{else}}
+        {{math page '-' 1}}
+    {{/ifCond}}
+</li>
+
+<li class="{{#ifCond page '>' 2}}active{{/ifCond}}">
+    {{#ifCond page '<=' 3}}
+        3
+    {{else}}
+        {{page}}
+    {{/ifCond}}
+</li>
+
+<li>
+    {{#ifCond page '<' 4}}4{{/ifCond}}
+    {{#ifCond page '>' 3}}{{math page '+' 1}}{{/ifCond}}
+</li>
+
+<li>
+    {{#ifCond page '<' 4}}5{{/ifCond}}
+    {{#ifCond page '>' 3}}{{math page '+' 2}}{{/ifCond}}
+</li>

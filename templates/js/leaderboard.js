@@ -6,6 +6,8 @@ var $ = require('jquery');
 var helper = require('./../js/helpers.js');
 require('./../js/general.js');
 
+var pagination = require('./../handlebars/pagination.hbs');
+
 var leaderboards = {
     'most_kills': require('./../handlebars/leaderboard/kills.hbs'),
     'most_deaths': require('./../handlebars/leaderboard/deaths.hbs'),
@@ -31,4 +33,9 @@ var leaderboards = {
 
 $(document).ready(function() {
     $('#leaderboard-wrapper').append(leaderboards[globals.type](globals.leaderboard));
+    $('#pagination').append(pagination({'page': globals.page}));
+});
+
+$(document).on('click', '#pagination li', function () {
+    window.location.replace(globals.base_url + window.location.pathname + '?page=' + $(this).text().trim());
 });

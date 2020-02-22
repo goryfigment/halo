@@ -5,36 +5,137 @@ from halo.models import Player, Ranks
 
 
 def most_kills(request):
-    sorted_kills = list(Player.objects.all().values('gamertag', 'kills', 'matches', 'emblem').order_by('-kills'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_kills), 'type': 'most_kills', 'title': 'Kills'})
+    data = {
+        'type': 'most_kills',
+        'title': 'Kills',
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Player.objects.filter(kills__gt=0).values('gamertag', 'kills', 'matches', 'emblem').order_by('-kills')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def most_deaths(request):
-    sorted_deaths = list(Player.objects.all().values('gamertag', 'deaths', 'matches', 'emblem').order_by('-deaths'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_deaths), 'type': 'most_deaths', 'title': 'Deaths'})
+    data = {
+        'type': 'most_deaths',
+        'title': 'Deaths',
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Player.objects.filter(deaths__gt=0).values('gamertag', 'deaths', 'matches', 'emblem').order_by('-deaths')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def most_wins(request):
-    sorted_wins = list(Player.objects.all().values('gamertag', 'wins', 'matches', 'emblem').order_by('-wins'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_wins), 'type': 'most_wins', 'title': 'Wins'})
+    data = {
+        'type': 'most_wins',
+        'title': 'Wins',
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Player.objects.filter(wins__gt=0).values('gamertag', 'wins', 'matches', 'emblem').order_by('-wins')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def most_losses(request):
-    sorted_losses = list(Player.objects.all().values('gamertag', 'losses', 'matches', 'emblem').order_by('-losses'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_losses), 'type': 'most_losses', 'title': 'Losses'})
+    data = {
+        'type': 'most_losses',
+        'title': 'Losses',
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Player.objects.filter(losses__gt=0).values('gamertag', 'losses', 'matches', 'emblem').order_by('-losses')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def most_matches(request):
-    sorted_matches = list(Player.objects.all().values('gamertag', 'matches', 'emblem').order_by('-matches'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_matches), 'type': 'most_matches', 'title': 'Matches'})
+    data = {
+        'type': 'most_matches',
+        'title': 'Matches',
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Player.objects.all().values('gamertag', 'matches', 'emblem').order_by('-matches')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def best_wl(request):
+    first_record = 0
+    last_record = 100
+
+    data = {
+        'type': 'best_wl',
+        'title': 'W/L Ratio',
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
     sorted_wl = list(Player.objects.filter(matches__gte=250).values('gamertag', 'wins', 'losses', 'matches', 'emblem', 'id'))
 
     for player in sorted_wl:
@@ -49,12 +150,29 @@ def best_wl(request):
 
         player['ranks'] = sort_list(rank_list, 'rank')
 
-    sorted_wl = sort_float(sorted_wl, 'wl_ratio')
+    data['leaderboard'] = json.dumps(sort_float(sorted_wl, 'wl_ratio')[first_record:last_record])
+    data['index'] = first_record
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_wl), 'type': 'best_wl', 'title': 'W/L Ratio'})
+    return render(request, 'leaderboard.html', data)
 
 
 def best_kd(request):
+    first_record = 0
+    last_record = 100
+
+    data = {
+        'type': 'best_kd',
+        'title': 'K/D Ratio',
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
     sorted_kd = list(Player.objects.filter(matches__gte=250).values('gamertag', 'kills', 'deaths', 'matches', 'emblem', 'id', 'wins'))
 
     for player in sorted_kd:
@@ -69,13 +187,32 @@ def best_kd(request):
 
         player['ranks'] = sort_list(rank_list, 'rank')
 
-    sorted_kd = sort_float(sorted_kd, 'kd_ratio')
+    data['leaderboard'] = json.dumps(sort_float(sorted_kd, 'kd_ratio')[first_record:last_record])
+    data['index'] = first_record
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_kd), 'type': 'best_kd', 'title': 'K/D Ratio'})
+    return render(request, 'leaderboard.html', data)
 
 
 def most_playtime(request):
+    first_record = 0
+    last_record = 100
+
+    data = {
+        'type': 'most_playtime',
+        'title': 'Playtime',
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
     sorted_playtime = list(Player.objects.all().values('gamertag', 'playtime', 'matches', 'emblem'))
+
+    playtime_list = []
 
     for player in sorted_playtime:
         playtime = player['playtime'].replace(' hours', '').replace(' days ', '')
@@ -85,20 +222,43 @@ def most_playtime(request):
 
         if day_length > 0:
             epoch_days = int(playtime[0:day_length])*86400
-            player['epoch'] = epoch_hours + epoch_days
+            total_epoch = epoch_hours + epoch_days
         else:
-            player['epoch'] = epoch_hours
+            total_epoch = epoch_hours
 
-    sorted_playtime = sort_list(sorted_playtime, 'epoch')
+        if total_epoch > 0:
+            player['epoch'] = total_epoch
+            playtime_list.append(player)
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_playtime), 'type': 'most_playtime', 'title': 'Playtime'})
+    data['leaderboard'] = json.dumps(sort_list(playtime_list, 'epoch')[first_record:last_record])
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def most_50s(request):
+    first_record = 0
+    last_record = 100
+
+    data = {
+        'type': 'most_50s',
+        'title': "Most 50's",
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
     sorted_50s = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h3_team_slayer',
                                                   'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series',
                                                   'hce_team_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore',
                                                   'halo_reach_invasion', 'halo_reach_team_slayer', 'player__emblem').order_by('-player__matches'))
+
+    list_50s = []
 
     for player in sorted_50s:
         fifty = 0
@@ -132,61 +292,218 @@ def most_50s(request):
 
         player['fifty'] = fifty
 
-    sorted_50s = sort_list(sorted_50s, 'fifty')
+        if fifty > 0:
+            list_50s.append(player)
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_50s), 'type': 'most_50s', 'title': "Most 50's", 'base_url': get_base_url()})
+    data['leaderboard'] = json.dumps(sort_list(list_50s, 'fifty')[first_record:last_record])
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 # PLAYLIST
 def h3_team_slayer(request):
-    sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h3_team_slayer', 'player__emblem').order_by('-h3_team_slayer', '-player__matches'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h3_team_slayer', 'title': 'Halo 3: Team Slayer', 'base_url': get_base_url()})
+    data = {
+        'type': 'h3_team_slayer',
+        'title': "Halo 3: Team Slayer",
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(h3_team_slayer__gt=1).values('player__gamertag', 'player__matches', 'h3_team_slayer', 'player__emblem').order_by('-h3_team_slayer', '-player__matches')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def h3_team_hardcore(request):
-    sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h3_team_hardcore', 'player__emblem').order_by('-h3_team_hardcore', '-player__matches'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h3_team_hardcore', 'title': 'Halo 3: Team Hardcore', 'base_url': get_base_url()})
+    data = {
+        'type': 'h3_team_hardcore',
+        'title': "Halo 3: Team Hardcore",
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(h3_team_hardcore__gt=1).values('player__gamertag', 'player__matches', 'h3_team_hardcore', 'player__emblem').order_by('-h3_team_hardcore', '-player__matches')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def h3_team_doubles(request):
-    sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h3_team_doubles', 'player__emblem').order_by('-h3_team_doubles', '-player__matches'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h3_team_doubles', 'title': 'Halo 3: Team Doubles', 'base_url': get_base_url()})
+    data = {
+        'type': 'h3_team_doubles',
+        'title': "Halo 3: Team Doubles",
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(h3_team_doubles__gt=1).values('player__gamertag', 'player__matches', 'h3_team_doubles', 'player__emblem').order_by('-h3_team_doubles', '-player__matches')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def ms_2v2_series(request):
-    sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'ms_2v2_series', 'player__emblem').order_by('-ms_2v2_series', '-player__matches'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'ms_2v2_series', 'title': 'Halo 3: MS 2v2 Series', 'base_url': get_base_url()})
+    data = {
+        'type': 'ms_2v2_series',
+        'title': "Halo 3: MS 2v2 Series",
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(ms_2v2_series__gt=1).values('player__gamertag', 'player__matches', 'ms_2v2_series', 'player__emblem').order_by('-ms_2v2_series', '-player__matches')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def hce_team_doubles(request):
-    sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'hce_team_doubles', 'player__emblem').order_by('-hce_team_doubles', '-player__matches'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'hce_team_doubles', 'title': 'Halo 1: Team Doubles', 'base_url': get_base_url()})
+    data = {
+        'type': 'hce_team_doubles',
+        'title': "Halo 1: Team Doubles",
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(hce_team_doubles__gt=1).values('player__gamertag', 'player__matches', 'hce_team_doubles', 'player__emblem').order_by('-hce_team_doubles', '-player__matches')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def h2c_team_hardcore(request):
-    sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h2c_team_hardcore', 'player__emblem').order_by('-h2c_team_hardcore', '-player__matches'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'h2c_team_hardcore', 'title': 'Halo 2 Classic: Team Hardcore', 'base_url': get_base_url()})
+    data = {
+        'type': 'h2c_team_hardcore',
+        'title': "Halo 2 Classic: Team Hardcore",
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(h2c_team_hardcore__gt=1).values('player__gamertag', 'player__matches', 'h2c_team_hardcore', 'player__emblem').order_by('-h2c_team_hardcore', '-player__matches')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def halo_reach_team_hardcore(request):
-    sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'halo_reach_team_hardcore', 'player__emblem').order_by('-halo_reach_team_hardcore', '-player__matches'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'halo_reach_team_hardcore', 'title': 'Halo Reach: Team Hardcore', 'base_url': get_base_url()})
+    data = {
+        'type': 'halo_reach_team_hardcore',
+        'title': "Halo Reach: Team Hardcore",
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(halo_reach_team_hardcore__gt=1).values('player__gamertag', 'player__matches', 'halo_reach_team_hardcore', 'player__emblem').order_by('-halo_reach_team_hardcore', '-player__matches')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def halo_reach_invasion(request):
-    sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'halo_reach_invasion', 'player__emblem').order_by('-halo_reach_invasion', '-player__matches'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'halo_reach_invasion', 'title': 'Halo Reach: Team Invasion', 'base_url': get_base_url()})
+    data = {
+        'type': 'halo_reach_invasion',
+        'title': "Halo Reach: Team Invasion",
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(halo_reach_invasion__gt=1).values('player__gamertag', 'player__matches', 'halo_reach_invasion', 'player__emblem').order_by('-halo_reach_invasion', '-player__matches')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
 
 
 def halo_reach_team_slayer(request):
-    sorted_rank = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'halo_reach_team_slayer', 'player__emblem').order_by('-halo_reach_team_slayer', '-player__matches'))
+    first_record = 0
+    last_record = 100
 
-    return render(request, 'leaderboard.html', {'leaderboard': json.dumps(sorted_rank), 'type': 'halo_reach_team_slayer', 'title': 'Halo Reach: Team Slayer', 'base_url': get_base_url()})
+    data = {
+        'type': 'halo_reach_team_slayer',
+        'title': "Halo Reach: Team Slayer",
+        'base_url': get_base_url(),
+        'page': 1
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(halo_reach_team_slayer__gt=1).values('player__gamertag', 'player__matches', 'halo_reach_team_slayer', 'player__emblem').order_by('-halo_reach_team_slayer', '-player__matches')[first_record:last_record]))
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)

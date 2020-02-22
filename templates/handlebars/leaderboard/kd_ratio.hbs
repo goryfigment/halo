@@ -1,36 +1,40 @@
-<p>Minimum 250 matches.</p>
-<table id="leaderboard-table">
-    <thead>
-        <tr>
-            <th scope="col">Rank</th>
-            <th scope="col">Player</th>
-            <th scope="col">K/D Ratio</th>
-            <th scope="col">Games</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each this}}
+{{#if this}}
+    <p>Minimum 250 matches.</p>
+    <table id="leaderboard-table">
+        <thead>
             <tr>
-                <td class="butter-ranks number-right">
-                    <!--<img class="exp-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcRank ranks.[0].rank wins) '.png'}}" />-->
-
-                    {{#ifCond (inc @index) '==' 1}}
-                        <span id="first"><i class="fas fa-crown"></i></span> {{inc @index}}
-                    {{/ifCond}}
-                    {{#ifCond (inc @index) '==' 2}}
-                        <span id="second"><i class="fas fa-crown"></i></span> {{inc @index}}
-                    {{/ifCond}}
-                    {{#ifCond (inc @index) '==' 3}}
-                        <span id="third"><i class="fas fa-crown"></i></span> {{inc @index}}
-                    {{/ifCond}}
-                    {{#ifCond (inc @index) '>' 3}}
-                        {{inc @index}}
-                    {{/ifCond}}
-                </td>
-                <td><a href="/profile/{{gamertag}}"> <img class="emblem" src="{{emblem}}" /> <span class="gamertag">{{gamertag}}</span></a></td>
-                <td class="number">{{numCommaFormat kd_ratio}}</td>
-                <td class="number-right">{{numCommaFormat matches}}</td>
+                <th scope="col">Rank</th>
+                <th scope="col">Player</th>
+                <th scope="col">K/D Ratio</th>
+                <th scope="col">Games</th>
             </tr>
-        {{/each}}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {{#each this}}
+                <tr>
+                    <td class="butter-ranks number-right">
+                        <img class="exp-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcRank ranks.[0].rank wins) '.png'}}" />
+
+                        {{#ifCond (incStart @index) '==' 1}}
+                            <span id="first"><i class="fas fa-crown"></i></span> {{incStart @index}}
+                        {{/ifCond}}
+                        {{#ifCond (incStart @index) '==' 2}}
+                            <span id="second"><i class="fas fa-crown"></i></span> {{incStart @index}}
+                        {{/ifCond}}
+                        {{#ifCond (incStart @index) '==' 3}}
+                            <span id="third"><i class="fas fa-crown"></i></span> {{incStart @index}}
+                        {{/ifCond}}
+                        {{#ifCond (incStart @index) '>' 3}}
+                            {{incStart @index}}
+                        {{/ifCond}}
+                    </td>
+                    <td><a href="/profile/{{gamertag}}"> <img class="emblem" src="{{emblem}}" /> <span class="gamertag">{{gamertag}}</span></a></td>
+                    <td class="number">{{numCommaFormat kd_ratio}}</td>
+                    <td class="number-right">{{numCommaFormat matches}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <div id="no-players">NO PLAYERS TO RANK</div>
+{{/if}}

@@ -8,7 +8,7 @@ module.exports = function(rank, wins) {
             return 'apprentice_g2';
         } else if(wins >= 3 && wins < 5) {
             return 'private';
-        } else if(wins >= 5 && wins < 7) {
+        } else if(wins >= 5 && wins < 10) {
             return 'private_g2';
         } else if(wins >= 10 && wins < 15) {
             return 'corporal';

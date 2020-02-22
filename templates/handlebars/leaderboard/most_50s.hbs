@@ -1,15 +1,15 @@
-<table id="leaderboard-table">
-    <thead>
-        <tr>
-            <th scope="col">Rank</th>
-            <th scope="col">Player</th>
-            <th scope="col">Number</th>
-            <th scope="col">Games</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each this}}
-            {{#ifCond fifty '>' 0}}
+{{#if this}}
+    <table id="leaderboard-table">
+        <thead>
+            <tr>
+                <th scope="col">Rank</th>
+                <th scope="col">Player</th>
+                <th scope="col">Number</th>
+                <th scope="col">Games</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each this}}
                 <tr>
                     <td class="number-right">
                         {{#ifCond (tieHandler fifty) '==' 1}}
@@ -22,7 +22,9 @@
                     <td class="number">{{fifty}}</td>
                     <td class="number-right">{{numCommaFormat player__matches}}</td>
                 </tr>
-            {{/ifCond}}
-        {{/each}}
-    </tbody>
-</table>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <div id="no-players">NO PLAYERS TO RANK</div>
+{{/if}}

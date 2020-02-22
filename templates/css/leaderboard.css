@@ -110,6 +110,12 @@ p {
     color: #ff5c5c;
 }
 
+#no-players {
+    margin: 50px 0;
+    font-size: 45px;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
 .butter-ranks {
     padding-left: 30px;
 }
@@ -136,4 +142,36 @@ p {
     margin-left: 40px;
 }
 
+/*PAGINATION*/
+#page-wrapper {
+    width: calc(100vw - 100px);
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+#pagination {
+    background: #0a0a0a;
+    border: 1px solid #5d5d5d;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    list-style: none;
+    width: fit-content;
+}
+
+#pagination li {
+    padding: 8px 18px;
+    border-radius: 2px;
+    transition: 0.5s ease all;
+}
+
+#pagination li:hover {
+    background: #1c3363;
+}
+
+#pagination li.active {
+    background: #3466d0;
+}
+/*PAGINATION*/
 
