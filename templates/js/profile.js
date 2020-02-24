@@ -34,11 +34,11 @@ function serviceRecordSuccess(response) {
     $serviceRecord.empty();
     $playerDetails.empty();
 
-    $serviceRecord.append(serviceRecordTemplate({'ranks': globals.sorted_ranks, 'gt': globals.gamertag, 'record': response}));
+    $serviceRecord.append(serviceRecordTemplate({'ranks': globals.sorted_ranks, 'gt': globals.gamertag, 'record': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
 
     response['hits'] = globals.player['hits'];
 
-    $playerDetails.append(playerDetailsTemplate(response));
+    $playerDetails.append(playerDetailsTemplate({'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
 }
 
 function serviceRecordError() {
@@ -55,6 +55,7 @@ $(document).ready(function() {
     for (var playlist in ranks) {
         if (ranks.hasOwnProperty(playlist)) {
             sorted_ranks.push({
+                'key': helper.replaceAll(playlist.toLowerCase(), ' ', '_').replace(':', ''),
                 'playlist': playlist,
                 'rank': ranks[playlist][0]['SkillRank']
             });
@@ -69,10 +70,10 @@ $(document).ready(function() {
 
     if(!$.isEmptyObject(globals.player)) {
         $('#service-record').append(serviceRecordTemplate({'ranks': sorted_ranks, 'gt': globals.gamertag, 'record': globals.player}));
-        $('#player-details').append(playerDetailsTemplate(globals.player));
+        $('#player-details').append(playerDetailsTemplate({'player': globals.player, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
     }
 
-    $('#right-wrapper').append(haloRanksTemplate(sorted_ranks));
+    $('#right-wrapper').append(haloRanksTemplate({'ranks': sorted_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
     sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, ranks: globals.ranks}), 'POST', serviceRecordSuccess, serviceRecordError);
 });
 

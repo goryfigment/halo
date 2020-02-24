@@ -1,7 +1,22 @@
 import json
 from django.shortcuts import render
 from base import decimal_format, sort_list, get_base_url, sort_float, model_to_dict
-from halo.models import Player, Ranks
+from halo.models import Player, Ranks, Leaderboard
+
+
+def record_leaderboard(player, attr_type, rank):
+    if type(player) == 'int':
+        player = Player.objects.get(id=player)
+
+    leaderboard = Leaderboard.objects.filter(player=player)
+
+    if leaderboard.exists():
+        leaderboard = leaderboard[0]
+    else:
+        leaderboard = Leaderboard.objects.create(player=player)
+
+    setattr(leaderboard, attr_type, rank)
+    leaderboard.save()
 
 
 def most_kills(request):
@@ -22,8 +37,14 @@ def most_kills(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Player.objects.filter(kills__gt=0).values('gamertag', 'kills', 'matches', 'emblem').order_by('-kills')[first_record:last_record]))
+    leaderboards = Player.objects.filter(kills__gt=0).order_by('-kills')[first_record:last_record]
     data['index'] = first_record
+
+    for player in leaderboards:
+        first_record += 1
+        record_leaderboard(player, 'kills', first_record)
+
+    data['leaderboard'] = json.dumps(list(leaderboards.values('gamertag', 'kills', 'matches', 'emblem')))
 
     return render(request, 'leaderboard.html', data)
 
@@ -46,8 +67,14 @@ def most_deaths(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Player.objects.filter(deaths__gt=0).values('gamertag', 'deaths', 'matches', 'emblem').order_by('-deaths')[first_record:last_record]))
+    leaderboards = Player.objects.filter(deaths__gt=0).order_by('-deaths')[first_record:last_record]
     data['index'] = first_record
+
+    for player in leaderboards:
+        first_record += 1
+        record_leaderboard(player, 'deaths', first_record)
+
+    data['leaderboard'] = json.dumps(list(leaderboards.values('gamertag', 'deaths', 'matches', 'emblem')))
 
     return render(request, 'leaderboard.html', data)
 
@@ -70,8 +97,14 @@ def most_wins(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Player.objects.filter(wins__gt=0).values('gamertag', 'wins', 'matches', 'emblem').order_by('-wins')[first_record:last_record]))
+    leaderboards = Player.objects.filter(wins__gt=0).order_by('-wins')[first_record:last_record]
     data['index'] = first_record
+
+    for player in leaderboards:
+        first_record += 1
+        record_leaderboard(player, 'wins', first_record)
+
+    data['leaderboard'] = json.dumps(list(leaderboards.values('gamertag', 'wins', 'matches', 'emblem')))
 
     return render(request, 'leaderboard.html', data)
 
@@ -94,8 +127,14 @@ def most_losses(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Player.objects.filter(losses__gt=0).values('gamertag', 'losses', 'matches', 'emblem').order_by('-losses')[first_record:last_record]))
+    leaderboards = Player.objects.filter(losses__gt=0).order_by('-losses')[first_record:last_record]
     data['index'] = first_record
+
+    for player in leaderboards:
+        first_record += 1
+        record_leaderboard(player, 'losses', first_record)
+
+    data['leaderboard'] = json.dumps(list(leaderboards.values('gamertag', 'losses', 'matches', 'emblem')))
 
     return render(request, 'leaderboard.html', data)
 
@@ -118,8 +157,14 @@ def most_matches(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Player.objects.all().values('gamertag', 'matches', 'emblem').order_by('-matches')[first_record:last_record]))
+    leaderboards = Player.objects.all().order_by('-matches')[first_record:last_record]
     data['index'] = first_record
+
+    for player in leaderboards:
+        first_record += 1
+        record_leaderboard(player, 'matches', first_record)
+
+    data['leaderboard'] = json.dumps(list(leaderboards.values('gamertag', 'matches', 'emblem')))
 
     return render(request, 'leaderboard.html', data)
 
@@ -156,8 +201,15 @@ def best_wl(request):
 
         player['ranks'] = sort_list(rank_list, 'rank')
 
-    data['leaderboard'] = json.dumps(sort_float(sorted_wl, 'wl_ratio')[first_record:last_record])
+    sorted_wl = sort_float(sorted_wl, 'wl_ratio')[first_record:last_record]
     data['index'] = first_record
+
+    for player in sorted_wl:
+        player_obj = Player.objects.get(id=player['id'])
+        first_record += 1
+        record_leaderboard(player_obj, 'wl', first_record)
+
+    data['leaderboard'] = json.dumps(sorted_wl)
 
     return render(request, 'leaderboard.html', data)
 
@@ -194,8 +246,15 @@ def best_kd(request):
 
         player['ranks'] = sort_list(rank_list, 'rank')
 
-    data['leaderboard'] = json.dumps(sort_float(sorted_kd, 'kd_ratio')[first_record:last_record])
+    sorted_kd = sort_float(sorted_kd, 'kd_ratio')[first_record:last_record]
     data['index'] = first_record
+
+    for player in sorted_kd:
+        player_obj = Player.objects.get(id=player['id'])
+        first_record += 1
+        record_leaderboard(player_obj, 'kd', first_record)
+
+    data['leaderboard'] = json.dumps(sorted_kd)
 
     return render(request, 'leaderboard.html', data)
 
@@ -218,7 +277,7 @@ def most_playtime(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    sorted_playtime = list(Player.objects.all().values('gamertag', 'playtime', 'matches', 'emblem'))
+    sorted_playtime = list(Player.objects.all().values('gamertag', 'playtime', 'matches', 'emblem', 'id'))
 
     playtime_list = []
 
@@ -238,8 +297,15 @@ def most_playtime(request):
             player['epoch'] = total_epoch
             playtime_list.append(player)
 
-    data['leaderboard'] = json.dumps(sort_list(playtime_list, 'epoch')[first_record:last_record])
+    playtime_list = sort_list(playtime_list, 'epoch')[first_record:last_record]
     data['index'] = first_record
+
+    for player in sorted_playtime:
+        player_obj = Player.objects.get(id=player['id'])
+        first_record += 1
+        record_leaderboard(player_obj, 'playtime', first_record)
+
+    data['leaderboard'] = json.dumps(playtime_list)
 
     return render(request, 'leaderboard.html', data)
 
@@ -264,7 +330,6 @@ def most_50s(request):
 
         if page > 1:
             data['rank'] = 3
-
 
     sorted_50s = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h3_team_slayer',
                                                   'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series',
@@ -333,8 +398,14 @@ def h3_team_slayer(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(h3_team_slayer__gt=1).values('player__gamertag', 'player__matches', 'h3_team_slayer', 'player__emblem').order_by('-h3_team_slayer', '-player__matches')[first_record:last_record]))
+    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'h3_team_slayer', 'player__emblem').order_by('-h3_team_slayer', '-player__matches')[first_record:last_record])
     data['index'] = first_record
+
+    for rank_player in rank_list:
+        first_record += 1
+        record_leaderboard(int(rank_player['player__id']), 'h3_team_slayer', first_record)
+
+    data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
 
@@ -357,8 +428,14 @@ def h3_team_hardcore(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(h3_team_hardcore__gt=1).values('player__gamertag', 'player__matches', 'h3_team_hardcore', 'player__emblem').order_by('-h3_team_hardcore', '-player__matches')[first_record:last_record]))
+    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'h3_team_hardcore', 'player__emblem').order_by('-h3_team_hardcore', '-player__matches')[first_record:last_record])
     data['index'] = first_record
+
+    for rank_player in rank_list:
+        first_record += 1
+        record_leaderboard(int(rank_player['player__id']), 'h3_team_hardcore', first_record)
+
+    data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
 
@@ -381,8 +458,14 @@ def h3_team_doubles(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(h3_team_doubles__gt=1).values('player__gamertag', 'player__matches', 'h3_team_doubles', 'player__emblem').order_by('-h3_team_doubles', '-player__matches')[first_record:last_record]))
+    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'h3_team_doubles', 'player__emblem').order_by('-h3_team_doubles', '-player__matches')[first_record:last_record])
     data['index'] = first_record
+
+    for rank_player in rank_list:
+        first_record += 1
+        record_leaderboard(int(rank_player['player__id']), 'h3_team_doubles', first_record)
+
+    data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
 
@@ -405,8 +488,14 @@ def ms_2v2_series(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(ms_2v2_series__gt=1).values('player__gamertag', 'player__matches', 'ms_2v2_series', 'player__emblem').order_by('-ms_2v2_series', '-player__matches')[first_record:last_record]))
+    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'ms_2v2_series', 'player__emblem').order_by('-ms_2v2_series', '-player__matches')[first_record:last_record])
     data['index'] = first_record
+
+    for rank_player in rank_list:
+        first_record += 1
+        record_leaderboard(int(rank_player['player__id']), 'ms_2v2_series', first_record)
+
+    data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
 
@@ -429,8 +518,14 @@ def hce_team_doubles(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(hce_team_doubles__gt=1).values('player__gamertag', 'player__matches', 'hce_team_doubles', 'player__emblem').order_by('-hce_team_doubles', '-player__matches')[first_record:last_record]))
+    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'hce_team_doubles', 'player__emblem').order_by('-hce_team_doubles', '-player__matches')[first_record:last_record])
     data['index'] = first_record
+
+    for rank_player in rank_list:
+        first_record += 1
+        record_leaderboard(int(rank_player['player__id']), 'hce_team_doubles', first_record)
+
+    data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
 
@@ -453,8 +548,14 @@ def h2c_team_hardcore(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(h2c_team_hardcore__gt=1).values('player__gamertag', 'player__matches', 'h2c_team_hardcore', 'player__emblem').order_by('-h2c_team_hardcore', '-player__matches')[first_record:last_record]))
+    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'h2c_team_hardcore', 'player__emblem').order_by('-h2c_team_hardcore', '-player__matches')[first_record:last_record])
     data['index'] = first_record
+
+    for rank_player in rank_list:
+        first_record += 1
+        record_leaderboard(int(rank_player['player__id']), 'h2c_team_hardcore', first_record)
+
+    data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
 
@@ -477,8 +578,14 @@ def halo_reach_team_hardcore(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(halo_reach_team_hardcore__gt=1).values('player__gamertag', 'player__matches', 'halo_reach_team_hardcore', 'player__emblem').order_by('-halo_reach_team_hardcore', '-player__matches')[first_record:last_record]))
+    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_hardcore', 'player__emblem').order_by('-halo_reach_team_hardcore', '-player__matches')[first_record:last_record])
     data['index'] = first_record
+
+    for rank_player in rank_list:
+        first_record += 1
+        record_leaderboard(int(rank_player['player__id']), 'halo_reach_team_hardcore', first_record)
+
+    data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
 
@@ -501,8 +608,14 @@ def halo_reach_invasion(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(halo_reach_invasion__gt=1).values('player__gamertag', 'player__matches', 'halo_reach_invasion', 'player__emblem').order_by('-halo_reach_invasion', '-player__matches')[first_record:last_record]))
+    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_invasion', 'player__emblem').order_by('-halo_reach_invasion', '-player__matches')[first_record:last_record])
     data['index'] = first_record
+
+    for rank_player in rank_list:
+        first_record += 1
+        record_leaderboard(int(rank_player['player__id']), 'halo_reach_invasion', first_record)
+
+    data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
 
@@ -525,7 +638,13 @@ def halo_reach_team_slayer(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Ranks.objects.filter(halo_reach_team_slayer__gt=1).values('player__gamertag', 'player__matches', 'halo_reach_team_slayer', 'player__emblem').order_by('-halo_reach_team_slayer', '-player__matches')[first_record:last_record]))
+    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_slayer', 'player__emblem').order_by('-halo_reach_team_slayer', '-player__matches')[first_record:last_record])
     data['index'] = first_record
+
+    for rank_player in rank_list:
+        first_record += 1
+        record_leaderboard(int(rank_player['player__id']), 'halo_reach_team_slayer', first_record)
+
+    data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)

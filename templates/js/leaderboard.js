@@ -37,5 +37,7 @@ $(document).ready(function() {
 });
 
 $(document).on('click', '#pagination li', function () {
+    console.log(globals.base_url)
+
     window.location.replace(globals.base_url + window.location.pathname + '?page=' + $(this).text().trim());
 });

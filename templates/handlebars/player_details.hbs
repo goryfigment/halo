@@ -1,53 +1,77 @@
 <div id="player-details-wrapper">
     <h2>Player Details</h2>
-    <p id="profile-hits">{{#if hits}}Profile Hits: {{numCommaFormat hits}}{{/if}}</p>
+    <p id="profile-hits">{{#if player.hits}}Profile Hits: {{numCommaFormat player.hits}}{{/if}}</p>
 </div>
 
 
-<div id="exp">{{numCommaFormat wins}} EXP</div>
+<div id="exp">{{numCommaFormat player.wins}} EXP</div>
 
 <div class="stat-container">
     <div class="stat-item" id="playtime-item">
         <div>Playtime</div>
-        <div id="playtime">{{playtime}}</div>
+        <div id="playtime">{{player.playtime}}</div>
+        {{#ifCond leaderboard.playtime '>' 0}}
+            <div class="percent" style="color: {{percentColors leaderboard.playtime player_count}}">#{{leaderboard.playtime}} <span>&#8226;</span> Top {{percent leaderboard.playtime player_count}}</div>
+        {{/ifCond}}
     </div>
 
     <div class="stat-item">
         <div>Total Matches</div>
-        <div>{{numCommaFormat matches}}</div>
+        <div>{{numCommaFormat player.matches}}</div>
+        {{#ifCond leaderboard.matches '>' 0}}
+            <div class="percent" style="color: {{percentColors leaderboard.matches player_count}}">#{{leaderboard.matches}} <span>&#8226;</span> Top {{percent leaderboard.matches player_count}}</div>
+        {{/ifCond}}
     </div>
 </div>
 
 <div class="stat-container">
     <div class="stat-item">
         <div>Wins</div>
-        <div>{{numCommaFormat wins}}</div>
+        <div>{{numCommaFormat player.wins}}</div>
+        {{#ifCond leaderboard.wins '>' 0}}
+            <div class="percent" style="color: {{percentColors leaderboard.wins player_count}}">#{{leaderboard.wins}} <span>&#8226;</span> Top {{percent leaderboard.wins player_count}}</div>
+        {{/ifCond}}
     </div>
 
     <div class="stat-item">
         <div>Losses</div>
-        <div>{{numCommaFormat losses}}</div>
+        <div>{{numCommaFormat player.losses}}</div>
+        {{#ifCond leaderboard.losses '>' 0}}
+            <div class="percent" style="color: {{percentColors leaderboard.losses player_count}}">#{{leaderboard.losses}} <span>&#8226;</span> Top {{percent leaderboard.losses player_count}}</div>
+        {{/ifCond}}
     </div>
 
     <div class="stat-item">
         <div>W/L Ratio</div>
-        <div>{{wl_ratio}}</div>
+        <div>{{player.wl_ratio}}</div>
+        {{#ifCond leaderboard.wl '>' 0}}
+            <div class="percent" style="color: {{percentColors leaderboard.wl player_count}}">#{{leaderboard.wins}} <span>&#8226;</span> Top {{percent leaderboard.wl player_count}}</div>
+        {{/ifCond}}
     </div>
 </div>
 
 <div class="stat-container">
     <div class="stat-item">
         <div>Kills</div>
-        <div>{{numCommaFormat kills}}</div>
+        <div>{{numCommaFormat player.kills}}</div>
+        {{#ifCond leaderboard.kills '>' 0}}
+            <div class="percent" style="color: {{percentColors leaderboard.kills player_count}}">#{{leaderboard.kills}} <span>&#8226;</span> Top {{percent leaderboard.kills player_count}}</div>
+        {{/ifCond}}
     </div>
 
     <div class="stat-item">
         <div>Deaths</div>
-        <div>{{numCommaFormat deaths}}</div>
+        <div>{{numCommaFormat player.deaths}}</div>
+        {{#ifCond leaderboard.deaths '>' 0}}
+            <div class="percent" style="color: {{percentColors leaderboard.deaths player_count}}">#{{leaderboard.deaths}} <span>&#8226;</span> Top {{percent leaderboard.deaths player_count}}</div>
+        {{/ifCond}}
     </div>
 
     <div class="stat-item">
         <div>K/D Ratio</div>
-        <div>{{kd_ratio}}</div>
+        <div>{{player.kd_ratio}}</div>
+        {{#ifCond leaderboard.kd '>' 0}}
+            <div class="percent" style="color: {{percentColors leaderboard.kd player_count}}">#{{leaderboard.kd}} <span>&#8226;</span> Top {{percent leaderboard.kd player_count}}</div>
+        {{/ifCond}}
     </div>
 </div>

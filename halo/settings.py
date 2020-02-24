@@ -33,7 +33,7 @@ if DEBUG:
     HOST_PORT = '8000'
     BASE_URL = HTTPS + '://' + HOST_NAME + ':' + HOST_PORT
 else:
-    BASE_URL = 'https://www.halomcctracker.com'
+    BASE_URL = 'https://www.mccstats.com'
 
 # Application definition
 
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webpack_loader',
-    'halo',
+    'halo'
 ]
 
 MIDDLEWARE_CLASSES = [

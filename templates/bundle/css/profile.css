@@ -33,6 +33,10 @@
     #left-wrapper {
         margin: 0 auto;
     }
+
+    .percent {
+        font-size: 12px !important;
+    }
 }
 
 #input-wrapper {
@@ -104,9 +108,15 @@ h1 {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     text-align: center;
-    height: 449px;
+    height: 500px;
 }
 
+.percent {
+    font-size: 10px;
+    margin-top: 5px;
+    font-weight: bold;
+    white-space: nowrap;
+}
 /*SERVICE RECORD*/
 #service-record {
     display: -webkit-box;
@@ -246,6 +256,7 @@ h1 {
     font-weight: bold;
     margin-bottom: 5px;
     color: #c2c1c1;
+    white-space: nowrap;
 }
 
 .stat-item div:nth-child(2) {
@@ -264,7 +275,7 @@ h1 {
 }
 
 #right-wrapper h5 {
-    margin: 15px 0;
+    margin: 19px 0;
     max-height: 15px;
 }
 
