@@ -8,7 +8,7 @@ import time
 from .. import settings_secret
 from bs4 import BeautifulSoup
 from base import decimal_format
-from halo.models import Player, Ranks
+from halo.models import Player, Ranks, Leaderboard
 
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -199,6 +199,8 @@ def service_record(gt, ranks):
             hce_team_doubles=ranks["HCE Team Doubles"][0]['SkillRank'],
             halo_reach_team_slayer=ranks["Halo: Reach Team Slayer"][0]['SkillRank']
         )
+
+        Leaderboard.objects.create(player=player)
 
     return {
         'emblem': emblem,
