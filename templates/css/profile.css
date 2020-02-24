@@ -131,6 +131,7 @@ h1 {
     width: 440px;
     padding-bottom: 20px;
     box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
+    height: 100%;
 }
 
 #player-details-wrapper {

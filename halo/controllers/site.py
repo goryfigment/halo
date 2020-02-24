@@ -54,6 +54,8 @@ def profile(request, gt):
 
         if leaderboard.exists():
             leaderboard = model_to_dict(leaderboard[0])
+        else:
+            leaderboard = {}
     else:
         player = {}
         leaderboard = {}
