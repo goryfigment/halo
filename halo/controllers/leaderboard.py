@@ -204,10 +204,10 @@ def best_wl(request):
     sorted_wl = sort_float(sorted_wl, 'wl_ratio')[first_record:last_record]
     data['index'] = first_record
 
-    for player in sorted_wl:
-        player_obj = Player.objects.get(id=player['id'])
-        first_record += 1
-        record_leaderboard(player_obj, 'wl', first_record)
+    # for player in sorted_wl:
+    #     player_obj = Player.objects.get(id=player['id'])
+    #     first_record += 1
+    #     record_leaderboard(player_obj, 'wl', first_record)
 
     data['leaderboard'] = json.dumps(sorted_wl)
 
@@ -249,10 +249,10 @@ def best_kd(request):
     sorted_kd = sort_float(sorted_kd, 'kd_ratio')[first_record:last_record]
     data['index'] = first_record
 
-    for player in sorted_kd:
-        player_obj = Player.objects.get(id=player['id'])
-        first_record += 1
-        record_leaderboard(player_obj, 'kd', first_record)
+    # for player in sorted_kd:
+    #     player_obj = Player.objects.get(id=player['id'])
+    #     first_record += 1
+    #     record_leaderboard(player_obj, 'kd', first_record)
 
     data['leaderboard'] = json.dumps(sorted_kd)
 
@@ -300,10 +300,10 @@ def most_playtime(request):
     playtime_list = sort_list(playtime_list, 'epoch')[first_record:last_record]
     data['index'] = first_record
 
-    for player in sorted_playtime:
-        player_obj = Player.objects.get(id=player['id'])
-        first_record += 1
-        record_leaderboard(player_obj, 'playtime', first_record)
+    # for player in sorted_playtime:
+    #     player_obj = Player.objects.get(id=player['id'])
+    #     first_record += 1
+    #     record_leaderboard(player_obj, 'playtime', first_record)
 
     data['leaderboard'] = json.dumps(playtime_list)
 
