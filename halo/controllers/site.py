@@ -75,7 +75,18 @@ def profile(request, gt):
 def update_database(request, gt):
     try:
         ranks = halo_ranks(gt)
-        service_record(gt, ranks)
+
+        rank_list = [ranks["H3 Team Slayer"][0]['SkillRank'],
+        ranks["H3 Team Hardcore"][0]['SkillRank'],
+        ranks["MS 2v2 Series"][0]['SkillRank'],
+        ranks["H3 Team Doubles"][0]['SkillRank'],
+        ranks["Halo: Reach Team Hardcore"][0]['SkillRank'],
+        ranks["Halo: Reach Invasion"][0]['SkillRank'],
+        ranks["H2C Team Hardcore"][0]['SkillRank'],
+        ranks["HCE Team Doubles"][0]['SkillRank'],
+        ranks["Halo: Reach Team Slayer"][0]['SkillRank']]
+
+        service_record(gt, ranks, max(rank_list))
     except:
         get_xbox_auth()
         ranks = halo_ranks(gt)
