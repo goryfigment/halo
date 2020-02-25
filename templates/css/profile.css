@@ -175,6 +175,7 @@ h1 {
     padding: 8px 7px;
     border-radius: 4px;
     width: 115px;
+    height: fit-content;
 }
 
 #playtime-item {

@@ -16,6 +16,11 @@ class Player(models.Model):
     kills = models.IntegerField(default=0)
     deaths = models.IntegerField(default=0)
 
+    highest_skill = models.IntegerField(default=1)
+    kd = models.CharField(max_length=255, default=0)
+    wl = models.CharField(max_length=255, default=0)
+    epoch = models.IntegerField(default=0)
+
     hits = models.IntegerField(default=1)
     last_updated = models.IntegerField(default=get_utc_epoch_time, blank=True)
 

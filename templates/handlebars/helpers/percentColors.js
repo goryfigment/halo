@@ -4,11 +4,11 @@ module.exports = function(portion, total) {
     if(percent < 11) { //green
         return '#04c104';
     } else if(percent < 26) { //yellow
-        return '#cde032';
+        return '#e0d332';
     } else if(percent < 51) { //red
         return '#fd3c3c';
     } else {
-        return '#ffffff';
+        return '#a7a7a7';
     }
 
 };

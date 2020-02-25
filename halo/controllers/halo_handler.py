@@ -120,7 +120,7 @@ def halo_ranks(gt):
     return r.json()
 
 
-def service_record(gt, ranks):
+def service_record(gt, ranks, highest_rank):
     endpoint = 'https://www.halowaypoint.com/en-us/games/halo-the-master-chief-collection/xbox-one/service-records/players/' + gt
 
     data = (requests.get(endpoint,
@@ -146,11 +146,19 @@ def service_record(gt, ranks):
     matches = numeric_medium[1].get_text()
     wins = int(value_element[2].get_text())
     losses = int(value_element[3].get_text())
-
-
-
     kd_ratio = decimal_format(float(kills)/float(deaths), 2, False)
     wl_ratio = decimal_format(float(wins)/float(losses), 2, False)
+    # Epoch
+    playtime_txt = playtime.replace(' hours', '').replace(' days ', '')
+    epoch_hours = int(playtime_txt[-2:])*3600
+
+    day_length = len(playtime_txt)-2
+
+    if day_length > 0:
+        epoch_days = int(playtime[0:day_length])*86400
+        epoch = epoch_hours + epoch_days
+    else:
+        epoch = epoch_hours
 
     ######################
     player = Player.objects.filter(gamertag=gt)
@@ -165,6 +173,10 @@ def service_record(gt, ranks):
         player.kills = kills
         player.deaths = deaths
         player.last_updated = int(round(time.time()))
+        player.kd = kd_ratio
+        player.wl = wl_ratio
+        player.epoch = epoch
+        player.highest_skill = highest_rank
         player.save()
 
         rank_obj = Ranks.objects.get(player=player)
@@ -187,7 +199,10 @@ def service_record(gt, ranks):
             wins=wins,
             losses=losses,
             kills=kills,
-            deaths=deaths
+            deaths=deaths,
+            kd=kd_ratio,
+            wl=wl_ratio,
+            epoch=epoch
         )
 
         Ranks.objects.create(

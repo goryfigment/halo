@@ -74,7 +74,7 @@ $(document).ready(function() {
     }
 
     $('#right-wrapper').append(haloRanksTemplate({'ranks': sorted_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
-    sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, ranks: globals.ranks}), 'POST', serviceRecordSuccess, serviceRecordError);
+    sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, ranks: globals.ranks, highest_rank: sorted_ranks[0]['rank']}), 'POST', serviceRecordSuccess, serviceRecordError);
 });
 
 //PRIVATE/

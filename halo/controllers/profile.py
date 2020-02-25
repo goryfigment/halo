@@ -8,7 +8,7 @@ from django.http import JsonResponse
 
 def service_record(request):
     query_request = json.loads(request.body)
-    player_record = halo_service_record(query_request['gt'], query_request['ranks'])
+    player_record = halo_service_record(query_request['gt'], query_request['ranks'], query_request['highest_rank'])
 #     try:
 #         player_record = halo_service_record(query_request['gt'], query_request['ranks'])
 #     except:

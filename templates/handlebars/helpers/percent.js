@@ -1,3 +1,4 @@
 module.exports = function(portion, total) {
-    return ((portion/total) * 100).toFixed(1) + '%';
+    var percent = ((portion/total) * 100).toFixed(1) + '%';
+    return percent == '0.0%' ? '0.1%' : percent;
 };

@@ -104,3 +104,4 @@ settings.py
 migrations
 cookies.json
 package-lock.json
+goals.txt

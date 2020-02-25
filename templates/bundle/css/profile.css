@@ -247,6 +247,9 @@ h1 {
     padding: 8px 7px;
     border-radius: 4px;
     width: 115px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
 }
 
 #playtime-item {
