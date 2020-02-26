@@ -10,11 +10,12 @@ const PurifyCSSPlugin = require('purifycss-webpack');
 module.exports = {
     //context: __dirname,
     entry: {
-        //404: './templates/js/error.js',
-        //500: './templates/js/error.js',
+        404: './templates/js/home.js',
+        500: './templates/js/home.js',
         home: './templates/js/home.js',
         profile: './templates/js/profile.js',
-        leaderboard: './templates/js/leaderboard.js'
+        leaderboard: './templates/js/leaderboard.js',
+        donate: './templates/js/donate.js',
     },
     output: {path: __dirname + '/templates/bundle', filename: 'js/[name].js', publicPath: '/templates/bundle/'},
     module: {
@@ -37,11 +38,12 @@ module.exports = {
         //}),
 
         //HTML
-        //new HtmlWebpackPlugin({filename: '404.html', chunks: ['vendors','error'], minify: {collapseWhitespace: true}, hash: true, template: './templates/404.html'}),
-        //new HtmlWebpackPlugin({filename: '500.html', chunks: ['vendors','error'], minify: {collapseWhitespace: true}, hash: true, template: './templates/500.html'}),
+        new HtmlWebpackPlugin({filename: '404.html', chunks: ['vendors','home'], minify: {collapseWhitespace: true}, hash: true, template: './templates/404.html'}),
+        new HtmlWebpackPlugin({filename: '500.html', chunks: ['vendors','home'], minify: {collapseWhitespace: true}, hash: true, template: './templates/500.html'}),
         new HtmlWebpackPlugin({filename: 'home.html', chunks: ['vendors','home'], minify: {collapseWhitespace: true}, hash: true, template: './templates/home.html'}),
         new HtmlWebpackPlugin({filename: 'profile.html', chunks: ['vendors','profile'], minify: {collapseWhitespace: true}, hash: true, template: './templates/profile.html'}),
-        new HtmlWebpackPlugin({filename: 'leaderboard.html', chunks: ['vendors','leaderboard'], minify: {collapseWhitespace: true}, hash: true, template: './templates/leaderboard.html'})
+        new HtmlWebpackPlugin({filename: 'leaderboard.html', chunks: ['vendors','leaderboard'], minify: {collapseWhitespace: true}, hash: true, template: './templates/leaderboard.html'}),
+        new HtmlWebpackPlugin({filename: 'donate.html', chunks: ['vendors','donate'], minify: {collapseWhitespace: true}, hash: true, template: './templates/donate.html'})
     ],
     resolve: {
         alias: {

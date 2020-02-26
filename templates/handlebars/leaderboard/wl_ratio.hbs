@@ -13,23 +13,41 @@
             {{#each this}}
                 <tr>
                     <td class="butter-ranks number-right">
-                        <img class="exp-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcRank ranks.[0].rank wins) '.png'}}" />
+                        <img class="exp-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcRank highest_skill wins) '.png'}}" />
 
                         {{#ifCond (incStart @index) '==' 1}}
-                            <span id="first"><i class="fas fa-crown"></i></span> {{incStart @index}}
+                            <span id="first"><i class="fas fa-trophy"></i></span> {{incStart @index}}
                         {{/ifCond}}
                         {{#ifCond (incStart @index) '==' 2}}
-                            <span id="second"><i class="fas fa-crown"></i></span> {{incStart @index}}
+                            <span id="second"><i class="fas fa-trophy"></i></span> {{incStart @index}}
                         {{/ifCond}}
                         {{#ifCond (incStart @index) '==' 3}}
-                            <span id="third"><i class="fas fa-crown"></i></span> {{incStart @index}}
+                            <span id="third"><i class="fas fa-trophy"></i></span> {{incStart @index}}
                         {{/ifCond}}
                         {{#ifCond (incStart @index) '>' 3}}
                             {{incStart @index}}
                         {{/ifCond}}
                     </td>
-                    <td><a href="/profile/{{gamertag}}"> <img class="emblem" src="{{emblem}}" /> <span class="gamertag">{{gamertag}}</span></a></td>
-                    <td class="number">{{numCommaFormat wl_ratio}}</td>
+                    <td>
+                        <a href="/profile/{{gamertag}}">
+
+                        {{#ifCond donation '>' 0}}
+                            <img class="emblem tippy" src="{{emblem}}" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}" />
+                        {{else}}
+                            <img class="emblem" src="{{emblem}}" />
+                        {{/ifCond}}
+
+                        <span class="gamertag">{{gamertag}}</span></a>
+
+                        {{#ifCond donation '>' 0}}
+                            <span id="donator-wrapper">
+                                {{#ifCond youtube '!=' ''}}<a class="icon youtube" href="{{youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>{{/ifCond}}
+                                {{#ifCond twitch '!=' ''}}<a class="icon twitch" href="{{twitch}}" target="_blank"><i class="fab fa-twitch"></i></a>{{/ifCond}}
+                                {{#ifCond twitter '!=' ''}}<a class="icon twitter" href="{{twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>{{/ifCond}}
+                            </span>
+                        {{/ifCond}}
+                    </td>
+                    <td class="number">{{numCommaFormat wl}}</td>
                     <td class="number-right">{{numCommaFormat matches}}</td>
                 </tr>
             {{/each}}

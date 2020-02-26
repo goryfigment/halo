@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Server Error!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='shortcut icon' type='image/x-icon' href="{% static 'rsefficiency/rse16.ico' %}" />
+    <base href='{{base_url}}' />
+
+    <script>
+        var globals = {};
+        globals.base_url = '{{base_url}}';
+    </script>
+</head>
+<body>
+    {% csrf_token %}
+    <%= require('html-loader!./partial/header.html') %>
+
+    <h2 id="title">500</h2>
+    <p>Sorry for the inconvenience, please keep refreshing this page to fix the issue! Thank you!</p>
+
+    <div id="overlay"></div>
+</body>
+
+</html>

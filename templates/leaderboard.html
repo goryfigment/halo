@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MCC Stats</title>
+    <title>{{title}} Leaderboard</title>
     <link rel='shortcut icon' type='image/x-icon' href="{% static 'bundle/assets/whey2ez/whey2ez.ico' %}" />
     <script>
         var globals = {};
@@ -32,7 +32,11 @@
         <nav id="pagination"></nav>
     </div>
 
-
     <div id="overlay"></div>
+
+    <div id="tip-popup">
+        <div id="tip-arrow"></div>
+        <div id="tip-content"></div>
+    </div>
 </body>
 </html>

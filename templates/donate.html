@@ -1,0 +1,109 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donate</title>
+    <link rel='shortcut icon' type='image/x-icon' href="{% static 'bundle/assets/whey2ez/whey2ez.ico' %}" />
+    <script>
+        var globals = {};
+        globals.base_url = '{{base_url}}';
+        globals.gamertag = '{{gamertag}}';
+        globals.t = '{{request.GET.t}}';
+    </script>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+</head>
+<body>
+    {% csrf_token %}
+    <%= require('html-loader!./partial/header.html') %>
+
+    <div id="donate-wrapper">
+        <h2>Donate</h2>
+
+        <p>Donations fund development and pay for the server. If you wish to support <a href="/">MCC Stats</a>, feel free to look through the many benefits of donating below.</p>
+
+        <h2>Benefits</h2>
+        <p>
+            <span class="check-box-container">
+                <input type="checkbox" id="message" data-type="columns" class="checkbox-input column-filter" value="{{this}}" style="display: none" />
+                <label for="message" class="check-box-wrapper">
+                    <span class="check-box">
+                        <svg width="12px" height="10px">
+                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                        </svg>
+                    </span>
+                    <span class="check-box-label">$15 for a custom message when your mouse cursor is hovered over your leaderboard icon and <span class="icon donator tippy" data-title="$15 + Custom Message"><i class="fas fa-dollar-sign"></i></span> icon on profile page. The maximum length of this message is 100 characters. </span>
+                </label>
+            </span>
+
+            <span class="check-box-container">
+                <input type="checkbox" id="link" data-type="columns" class="checkbox-input column-filter" value="{{this}}" style="display: none" />
+                <label for="link" class="check-box-wrapper">
+                    <span class="check-box">
+                        <svg width="12px" height="10px">
+                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                        </svg>
+                    </span>
+                    <span class="check-box-label">$10 for each link to your social media profiles (Twitch, Youtube, and Twitter) on your track page. To clarify, it is $30 for all 3 links.</span>
+                </label>
+            </span>
+        </p>
+
+        <h2>Form</h2>
+        <form id="mccstats-form">
+            <div class="input-wrapper">
+                <div class="input-container">
+                    <label for="gamertag">Gamertag</label>
+                    <input id="gamertag" value="" autocomplete="off">
+                </div>
+                <div class="input-container">
+                    <label for="twitch">Twitch</label>
+                    <input id="twitch" value="" autocomplete="off">
+                </div>
+                <div class="input-container">
+                    <label for="twitter">Twitter</label>
+                    <input id="twitter" value="" autocomplete="off">
+                </div>
+                <div class="input-container">
+                    <label for="youtube">Youtube</label>
+                    <input id="youtube" value="" autocomplete="off">
+                </div>
+            </div>
+            <div class="input-wrapper">
+                <div class="input-container">
+                    <label for="message">Message</label>
+                    <textarea id="message"></textarea>
+                </div>
+                <div class="input-container">
+                    <label for="donate">Donation</label>
+                    <input type="number" id="donate" autocomplete="off">
+                </div>
+            </div>
+        </form>
+
+        <div id="button-wrapper">
+            <form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_donations" />
+                <input type="hidden" name="business" value="THGVUVVV73AWL" />
+                <input type="hidden" name="currency_code" value="USD" />
+                <input id="amount" type="hidden" name="amount" value="">
+                <input type="hidden" name="return" value="https://www.mccstats.com/donate/?t=true">
+                <input type="image" src="{% static 'bundle/assets/paypal.png' %}" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            </form>
+            <button id="donate-submit" name="amount">Donate</button>
+        </div>
+    </div>
+
+    <div id="thank-you-wrapper">
+        <h1>THANK YOU</h1>
+        <p>Thank you so much for your generous donation. It means the world to me for your charitable support. Please message GoryFigment on <a href="https://twitter.com/GoryFigment">Twitter</a> to make changes to your profile :)</p>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="tip-popup">
+        <div id="tip-arrow"></div>
+        <div id="tip-content"></div>
+    </div>
+</body>
+</html>

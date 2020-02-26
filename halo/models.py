@@ -15,7 +15,6 @@ class Player(models.Model):
     losses = models.IntegerField(default=0)
     kills = models.IntegerField(default=0)
     deaths = models.IntegerField(default=0)
-
     highest_skill = models.IntegerField(default=1)
     kd = models.CharField(max_length=255, default=0)
     wl = models.CharField(max_length=255, default=0)
@@ -23,6 +22,11 @@ class Player(models.Model):
 
     hits = models.IntegerField(default=1)
     last_updated = models.IntegerField(default=get_utc_epoch_time, blank=True)
+    twitch = models.CharField(max_length=255, default='')
+    youtube = models.CharField(max_length=255, default='')
+    twitter = models.CharField(max_length=255, default='')
+    donation = models.IntegerField(default=0)
+    notes = models.CharField(max_length=255, default='')
 
     class Meta:
         db_table = "player"

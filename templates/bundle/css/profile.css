@@ -74,6 +74,7 @@ h1 {
     display: -ms-flexbox;
     display: flex;
     width: calc(100vw - 200px);
+    margin-bottom: 25px;
 }
 
 #left-wrapper {
@@ -108,7 +109,6 @@ h1 {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     text-align: center;
-    height: 500px;
 }
 
 .percent {
@@ -297,7 +297,7 @@ h1 {
     right: 0;
     height: 110px;
     position: absolute;
-    top: 57%;
+    top: 96px;
     left: 50%;
     -webkit-transform: translateY(-50%) translateX(-50%);
 }
@@ -316,3 +316,90 @@ h1 {
 }
 /*PRIVATE PROFILE*/
 
+/*DONATOR*/
+#donator-wrapper {
+    background: #0b0b0b;
+    border-radius: 2px;
+    width: 440px;
+    text-align: center;
+    -webkit-box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
+            box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
+    height: 100%;
+    font-size: 30px;
+    padding: 10px 0;
+    margin: 10px 0;
+    display: none;
+}
+
+.icon {
+    cursor: pointer;
+    padding: 3px;
+    -webkit-transition: 0.5s ease all;
+    -o-transition: 0.5s ease all;
+    transition: 0.5s ease all;
+}
+
+.icon:hover {
+    -webkit-filter: brightness(0.8);
+            filter: brightness(0.8);
+}
+
+.icon.donator {
+    color: #2cdb00;
+}
+
+.icon.twitch {
+    color: #9257ff;
+}
+
+.icon.youtube {
+    color: #ff3a30;
+}
+
+.icon.twitter {
+    color: #55acee;
+}
+/*DONATOR*/
+
+#tip-popup {
+    z-index: 9999;
+    position: absolute;
+    opacity: 0;
+    -webkit-transition-timing-function: cubic-bezier(.165,.84,.44,1);
+         -o-transition-timing-function: cubic-bezier(.165,.84,.44,1);
+            transition-timing-function: cubic-bezier(.165,.84,.44,1);
+    pointer-events: none;
+    color: #fff;
+    border-radius: 4px;
+    padding: .4rem .8rem;
+    text-align: center;
+    background-color: #131313;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    display: none;
+}
+
+#tip-arrow {
+    border-top: 7px solid #111111;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    bottom: -7px;
+    margin: 0 9px;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.mouse-leave {
+    opacity: 0 !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+            transform: translate3d(0, 0, 0) !important;
+}
+
+.tippy:hover {
+    -webkit-filter: brightness(1.15) hue-rotate(10deg) contrast(1.5);
+            filter: brightness(1.15) hue-rotate(10deg) contrast(1.5);
+    -webkit-box-shadow: 0 10px 15px -1px rgba(0, 0, 0, 0.1), 0 25px 50px -4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 15px -1px rgba(0, 0, 0, 0.1), 0 25px 50px -4px rgba(0, 0, 0, 0.3);
+}

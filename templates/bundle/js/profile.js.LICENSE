@@ -1,9 +1,4 @@
 /*!
- * Font Awesome Free 5.11.2 by @fontawesome - https://fontawesome.com
- * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
- */
-
-/*!
  * jQuery JavaScript Library v3.4.1
  * https://jquery.com/
  *
@@ -26,4 +21,9 @@
  * https://js.foundation/
  *
  * Date: 2019-04-08
+ */
+
+/*!
+ * Font Awesome Free 5.11.2 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */

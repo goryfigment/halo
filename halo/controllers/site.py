@@ -29,6 +29,14 @@ def home(request):
     return render(request, 'home.html', data)
 
 
+def donate(request):
+    data = {
+        'base_url': get_base_url()
+    }
+
+    return render(request, 'donate.html', data)
+
+
 def sort_ranks(ranks):
     return sorted(ranks, key=lambda i: i['rank'], reverse=True)
 

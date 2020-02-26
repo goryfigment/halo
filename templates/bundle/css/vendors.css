@@ -121,7 +121,13 @@ button {
     transition: all ease 0.5s;
 }
 
-button:hover {
+button a {
+    -webkit-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+}
+
+button:hover, #donate-button:hover a {
     color: #ffffff;
 }
 
@@ -139,9 +145,13 @@ button:hover {
     margin-right: 12px;
 }
 
-#leaderboards-button {
-    padding: 0 20px;
+#leaderboards-button, #donate-button {
     height: 38px;
+}
+
+#donate-link {
+    text-decoration: none;
+    color: #cccccc;
 }
 /*HEADER*/
 

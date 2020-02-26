@@ -94,16 +94,15 @@ table a {
 /* TABLE */
 
 #first {
-    /*color: #c6c668;*/
-    color: #d3d552;
+    color: #ebd00a;
 }
 
 #second {
-    color: #9c9ca3;
+    color: #cacacc;
 }
 
 #third {
-    color: #b38449;
+    color: #d98113;
 }
 
 p {
@@ -125,7 +124,6 @@ p {
     position: absolute;
     top: 5px;
     left: 5px;
-    z-index: 2;
 }
 
 .rank {
@@ -136,6 +134,8 @@ p {
     height: 30px;
     position: absolute;
     top: 4px;
+    background: #181414;
+    transition: 0.5s ease all;
 }
 
 .gamertag {
@@ -174,4 +174,36 @@ p {
     background: #3466d0;
 }
 /*PAGINATION*/
+
+/*DONATOR*/
+#donator-wrapper {
+    padding: 2px;
+    cursor: default;
+    border-radius: 1px;
+    box-shadow: 0 0 1px 1px #2d2d2d;
+}
+
+.icon {
+    font-size: 15px;
+    cursor: pointer;
+    padding: 3px;
+    transition: 0.5s ease all;
+}
+
+.icon:hover {
+    filter: brightness(0.8);
+}
+
+.icon.twitch {
+    color: #9257ff;
+}
+
+.icon.youtube {
+    color: #ff3a30;
+}
+
+.icon.twitter {
+    color: #55acee;
+}
+/*DONATOR*/
 

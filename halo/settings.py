@@ -28,6 +28,7 @@ ALLOWED_HOSTS = ['*']
 
 if DEBUG:
     SSLIFY_DISABLE = True
+    SECURE_SSL_REDIRECT = False
     HTTPS = 'http'
     HOST_NAME = 'localhost'
     HOST_PORT = '8000'

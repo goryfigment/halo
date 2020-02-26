@@ -1,22 +1,24 @@
 require('./../css/general.css');
 require('./../css/leaderboard.css');
 require('./../library/fontawesome/fontawesome.js');
+require('./../library/tippy/tippy.css');
 
 var $ = require('jquery');
 var helper = require('./../js/helpers.js');
+require('./../library/tippy/tippy.js');
 require('./../js/general.js');
 
 var pagination = require('./../handlebars/pagination.hbs');
 
 var leaderboards = {
-    'most_kills': require('./../handlebars/leaderboard/kills.hbs'),
-    'most_deaths': require('./../handlebars/leaderboard/deaths.hbs'),
-    'most_wins': require('./../handlebars/leaderboard/wins.hbs'),
-    'most_losses': require('./../handlebars/leaderboard/losses.hbs'),
-    'most_matches': require('./../handlebars/leaderboard/matches.hbs'),
-    'best_wl': require('./../handlebars/leaderboard/wl_ratio.hbs'),
-    'best_kd': require('./../handlebars/leaderboard/kd_ratio.hbs'),
-    'most_playtime': require('./../handlebars/leaderboard/playtime.hbs'),
+    'kills': require('./../handlebars/leaderboard/kills.hbs'),
+    'deaths': require('./../handlebars/leaderboard/deaths.hbs'),
+    'wins': require('./../handlebars/leaderboard/wins.hbs'),
+    'losses': require('./../handlebars/leaderboard/losses.hbs'),
+    'matches': require('./../handlebars/leaderboard/matches.hbs'),
+    'wl': require('./../handlebars/leaderboard/wl_ratio.hbs'),
+    'kd': require('./../handlebars/leaderboard/kd_ratio.hbs'),
+    'playtime': require('./../handlebars/leaderboard/playtime.hbs'),
     'most_50s': require('./../handlebars/leaderboard/most_50s.hbs'),
 
     'h3_team_slayer': require('./../handlebars/playlist/h3_team_slayer.hbs'),
@@ -31,13 +33,37 @@ var leaderboards = {
     'halo_reach_team_slayer': require('./../handlebars/playlist/halo_reach_team_slayer.hbs')
 };
 
+function sendRequest(url, data, request_type, success, error, exception) {
+    $.ajax({
+        headers: {"X-CSRFToken": $('input[name="csrfmiddlewaretoken"]').attr('value')},
+        url: globals.base_url + url,
+        data: data,
+        dataType: 'json',
+        type: request_type,
+        success: function (response) {
+            success(response, exception);
+        },
+        error: function (response) {
+            error(response, exception);
+        }
+    });
+}
+
+function updateLeaderboardSuccess(response) {
+    console.log('Update Success');
+}
+
+function updateLeaderboardError() {
+    console.log("Leaderboard error!");
+}
+
 $(document).ready(function() {
     $('#leaderboard-wrapper').append(leaderboards[globals.type](globals.leaderboard));
     $('#pagination').append(pagination({'page': globals.page}));
+
+    sendRequest('/update-leaderboard/', JSON.stringify({leaderboards: globals.leaderboard, type: globals.type, index: globals.index}), 'POST', updateLeaderboardSuccess, updateLeaderboardError);
 });
 
 $(document).on('click', '#pagination li', function () {
-    console.log(globals.base_url)
-
     window.location.replace(globals.base_url + window.location.pathname + '?page=' + $(this).text().trim());
 });

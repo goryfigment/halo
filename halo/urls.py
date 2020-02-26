@@ -15,14 +15,22 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from halo.controllers import site, profile, leaderboard
+from halo.controllers import site, profile, leaderboard, donate
 
 urlpatterns = [
     url(r'^$', site.home, name='home'),
+    url(r'^donate/$', site.donate, name='donate'),
     url(r'^profile/(?P<gt>.*)', site.profile),
+    url(r'^404/$', site.error_page, name='404'),
+    url(r'^500/$', site.server_error, name='500'),
     url(r'^database/(?P<gt>.*)', site.update_database),
 
     url(r'^service-record/', profile.service_record),
+    url(r'^update-leaderboard/', leaderboard.update_leaderboard),
+    url(r'^db-update/(?P<type>.*)', leaderboard.database_leaderboard),
+
+    # DONATE
+    url(r'^donate-message/', donate.donate_email),
 
     # GENERAL LEADERBOARDS
     url(r'^leaderboards/kills', leaderboard.most_kills),

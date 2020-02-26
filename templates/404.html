@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page not found!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='shortcut icon' type='image/x-icon' href="{% static 'rsefficiency/rse16.ico' %}" />
+    <base href='{{base_url}}' />
+
+    <script>
+        var globals = {};
+        globals.base_url = '{{base_url}}';
+    </script>
+</head>
+<body>
+    {% csrf_token %}
+    <%= require('html-loader!./partial/header.html') %>
+
+    <h2 id="title">404</h2>
+    <p>Try again! Page not found!</p>
+
+    <div id="search-container">
+        <span id="search-icon"><i class="fas fa-search"></i></span>
+        <input id="search-input" name="q" value="" autocomplete="off" placeholder="Search">
+        <button id="search-submit">Enter</button>
+    </div>
+
+    <div id="overlay"></div>
+
+</body>
+
+</html>

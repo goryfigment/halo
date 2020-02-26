@@ -14,7 +14,25 @@
                         <img class="halo-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcMajorRank h3_team_hardcore) '.png'}}" />
                         <span class="rank">{{h3_team_hardcore}}</span>
                     </td>
-                    <td><a href="/profile/{{player__gamertag}}"> <img class="emblem" src="{{player__emblem}}" /> <span class="gamertag">{{player__gamertag}}</span></a></td>
+                    <td>
+                        <a href="/profile/{{player__gamertag}}">
+
+                        {{#ifCond player__donation '>' 0}}
+                            <img class="emblem tippy" src="{{player__emblem}}" data-title="${{player__donation}}{{#if player__notes}} + {{player__notes}}{{/if}}" />
+                        {{else}}
+                            <img class="emblem" src="{{player__emblem}}" />
+                        {{/ifCond}}
+
+                        <span class="gamertag">{{player__gamertag}}</span></a>
+
+                        {{#ifCond player__donation '>' 0}}
+                            <span id="donator-wrapper">
+                                {{#ifCond player__youtube '!=' ''}}<a class="icon youtube" href="{{player__youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>{{/ifCond}}
+                                {{#ifCond player__twitch '!=' ''}}<a class="icon twitch" href="{{player__twitch}}" target="_blank"><i class="fab fa-twitch"></i></a>{{/ifCond}}
+                                {{#ifCond player__twitter '!=' ''}}<a class="icon twitter" href="{{player__twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>{{/ifCond}}
+                            </span>
+                        {{/ifCond}}
+                    </td>
                     <td class="number-right">{{numCommaFormat player__matches}}</td>
                 </tr>
             {{/each}}

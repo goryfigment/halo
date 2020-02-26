@@ -1,15 +1,18 @@
 require('./../css/general.css');
 require('./../css/profile.css');
 require('./../library/fontawesome/fontawesome.js');
+require('./../library/tippy/tippy.css');
 
 var $ = require('jquery');
 var helper = require('./../js/helpers.js');
+require('./../library/tippy/tippy.js');
 require('./../js/general.js');
 
 var serviceRecordTemplate = require('./../handlebars/service_record.hbs');
 var playerDetailsTemplate = require('./../handlebars/player_details.hbs');
 var haloRanksTemplate = require('./../handlebars/halo_ranks.hbs');
 var privateTemplate = require('./../handlebars/private.hbs');
+var donatorTemplate = require('./../handlebars/donator.hbs');
 var privateTutorialTemplate = require('./../handlebars/overlay/private_tutorial.hbs');
 
 function sendRequest(url, data, request_type, success, error, exception) {
@@ -71,6 +74,13 @@ $(document).ready(function() {
     if(!$.isEmptyObject(globals.player)) {
         $('#service-record').append(serviceRecordTemplate({'ranks': sorted_ranks, 'gt': globals.gamertag, 'record': globals.player}));
         $('#player-details').append(playerDetailsTemplate({'player': globals.player, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+    }
+
+    if(globals.player['donation'] > 0) {
+        var $donatorWrapper = $('#donator-wrapper');
+
+        $donatorWrapper.append(donatorTemplate(globals.player));
+        $donatorWrapper.show();
     }
 
     $('#right-wrapper').append(haloRanksTemplate({'ranks': sorted_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));

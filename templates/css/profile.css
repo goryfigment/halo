@@ -52,6 +52,7 @@ h1 {
 #wrapper {
     display: flex;
     width: calc(100vw - 200px);
+    margin-bottom: 25px;
 }
 
 #left-wrapper {
@@ -70,7 +71,6 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    height: 500px;
 }
 
 .percent {
@@ -220,7 +220,7 @@ h1 {
     right: 0;
     height: 110px;
     position: absolute;
-    top: 57%;
+    top: 96px;
     left: 50%;
     -webkit-transform: translateY(-50%) translateX(-50%);
 }
@@ -238,4 +238,45 @@ h1 {
     line-height: 27px;
 }
 /*PRIVATE PROFILE*/
+
+/*DONATOR*/
+#donator-wrapper {
+    background: #0b0b0b;
+    border-radius: 2px;
+    width: 440px;
+    text-align: center;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
+    height: 100%;
+    font-size: 30px;
+    padding: 10px 0;
+    margin: 10px 0;
+    display: none;
+}
+
+.icon {
+    cursor: pointer;
+    padding: 3px;
+    transition: 0.5s ease all;
+}
+
+.icon:hover {
+    filter: brightness(0.8);
+}
+
+.icon.donator {
+    color: #2cdb00;
+}
+
+.icon.twitch {
+    color: #9257ff;
+}
+
+.icon.youtube {
+    color: #ff3a30;
+}
+
+.icon.twitter {
+    color: #55acee;
+}
+/*DONATOR*/
 
