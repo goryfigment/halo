@@ -62,21 +62,19 @@
     width: 100%;
 }
 
-.icon {
-    cursor: pointer;
-    padding: 3px;
-    -webkit-transition: 0.5s ease all;
-    -o-transition: 0.5s ease all;
-    transition: 0.5s ease all;
+#bronze-donator {
+    margin-right: 10px;
+    color: #ff7d0d;
 }
 
-.icon:hover {
-    -webkit-filter: brightness(0.8);
-            filter: brightness(0.8);
+#silver-donator {
+    margin-right: 10px;
+    color: silver;
 }
 
-.icon.donator {
-    color: #2cdb00;
+#gold-donator {
+    margin-right: 10px;
+    color: gold;
 }
 
 p a {
