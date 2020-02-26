@@ -232,7 +232,7 @@ def best_wl(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    leaderboards = Player.objects.all().order_by('-wl')[first_record:last_record]
+    leaderboards = Player.objects.filter(matches__gte=250).order_by('-wl')[first_record:last_record]
     data['index'] = first_record
 
     # for player in leaderboards:
@@ -262,7 +262,7 @@ def best_kd(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    leaderboards = Player.objects.all().order_by('-kd')[first_record:last_record]
+    leaderboards = Player.objects.filter(matches__gt=250).order_by('-kd')[first_record:last_record]
     data['index'] = first_record
 
     # for player in leaderboards:
