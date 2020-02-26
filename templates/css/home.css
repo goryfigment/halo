@@ -1,12 +1,42 @@
+@media only screen and (max-width: 420px) {
+    #content-wrapper {
+        transform: scale(0.7);
+        transform-origin: top;
+        position: relative;
+        left: -20px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    video {
+        display: none;
+    }
+
+    #content-wrapper {
+        width: fit-content !important;
+    }
+}
+
 body {
     background: #131313;
     color: whitesmoke;
     display: flex;
     flex-direction: column;
-    align-items: center;
     height: 100vh;
     margin: 0;
     font-family: 'Roboto', 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    align-items: flex-start;
+}
+
+video {
+    position: absolute;
+    min-height: 642px;
+    width: 100vw;
+    min-width: 947px;
+    left: 0;
+    top: 0;
+    z-index: -2;
 }
 
 h1, h2 {
@@ -30,7 +60,18 @@ input:-webkit-autofill {
     -webkit-text-fill-color: #c2c3c3;
 }
 
-#search-button {
+#content-wrapper {
+    width: calc(100% - 250px);
+    margin: 0 auto;
+    transition: 0.5s ease all;
+}
+
+#content-wrapper p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#search-button, #donate-button, #leaderboard-button {
     display: none;
 }
 
@@ -39,7 +80,13 @@ input:-webkit-autofill {
 }
 
 #title {
-    margin-top: 100px;
+    margin-top: 175px;
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+#title span {
+    color: #00ff66;
 }
 
 #search {
@@ -49,17 +96,33 @@ input:-webkit-autofill {
     font-weight: bold;
 }
 
-#discord {
+.icon-links {
     text-decoration: none;
-    color: #fff;
     line-height: 36px;
     transition: 0.5s ease all;
+    border-radius: 1px;
+    font-size: 30px;
+    text-align: center;
+    margin: 0 10px;
 }
 
-#discord:hover {
-    transform: scale(1.03);
+#leaderboard {
+    color: gold;
+    font-size: 28px;
 }
 
-#discord-icon {
+#discord {
     color: #7289DA;
+}
+
+#donate {
+    color: #29df27;
+}
+
+#twitter {
+    color: #1DA1F2;
+}
+
+#discord:hover, #donate:hover {
+    filter: brightness(1.2);
 }

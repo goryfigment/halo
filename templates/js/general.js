@@ -46,7 +46,7 @@ $(document).on('click', '#search-container', function (e) {
 //SEARCH//
 
 //LEADERBOARD//
-$(document).on('click', '#leaderboard-button', function (e) {
+$(document).on('click', '#leaderboard-button, #leaderboard', function (e) {
     e.stopPropagation();
     var $overlay = $('#overlay');
     $overlay.empty();

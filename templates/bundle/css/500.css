@@ -1,3 +1,28 @@
+@media only screen and (max-width: 420px) {
+    #content-wrapper {
+        -webkit-transform: scale(0.7);
+            -ms-transform: scale(0.7);
+                transform: scale(0.7);
+        -webkit-transform-origin: top;
+            -ms-transform-origin: top;
+                transform-origin: top;
+        position: relative;
+        left: -20px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    video {
+        display: none;
+    }
+
+    #content-wrapper {
+        width: -webkit-fit-content !important;
+        width: -moz-fit-content !important;
+        width: fit-content !important;
+    }
+}
+
 body {
     background: #131313;
     color: whitesmoke;
@@ -10,13 +35,24 @@ body {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
     height: 100vh;
     margin: 0;
     font-family: 'Roboto', 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+}
+
+video {
+    position: absolute;
+    min-height: 642px;
+    width: 100vw;
+    min-width: 947px;
+    left: 0;
+    top: 0;
+    z-index: -2;
 }
 
 h1, h2 {
@@ -40,7 +76,20 @@ input:-webkit-autofill {
     -webkit-text-fill-color: #c2c3c3;
 }
 
-#search-button {
+#content-wrapper {
+    width: calc(100% - 250px);
+    margin: 0 auto;
+    -webkit-transition: 0.5s ease all;
+    -o-transition: 0.5s ease all;
+    transition: 0.5s ease all;
+}
+
+#content-wrapper p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#search-button, #donate-button, #leaderboard-button {
     display: none;
 }
 
@@ -49,7 +98,13 @@ input:-webkit-autofill {
 }
 
 #title {
-    margin-top: 100px;
+    margin-top: 175px;
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+#title span {
+    color: #00ff66;
 }
 
 #search {
@@ -59,21 +114,36 @@ input:-webkit-autofill {
     font-weight: bold;
 }
 
-#discord {
+.icon-links {
     text-decoration: none;
-    color: #fff;
     line-height: 36px;
     -webkit-transition: 0.5s ease all;
     -o-transition: 0.5s ease all;
     transition: 0.5s ease all;
+    border-radius: 1px;
+    font-size: 30px;
+    text-align: center;
+    margin: 0 10px;
 }
 
-#discord:hover {
-    -webkit-transform: scale(1.03);
-        -ms-transform: scale(1.03);
-            transform: scale(1.03);
+#leaderboard {
+    color: gold;
+    font-size: 28px;
 }
 
-#discord-icon {
+#discord {
     color: #7289DA;
+}
+
+#donate {
+    color: #29df27;
+}
+
+#twitter {
+    color: #1DA1F2;
+}
+
+#discord:hover, #donate:hover {
+    -webkit-filter: brightness(1.2);
+            filter: brightness(1.2);
 }
