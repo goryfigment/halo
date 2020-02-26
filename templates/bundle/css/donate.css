@@ -168,6 +168,10 @@ input[type="image"] {
 /*Button*/
 
 /*Thank You*/
+#thank-you-wrapper {
+    display: none;
+}
+
 #thank-you-wrapper h1 {
     text-align: center;
     font-size: 90px;
