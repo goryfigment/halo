@@ -58,3 +58,22 @@ input:-webkit-autofill {
     font-family: 'Rajdhani', 'Roboto', sans-serif;
     font-weight: bold;
 }
+
+#discord {
+    text-decoration: none;
+    color: #fff;
+    line-height: 36px;
+    -webkit-transition: 0.5s ease all;
+    -o-transition: 0.5s ease all;
+    transition: 0.5s ease all;
+}
+
+#discord:hover {
+    -webkit-transform: scale(1.03);
+        -ms-transform: scale(1.03);
+            transform: scale(1.03);
+}
+
+#discord-icon {
+    color: #7289DA;
+}

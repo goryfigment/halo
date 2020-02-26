@@ -27,6 +27,8 @@ class Player(models.Model):
     twitter = models.CharField(max_length=255, default='')
     donation = models.IntegerField(default=0)
     notes = models.CharField(max_length=255, default='')
+    color = models.CharField(max_length=255, default='')
+    ban = models.BooleanField(default=False)
 
     class Meta:
         db_table = "player"

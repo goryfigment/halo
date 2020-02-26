@@ -48,3 +48,18 @@ input:-webkit-autofill {
     font-family: 'Rajdhani', 'Roboto', sans-serif;
     font-weight: bold;
 }
+
+#discord {
+    text-decoration: none;
+    color: #fff;
+    line-height: 36px;
+    transition: 0.5s ease all;
+}
+
+#discord:hover {
+    transform: scale(1.03);
+}
+
+#discord-icon {
+    color: #7289DA;
+}
