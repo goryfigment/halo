@@ -15,21 +15,13 @@
                         <span class="rank">{{h2c_team_hardcore}}</span>
                     </td>
                     <td>
-                        <a href="/profile/{{player__gamertag}}">
-
-                        {{#ifCond player__donation '>' 0}}
-                            <img class="emblem tippy" src="{{player__emblem}}" data-title="${{player__donation}}{{#if player__notes}} + {{player__notes}}{{/if}}" />
-                        {{else}}
-                            <img class="emblem" src="{{player__emblem}}" />
-                        {{/ifCond}}
-
-                        <span class="gamertag" style="color: {{player__color}}">{{player__gamertag}}</span></a>
-
+                        <a href="/profile/{{player__gamertag}}"><img class="emblem" src="{{player__emblem}}" /><span class="gamertag" style="color: {{player__color}}">{{player__gamertag}}</span></a>
                         {{#ifCond player__donation '>' 0}}
                             <span id="donator-wrapper">
-                                {{#ifCond player__youtube '!=' ''}}<a class="icon youtube" href="{{player__youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>{{/ifCond}}
-                                {{#ifCond player__twitch '!=' ''}}<a class="icon twitch" href="{{player__twitch}}" target="_blank"><i class="fab fa-twitch"></i></a>{{/ifCond}}
-                                {{#ifCond player__twitter '!=' ''}}<a class="icon twitter" href="{{player__twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>{{/ifCond}}
+                                <span class="icon donator tippy" data-title="${{player__donation}}{{#if player__notes}} + {{player__notes}}{{/if}}"><i style="color: {{donateColors player__donation}}" class="fas fa-dollar-sign"></i></span>
+                                {{#ifCond player__social '==' 'youtube'}}<a class="icon youtube" href="{{player__youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>{{/ifCond}}
+                                {{#ifCond player__social '==' 'twitch'}}<a class="icon twitch" href="{{player__twitch}}" target="_blank"><i class="fab fa-twitch"></i></a>{{/ifCond}}
+                                {{#ifCond player__social '==' 'twitter'}}<a class="icon twitter" href="{{player__twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>{{/ifCond}}
                             </span>
                         {{/ifCond}}
                     </td>

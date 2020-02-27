@@ -261,10 +261,7 @@ h1 {
 
 .icon:hover {
     filter: brightness(0.8);
-}
-
-.icon.donator {
-    color: #2cdb00;
+    transform: scale(1.05);
 }
 
 .icon.twitch {

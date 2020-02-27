@@ -25,6 +25,7 @@ class Player(models.Model):
     twitch = models.CharField(max_length=255, default='')
     youtube = models.CharField(max_length=255, default='')
     twitter = models.CharField(max_length=255, default='')
+    social = models.CharField(max_length=255, default='')
     donation = models.IntegerField(default=0)
     notes = models.CharField(max_length=255, default='')
     color = models.CharField(max_length=255, default='')

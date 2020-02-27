@@ -342,10 +342,9 @@ h1 {
 .icon:hover {
     -webkit-filter: brightness(0.8);
             filter: brightness(0.8);
-}
-
-.icon.donator {
-    color: #2cdb00;
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
 }
 
 .icon.twitch {

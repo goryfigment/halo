@@ -10,5 +10,4 @@ module.exports = function(portion, total) {
     } else {
         return '#a7a7a7';
     }
-
 };
