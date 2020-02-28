@@ -26,6 +26,9 @@ function sendRequest(url, data, request_type, success, error, exception) {
 
 function donateSuccess(response) {
     console.log('Donate Sent');
+    var $formWrapper = $('#form-wrapper');
+    $formWrapper.empty();
+    $formWrapper.append('<h1><i class="far fa-paper-plane"></i> Message Sent</h1>');
 }
 
 function donateError() {
@@ -34,6 +37,11 @@ function donateError() {
 
 $(document).on('click', '#donate-submit', function (e) {
     e.stopPropagation();
+    $('#paypal').submit();
+});
+
+$(document).on('click', '#email-submit', function (e) {
+    e.stopPropagation();
 
     var data = {
         gamertag: $('#gamertag').val(),
@@ -41,13 +49,26 @@ $(document).on('click', '#donate-submit', function (e) {
         twitter: $('#twitter').val(),
         youtube: $('#youtube').val(),
         message: $('textarea').val(),
-        donate: $('#donate').val()
+        donate: $('#donate').val(),
+        color: $('#color').val()
     };
-
-    $('#paypal').submit();
 
     sendRequest('/donate-message/', data, 'POST', donateSuccess, donateError);
 });
+
+$(document).on('click', '.donate-choice', function () {
+    var $this = $(this);
+    $('#choice-wrapper').find('.active').removeClass('active');
+    $this.addClass('active');
+
+    var amount = $this.text();
+    if(amount != 'Custom') {
+        $('#amount').val($this.text());
+    } else {
+        $('#amount').val('');
+    }
+});
+
 
 //$(document).on('keyup', '#donate', function () {
 //    $('#amount').val($(this).val());

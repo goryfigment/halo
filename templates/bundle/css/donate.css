@@ -118,9 +118,9 @@ form input {
 
 form textarea {
     margin: 0;
-    width: 202px;
+    width: 189px;
     padding: 4px;
-    height: 100px;
+    height: 61px;
     outline: none;
     border-radius: 1px;
     resize: none;
@@ -128,8 +128,14 @@ form textarea {
 }
 /*Form*/
 
-/*Button*/
-#button-wrapper {
+/*Donate Choice*/
+h4 {
+    width: 264px;
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+#choice-wrapper {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -138,19 +144,70 @@ form textarea {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
+}
+
+.donate-choice {
+    cursor: pointer;
+    color: #c6cac8;
+    padding: 7px 8px;
+    border: 1px solid #366cc6;
+    margin-right: 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+    min-width: 35px;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
+.donate-choice.active {
+    background: #366cc6;
+    color: white;
+}
+
+#gold.active {
+    background: gold;
+    border-color: gold;
+    color: black;
+}
+
+#silver.active {
+    background: silver;
+    color: black;
+    border-color: silver;
+}
+
+#bronze.active {
+    background: #ff7d0d;
+    border-color: #ff7d0d;
+    color: white;
+}
+/*Donate Choice*/
+
+/*Button*/
+#button-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    margin: 20px 0;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 20px 0 40px;
 }
 
 input[type="image"] {
     height: 80px;
     background: transparent;
+    padding: 0;
 }
 
-#donate-submit {
+#donate-submit, #email-submit {
     background: green;
     width: 100px;
     height: 38px;
@@ -173,13 +230,27 @@ input[type="image"] {
     text-align: center;
     font-size: 90px;
     color: #23a323;
+    margin: 20px 0;
 }
 
 #thank-you-wrapper p {
-    max-width: 653px;
+    margin: 0 auto;
+    max-width: 450px;
     color: #d7d7d7;
     text-align: center;
     line-height: 24px;
+}
+
+#email-submit {
+    margin: 20px auto;
+    display: block;
+}
+
+#form-wrapper h1 {
+    color: beige;
+    margin: 70px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #414141;
 }
 /*Thank You*/
 

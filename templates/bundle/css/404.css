@@ -148,3 +148,15 @@ input:-webkit-autofill {
     -webkit-filter: brightness(1.2);
             filter: brightness(1.2);
 }
+
+/*ERROR*/
+#error h1, #error p {
+    text-align: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+#error #search-container {
+    margin: 0 auto;
+}
+/*ERROR*/

@@ -13,11 +13,11 @@
         globals.base_url = '{{base_url}}';
     </script>
 </head>
-<body>
+<body id="error">
     {% csrf_token %}
     <%= require('html-loader!./partial/header.html') %>
 
-    <h2 id="title">404</h2>
+    <h1>404</h1>
     <p>Try again! Page not found!</p>
 
     <div id="search-container">

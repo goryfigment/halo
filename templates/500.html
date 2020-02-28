@@ -13,11 +13,11 @@
         globals.base_url = '{{base_url}}';
     </script>
 </head>
-<body>
+<body id="error">
     {% csrf_token %}
     <%= require('html-loader!./partial/header.html') %>
 
-    <h2 id="title">500</h2>
+    <h1>500</h1>
     <p>Sorry for the inconvenience, please keep refreshing this page to fix the issue! Thank you!</p>
 
     <div id="overlay"></div>
