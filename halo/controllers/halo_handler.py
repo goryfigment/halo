@@ -147,7 +147,7 @@ def service_record(gt, ranks, highest_rank):
     wins = int(value_element[2].get_text())
     losses = int(value_element[3].get_text())
     print wins
-    print losses
+
 
     kd_ratio = decimal_format(float(kills)/float(deaths), 2, False)
     wl_ratio = decimal_format(float(wins)/float(losses), 2, False)

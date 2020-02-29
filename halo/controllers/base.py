@@ -5,6 +5,10 @@ from django.core import serializers
 from django.http import HttpResponseBadRequest
 
 
+def get_twitch():
+    return 'https://www.twitch.tv/slimhaley'
+
+
 def get_base_url():
     return settings.BASE_URL
 
