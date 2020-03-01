@@ -1,7 +1,7 @@
 /* Mobile Styles */
 @media only screen and (max-width: 1000px) {
     body {
-        height: 100vh !important;
+        height: 100% !important;
     }
 
     #wrapper {
