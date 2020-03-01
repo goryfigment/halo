@@ -87,38 +87,31 @@ def update_database(request, gt):
     try:
         ranks = halo_ranks(gt)
 
-        rank_list = [ranks["H3 Team Slayer"][0]['SkillRank'],
-        ranks["H3 Team Hardcore"][0]['SkillRank'],
-        ranks["MS 2v2 Series"][0]['SkillRank'],
-        ranks["H3 Team Doubles"][0]['SkillRank'],
-        ranks["Halo: Reach Team Hardcore"][0]['SkillRank'],
-        ranks["Halo: Reach Invasion"][0]['SkillRank'],
-        ranks["H2C Team Hardcore"][0]['SkillRank'],
-        ranks["HCE Team Doubles"][0]['SkillRank'],
-        ranks["Halo: Reach Team Slayer"][0]['SkillRank']]
+        xbox_ranks = ranks['xbox']
+        pc_ranks = ranks['pc']
 
-        service_record(gt, ranks, max(rank_list))
+        rank_list = [xbox_ranks["H3 Team Slayer"][0]['SkillRank'],
+        xbox_ranks["H3 Team Hardcore"][0]['SkillRank'],
+        xbox_ranks["MS 2v2 Series"][0]['SkillRank'],
+        xbox_ranks["H3 Team Doubles"][0]['SkillRank'],
+        xbox_ranks["Halo: Reach Team Hardcore"][0]['SkillRank'],
+        xbox_ranks["Halo: Reach Invasion"][0]['SkillRank'],
+        xbox_ranks["H2C Team Hardcore"][0]['SkillRank'],
+        xbox_ranks["HCE Team Doubles"][0]['SkillRank'],
+        xbox_ranks["Halo: Reach Team Slayer"][0]['SkillRank'],
+        pc_ranks["Halo: Reach Team Slayer"][0]['SkillRank'],
+        pc_ranks["Halo: Reach Invasion"][0]['SkillRank'],
+        pc_ranks["Halo: Reach Team Hardcore"][0]['SkillRank']]
+
+        service_record(gt, xbox_ranks, pc_ranks, max(rank_list))
     except:
         get_xbox_auth()
         ranks = halo_ranks(gt)
 
-    player_obj = Player.objects.filter(gamertag=gt)
-
-    if player_obj.exists():
-        player_obj = Player.objects.get(gamertag=gt)
-        player_obj.hits += 1
-        player_obj.save()
-        player = model_to_dict(player_obj)
-        player['kd_ratio'] = decimal_format(float(player['kills'])/float(player['deaths']), 2, False)
-        player['wl_ratio'] = decimal_format(float(player['wins'])/float(player['losses']), 2, False)
-    else:
-        player = {}
-
     data = {
         'base_url': get_base_url(),
         'ranks': json.dumps(ranks),
-        'gt': gt,
-        'player': player
+        'gt': gt
     }
 
     return render(request, 'profile.html', data)
