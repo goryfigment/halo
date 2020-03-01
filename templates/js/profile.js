@@ -37,7 +37,7 @@ function serviceRecordSuccess(response) {
     $serviceRecord.empty();
     $playerDetails.empty();
 
-    $serviceRecord.append(serviceRecordTemplate({'ranks': globals.sorted_ranks, 'gt': globals.gamertag, 'record': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+    $serviceRecord.append(serviceRecordTemplate({'highest_rank': response['highest_rank'], 'gt': globals.gamertag, 'record': response}));
 
     response['hits'] = globals.player['hits'];
 
@@ -53,26 +53,53 @@ function serviceRecordError() {
 }
 
 $(document).ready(function() {
-    var ranks = globals.ranks;
-    var sorted_ranks = [];
-    for (var playlist in ranks) {
-        if (ranks.hasOwnProperty(playlist)) {
-            sorted_ranks.push({
+    var xbox_ranks = globals.xbox_ranks;
+    var pc_ranks = globals.pc_ranks;
+
+    var sorted_xbl_ranks = [];
+    var sorted_pc_ranks = [];
+    //Xbox Ranks
+    for (var playlist in xbox_ranks) {
+        if (xbox_ranks.hasOwnProperty(playlist)) {
+            sorted_xbl_ranks.push({
                 'key': helper.replaceAll(playlist.toLowerCase(), ' ', '_').replace(':', ''),
                 'playlist': playlist,
-                'rank': ranks[playlist][0]['SkillRank']
+                'rank': xbox_ranks[playlist][0]['SkillRank']
             });
         }
     }
 
-    sorted_ranks.sort(function(a, b) {
+    sorted_xbl_ranks.sort(function(a, b) {
         return b['rank'] - a['rank'];
     });
 
-    globals.sorted_ranks = sorted_ranks;
+    var avail_pc_ranks = ['Halo: Reach Team Slayer', 'Halo: Reach Invasion', 'Halo: Reach Team Hardcore'];
+
+    //PC Ranks
+    for (var pc_playlist in xbox_ranks) {
+        if (xbox_ranks.hasOwnProperty(pc_playlist) && avail_pc_ranks.indexOf(pc_playlist) > -1) {
+            sorted_pc_ranks.push({
+                'key': helper.replaceAll(pc_playlist.toLowerCase(), ' ', '_').replace(':', ''),
+                'playlist': pc_playlist,
+                'rank': pc_ranks[pc_playlist][0]['SkillRank']
+            });
+        }
+    }
+
+    sorted_pc_ranks.sort(function(a, b) {
+        return b['rank'] - a['rank'];
+    });
+
+    globals.sorted_ranks = sorted_xbl_ranks;
+
+    if(sorted_xbl_ranks[0]['rank'] >= sorted_pc_ranks[0]['rank']) {
+        var highest_rank = sorted_xbl_ranks[0]['rank'];
+    } else {
+        highest_rank = sorted_pc_ranks[0]['rank'];
+    }
 
     if(!$.isEmptyObject(globals.player)) {
-        $('#service-record').append(serviceRecordTemplate({'ranks': sorted_ranks, 'gt': globals.gamertag, 'record': globals.player}));
+        $('#service-record').append(serviceRecordTemplate({highest_rank: highest_rank, 'gt': globals.gamertag, 'record': globals.player}));
         $('#player-details').append(playerDetailsTemplate({'player': globals.player, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
     }
 
@@ -83,8 +110,9 @@ $(document).ready(function() {
         $donatorWrapper.show();
     }
 
-    $('#right-wrapper').append(haloRanksTemplate({'ranks': sorted_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
-    sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, ranks: globals.ranks, highest_rank: sorted_ranks[0]['rank']}), 'POST', serviceRecordSuccess, serviceRecordError);
+    $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+    $('#pc-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_pc_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+    sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, xbox_ranks: xbox_ranks, pc_ranks: pc_ranks, highest_rank: highest_rank}), 'POST', serviceRecordSuccess, serviceRecordError);
 });
 
 //PRIVATE/

@@ -68,10 +68,13 @@ def profile(request, gt):
         player = {}
         leaderboard = {}
 
+    print ranks['xbox']
+
     data = {
         'base_url': get_base_url(),
-        'ranks': json.dumps(ranks),
-        'gt': ranks['H3 Team Slayer'][0]['Gamertag'],
+        'xbox_ranks': json.dumps(ranks['xbox']),
+        'pc_ranks': json.dumps(ranks['pc']),
+        'gt': ranks['xbox']['H3 Team Slayer'][0]['Gamertag'],
         'player': json.dumps(player),
         'leaderboard': json.dumps(leaderboard),
         'player_count': Player.objects.all().count()

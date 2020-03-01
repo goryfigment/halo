@@ -8,7 +8,8 @@
     <script>
         var globals = {};
         globals.base_url = '{{base_url}}';
-        globals.ranks = {{ranks|safe}};
+        globals.xbox_ranks = {{xbox_ranks|safe}};
+        globals.pc_ranks = {{pc_ranks|safe}};
         globals.player = {{player|safe}};
         globals.leaderboard = {{leaderboard|safe}};
         globals.player_count = {{player_count}}
@@ -28,7 +29,12 @@
             <div id="donator-wrapper"></div>
             <div id="player-details"></div>
         </div>
-        <div id="right-wrapper"></div>
+        <div id="right-wrapper">
+            <h4><span id="xbox-icon"><i class="fab fa-xbox"></i></span> Xbox Ranks</h4>
+            <div id="xbox-rank-wrapper"></div>
+            <h4><span id="pc-icon"><i class="fab fa-steam"></i></span> PC Ranks</h4>
+            <div id="pc-rank-wrapper"></div>
+        </div>
     </div>
 
     <div id="overlay"></div>

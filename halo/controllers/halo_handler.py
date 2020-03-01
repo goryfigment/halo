@@ -8,7 +8,7 @@ import time
 from .. import settings_secret
 from bs4 import BeautifulSoup
 from base import decimal_format
-from halo.models import Player, Ranks, Leaderboard
+from halo.models import Player, Ranks, Leaderboard, PcRanks
 
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -106,7 +106,7 @@ def get_xbox_auth():
 
 
 def halo_ranks(gt):
-    r = requests.get('https://www.halowaypoint.com/en-us/games/halo-the-master-chief-collection/xbox-one/skill-ranks?view=DataOnly&gamertags=' + gt,
+    xbox = requests.get('https://www.halowaypoint.com/en-us/games/halo-the-master-chief-collection/xbox-one/skill-ranks?view=DataOnly&gamertags=' + gt,
                                  headers={
                                       'user-agent': USER_AGENT,
                                       'referer': oauth20_authorize,
@@ -117,10 +117,21 @@ def halo_ranks(gt):
                                   cookies=json.load(open(cookie_json))
     )
 
-    return r.json()
+    pc = requests.get('https://www.halowaypoint.com/en-us/games/halo-the-master-chief-collection/windows/skill-ranks?view=DataOnly&gamertags=' + gt,
+                                 headers={
+                                      'user-agent': USER_AGENT,
+                                      'referer': oauth20_authorize,
+                                      'host': 'www.halowaypoint.com'
+                                  },
+                                  verify=False,
+                                  allow_redirects=False,
+                                  cookies=json.load(open(cookie_json))
+    )
+
+    return {'xbox': xbox.json(), 'pc': pc.json()}
 
 
-def service_record(gt, ranks, highest_rank):
+def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
     endpoint = 'https://www.halowaypoint.com/en-us/games/halo-the-master-chief-collection/xbox-one/service-records/players/' + gt
 
     data = (requests.get(endpoint,
@@ -146,8 +157,6 @@ def service_record(gt, ranks, highest_rank):
     matches = numeric_medium[1].get_text()
     wins = int(value_element[2].get_text())
     losses = int(value_element[3].get_text())
-    print wins
-
 
     kd_ratio = decimal_format(float(kills)/float(deaths), 2, False)
     wl_ratio = decimal_format(float(wins)/float(losses), 2, False)
@@ -183,16 +192,21 @@ def service_record(gt, ranks, highest_rank):
         player.save()
 
         rank_obj = Ranks.objects.get(player=player)
-        rank_obj.h3_team_slayer = ranks["H3 Team Slayer"][0]['SkillRank']
-        rank_obj.h3_team_hardcore = ranks["H3 Team Hardcore"][0]['SkillRank']
-        rank_obj.ms_2v2_series = ranks["MS 2v2 Series"][0]['SkillRank']
-        rank_obj.h3_team_doubles = ranks["H3 Team Doubles"][0]['SkillRank']
-        rank_obj.halo_reach_team_hardcore = ranks["Halo: Reach Team Hardcore"][0]['SkillRank']
-        rank_obj.halo_reach_invasion = ranks["Halo: Reach Invasion"][0]['SkillRank']
-        rank_obj.h2c_team_hardcore = ranks["H2C Team Hardcore"][0]['SkillRank']
-        rank_obj.hce_team_doubles = ranks["HCE Team Doubles"][0]['SkillRank']
-        rank_obj.halo_reach_team_slayer = ranks["Halo: Reach Team Slayer"][0]['SkillRank']
+        rank_obj.h3_team_slayer = xbox_ranks["H3 Team Slayer"][0]['SkillRank']
+        rank_obj.h3_team_hardcore = xbox_ranks["H3 Team Hardcore"][0]['SkillRank']
+        rank_obj.ms_2v2_series = xbox_ranks["MS 2v2 Series"][0]['SkillRank']
+        rank_obj.h3_team_doubles = xbox_ranks["H3 Team Doubles"][0]['SkillRank']
+        rank_obj.halo_reach_team_hardcore = xbox_ranks["Halo: Reach Team Hardcore"][0]['SkillRank']
+        rank_obj.halo_reach_invasion = xbox_ranks["Halo: Reach Invasion"][0]['SkillRank']
+        rank_obj.h2c_team_hardcore = xbox_ranks["H2C Team Hardcore"][0]['SkillRank']
+        rank_obj.hce_team_doubles = xbox_ranks["HCE Team Doubles"][0]['SkillRank']
+        rank_obj.halo_reach_team_slayer = xbox_ranks["Halo: Reach Team Slayer"][0]['SkillRank']
         rank_obj.save()
+
+        pc_rank_obj = PcRanks.objects.get(player=player)
+        pc_rank_obj.halo_reach_team_slayer = pc_ranks["Halo: Reach Team Slayer"][0]['SkillRank']
+        pc_rank_obj.halo_reach_team_hardcore = pc_ranks["Halo: Reach Team Hardcore"][0]['SkillRank']
+        pc_rank_obj.halo_reach_invasion = pc_ranks["Halo: Reach Invasion"][0]['SkillRank']
     else:
         player = Player.objects.create(
             gamertag=gt,
@@ -210,15 +224,22 @@ def service_record(gt, ranks, highest_rank):
 
         Ranks.objects.create(
             player=player,
-            h3_team_slayer=ranks["H3 Team Slayer"][0]['SkillRank'],
-            h3_team_hardcore=ranks["H3 Team Hardcore"][0]['SkillRank'],
-            ms_2v2_series=ranks["MS 2v2 Series"][0]['SkillRank'],
-            h3_team_doubles=ranks["H3 Team Doubles"][0]['SkillRank'],
-            halo_reach_team_hardcore=ranks["Halo: Reach Team Hardcore"][0]['SkillRank'],
-            halo_reach_invasion=ranks["Halo: Reach Invasion"][0]['SkillRank'],
-            h2c_team_hardcore=ranks["H2C Team Hardcore"][0]['SkillRank'],
-            hce_team_doubles=ranks["HCE Team Doubles"][0]['SkillRank'],
-            halo_reach_team_slayer=ranks["Halo: Reach Team Slayer"][0]['SkillRank']
+            h3_team_slayer=xbox_ranks["H3 Team Slayer"][0]['SkillRank'],
+            h3_team_hardcore=xbox_ranks["H3 Team Hardcore"][0]['SkillRank'],
+            ms_2v2_series=xbox_ranks["MS 2v2 Series"][0]['SkillRank'],
+            h3_team_doubles=xbox_ranks["H3 Team Doubles"][0]['SkillRank'],
+            halo_reach_team_hardcore=xbox_ranks["Halo: Reach Team Hardcore"][0]['SkillRank'],
+            halo_reach_invasion=xbox_ranks["Halo: Reach Invasion"][0]['SkillRank'],
+            h2c_team_hardcore=xbox_ranks["H2C Team Hardcore"][0]['SkillRank'],
+            hce_team_doubles=xbox_ranks["HCE Team Doubles"][0]['SkillRank'],
+            halo_reach_team_slayer=xbox_ranks["Halo: Reach Team Slayer"][0]['SkillRank']
+        )
+
+        PcRanks.objects.create(
+            player=player,
+            halo_reach_team_hardcore=pc_ranks["Halo: Reach Team Hardcore"][0]['SkillRank'],
+            halo_reach_invasion=pc_ranks["Halo: Reach Invasion"][0]['SkillRank'],
+            halo_reach_team_slayer=pc_ranks["Halo: Reach Team Slayer"][0]['SkillRank']
         )
 
         Leaderboard.objects.create(player=player)
@@ -232,6 +253,7 @@ def service_record(gt, ranks, highest_rank):
         'kd_ratio': kd_ratio,
         'wins': wins,
         'losses': losses,
-        'wl_ratio': wl_ratio
+        'wl_ratio': wl_ratio,
+        'highest_rank': highest_rank
     }
 
