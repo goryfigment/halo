@@ -84,7 +84,7 @@ def most_kills(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    leaderboards = list(Player.objects.filter(kills__gt=0).values('gamertag', 'kills', 'matches', 'emblem', 'id', 'donation', 'twitch', 'youtube', 'twitter', 'notes', 'color', 'social').order_by('-kills')[first_record:last_record])
+    leaderboards = list(Player.objects.filter(kills__gt=0, ban=False).values('gamertag', 'kills', 'matches', 'emblem', 'id', 'donation', 'twitch', 'youtube', 'twitter', 'notes', 'color', 'social').order_by('-kills')[first_record:last_record])
     data['index'] = first_record
 
     # for player in leaderboards:
@@ -114,7 +114,7 @@ def most_deaths(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    leaderboards = Player.objects.filter(deaths__gt=0).order_by('-deaths')[first_record:last_record]
+    leaderboards = Player.objects.filter(deaths__gt=0, ban=False).order_by('-deaths')[first_record:last_record]
     data['index'] = first_record
 
     # for player in leaderboards:
@@ -144,7 +144,7 @@ def most_wins(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    data['leaderboard'] = json.dumps(list(Player.objects.filter(wins__gt=0).values('gamertag', 'wins', 'matches', 'emblem', 'id', 'donation', 'twitch', 'youtube', 'twitter', 'notes', 'color', 'social').order_by('-wins')[first_record:last_record]))
+    data['leaderboard'] = json.dumps(list(Player.objects.filter(wins__gt=0, ban=False).values('gamertag', 'wins', 'matches', 'emblem', 'id', 'donation', 'twitch', 'youtube', 'twitter', 'notes', 'color', 'social').order_by('-wins')[first_record:last_record]))
     data['index'] = first_record
 
     # for player in leaderboards:
@@ -172,7 +172,7 @@ def most_losses(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    leaderboards = Player.objects.filter(losses__gt=0).order_by('-losses')[first_record:last_record]
+    leaderboards = Player.objects.filter(losses__gt=0, ban=False).order_by('-losses')[first_record:last_record]
     data['index'] = first_record
 
     # for player in leaderboards:
@@ -202,7 +202,7 @@ def most_matches(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    leaderboards = Player.objects.all().order_by('-matches')[first_record:last_record]
+    leaderboards = Player.objects.filter(ban=False).order_by('-matches')[first_record:last_record]
     data['index'] = first_record
 
     # for player in leaderboards:
@@ -232,7 +232,7 @@ def best_wl(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    leaderboards = Player.objects.filter(matches__gte=250).order_by('-wl')[first_record:last_record]
+    leaderboards = Player.objects.filter(matches__gte=250, ban=False).order_by('-wl')[first_record:last_record]
     data['index'] = first_record
 
     # for player in leaderboards:
@@ -262,7 +262,7 @@ def best_kd(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    leaderboards = Player.objects.filter(matches__gt=250).order_by('-kd')[first_record:last_record]
+    leaderboards = Player.objects.filter(matches__gt=250, ban=False).order_by('-kd')[first_record:last_record]
     data['index'] = first_record
 
     # for player in leaderboards:
@@ -292,7 +292,7 @@ def most_playtime(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    leaderboards = Player.objects.all().order_by('-epoch')[first_record:last_record]
+    leaderboards = Player.objects.filter(ban=False).order_by('-epoch')[first_record:last_record]
     data['index'] = first_record
 
     # for player in leaderboards:
@@ -325,7 +325,7 @@ def all_most_50s(request):
         if page > 1:
             data['rank'] = 3
 
-    sorted_50s = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h3_team_slayer',
+    sorted_50s = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__matches', 'h3_team_slayer',
                                                  'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series',
                                                  'hce_team_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore',
                                                  'halo_reach_invasion', 'halo_reach_team_slayer', 'pc_ranks__halo_reach_team_hardcore',
@@ -377,7 +377,7 @@ def xbox_most_50s(request):
         if page > 1:
             data['rank'] = 3
 
-    sorted_50s = list(Ranks.objects.all().values('player__gamertag', 'player__matches', 'h3_team_slayer',
+    sorted_50s = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__matches', 'h3_team_slayer',
                                                  'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series',
                                                  'hce_team_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore',
                                                  'halo_reach_invasion', 'halo_reach_team_slayer', 'player__emblem',
@@ -426,7 +426,7 @@ def pc_most_50s(request):
         if page > 1:
             data['rank'] = 3
 
-    sorted_50s = list(PcRanks.objects.all().values('player__gamertag', 'player__matches', 'halo_reach_team_hardcore',
+    sorted_50s = list(PcRanks.objects.filter(player__ban=False).values('player__gamertag', 'player__matches', 'halo_reach_team_hardcore',
                                                    'halo_reach_invasion', 'halo_reach_team_slayer', 'player__emblem',
                                                    'player__donation', 'player__twitch', 'player__youtube', 'player__twitter',
                                                    'player__notes', 'player__color', 'player__social').order_by('-player__matches'))
@@ -471,7 +471,7 @@ def h3_team_slayer(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'h3_team_slayer', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-h3_team_slayer', '-player__matches')[first_record:last_record])
+    rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'h3_team_slayer', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-h3_team_slayer', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
@@ -501,7 +501,7 @@ def h3_team_hardcore(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'h3_team_hardcore', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-h3_team_hardcore', '-player__matches')[first_record:last_record])
+    rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'h3_team_hardcore', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-h3_team_hardcore', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
@@ -531,7 +531,7 @@ def h3_team_doubles(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'h3_team_doubles', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-h3_team_doubles', '-player__matches')[first_record:last_record])
+    rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'h3_team_doubles', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-h3_team_doubles', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
@@ -561,7 +561,7 @@ def ms_2v2_series(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'ms_2v2_series', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-ms_2v2_series', '-player__matches')[first_record:last_record])
+    rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'ms_2v2_series', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-ms_2v2_series', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
@@ -591,7 +591,7 @@ def hce_team_doubles(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'hce_team_doubles', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-hce_team_doubles', '-player__matches')[first_record:last_record])
+    rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'hce_team_doubles', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-hce_team_doubles', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
@@ -621,7 +621,7 @@ def h2c_team_hardcore(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'h2c_team_hardcore', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-h2c_team_hardcore', '-player__matches')[first_record:last_record])
+    rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'h2c_team_hardcore', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-h2c_team_hardcore', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
@@ -651,7 +651,7 @@ def halo_reach_team_hardcore(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_hardcore', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_hardcore', '-player__matches')[first_record:last_record])
+    rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_hardcore', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_hardcore', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
@@ -681,7 +681,7 @@ def halo_reach_invasion(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_invasion', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_invasion', '-player__matches')[first_record:last_record])
+    rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_invasion', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_invasion', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
@@ -711,7 +711,7 @@ def halo_reach_team_slayer(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_slayer', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_slayer', '-player__matches')[first_record:last_record])
+    rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_slayer', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_slayer', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
@@ -742,7 +742,7 @@ def pc_reach_team_hardcore(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(PcRanks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_hardcore', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_hardcore', '-player__matches')[first_record:last_record])
+    rank_list = list(PcRanks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_hardcore', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_hardcore', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
@@ -773,7 +773,7 @@ def pc_reach_invasion(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(PcRanks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_invasion', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_invasion', '-player__matches')[first_record:last_record])
+    rank_list = list(PcRanks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_invasion', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_invasion', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
@@ -804,7 +804,7 @@ def pc_reach_team_slayer(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(PcRanks.objects.all().values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_slayer', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_slayer', '-player__matches')[first_record:last_record])
+    rank_list = list(PcRanks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_slayer', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_slayer', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
