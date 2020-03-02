@@ -64,7 +64,7 @@ class PcRanks(models.Model):
 
 class Ranks(models.Model):
     player = models.ForeignKey(Player, default=None)
-    pc_ranks = models.ForeignKey(PcRanks, default=None)
+    pc_ranks = models.ForeignKey(PcRanks, default=1)
     h3_team_slayer = models.IntegerField(default=0)
     h3_team_hardcore = models.IntegerField(default=0)
     ms_2v2_series = models.IntegerField(default=0)

@@ -76,8 +76,8 @@ $(document).ready(function() {
     var avail_pc_ranks = ['Halo: Reach Team Slayer', 'Halo: Reach Invasion', 'Halo: Reach Team Hardcore'];
 
     //PC Ranks
-    for (var pc_playlist in xbox_ranks) {
-        if (xbox_ranks.hasOwnProperty(pc_playlist) && avail_pc_ranks.indexOf(pc_playlist) > -1) {
+    for (var pc_playlist in pc_ranks) {
+        if (pc_ranks.hasOwnProperty(pc_playlist) && avail_pc_ranks.indexOf(pc_playlist) > -1) {
             sorted_pc_ranks.push({
                 'key': 'pc_' + helper.replaceAll(pc_playlist.toLowerCase(), ' ', '_').replace(':', ''),
                 'playlist': pc_playlist,
