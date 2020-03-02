@@ -41,7 +41,10 @@ urlpatterns = [
     url(r'^leaderboards/wl', leaderboard.best_wl),
     url(r'^leaderboards/kd', leaderboard.best_kd),
     url(r'^leaderboards/playtime', leaderboard.most_playtime),
-    url(r'^leaderboards/most-50s', leaderboard.most_50s),
+
+    url(r'^leaderboards/most-50s', leaderboard.all_most_50s),
+    url(r'^leaderboards/xbox/most-50s', leaderboard.xbox_most_50s),
+    url(r'^leaderboards/pc/most-50s', leaderboard.pc_most_50s),
 
     # PLAYLIST LEADERBOARDS
     url(r'^leaderboards/h3-team-slayer', leaderboard.h3_team_slayer),
@@ -54,4 +57,7 @@ urlpatterns = [
     url(r'^leaderboards/halo-reach-invasion', leaderboard.halo_reach_invasion),
     url(r'^leaderboards/halo-reach-team-slayer', leaderboard.halo_reach_team_slayer),
 
+    url(r'^leaderboards/pc/halo-reach-team-hardcore', leaderboard.pc_reach_team_hardcore),
+    url(r'^leaderboards/pc/halo-reach-invasion', leaderboard.pc_reach_invasion),
+    url(r'^leaderboards/pc/halo-reach-team-slayer', leaderboard.pc_reach_team_slayer),
 ]

@@ -61,7 +61,9 @@ $(document).ready(function() {
     $('#leaderboard-wrapper').append(leaderboards[globals.type](globals.leaderboard));
     $('#pagination').append(pagination({'page': globals.page}));
 
-    sendRequest('/update-leaderboard/', JSON.stringify({leaderboards: globals.leaderboard, type: globals.type, index: globals.index}), 'POST', updateLeaderboardSuccess, updateLeaderboardError);
+    alert(globals.platform + globals.type)
+
+    sendRequest('/update-leaderboard/', JSON.stringify({leaderboards: globals.leaderboard, type: globals.platform + globals.type, index: globals.index}), 'POST', updateLeaderboardSuccess, updateLeaderboardError);
 });
 
 $(document).on('click', '#pagination li', function () {

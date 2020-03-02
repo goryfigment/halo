@@ -68,8 +68,6 @@ def profile(request, gt):
         player = {}
         leaderboard = {}
 
-    print ranks['xbox']
-
     data = {
         'base_url': get_base_url(),
         'xbox_ranks': json.dumps(ranks['xbox']),

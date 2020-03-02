@@ -79,7 +79,7 @@ $(document).ready(function() {
     for (var pc_playlist in xbox_ranks) {
         if (xbox_ranks.hasOwnProperty(pc_playlist) && avail_pc_ranks.indexOf(pc_playlist) > -1) {
             sorted_pc_ranks.push({
-                'key': helper.replaceAll(pc_playlist.toLowerCase(), ' ', '_').replace(':', ''),
+                'key': 'pc_' + helper.replaceAll(pc_playlist.toLowerCase(), ' ', '_').replace(':', ''),
                 'playlist': pc_playlist,
                 'rank': pc_ranks[pc_playlist][0]['SkillRank']
             });

@@ -316,9 +316,9 @@ button:hover, #donate-button:hover a {
                 transform: scale(0.9);
     }
 
-    #leaderboard-container div {
+    #leaderboard-container .leaderboard-section {
         padding: 5px 0 !important;
-        width: 208px !important;
+        width: 250px !important;
     }
 }
 
@@ -350,16 +350,35 @@ button:hover, #donate-button:hover a {
 }
 
 #leaderboard-container a {
-    display: block;
     line-height: 28px;
     text-decoration: none;
     color: #cccccc;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
+    -webkit-transition: ease all 0.5s;
+    -o-transition: ease all 0.5s;
+    transition: ease all 0.5s;
 }
 
-#leaderboard-container div {
+.leaderboard-section {
     padding: 5px 20px;
+}
+
+#leaderboard-container .platform {
+    margin-left: 10px;
+    background: #1c1c1c;
+    padding: 2px 6px;
+    border: 1px solid #282828;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+}
+
+.platform a:first-child {
+    padding-right: 4px;
+}
+
+.platform a:nth-child(2) {
+    padding-left: 4px;
 }
 /*LEADERBOARD*/
 
