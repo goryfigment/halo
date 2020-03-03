@@ -46,10 +46,10 @@ function serviceRecordSuccess(response) {
         'matches': response['matches'] - prevDetails['matches'],
         'kills': response['kills'] - prevDetails['kills'],
         'deaths': response['deaths'] - prevDetails['deaths'],
-        'kd': parseFloat(response['kd']) - parseFloat(prevDetails['kd']),
+        'kd': (response['kd'] - prevDetails['kd']).toFixed(2),
         'wins': response['wins'] - prevDetails['wins'],
         'losses': response['losses'] - prevDetails['losses'],
-        'wl': parseFloat(response['wl']) - parseFloat(prevDetails['wl'])
+        'wl': (response['wl'] - prevDetails['wl']).toFixed(2)
     };
 
     $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
