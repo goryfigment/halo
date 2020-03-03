@@ -69,7 +69,7 @@ def dashboard(request):
     if not current_user.is_authenticated():
         return HttpResponseRedirect('/login/')
 
-    players = list(Player.objects.all().values('id', 'gamertag', 'ban', 'donation', 'twitch', 'youtube', 'twitter', 'mixer', 'social', 'notes', 'color').order_by('gamertag'))
+    players = list(Player.objects.all().values('id', 'gamertag', 'ban', 'donation', 'twitch', 'youtube', 'twitter', 'mixer', 'social', 'notes', 'color'))
 
     data = {
         'base_url': get_base_url(),

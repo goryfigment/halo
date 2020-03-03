@@ -30,14 +30,14 @@ urlpatterns = [
     url(r'^db-update/(?P<type>.*)', leaderboard.database_leaderboard),
 
     # USER
-    url(r'^register/$', site.register, name='register_page'),
+    # url(r'^register/$', site.register, name='register_page'),
     url(r'^login/$', site.login, name='login_page'),
     url(r'^forgot_password/$', site.forgot_password, name='forgot_password'),
     url(r'^dashboard/$', site.dashboard, name='dashboard'),
     url(r'^edit-player/$', profile.edit_player, name='edit_player'),
 
     # Account Handler
-    url(r'^account/register/$', account_handler.register, name='register'),
+    # url(r'^account/register/$', account_handler.register, name='register'),
     url(r'^account/login/$', account_handler.user_login, name='login'),
     url(r'^account/reset_password/$', account_handler.reset_password, name='reset_password'),
     url(r'^account/change_password/$', account_handler.change_password, name='change_password'),
