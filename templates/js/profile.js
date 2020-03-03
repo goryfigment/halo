@@ -34,14 +34,25 @@ function sendRequest(url, data, request_type, success, error, exception) {
 function serviceRecordSuccess(response) {
     var $serviceRecord = $('#service-record');
     var $playerDetails = $('#player-details');
+    var prevDetails = globals.player;
     $serviceRecord.empty();
     $playerDetails.empty();
 
     $serviceRecord.append(serviceRecordTemplate({'highest_rank': response['highest_rank'], 'gt': globals.gamertag, 'record': response}));
 
-    response['hits'] = globals.player['hits'];
+    response['hits'] = prevDetails['hits'];
 
-    $playerDetails.append(playerDetailsTemplate({'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+    var change = {
+        'matches': response['matches'] - prevDetails['matches'],
+        'kills': response['kills'] - prevDetails['kills'],
+        'deaths': response['deaths'] - prevDetails['deaths'],
+        'kd': parseFloat(response['kd']) - parseFloat(prevDetails['kd']),
+        'wins': response['wins'] - prevDetails['wins'],
+        'losses': response['losses'] - prevDetails['losses'],
+        'wl': parseFloat(response['wl']) - parseFloat(prevDetails['wl'])
+    };
+
+    $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
 }
 
 function serviceRecordError() {

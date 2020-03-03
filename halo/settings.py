@@ -153,9 +153,9 @@ WEBPACK_LOADER = {
     }
 }
 # AUTH_USER_MODEL = 'whey2ez.models.StoreManager'
-# AUTHENTICATION_BACKENDS = (
-#     # 'django.contrib.auth.backends.ModelBackend',
-#     'destiny.custom.MyCustomBackend',
-# )
+AUTHENTICATION_BACKENDS = (
+    # 'django.contrib.auth.backends.ModelBackend',
+    'halo.custom.MyCustomBackend',
+)
 STATIC_URL = '/templates/'
 TEMPLATE = (os.path.join(BASE_DIR, 'templates'),)

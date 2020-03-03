@@ -1,0 +1,36 @@
+<table class="table-container">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>GAMERTAG</th>
+            <th>BAN</th>
+            <th>DONATION</th>
+            <th>TWITCH</th>
+            <th>YOUTUBE</th>
+            <th>TWITTER</th>
+            <th>MIXER</th>
+            <th>SOCIAL</th>
+            <th>COLOR</th>
+            <th>NOTES</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each players}}
+            <tr>
+                <td class="id" data-column="id">{{id}}</td>
+                <td class="gamertag" data-column="gamertag">{{gamertag}}</td>
+                <td data-column="ban">{{ban}}</td>
+                <td data-input="donation">{{donation}}</td>
+                <td data-input="twitch">{{twitch}}</td>
+                <td data-input="youtube">{{youtube}}</td>
+                <td data-input="twitter">{{twitter}}</td>
+                <td data-input="mixer">{{mixer}}</td>
+                <td data-input="social">{{social}}</td>
+                <td data-input="color">{{color}}</td>
+                <td data-input="notes">{{notes}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+

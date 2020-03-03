@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from halo.controllers import site, profile, leaderboard, donate
+from halo.controllers import site, profile, leaderboard, donate, account_handler
 
 urlpatterns = [
     url(r'^$', site.home, name='home'),
@@ -28,6 +28,21 @@ urlpatterns = [
     url(r'^service-record/', profile.service_record),
     url(r'^update-leaderboard/', leaderboard.update_leaderboard),
     url(r'^db-update/(?P<type>.*)', leaderboard.database_leaderboard),
+
+    # USER
+    url(r'^register/$', site.register, name='register_page'),
+    url(r'^login/$', site.login, name='login_page'),
+    url(r'^forgot_password/$', site.forgot_password, name='forgot_password'),
+    url(r'^dashboard/$', site.dashboard, name='dashboard'),
+    url(r'^edit-player/$', profile.edit_player, name='edit_player'),
+
+    # Account Handler
+    url(r'^account/register/$', account_handler.register, name='register'),
+    url(r'^account/login/$', account_handler.user_login, name='login'),
+    url(r'^account/reset_password/$', account_handler.reset_password, name='reset_password'),
+    url(r'^account/change_password/$', account_handler.change_password, name='change_password'),
+    url(r'^logout/$', account_handler.user_logout, name='logout'),
+
 
     # DONATE
     url(r'^donate-message/', donate.donate_email),

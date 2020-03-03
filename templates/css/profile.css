@@ -79,6 +79,7 @@ h1 {
     font-weight: bold;
     white-space: nowrap;
 }
+
 /*SERVICE RECORD*/
 #service-record {
     display: flex;
@@ -192,6 +193,20 @@ h1 {
 .stat-item div:nth-child(2) {
     font-weight: bold;
     font-size: 19px;
+}
+
+.change {
+    color: #2ce12c;
+    font-size: 12px;
+    position: absolute;
+    margin-left: 5px;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.neg.change {
+    color: #ff5d5d;
 }
 /*PLAYER DETAILS*/
 

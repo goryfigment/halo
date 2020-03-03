@@ -1,12 +1,8 @@
-import json, math, time
+import json, math, time, bcrypt
 from django.conf import settings
 from django.http import HttpResponse
 from django.core import serializers
 from django.http import HttpResponseBadRequest
-
-
-def get_twitch():
-    return 'https://www.twitch.tv/slimhaley'
 
 
 def get_base_url():
@@ -73,3 +69,11 @@ def array_to_dict(array):
         dict_obj[item['id']] = item
 
     return dict_obj
+
+
+def validate_password(password, hashed_password):
+    return bcrypt.hashpw(password.encode('utf8'), hashed_password.encode('utf8')) == hashed_password
+
+
+def create_password(password):
+    return bcrypt.hashpw(password.encode('utf8'), bcrypt.gensalt())

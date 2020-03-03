@@ -1,8 +1,9 @@
-import json
+import json, time
 from django.shortcuts import render
 from base import get_base_url, model_to_dict, decimal_format
+from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
-from halo.models import Player, Leaderboard
+from halo.models import Player, Leaderboard, User
 
 
 def error_page(request):
@@ -37,6 +38,66 @@ def donate(request):
     return render(request, 'donate.html', data)
 
 
+def register(request):
+    data = {
+        'base_url': get_base_url()
+    }
+
+    # If user is login redirect to overview
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/dashboard/')
+
+    return render(request, 'register.html', data)
+
+
+def login(request):
+    data = {
+        'base_url': get_base_url()
+    }
+
+    # If user is login redirect to overview
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/dashboard/')
+
+    return render(request, 'login.html', data)
+
+
+def dashboard(request):
+    current_user = request.user
+
+    # Only go to overview if user is logged in
+    if not current_user.is_authenticated():
+        return HttpResponseRedirect('/login/')
+
+    players = list(Player.objects.all().values('id', 'gamertag', 'ban', 'donation', 'twitch', 'youtube', 'twitter', 'mixer', 'social', 'notes', 'color').order_by('gamertag'))
+
+    data = {
+        'base_url': get_base_url(),
+        'players': json.dumps(players)
+    }
+
+    return render(request, 'dashboard.html', data)
+
+
+def forgot_password(request):
+    data = {
+        'base_url': get_base_url(),
+        'expired': False
+    }
+
+    if 'code' in request.GET:
+        current_user = User.objects.get(reset_link=request.GET['code'])
+
+        if (int(round(time.time())) - current_user.reset_date) > 86400:
+            data['expired'] = True
+
+    # If user is login redirect to overview
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/dashboard/')
+
+    return render(request, 'forgot_password.html', data)
+
+
 def sort_ranks(ranks):
     return sorted(ranks, key=lambda i: i['rank'], reverse=True)
 
@@ -55,8 +116,6 @@ def profile(request, gt):
         player_obj.hits += 1
         player_obj.save()
         player = model_to_dict(player_obj)
-        player['kd_ratio'] = decimal_format(float(player['kills'])/float(player['deaths']), 2, False)
-        player['wl_ratio'] = decimal_format(float(player['wins'])/float(player['losses']), 2, False)
 
         leaderboard = Leaderboard.objects.filter(player=player_obj)
 

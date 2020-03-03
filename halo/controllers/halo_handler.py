@@ -252,10 +252,10 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         'matches': matches,
         'kills': kills,
         'deaths': deaths,
-        'kd_ratio': kd_ratio,
+        'kd': kd_ratio,
         'wins': wins,
         'losses': losses,
-        'wl_ratio': wl_ratio,
+        'wl': wl_ratio,
         'highest_rank': highest_rank
     }
 

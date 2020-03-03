@@ -1,0 +1,11 @@
+<span class="check-box-container">
+    <input type="checkbox" id="ban-checkbox" data-type="columns" class="checkbox-input column-filter" style="display: none" {{#ifCond ban '==' 'true'}}checked{{/ifCond}} />
+    <label for="ban-checkbox" class="check-box-wrapper">
+        <span class="check-box">
+            <svg width="12px" height="10px">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+            </svg>
+        </span>
+        <span class="check-box-label">{{ban}}</span>
+    </label>
+</span>
