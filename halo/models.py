@@ -7,24 +7,7 @@ def get_utc_epoch_time():
     return int(round(time.time()))
 
 
-# class Season1(models.Model):
-#     playtime = models.CharField(max_length=255)
-#     kills = models.IntegerField(default=0)
-#     deaths = models.IntegerField(default=0)
-#     wins = models.IntegerField(default=0)
-#     losses = models.IntegerField(default=0)
-#     matches = models.IntegerField(default=0)
-#     wl = models.FloatField(default=0)
-#     kd = models.FloatField(default=0)
-#     epoch = models.IntegerField(default=0)
-#
-#     class Meta:
-#         db_table = "season1"
-
-
 class Player(models.Model):
-    # season1 = models.ForeignKey(Season1, default=None)
-
     gamertag = models.CharField(unique=True, max_length=20)
     playtime = models.CharField(max_length=255)
     emblem = models.CharField(max_length=255)
@@ -49,6 +32,7 @@ class Player(models.Model):
     notes = models.CharField(max_length=255, default='')
     color = models.CharField(max_length=255, default='')
     ban = models.BooleanField(default=False)
+    glow = models.BooleanField(default=False)
 
     class Meta:
         db_table = "player"
@@ -95,6 +79,15 @@ class Leaderboard(models.Model):
     wl = models.IntegerField(default=0)
     kd = models.IntegerField(default=0)
 
+    s1_playtime = models.IntegerField(default=0)
+    s1_kills = models.IntegerField(default=0)
+    s1_deaths = models.IntegerField(default=0)
+    s1_wins = models.IntegerField(default=0)
+    s1_losses = models.IntegerField(default=0)
+    s1_matches = models.IntegerField(default=0)
+    s1_wl = models.IntegerField(default=0)
+    s1_kd = models.IntegerField(default=0)
+
     h3_team_slayer = models.IntegerField(default=0)
     h3_team_hardcore = models.IntegerField(default=0)
     ms_2v2_series = models.IntegerField(default=0)
@@ -139,3 +132,32 @@ class User(AbstractBaseUser):
 
     class Meta:
         db_table = "user"
+
+
+# Screenshot of that given day stats to subtract from
+class Season1(models.Model):
+    player = models.ForeignKey(Player, default=None)
+
+    playtime = models.CharField(max_length=255)
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    epoch = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "season1"
+
+
+# For S1 leaderboards
+class Season1Stats(models.Model):
+    player = models.ForeignKey(Player, default=None)
+
+    playtime = models.CharField(max_length=255)
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    epoch = models.IntegerField(default=0)
