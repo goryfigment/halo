@@ -190,11 +190,6 @@ h1 {
     white-space: nowrap;
 }
 
-.stat-item div:nth-child(2) {
-    font-weight: bold;
-    font-size: 19px;
-}
-
 .change {
     color: #2ce12c;
     font-size: 12px;

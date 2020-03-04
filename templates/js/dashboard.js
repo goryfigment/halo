@@ -6,6 +6,7 @@ var $ = require('jquery');
 
 var playerTemplate = require('./../handlebars/admin/players.hbs');
 var banTemplate = require('./../handlebars/admin/ban.hbs');
+var matchesTemplate = require('./../handlebars/admin/matches.hbs');
 
 function sendRequest(url, data, request_type, success, error, exception) {
     $.ajax({
@@ -134,3 +135,75 @@ $(document).on('keyup', function(e) {
     }
 });
 // EDIT INVENTORY //
+
+// GET MATCHES //
+$(document).on('click', '.popup', function (e) {
+    e.stopPropagation();
+});
+
+$(document).on('click', '#exit-button', function () {
+    $('#overlay').removeClass('active');
+    globals.edit_mode = false;
+});
+
+$(document).on('keyup',function(e) {
+    if (e.keyCode == 27) {
+       $('#overlay').removeClass('active');
+        globals.edit_mode = false;
+    }
+});
+
+$(document).on('click', '.history-button', function (e) {
+    e.stopPropagation();
+    var $overlay = $('#overlay');
+    $overlay.empty();
+    $overlay.addClass('active');
+    $overlay.append('<i style="font-size:40px" class="fas fa-circle-notch fa-spin"></i>');
+    sendRequest('/player-matches/', {'gt': $(this).attr('data-gt')}, 'GET', playerMatchesSuccess, playerMatchesError);
+});
+
+function playerMatchesSuccess(response) {
+    var $overlay = $('#overlay');
+    $overlay.empty();
+    $overlay.append(matchesTemplate(response));
+}
+
+function playerMatchesError(response) {
+    console.log("Player Matches error!");
+}
+// GET MATCHES //
+
+//SORTABLE
+function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(find.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1"), 'g'), replace);
+}
+
+function comparer(index) {
+    return function(a, b) {
+        var valA = getCellValue(a, index), valB = getCellValue(b, index);
+        return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB);
+    }
+}
+
+function getCellValue(row, index){ return $(row).children('td').eq(index).text()}
+
+$(document).on('click', '.sortable', function () {
+    var $this = $(this);
+    var $sortable = $this.closest('table').find('.sortable');
+    for (var s = 0; s < $sortable.length; s++){
+        if($sortable[s] != this) {$sortable[s].asc = false;}
+        $($sortable[s]).removeClass('ascending').removeClass('descending');
+    }
+    var table = $this.parents('table').eq(0);
+    var rows = table.find('tr:gt(0)').toArray().sort(comparer($this.index()));
+
+    this.asc = !this.asc;
+    if (!this.asc){
+        rows = rows.reverse();
+        $this.addClass('descending');
+    } else {
+        $this.addClass('ascending');
+    }
+    for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+});
+//SORTABLE

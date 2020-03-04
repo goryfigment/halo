@@ -105,6 +105,28 @@ def get_xbox_auth():
     write_json_file(s.cookies.get_dict())
 
 
+def halo_matches(gt):
+    endpoint = 'https://www.halowaypoint.com/en-us/games/halo-the-master-chief-collection/xbox-one/game-history?view=DataOnly&gamertags=' + gt
+
+    hundred_matches = []
+
+    for i in range(1, 11):
+        ten_matches = requests.get(endpoint + '&page=' + str(i),
+                                     headers={
+                                          'user-agent': USER_AGENT,
+                                          'referer': oauth20_authorize,
+                                          'host': 'www.halowaypoint.com'
+                                      },
+                                      verify=False,
+                                      allow_redirects=False,
+                                      cookies=json.load(open(cookie_json))
+        ).json()
+
+        hundred_matches += ten_matches[0]['Stats']
+
+    return hundred_matches
+
+
 def halo_ranks(gt):
     xbox = requests.get('https://www.halowaypoint.com/en-us/games/halo-the-master-chief-collection/xbox-one/skill-ranks?view=DataOnly&gamertags=' + gt,
                                  headers={

@@ -1,10 +1,10 @@
 <table class="table-container">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>GAMERTAG</th>
-            <th>BAN</th>
-            <th>DONATION</th>
+            <th class="sortable">ID</th>
+            <th class="sortable">GAMERTAG</th>
+            <th class="sortable">BAN</th>
+            <th class="sortable">DONATION</th>
             <th>TWITCH</th>
             <th>YOUTUBE</th>
             <th>TWITTER</th>
@@ -12,6 +12,7 @@
             <th>SOCIAL</th>
             <th>COLOR</th>
             <th>NOTES</th>
+            <th>ACTION</th>
         </tr>
     </thead>
 
@@ -29,6 +30,7 @@
                 <td data-input="social">{{social}}</td>
                 <td data-input="color">{{color}}</td>
                 <td data-input="notes">{{notes}}</td>
+                <td data-column="action"><span class="history-button" data-gt="{{gamertag}}"><i class="fas fa-history"></i></span></td>
             </tr>
         {{/each}}
     </tbody>

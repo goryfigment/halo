@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^500/$', site.server_error, name='500'),
     url(r'^database/(?P<gt>.*)', site.update_database),
 
-    url(r'^service-record/', profile.service_record),
+    # DATABASE
     url(r'^update-leaderboard/', leaderboard.update_leaderboard),
     url(r'^db-update/(?P<type>.*)', leaderboard.database_leaderboard),
 
@@ -34,7 +34,11 @@ urlpatterns = [
     url(r'^login/$', site.login, name='login_page'),
     url(r'^forgot_password/$', site.forgot_password, name='forgot_password'),
     url(r'^dashboard/$', site.dashboard, name='dashboard'),
+
+    # PROFILE
     url(r'^edit-player/$', profile.edit_player, name='edit_player'),
+    url(r'^service-record/', profile.service_record),
+    url(r'^player-matches/', profile.player_matches),
 
     # Account Handler
     # url(r'^account/register/$', account_handler.register, name='register'),
@@ -42,7 +46,6 @@ urlpatterns = [
     url(r'^account/reset_password/$', account_handler.reset_password, name='reset_password'),
     url(r'^account/change_password/$', account_handler.change_password, name='change_password'),
     url(r'^logout/$', account_handler.user_logout, name='logout'),
-
 
     # DONATE
     url(r'^donate-message/', donate.donate_email),

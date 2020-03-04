@@ -1,5 +1,5 @@
 import json
-from halo_handler import service_record as halo_service_record
+from halo_handler import halo_matches, service_record as halo_service_record
 from django.http import JsonResponse
 from halo.decorators import login_required, data_required
 from halo.models import Player
@@ -16,6 +16,15 @@ def service_record(request):
 #         player_record = halo_service_record(query_request['gt'], query_request['ranks'])
 
     return JsonResponse(player_record, safe=False)
+
+
+@login_required
+@data_required(['gt'], 'GET')
+def player_matches(request):
+    gt = request.GET['gt']
+    matches = halo_matches(gt)
+
+    return JsonResponse({'gt': gt, 'matches': matches}, safe=False)
 
 
 @login_required

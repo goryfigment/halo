@@ -1,0 +1,46 @@
+<div class="popup" id="matches-wrapper">
+    <div class="header-wrapper">
+        <h4>MATCHES</h4>
+        <button id="exit-button">
+            <div><i class="far fa-times-circle"></i></div>
+            <div>esc</div>
+        </button>
+    </div>
+
+    <p>{{gt}} previous 100 matches!</p>
+
+    <div id="table-wrapper">
+        <table class="table-container">
+            <thead>
+                <tr>
+                    <th class="sortable">NUMBER</th>
+                    <th class="sortable">DATETIME</th>
+                    <th class="sortable">KILLS</th>
+                    <th class="sortable">DEATHS</th>
+                    <th class="sortable">ASSISTS</th>
+                    <th class="sortable">KD</th>
+                    <th class="sortable">HEADSHOTS</th>
+                    <th class="sortable">MEDALS</th>
+                    <th class="sortable">MAP</th>
+                    <th class="sortable">GAMETYPE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each matches}}
+                    <tr>
+                        <td>{{inc @index}}</td>
+                        <td>{{date DateTime}}</td>
+                        <td>{{Kills}}</td>
+                        <td>{{Deaths}}</td>
+                        <td>{{Assists}}</td>
+                        <td>{{decimals KD}}</td>
+                        <td>{{Headshots}}</td>
+                        <td>{{Medals}}</td>
+                        <td>{{MapId}}</td>
+                        <td>{{GameType}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
