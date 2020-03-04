@@ -311,11 +311,19 @@ h1 {
     border-bottom: 1px solid #414141;
 }
 
-#xbox-rank-wrapper div, #pc-rank-wrapper div {
+#xbox-rank-wrapper div {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 33%;
         -ms-flex: 0 0 33%;
             flex: 0 0 33%;
+    position: relative;
+}
+
+#pc-rank-wrapper div {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
     position: relative;
 }
 

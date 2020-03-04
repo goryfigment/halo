@@ -207,6 +207,7 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         pc_rank_obj.halo_reach_team_slayer = pc_ranks["Halo: Reach Team Slayer"][0]['SkillRank']
         pc_rank_obj.halo_reach_team_hardcore = pc_ranks["Halo: Reach Team Hardcore"][0]['SkillRank']
         pc_rank_obj.halo_reach_invasion = pc_ranks["Halo: Reach Invasion"][0]['SkillRank']
+        pc_rank_obj.hce_hardcore_doubles = pc_ranks["HCE Hardcore Doubles"][0]['SkillRank']
         pc_rank_obj.save()
     else:
         player = Player.objects.create(
@@ -227,7 +228,8 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
             player=player,
             halo_reach_team_hardcore=pc_ranks["Halo: Reach Team Hardcore"][0]['SkillRank'],
             halo_reach_invasion=pc_ranks["Halo: Reach Invasion"][0]['SkillRank'],
-            halo_reach_team_slayer=pc_ranks["Halo: Reach Team Slayer"][0]['SkillRank']
+            halo_reach_team_slayer=pc_ranks["Halo: Reach Team Slayer"][0]['SkillRank'],
+            hce_hardcore_doubles=pc_ranks["HCE Hardcore Doubles"][0]['SkillRank']
         )
 
         Ranks.objects.create(

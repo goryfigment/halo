@@ -59,6 +59,7 @@ class PcRanks(models.Model):
     halo_reach_team_hardcore = models.IntegerField(default=0)
     halo_reach_invasion = models.IntegerField(default=0)
     halo_reach_team_slayer = models.IntegerField(default=0)
+    hce_hardcore_doubles = models.IntegerField(default=1)
 
     class Meta:
         db_table = "pc_ranks"

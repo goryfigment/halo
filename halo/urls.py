@@ -75,4 +75,5 @@ urlpatterns = [
     url(r'^leaderboards/pc/halo-reach-team-hardcore', leaderboard.pc_reach_team_hardcore),
     url(r'^leaderboards/pc/halo-reach-invasion', leaderboard.pc_reach_invasion),
     url(r'^leaderboards/pc/halo-reach-team-slayer', leaderboard.pc_reach_team_slayer),
+    url(r'^leaderboards/pc/hce-hardcore-doubles', leaderboard.pc_hce_hardcore_doubles),
 ]

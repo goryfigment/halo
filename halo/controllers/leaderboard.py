@@ -579,7 +579,7 @@ def hce_hardcore_doubles(request):
 
     data = {
         'type': 'hce_hardcore_doubles',
-        'title': "Halo 1: Team Doubles",
+        'title': "(Xbox) Halo 1: Hardcore Doubles",
         'base_url': get_base_url(),
         'page': 1,
         'rank': 0
@@ -623,11 +623,6 @@ def h2c_team_hardcore(request):
 
     rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'h2c_team_hardcore', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-h2c_team_hardcore', '-player__matches')[first_record:last_record])
     data['index'] = first_record
-
-    # for rank_player in rank_list:
-    #     first_record += 1
-    #     record_leaderboard(int(rank_player['player__id']), 'h2c_team_hardcore', first_record)
-
     data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
@@ -653,11 +648,6 @@ def halo_reach_team_hardcore(request):
 
     rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_hardcore', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_hardcore', '-player__matches')[first_record:last_record])
     data['index'] = first_record
-
-    # for rank_player in rank_list:
-    #     first_record += 1
-    #     record_leaderboard(int(rank_player['player__id']), 'halo_reach_team_hardcore', first_record)
-
     data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
@@ -683,11 +673,6 @@ def halo_reach_invasion(request):
 
     rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_invasion', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_invasion', '-player__matches')[first_record:last_record])
     data['index'] = first_record
-
-    # for rank_player in rank_list:
-    #     first_record += 1
-    #     record_leaderboard(int(rank_player['player__id']), 'halo_reach_invasion', first_record)
-
     data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
@@ -713,11 +698,6 @@ def halo_reach_team_slayer(request):
 
     rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_slayer', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_slayer', '-player__matches')[first_record:last_record])
     data['index'] = first_record
-
-    # for rank_player in rank_list:
-    #     first_record += 1
-    #     record_leaderboard(int(rank_player['player__id']), 'halo_reach_team_slayer', first_record)
-
     data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
@@ -744,11 +724,6 @@ def pc_reach_team_hardcore(request):
 
     rank_list = list(PcRanks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_hardcore', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_hardcore', '-player__matches')[first_record:last_record])
     data['index'] = first_record
-
-    # for rank_player in rank_list:
-    #     first_record += 1
-    #     record_leaderboard(int(rank_player['player__id']), 'halo_reach_team_hardcore', first_record)
-
     data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
@@ -775,11 +750,6 @@ def pc_reach_invasion(request):
 
     rank_list = list(PcRanks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_invasion', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_invasion', '-player__matches')[first_record:last_record])
     data['index'] = first_record
-
-    # for rank_player in rank_list:
-    #     first_record += 1
-    #     record_leaderboard(int(rank_player['player__id']), 'halo_reach_invasion', first_record)
-
     data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
@@ -806,11 +776,32 @@ def pc_reach_team_slayer(request):
 
     rank_list = list(PcRanks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'halo_reach_team_slayer', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-halo_reach_team_slayer', '-player__matches')[first_record:last_record])
     data['index'] = first_record
+    data['leaderboard'] = json.dumps(rank_list)
 
-    # for rank_player in rank_list:
-    #     first_record += 1
-    #     record_leaderboard(int(rank_player['player__id']), 'halo_reach_team_slayer', first_record)
+    return render(request, 'leaderboard.html', data)
 
+
+def pc_hce_hardcore_doubles(request):
+    first_record = 0
+    last_record = 100
+
+    data = {
+        'type': 'hce_hardcore_doubles',
+        'title': "(PC) Halo 1: Hardcore Doubles",
+        'base_url': get_base_url(),
+        'page': 1,
+        'rank': 0,
+        'platform': 'pc_'
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    rank_list = list(PcRanks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'hce_hardcore_doubles', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-hce_hardcore_doubles', '-player__matches')[first_record:last_record])
+    data['index'] = first_record
     data['leaderboard'] = json.dumps(rank_list)
 
     return render(request, 'leaderboard.html', data)
