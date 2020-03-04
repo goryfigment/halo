@@ -28,7 +28,7 @@ def player_matches(request):
 
 
 @login_required
-@data_required(['id', 'ban', 'donation', 'twitch', 'youtube', 'twitter', 'mixer', 'social', 'color', 'notes', 'glow'], 'POST')
+@data_required(['id', 'ban', 'donation', 'twitch', 'youtube', 'twitter', 'mixer', 'social', 'color', 'notes'], 'POST')
 def edit_player(request):
     player_id = request.POST['id']
 
@@ -42,7 +42,6 @@ def edit_player(request):
     player.social = request.POST['social']
     player.color = request.POST['color']
     player.notes = request.POST['notes']
-    player.glow = request.POST['glow']
     player.save()
 
     return JsonResponse({'id': player.id, 'player': model_to_dict(player), 'success_msg': 'Player successfully saved!'}, safe=False)
