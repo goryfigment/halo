@@ -39,12 +39,12 @@ def database_leaderboard(request, type):
     if type == 'playtime':
         type = 'epoch'
 
-    rank = ['hce_team_doubles', 'h2c_team_hardcore', 'h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'halo_reach_team_hardcore', 'halo_reach_invasion', 'halo_reach_team_slayer']
+    rank = ['hce_hardcore_doubles', 'h2c_team_hardcore', 'h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'halo_reach_team_hardcore', 'halo_reach_invasion', 'halo_reach_team_slayer']
 
     print type
 
     if type in rank:
-        leaderboards = list(Ranks.objects.all().values('player__id', 'player__matches', 'hce_team_doubles', 'h2c_team_hardcore', 'h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'halo_reach_team_hardcore', 'halo_reach_invasion', 'halo_reach_team_slayer').order_by('-' + type, '-player__matches'))
+        leaderboards = list(Ranks.objects.all().values('player__id', 'player__matches', 'hce_hardcore_doubles', 'h2c_team_hardcore', 'h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'halo_reach_team_hardcore', 'halo_reach_invasion', 'halo_reach_team_slayer').order_by('-' + type, '-player__matches'))
     else:
         leaderboards = list(models_to_dict(Player.objects.all().order_by('-' + type)))
 
@@ -327,14 +327,14 @@ def all_most_50s(request):
 
     sorted_50s = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__matches', 'h3_team_slayer',
                                                  'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series',
-                                                 'hce_team_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore',
+                                                 'hce_hardcore_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore',
                                                  'halo_reach_invasion', 'halo_reach_team_slayer', 'pc_ranks__halo_reach_team_hardcore',
                                                  'pc_ranks__halo_reach_invasion', 'pc_ranks__halo_reach_team_slayer', 'player__emblem',
                                                  'player__donation', 'player__twitch', 'player__youtube', 'player__twitter',
                                                  'player__notes', 'player__color', 'player__social').order_by('-player__matches'))
 
     list_50s = []
-    playlists = ['h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'hce_team_doubles', 'h2c_team_hardcore',
+    playlists = ['h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'hce_hardcore_doubles', 'h2c_team_hardcore',
                  'halo_reach_team_hardcore', 'halo_reach_invasion', 'halo_reach_team_slayer', 'pc_ranks__halo_reach_team_hardcore',
                  'pc_ranks__halo_reach_invasion', 'pc_ranks__halo_reach_team_slayer']
 
@@ -379,13 +379,13 @@ def xbox_most_50s(request):
 
     sorted_50s = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__matches', 'h3_team_slayer',
                                                  'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series',
-                                                 'hce_team_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore',
+                                                 'hce_hardcore_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore',
                                                  'halo_reach_invasion', 'halo_reach_team_slayer', 'player__emblem',
                                                  'player__donation', 'player__twitch', 'player__youtube', 'player__twitter',
                                                  'player__notes', 'player__color', 'player__social').order_by('-player__matches'))
 
     list_50s = []
-    playlists = ['h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'hce_team_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore', 'halo_reach_invasion', 'halo_reach_team_slayer']
+    playlists = ['h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'hce_hardcore_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore', 'halo_reach_invasion', 'halo_reach_team_slayer']
 
     for player in sorted_50s:
         fifty = 0
@@ -573,12 +573,12 @@ def ms_2v2_series(request):
     return render(request, 'leaderboard.html', data)
 
 
-def hce_team_doubles(request):
+def hce_hardcore_doubles(request):
     first_record = 0
     last_record = 100
 
     data = {
-        'type': 'hce_team_doubles',
+        'type': 'hce_hardcore_doubles',
         'title': "Halo 1: Team Doubles",
         'base_url': get_base_url(),
         'page': 1,
@@ -591,12 +591,12 @@ def hce_team_doubles(request):
         last_record += (page - 1) * 100
         data['page'] = page
 
-    rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'hce_team_doubles', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-hce_team_doubles', '-player__matches')[first_record:last_record])
+    rank_list = list(Ranks.objects.filter(player__ban=False).values('player__gamertag', 'player__id', 'player__matches', 'hce_hardcore_doubles', 'player__emblem', 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__notes', 'player__color', 'player__social').order_by('-hce_hardcore_doubles', '-player__matches')[first_record:last_record])
     data['index'] = first_record
 
     # for rank_player in rank_list:
     #     first_record += 1
-    #     record_leaderboard(int(rank_player['player__id']), 'hce_team_doubles', first_record)
+    #     record_leaderboard(int(rank_player['player__id']), 'hce_hardcore_doubles', first_record)
 
     data['leaderboard'] = json.dumps(rank_list)
 

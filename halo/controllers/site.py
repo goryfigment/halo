@@ -154,7 +154,7 @@ def update_database(request, gt):
         xbox_ranks["Halo: Reach Team Hardcore"][0]['SkillRank'],
         xbox_ranks["Halo: Reach Invasion"][0]['SkillRank'],
         xbox_ranks["H2C Team Hardcore"][0]['SkillRank'],
-        xbox_ranks["HCE Team Doubles"][0]['SkillRank'],
+        xbox_ranks["HCE Hardcore Doubles"][0]['SkillRank'],
         xbox_ranks["Halo: Reach Team Slayer"][0]['SkillRank'],
         pc_ranks["Halo: Reach Team Slayer"][0]['SkillRank'],
         pc_ranks["Halo: Reach Invasion"][0]['SkillRank'],

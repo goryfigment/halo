@@ -25,7 +25,7 @@ var leaderboards = {
     'h3_team_hardcore': require('./../handlebars/playlist/h3_team_hardcore.hbs'),
     'h3_team_doubles': require('./../handlebars/playlist/h3_team_doubles.hbs'),
     'ms_2v2_series': require('./../handlebars/playlist/ms_2v2_series.hbs'),
-    'hce_team_doubles': require('./../handlebars/playlist/hce_team_doubles.hbs'),
+    'hce_hardcore_doubles': require('./../handlebars/playlist/hce_hardcore_doubles.hbs'),
     'h2c_team_hardcore': require('./../handlebars/playlist/h2c_team_hardcore.hbs'),
 
     'halo_reach_team_hardcore': require('./../handlebars/playlist/halo_reach_team_hardcore.hbs'),
