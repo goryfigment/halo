@@ -167,6 +167,14 @@ tbody input {
     border-radius: 1px;
     background: #323232;
 }
+
+.win {
+    background: green;
+}
+
+.lose {
+    background: red;
+}
 /*POPUPS*/
 
 /*CheckBOX*/

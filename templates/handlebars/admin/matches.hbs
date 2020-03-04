@@ -27,7 +27,7 @@
             </thead>
             <tbody>
                 {{#each matches}}
-                    <tr>
+                    <tr class="{{#if Won}}win{{else}}lose{{/if}}">
                         <td>{{inc @index}}</td>
                         <td>{{date DateTime}}</td>
                         <td>{{Kills}}</td>
