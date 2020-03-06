@@ -220,7 +220,7 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         rank_obj.halo_reach_team_hardcore = xbox_ranks["Halo: Reach Team Hardcore"][0]['SkillRank']
         rank_obj.halo_reach_invasion = xbox_ranks["Halo: Reach Invasion"][0]['SkillRank']
         rank_obj.h2c_team_hardcore = xbox_ranks["H2C Team Hardcore"][0]['SkillRank']
-        # rank_obj.hce_hardcore_doubles = xbox_ranks["HCE Hardcore Doubles"][0]['SkillRank']
+        rank_obj.hce_hardcore_doubles = xbox_ranks["HCE Hardcore Doubles"][0]['SkillRank']
         rank_obj.halo_reach_team_slayer = xbox_ranks["Halo: Reach Team Slayer"][0]['SkillRank']
         rank_obj.save()
 
