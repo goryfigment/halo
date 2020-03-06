@@ -95,7 +95,7 @@ class Leaderboard(models.Model):
     ms_2v2_series = models.IntegerField(default=0)
     h3_team_doubles = models.IntegerField(default=0)
     h2c_team_hardcore = models.IntegerField(default=0)
-    hce_hardcore_doubles = models.IntegerField(default=0)
+    hce_team_doubles = models.IntegerField(default=0)
     halo_reach_team_hardcore = models.IntegerField(default=0)
     halo_reach_invasion = models.IntegerField(default=0)
     halo_reach_team_slayer = models.IntegerField(default=0)
