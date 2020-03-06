@@ -8,7 +8,7 @@ import time
 from .. import settings_secret
 from bs4 import BeautifulSoup
 from base import decimal_format
-from halo.models import Player, Ranks, Leaderboard, PcRanks
+from halo.models import Player, Ranks, Leaderboard, PcRanks, Season1Record, Season1
 
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -176,7 +176,7 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
     kills = int(value_element[0].get_text())
     deaths = int(value_element[1].get_text())
     playtime = numeric_medium[0].get_text().split(':')[0].replace('.', ' days ') + ' hours'
-    matches = numeric_medium[1].get_text()
+    matches = int(numeric_medium[1].get_text())
     wins = int(value_element[2].get_text())
     losses = int(value_element[3].get_text())
 
@@ -185,7 +185,6 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
     # Epoch
     playtime_txt = playtime.replace(' hours', '').replace(' days ', '')
     epoch_hours = int(playtime_txt[-2:])*3600
-
     day_length = len(playtime_txt)-2
 
     if day_length > 0:
@@ -231,6 +230,10 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         pc_rank_obj.halo_reach_invasion = pc_ranks["Halo: Reach Invasion"][0]['SkillRank']
         pc_rank_obj.hce_hardcore_doubles = pc_ranks["HCE Hardcore Doubles"][0]['SkillRank']
         pc_rank_obj.save()
+
+        #Season 1
+        season1_record = Season1Record.objects.get(player=player)
+        season1 = Season1.objects.get(player=player)
     else:
         player = Player.objects.create(
             gamertag=gt,
@@ -270,6 +273,56 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
 
         Leaderboard.objects.create(player=player)
 
+        # Create Season1
+        season1_record = Season1Record.objects.create(player=player)
+        season1 = Season1.objects.create(player=player)
+        epoch = 0
+
+    # Calculations!
+    s1_kills = kills - season1_record.kills
+    s1_matches = matches - season1_record.matches
+    s1_deaths = deaths - season1_record.deaths
+    s1_wins = wins - season1_record.wins
+    s1_loses = losses - season1_record.losses
+
+    try:
+        s1_kd = decimal_format(float(s1_kills)/float(s1_deaths), 2, False)
+    except ZeroDivisionError:
+        s1_kd = 0
+
+    try:
+        s1_wl = decimal_format(float(s1_wins)/float(s1_loses), 2, False)
+    except ZeroDivisionError:
+        s1_wl = 0
+
+    s1_epoch = epoch - season1_record.epoch
+    s1_total_hours = s1_epoch / 3600
+    s1_playtime = str(s1_total_hours/24) + ' days ' + str(s1_total_hours % 24) + ' hours'
+
+    total_levels = 0
+
+    for key, rank in xbox_ranks.iteritems():
+        total_levels += rank[0]['SkillRank']
+
+    avail_pc = ["HCE Hardcore Doubles", "Halo: Reach Team Slayer", "Halo: Reach Invasion", "Halo: Reach Team Hardcore"]
+    for key, rank in pc_ranks.iteritems():
+        if key in avail_pc:
+            total_levels += rank[0]['SkillRank']
+
+    s1_score = int(round((s1_wins*0.5) + (s1_kills*0.1) + (total_levels*10)))
+    # Save it to Season 1 Database!
+    season1.kills = s1_kills
+    season1.matches = s1_matches
+    season1.deaths = s1_deaths
+    season1.wins = s1_wins
+    season1.losses = s1_loses
+    season1.kd = s1_kd
+    season1.wl = s1_wl
+    season1.epoch = s1_epoch
+    season1.playtime = s1_playtime
+    season1.score = s1_score
+    season1.save()
+
     return {
         'emblem': emblem,
         'playtime': playtime,
@@ -280,6 +333,17 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         'wins': wins,
         'losses': losses,
         'wl': wl_ratio,
-        'highest_rank': highest_rank
+        'highest_rank': highest_rank,
+        'season': {
+            'playtime': s1_playtime,
+            'matches': s1_matches,
+            'kills': s1_kills,
+            'deaths': s1_deaths,
+            'kd': s1_kd,
+            'wins': s1_wins,
+            'losses': s1_loses,
+            'wl': s1_wl,
+            'score': s1_score
+        }
     }
 

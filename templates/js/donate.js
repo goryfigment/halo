@@ -50,7 +50,8 @@ $(document).on('click', '#email-submit', function (e) {
         youtube: $('#youtube').val(),
         message: $('textarea').val(),
         donate: $('#donate').val(),
-        color: $('#color').val()
+        color: $('#color').val(),
+        discord: $('#discord').val()
     };
 
     sendRequest('/donate-message/', data, 'POST', donateSuccess, donateError);

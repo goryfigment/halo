@@ -1,42 +1,36 @@
-{{#if this}}
+{{#if leaderboards}}
     <table id="leaderboard-table">
         <thead>
             <tr>
                 <th scope="col">Rank</th>
                 <th scope="col">Player</th>
-                <th scope="col">Matches</th>
+                <th scope="col">EXP</th>
             </tr>
         </thead>
         <tbody>
-            {{#each this}}
+            {{#each leaderboards}}
                 <tr>
-                    <td class="number-right">
-                        {{#ifCond (incStart @index) '==' 1}}
-                            <span id="first"><i class="fas fa-trophy"></i></span> {{incStart @index}}
-                        {{/ifCond}}
-                        {{#ifCond (incStart @index) '==' 2}}
-                            <span id="second"><i class="fas fa-trophy"></i></span> {{incStart @index}}
-                        {{/ifCond}}
-                        {{#ifCond (incStart @index) '==' 3}}
-                            <span id="third"><i class="fas fa-trophy"></i></span> {{incStart @index}}
-                        {{/ifCond}}
-                        {{#ifCond (incStart @index) '>' 3}}
-                            {{incStart @index}}
-                        {{/ifCond}}
+                    <td class="number-rank">
+                        <img class="halo-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcMajorRank amount) '.png'}}" />
+                        <span class="rank">{{amount}}</span>
                     </td>
                     <td>
                         <a href="/profile/{{gamertag}}"><img class="emblem" src="{{emblem}}" /><span class="gamertag {{#if glow}}glow{{/if}}" style="color: {{color}}">{{gamertag}}</span></a>
                         {{#ifCond donation '>' 0}}
                             <span id="donator-wrapper">
-                                <span class="icon donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}"><i style="color: {{donateColors donation}}" class="fas fa-dollar-sign"></i></span>
+                                {{#ifCond donation '>=' 50}}
+                                    <span class="icon diamond-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
+                                {{else}}
+                                    <span class="icon donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}"><i style="color: {{donateColors donation}}" class="fas fa-dollar-sign"></i></span>
+                                {{/ifCond}}
                                 {{#ifCond social '==' 'youtube'}}<a class="icon youtube" href="https://www.youtube.com/{{youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>{{/ifCond}}
-                                {{#ifCond social '==' 'mixer'}}<a class="icon mixer" href="https://mixer.com/{{mixer}}" target="_blank"><i class="fab fa-mixer"></i></a>{{/ifCond}}
                                 {{#ifCond social '==' 'twitch'}}<a class="icon twitch" href="https://www.twitch.tv/{{twitch}}" target="_blank"><i class="fab fa-twitch"></i></a>{{/ifCond}}
+                                {{#ifCond social '==' 'mixer'}}<a class="icon mixer" href="https://mixer.com/{{mixer}}" target="_blank"><i class="fab fa-mixer"></i></a>{{/ifCond}}
                                 {{#ifCond social '==' 'twitter'}}<a class="icon twitter" href="https://twitter.com/{{twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>{{/ifCond}}
                             </span>
                         {{/ifCond}}
                     </td>
-                    <td class="number">{{numCommaFormat matches}}</td>
+                    <td class="number-right">{{numCommaFormat exp}}</td>
                 </tr>
             {{/each}}
         </tbody>

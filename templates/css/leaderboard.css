@@ -188,6 +188,11 @@ p {
     transition: 0.5s ease all;
 }
 
+.diamond-donator {
+    color: white;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
 .icon:hover {
     filter: brightness(0.8);
 }

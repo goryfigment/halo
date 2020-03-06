@@ -11,26 +11,14 @@ require('./../js/general.js');
 var pagination = require('./../handlebars/pagination.hbs');
 
 var leaderboards = {
-    'kills': require('./../handlebars/leaderboard/kills.hbs'),
-    'deaths': require('./../handlebars/leaderboard/deaths.hbs'),
-    'wins': require('./../handlebars/leaderboard/wins.hbs'),
-    'losses': require('./../handlebars/leaderboard/losses.hbs'),
-    'matches': require('./../handlebars/leaderboard/matches.hbs'),
-    'wl': require('./../handlebars/leaderboard/wl_ratio.hbs'),
-    'kd': require('./../handlebars/leaderboard/kd_ratio.hbs'),
     'playtime': require('./../handlebars/leaderboard/playtime.hbs'),
     'most_50s': require('./../handlebars/leaderboard/most_50s.hbs'),
-
-    'h3_team_slayer': require('./../handlebars/playlist/h3_team_slayer.hbs'),
-    'h3_team_hardcore': require('./../handlebars/playlist/h3_team_hardcore.hbs'),
-    'h3_team_doubles': require('./../handlebars/playlist/h3_team_doubles.hbs'),
-    'ms_2v2_series': require('./../handlebars/playlist/ms_2v2_series.hbs'),
-    'hce_hardcore_doubles': require('./../handlebars/playlist/hce_hardcore_doubles.hbs'),
-    'h2c_team_hardcore': require('./../handlebars/playlist/h2c_team_hardcore.hbs'),
-
-    'halo_reach_team_hardcore': require('./../handlebars/playlist/halo_reach_team_hardcore.hbs'),
-    'halo_reach_invasion': require('./../handlebars/playlist/halo_reach_invasion.hbs'),
-    'halo_reach_team_slayer': require('./../handlebars/playlist/halo_reach_team_slayer.hbs')
+    'season1': require('./../handlebars/leaderboard/season1.hbs'),
+    'season1_ratio': require('./../handlebars/leaderboard/season1_ratio.hbs'),
+    'player': require('./../handlebars/leaderboard/player.hbs'),
+    'player_ratio': require('./../handlebars/leaderboard/player_ratio.hbs'),
+    'playlist': require('./../handlebars/leaderboard/playlist.hbs'),
+    'mccs': require('./../handlebars/leaderboard/score.hbs'),
 };
 
 function sendRequest(url, data, request_type, success, error, exception) {
@@ -58,10 +46,10 @@ function updateLeaderboardError() {
 }
 
 $(document).ready(function() {
-    $('#leaderboard-wrapper').append(leaderboards[globals.type](globals.leaderboard));
+    $('#leaderboard-wrapper').append(leaderboards[globals.handlebars]({leaderboards: globals.leaderboard, type: globals.type.replace('s1_', '')}));
     $('#pagination').append(pagination({'page': globals.page}));
 
-    sendRequest('/update-leaderboard/', JSON.stringify({leaderboards: globals.leaderboard, type: globals.platform + globals.type, index: globals.index}), 'POST', updateLeaderboardSuccess, updateLeaderboardError);
+    sendRequest('/update-leaderboard/', JSON.stringify({leaderboards: globals.leaderboard, type: globals.type, index: globals.index}), 'POST', updateLeaderboardSuccess, updateLeaderboardError);
 });
 
 $(document).on('click', '#pagination li', function () {

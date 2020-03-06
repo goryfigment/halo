@@ -4,5 +4,5 @@
 </div>
 <div id="service-container">
     <h6>{{highest_rank}}</h6>
-    <img id="rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcRank highest_rank record.wins) '.png'}}" />
+    <img id="rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcRank highest_rank record.season.wins) '.png'}}" />
 </div>

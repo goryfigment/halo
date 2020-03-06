@@ -111,6 +111,7 @@ h1 {
     margin-bottom: 10px;
     font-weight: bold;
     white-space: nowrap;
+    color: #6e6e6e;
 }
 
 /*SERVICE RECORD*/
@@ -222,7 +223,7 @@ h1 {
     padding: 10px 0;
 }
 
-#playtime {
+.playtime {
     font-size: 15px;
     white-space: nowrap;
 }
@@ -246,6 +247,7 @@ h1 {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
+    min-height: 62px;
 }
 
 #playtime-item {
@@ -407,7 +409,72 @@ h1 {
 .icon.mixer {
     color: #1fbaed;
 }
+
+.diamond-donator {
+    color: white;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+            animation: glow 1s ease-in-out infinite alternate;
+    font-weight: bold;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #415ce3, 0 0 8px #415ce3, 0 0 10px #415ce3, 0 0 12px #415ce3, 0 0 14px #415ce3;
+  }
+  to {
+    text-shadow: 0 0 6px #fff, 0 0 8px #4de6ff, 0 0 10px #4de6ff, 0 0 12px #4de6ff, 0 0 14px #4de6ff, 0 0 16px #4de6ff, 0 0 18px #4de6ff;
+  }
+}
 /*DONATOR*/
+
+/*SEASON*/
+ol {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    color: #b4b4b4;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+}
+
+ol span {
+    line-height: 33px;
+}
+
+.tab {
+    cursor: pointer;
+    margin: 4px 14px;
+    padding: 2px 4px;
+    -webkit-transition: 0.5s ease all;
+    -o-transition: 0.5s ease all;
+    transition: 0.5s ease all;
+    border-bottom: 2px solid #191919;
+}
+
+.tab.active {
+    border-bottom: solid 3px #4354a5;
+}
+
+.tab:hover, .operation-tab:hover {
+    color: #ffffff;
+}
+
+.active-tab {
+    display: block !important;
+}
+
+#all-wrapper, #season1-wrapper {
+    display: none;
+}
+/*SEASON*/
 
 #tip-popup {
     z-index: 9999;

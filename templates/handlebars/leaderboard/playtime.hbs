@@ -1,4 +1,4 @@
-{{#if this}}
+{{#if leaderboards}}
     <table id="leaderboard-table">
         <thead>
             <tr>
@@ -8,7 +8,7 @@
             </tr>
         </thead>
         <tbody>
-            {{#each this}}
+            {{#each leaderboards}}
                 <tr>
                     <td class="number-right">
                         {{#ifCond (incStart @index) '==' 1}}
@@ -28,7 +28,11 @@
                         <a href="/profile/{{gamertag}}"><img class="emblem" src="{{emblem}}" /><span class="gamertag {{#if glow}}glow{{/if}}" style="color: {{color}}">{{gamertag}}</span></a>
                         {{#ifCond donation '>' 0}}
                             <span id="donator-wrapper">
-                                <span class="icon donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}"><i style="color: {{donateColors donation}}" class="fas fa-dollar-sign"></i></span>
+                                {{#ifCond donation '>=' 50}}
+                                    <span class="icon diamond-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
+                                {{else}}
+                                    <span class="icon donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}"><i style="color: {{donateColors donation}}" class="fas fa-dollar-sign"></i></span>
+                                {{/ifCond}}
                                 {{#ifCond social '==' 'youtube'}}<a class="icon youtube" href="https://www.youtube.com/{{youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>{{/ifCond}}
                                 {{#ifCond social '==' 'mixer'}}<a class="icon mixer" href="https://mixer.com/{{mixer}}" target="_blank"><i class="fab fa-mixer"></i></a>{{/ifCond}}
                                 {{#ifCond social '==' 'twitch'}}<a class="icon twitch" href="https://www.twitch.tv/{{twitch}}" target="_blank"><i class="fab fa-twitch"></i></a>{{/ifCond}}

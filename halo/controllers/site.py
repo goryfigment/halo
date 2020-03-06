@@ -3,7 +3,7 @@ from django.shortcuts import render
 from base import get_base_url, model_to_dict, decimal_format
 from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
-from halo.models import Player, Leaderboard, User
+from halo.models import Player, Leaderboard, User, Season1
 
 
 def error_page(request):
@@ -112,7 +112,7 @@ def profile(request, gt):
     player_obj = Player.objects.filter(gamertag=gt)
 
     if player_obj.exists():
-        player_obj = Player.objects.get(gamertag=gt)
+        player_obj = player_obj[0]
         player_obj.hits += 1
         player_obj.save()
         player = model_to_dict(player_obj)
@@ -123,8 +123,10 @@ def profile(request, gt):
             leaderboard = model_to_dict(leaderboard[0])
         else:
             leaderboard = {}
+
+        player['season'] = model_to_dict(Season1.objects.get(player=player_obj))
     else:
-        player = {}
+        player = {'season': {}}
         leaderboard = {}
 
     data = {

@@ -11,6 +11,7 @@ def donate_email(request):
     twitter = request.POST['twitter']
     youtube = request.POST['youtube']
     message = request.POST['message']
+    discord = request.POST['discord']
     color = request.POST['color']
     donation = str(request.POST['donate'])
 
@@ -23,14 +24,14 @@ def donate_email(request):
     msg['To'] = GMAIL
 
     # Create the body of the message (a plain-text and an HTML version).
-    text = "Gamertag: " + gamertag + "\n" + "Twitch: " + twitch + "\n" + "Twitter: " + twitter + "\n" + "Youtube: " + youtube + "\n\n" + "Message: " + message + "Color: " + color
+    text = "Gamertag: " + gamertag + "\n" + "Twitch: " + twitch + "\n" + "Twitter: " + twitter + "\n" + "Youtube: " + youtube + "\n\n" + "Message: " + message + "Color: " + color + "\n\n" + "Discord: " + discord
     html = """\
     <html>
       <head></head>
       <body>
         <div>
         <p>
-        Gamertag: """ + gamertag + """<br />""" + """Twitch: """ + twitch + """<br />""" + """Twitter: """ + twitter + """<br />""" + """Youtube: """ + youtube + """<br /><br />""" + """Message: """ + message + """<br />Color: """ + color + """
+        Gamertag: """ + gamertag + """<br />""" + """Discord: """ + discord + """<br />""" + """Twitch: """ + twitch + """<br />""" + """Twitter: """ + twitter + """<br />""" + """Youtube: """ + youtube + """<br /><br />""" + """Message: """ + message + """<br />Color: """ + color + """
         </p>
       </body>
     </html>

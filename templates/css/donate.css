@@ -32,6 +32,21 @@
     color: gold;
 }
 
+#diamond-donator {
+    margin-right: 10px;
+    color: white;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #415ce3, 0 0 8px #415ce3, 0 0 10px #415ce3, 0 0 12px #415ce3, 0 0 14px #415ce3;
+  }
+  to {
+    text-shadow: 0 0 6px #fff, 0 0 8px #4de6ff, 0 0 10px #4de6ff, 0 0 12px #4de6ff, 0 0 14px #4de6ff, 0 0 16px #4de6ff, 0 0 18px #4de6ff;
+  }
+}
+
 p a {
     color: #6fa6f8;
     font-family: 'Rajdhani', 'Roboto', sans-serif;
@@ -79,7 +94,7 @@ form textarea {
 
 /*Donate Choice*/
 h4 {
-    width: 264px;
+    width: 323px;
     margin: 20px auto;
     font-size: 20px;
 }
@@ -106,6 +121,12 @@ h4 {
 .donate-choice.active {
     background: #366cc6;
     color: white;
+}
+
+#diamond.active {
+    background: white;
+    border-color: white;
+    color: black;
 }
 
 #gold.active {
@@ -153,7 +174,42 @@ input[type="image"] {
 }
 /*Button*/
 
+/*CashApp*/
+#cashapp h5 {
+    text-align: center;
+    margin: 2px;
+}
+
+#cashapp img {
+    height: 100px;
+}
+
+#cashapp h6 {
+    text-align: center;
+    margin: 2px;
+}
+
+#cashapp p {
+    margin: 2px 0;
+    text-align: center;
+    font-size: 15px;
+}
+
+#cashapp span {
+    background: #17a717;
+    padding: 3px 7px;
+    border-radius: 6px;
+    font-size: 10px;
+}
+/*CashApp*/
+
 /*Thank You*/
+#mccstats-form {
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+
 #thank-you-wrapper {
     display: none;
 }

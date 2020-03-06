@@ -49,7 +49,8 @@ function serviceRecordSuccess(response) {
         'kd': (response['kd'] - prevDetails['kd']).toFixed(2),
         'wins': response['wins'] - prevDetails['wins'],
         'losses': response['losses'] - prevDetails['losses'],
-        'wl': (response['wl'] - prevDetails['wl']).toFixed(2)
+        'wl': (response['wl'] - prevDetails['wl']).toFixed(2),
+        'score': response['season']['score'] - prevDetails['season']['score']
     };
 
     $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
@@ -139,3 +140,18 @@ $(document).on('click', '#overlay img', function (e) {
     e.stopPropagation();
 });
 //PRIVATE//
+
+// TABS //
+function tabHandler($tab, $wrapper) {
+    $('.tab.active').removeClass('active');
+    $tab.addClass('active');
+
+    $('.active-tab').removeClass('active-tab');
+    $wrapper.addClass('active-tab');
+}
+
+$(document).on('click', '.tab', function () {
+    var $this = $(this);
+    tabHandler($this, $('#' + $this.attr('data-type')));
+});
+// TABS //

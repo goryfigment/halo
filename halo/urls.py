@@ -50,7 +50,19 @@ urlpatterns = [
     # DONATE
     url(r'^donate-message/', donate.donate_email),
 
+    # SEASON1 LEADERBOARDS
+    url(r'^leaderboards/s1/mccs', leaderboard.s1_score),
+    url(r'^leaderboards/s1/kills', leaderboard.s1_kills),
+    url(r'^leaderboards/s1/deaths', leaderboard.s1_deaths),
+    url(r'^leaderboards/s1/wins', leaderboard.s1_wins),
+    url(r'^leaderboards/s1/losses', leaderboard.s1_losses),
+    url(r'^leaderboards/s1/matches', leaderboard.s1_matches),
+    url(r'^leaderboards/s1/wl', leaderboard.s1_wl),
+    url(r'^leaderboards/s1/kd', leaderboard.s1_kd),
+    url(r'^leaderboards/s1/playtime', leaderboard.s1_playtime),
+
     # GENERAL LEADERBOARDS
+    url(r'^leaderboards/donations', leaderboard.most_donations),
     url(r'^leaderboards/kills', leaderboard.most_kills),
     url(r'^leaderboards/deaths', leaderboard.most_deaths),
     url(r'^leaderboards/wins', leaderboard.most_wins),
@@ -69,7 +81,7 @@ urlpatterns = [
     url(r'^leaderboards/h3-team-hardcore', leaderboard.h3_team_hardcore),
     url(r'^leaderboards/h3-team-doubles', leaderboard.h3_team_doubles),
     url(r'^leaderboards/ms-2v2-series', leaderboard.ms_2v2_series),
-    url(r'^leaderboards/hce-hardcore-doubles', leaderboard.hce_hardcore_doubles),
+    url(r'^leaderboards/hce-hardcore-doubles', leaderboard.hce_team_doubles),
     url(r'^leaderboards/h2c-team-hardcore', leaderboard.h2c_team_hardcore),
     url(r'^leaderboards/halo-reach-team-hardcore', leaderboard.halo_reach_team_hardcore),
     url(r'^leaderboards/halo-reach-invasion', leaderboard.halo_reach_invasion),

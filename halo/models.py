@@ -59,7 +59,7 @@ class Ranks(models.Model):
     halo_reach_team_hardcore = models.IntegerField(default=0)
     halo_reach_invasion = models.IntegerField(default=0)
     h2c_team_hardcore = models.IntegerField(default=0)
-    hce_hardcore_doubles = models.IntegerField(default=0)
+    hce_team_doubles = models.IntegerField(default=0)
     halo_reach_team_slayer = models.IntegerField(default=0)
 
     class Meta:
@@ -79,14 +79,16 @@ class Leaderboard(models.Model):
     wl = models.IntegerField(default=0)
     kd = models.IntegerField(default=0)
 
+    # Leaderboard placement
+    s1_score = models.IntegerField(default=0)
     s1_playtime = models.IntegerField(default=0)
     s1_kills = models.IntegerField(default=0)
     s1_deaths = models.IntegerField(default=0)
     s1_wins = models.IntegerField(default=0)
     s1_losses = models.IntegerField(default=0)
     s1_matches = models.IntegerField(default=0)
-    s1_wl = models.IntegerField(default=0)
-    s1_kd = models.IntegerField(default=0)
+    s1_wl = models.FloatField(default=0)
+    s1_kd = models.FloatField(default=0)
 
     h3_team_slayer = models.IntegerField(default=0)
     h3_team_hardcore = models.IntegerField(default=0)
@@ -97,6 +99,7 @@ class Leaderboard(models.Model):
     halo_reach_team_hardcore = models.IntegerField(default=0)
     halo_reach_invasion = models.IntegerField(default=0)
     halo_reach_team_slayer = models.IntegerField(default=0)
+
     pc_halo_reach_team_hardcore = models.IntegerField(default=0)
     pc_halo_reach_invasion = models.IntegerField(default=0)
     pc_halo_reach_team_slayer = models.IntegerField(default=0)
@@ -134,11 +137,29 @@ class User(AbstractBaseUser):
         db_table = "user"
 
 
-# Screenshot of that given day stats to subtract from
+# For S1 leaderboards
 class Season1(models.Model):
     player = models.ForeignKey(Player, default=None)
+    score = models.IntegerField(default=0)
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
+    epoch = models.IntegerField(default=0)
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    kd = models.FloatField(default=0)
+    wl = models.FloatField(default=0)
 
-    playtime = models.CharField(max_length=255)
+    class Meta:
+        db_table = "season1"
+
+
+# Screenshot of that given day stats to subtract from
+class Season1Record(models.Model):
+    player = models.ForeignKey(Player, default=None)
+
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
     kills = models.IntegerField(default=0)
     deaths = models.IntegerField(default=0)
     wins = models.IntegerField(default=0)
@@ -147,17 +168,4 @@ class Season1(models.Model):
     epoch = models.IntegerField(default=0)
 
     class Meta:
-        db_table = "season1"
-
-
-# For S1 leaderboards
-class Season1Stats(models.Model):
-    player = models.ForeignKey(Player, default=None)
-
-    playtime = models.CharField(max_length=255)
-    kills = models.IntegerField(default=0)
-    deaths = models.IntegerField(default=0)
-    wins = models.IntegerField(default=0)
-    losses = models.IntegerField(default=0)
-    matches = models.IntegerField(default=0)
-    epoch = models.IntegerField(default=0)
+        db_table = "season1_record"
