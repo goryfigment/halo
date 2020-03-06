@@ -274,7 +274,16 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         Leaderboard.objects.create(player=player)
 
         # Create Season1
-        season1_record = Season1Record.objects.create(player=player)
+        season1_record = Season1Record.objects.create(
+            player=player,
+            playtime=playtime,
+            matches=matches,
+            wins=wins,
+            losses=losses,
+            kills=kills,
+            deaths=deaths,
+            epoch=epoch
+        )
         season1 = Season1.objects.create(player=player)
         epoch = 0
 
@@ -288,16 +297,21 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
     try:
         s1_kd = decimal_format(float(s1_kills)/float(s1_deaths), 2, False)
     except ZeroDivisionError:
-        s1_kd = 0
+        s1_kd = decimal_format(float(s1_kills)/float(1), 2, False)
 
     try:
         s1_wl = decimal_format(float(s1_wins)/float(s1_loses), 2, False)
     except ZeroDivisionError:
-        s1_wl = 0
+        s1_wl = decimal_format(float(s1_wins)/float(1), 2, False)
 
     s1_epoch = epoch - season1_record.epoch
     s1_total_hours = s1_epoch / 3600
-    s1_playtime = str(s1_total_hours/24) + ' days ' + str(s1_total_hours % 24) + ' hours'
+
+    if s1_epoch <= 0:
+        s1_playtime = '0 days 0 hours'
+        s1_epoch = 0
+    else:
+        s1_playtime = str(s1_total_hours/24) + ' days ' + str(s1_total_hours % 24) + ' hours'
 
     total_levels = 0
 
