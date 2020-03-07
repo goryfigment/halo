@@ -421,8 +421,10 @@ def season1_func(request, handlebars, amount_type, title):
         first_record += (page - 1) * 100
         last_record += (page - 1) * 100
         data['page'] = page
-
-    data['leaderboard'] = json.dumps(list(Season1.objects.filter(player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), highest_rank=F('player__highest_skill')).order_by('-amount', '-exp')[first_record:last_record]))
+    if amount_type == 'wl' or amount_type == 'kd':
+        data['leaderboard'] = json.dumps(list(Season1.objects.filter(matches__gte=250, player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), highest_rank=F('player__highest_skill')).order_by('-amount', '-exp')[first_record:last_record]))
+    else:
+        data['leaderboard'] = json.dumps(list(Season1.objects.filter(player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), highest_rank=F('player__highest_skill')).order_by('-amount', '-exp')[first_record:last_record]))
     data['index'] = first_record
 
     return data
