@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Server Error!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='shortcut icon' type='image/x-icon' href="{% static 'rsefficiency/rse16.ico' %}" />
     <base href='{{base_url}}' />
 
@@ -12,6 +11,10 @@
         var globals = {};
         globals.base_url = '{{base_url}}';
     </script>
+
+    <meta property="og:title" content="MCC Stats">
+    <meta data-vm="true" data-vmid="description" name="description" property="og:description" content="Halo MCC Stats! Check your profile. View the top Halo players on our leaderboards and your stats and rankings!">
+    <%= require('html-loader!./partial/meta.html') %>
 </head>
 <body id="error">
     {% csrf_token %}

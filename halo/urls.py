@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
+from django.views.generic import TemplateView
 from halo.controllers import site, profile, leaderboard, donate, account_handler
 
 urlpatterns = [
@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^profile/(?P<gt>.*)', site.profile),
     url(r'^404/$', site.error_page, name='404'),
     url(r'^500/$', site.server_error, name='500'),
+    url(r'^robots\.txt$', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
+    url(r'^sitemap\.xml$', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
     url(r'^database/(?P<gt>.*)', site.update_database),
 
     # DATABASE
