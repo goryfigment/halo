@@ -403,9 +403,14 @@ def pc_hce_hardcore_doubles(request):
     return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_hce_hardcore_doubles', '(PC) Halo 1: Hardcore Doubles'))
 
 
-def season1_func(request, handlebars, amount_type, title):
-    first_record = 0
-    last_record = 100
+def season1_func(request, handlebars, amount_type, title, first=None, last=None):
+
+    if first is not None and last is not None:
+        first_record = first
+        last_record = last
+    else:
+        first_record = 0
+        last_record = 100
 
     data = {
         'type': 's1_' + amount_type,

@@ -4,6 +4,7 @@ from base import get_base_url, model_to_dict, decimal_format
 from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
 from halo.models import Player, Leaderboard, User, Season1
+from halo.controllers.leaderboard import season1_func
 
 
 def error_page(request):
@@ -24,7 +25,8 @@ def server_error(request):
 
 def home(request):
     data = {
-        'base_url': get_base_url()
+        'base_url': get_base_url(),
+        'mccs': season1_func(request, 'mccs', 'score', 'MCCS', 0, 10)
     }
 
     return render(request, 'home.html', data)

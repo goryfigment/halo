@@ -296,6 +296,10 @@ button:hover, #donate-button:hover a {
     padding: 5px 20px;
 }
 
+.leaderboard-section nav div {
+    white-space: nowrap;
+}
+
 #leaderboard-container .platform {
     margin-left: 10px;
     background: #1c1c1c;

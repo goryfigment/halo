@@ -9,6 +9,7 @@
         var globals = {};
         globals.base_url = '{{base_url}}';
         globals.gamertag = '{{gamertag}}';
+        globals.mccs = {{mccs.leaderboard|safe}};
     </script>
 
     <meta property="og:title" content="MCC Stats: Leaderboards, Ranks, and more!">
@@ -42,9 +43,14 @@
         </div>
     </div>
 
+    <div id="leaderboard-wrapper"></div>
+
     <div id="overlay"></div>
 
-
+    <div id="tip-popup">
+        <div id="tip-arrow"></div>
+        <div id="tip-content"></div>
+    </div>
 {#    <iframe src="https://player.twitch.tv/?channel=slimhaley&volume=0.11" frameborder="0" allowfullscreen="true" scrolling="no" height="555" width="555"></iframe>#}
 </body>
 </html>
