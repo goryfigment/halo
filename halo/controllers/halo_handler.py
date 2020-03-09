@@ -314,16 +314,30 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         s1_playtime = str(s1_total_hours/24) + ' days ' + str(s1_total_hours % 24) + ' hours'
 
     total_levels = 0
+    total_50s = 0
 
     for key, rank in xbox_ranks.iteritems():
-        total_levels += rank[0]['SkillRank']
+        current_rank = rank[0]['SkillRank']
+        total_levels += current_rank
+
+        if current_rank == 50:
+            total_50s += 1
 
     avail_pc = ["HCE Hardcore Doubles", "Halo: Reach Team Slayer", "Halo: Reach Invasion", "Halo: Reach Team Hardcore"]
     for key, rank in pc_ranks.iteritems():
         if key in avail_pc:
-            total_levels += rank[0]['SkillRank']
+            current_rank = rank[0]['SkillRank']
+            total_levels += current_rank
 
-    s1_score = int(round((s1_wins*0.5) + (s1_kills*0.1) + (total_levels*10)))
+            if current_rank == 50:
+                total_50s += 1
+
+    # Every 50=50points
+    bonus_points = (total_50s * 50)
+
+    print bonus_points
+
+    s1_score = int(round((s1_wins*0.5) + (s1_kills*0.1) + (total_levels*10)) + bonus_points)
     # Save it to Season 1 Database!
     season1.kills = s1_kills
     season1.matches = s1_matches
