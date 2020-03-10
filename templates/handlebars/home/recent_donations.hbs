@@ -1,31 +1,16 @@
-<h4>Season Leaderboards</h4>
+<h4>Recent Donations</h4>
 
-<table id="leaderboard-table">
+<table id="donate-table">
     <thead>
         <tr>
-            <th scope="col">Rank</th>
             <th scope="col">Player</th>
             <th scope="col"></th>
-            <th scope="col">MCCS</th>
+            <th scope="col">Donation</th>
         </tr>
     </thead>
     <tbody>
-        {{#each mccs}}
+        {{#each this}}
             <tr>
-                <td class="number-right">
-                    {{#ifCond (inc @index) '==' 1}}
-                        <span id="first"><i class="fas fa-trophy"></i></span> {{inc @index}}
-                    {{/ifCond}}
-                    {{#ifCond (inc @index) '==' 2}}
-                        <span id="second"><i class="fas fa-trophy"></i></span> {{inc @index}}
-                    {{/ifCond}}
-                    {{#ifCond (inc @index) '==' 3}}
-                        <span id="third"><i class="fas fa-trophy"></i></span> {{inc @index}}
-                    {{/ifCond}}
-                    {{#ifCond (inc @index) '>' 3}}
-                        {{inc @index}}
-                    {{/ifCond}}
-                </td>
                 <td>
                     <a href="/profile/{{gamertag}}"><img class="emblem" src="{{emblem}}" /><span class="gamertag {{#if glow}}glow{{/if}}" style="color: {{color}}">
                         {{#if burn}}
@@ -55,7 +40,7 @@
                         </span>
                     {{/ifCond}}
                 </td>
-                <td>{{numCommaFormat amount}}</td>
+                <td class="number">{{numCommaFormat amount}}</td>
             </tr>
         {{/each}}
     </tbody>

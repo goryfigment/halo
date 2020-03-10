@@ -33,9 +33,17 @@ class Player(models.Model):
     color = models.CharField(max_length=255, default='')
     ban = models.BooleanField(default=False)
     glow = models.BooleanField(default=False)
+    burn = models.BooleanField(default=False)
 
     class Meta:
         db_table = "player"
+
+
+class RecentDonations(models.Model):
+    player = models.ForeignKey(Player, default=None)
+
+    class Meta:
+        db_table = "recent_donations"
 
 
 class PcRanks(models.Model):

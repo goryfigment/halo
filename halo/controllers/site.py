@@ -1,9 +1,10 @@
 import json, time
 from django.shortcuts import render
-from base import get_base_url, model_to_dict, decimal_format
+from base import get_base_url, model_to_dict
+from django.db.models import F
 from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
-from halo.models import Player, Leaderboard, User, Season1
+from halo.models import Player, Leaderboard, User, Season1, RecentDonations
 from halo.controllers.leaderboard import season1_func
 
 
@@ -26,7 +27,8 @@ def server_error(request):
 def home(request):
     data = {
         'base_url': get_base_url(),
-        'mccs': season1_func(request, 'mccs', 'score', 'MCCS', 0, 10)
+        'mccs': season1_func(request, 'mccs', 'score', 'MCCS', 0, 10),
+        'recent_donations': json.dumps(list(RecentDonations.objects.all().values(amount=F('player__donation'), gamertag=F('player__gamertag'), player_id=F('player__id'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), burn=F('player__burn')).order_by('-id')[0:5]))
     }
 
     return render(request, 'home.html', data)
@@ -71,7 +73,7 @@ def dashboard(request):
     if not current_user.is_authenticated():
         return HttpResponseRedirect('/login/')
 
-    players = list(Player.objects.all().values('id', 'gamertag', 'ban', 'donation', 'twitch', 'youtube', 'twitter', 'mixer', 'social', 'notes', 'color'))
+    players = list(Player.objects.all().values('id', 'gamertag', 'ban', 'donation', 'twitch', 'youtube', 'twitter', 'mixer', 'social', 'notes', 'color', 'burn'))
 
     data = {
         'base_url': get_base_url(),

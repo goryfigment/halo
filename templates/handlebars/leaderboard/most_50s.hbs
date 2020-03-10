@@ -19,12 +19,23 @@
                         {{tieHandler fifty}}
                     </td>
                     <td>
-                        <a href="/profile/{{player__gamertag}}"><img class="emblem" src="{{player__emblem}}" /><span class="gamertag {{#if player__glow}}glow{{/if}}" style="color: {{player__color}}">{{player__gamertag}}</span></a>
+                        <a href="/profile/{{player__gamertag}}"><img class="emblem" src="{{player__emblem}}" /><span class="gamertag {{#if player__glow}}glow{{/if}}" style="color: {{player__color}}">
+                            {{#if player__burn}}
+                                {{burnFont player__gamertag}}
+                            {{else}}
+                                {{player__gamertag}}
+                            {{/if}}
+                        </span></a>
                         {{#ifCond player__donation '>' 0}}
                             <span id="donator-wrapper">
                                 {{#ifCond player__donation '>=' 50}}
-                                    <span class="icon diamond-donator tippy" data-title="${{player__donation}}{{#if player__notes}} + {{player__notes}}{{/if}}">$</span>
-                                {{else}}
+                                    {{#ifCond player__donation '>=' 75}}
+                                        <span class="icon fire-donator tippy" data-title="${{player__donation}}{{#if player__notes}} + {{player__notes}}{{/if}}">$</span>
+                                    {{else}}
+                                        <span class="icon diamond-donator tippy" data-title="${{player__donation}}{{#if player__notes}} + {{player__notes}}{{/if}}">$</span>
+                                    {{/ifCond}}
+                                {{/ifCond}}
+                                {{#ifCond player__donation '<' 50}}
                                     <span class="icon donator tippy" data-title="${{player__donation}}{{#if player__notes}} + {{player__notes}}{{/if}}"><i style="color: {{donateColors player__donation}}" class="fas fa-dollar-sign"></i></span>
                                 {{/ifCond}}
                                 {{#ifCond player__social '==' 'youtube'}}<a class="icon youtube" href="https://www.youtube.com/{{player__youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>{{/ifCond}}

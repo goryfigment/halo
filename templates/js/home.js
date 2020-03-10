@@ -9,8 +9,10 @@ require('./../js/general.js');
 require('./../library/tippy/tippy.js');
 
 var leaderboardTemplate = require('./../handlebars/home/leaderboards.hbs');
+var recentDonationsTemplate = require('./../handlebars/home/recent_donations.hbs');
 
 
 $(document).ready(function() {
     $('#leaderboard-wrapper').append(leaderboardTemplate({mccs: globals.mccs}));
+    $('#recent-donations-wrapper').append(recentDonationsTemplate(globals.recent_donations));
 });

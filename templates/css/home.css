@@ -1,12 +1,5 @@
 @media only screen and (max-width: 420px) {
-    #content-wrapper {
-        transform: scale(0.7);
-        transform-origin: top;
-        position: relative;
-        left: -20px;
-    }
-
-    body #leaderboard-wrapper {
+    body #body-wrapper {
         transform: scale(0.7);
         transform-origin: top;
         position: relative;
@@ -22,12 +15,30 @@
     video {
         display: none;
     }
+}
 
-    body #content-wrapper {
-        width: fit-content;
+@media only screen and (max-width: 700px) {
+    body #body-wrapper {
+        flex-direction: column;
     }
 
-    body #leaderboard-wrapper {
+    body #donate-table {
+        width: 395px;
+    }
+
+    body #advertisement-wrapper {
+        margin-top: 30px;
+    }
+
+    body iframe {
+        width: 395px;
+        height: 223px;
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 885px) {
+    body #body-wrapper {
         width: fit-content;
     }
 }
@@ -75,10 +86,12 @@ input:-webkit-autofill {
     -webkit-text-fill-color: #c2c3c3;
 }
 
-#content-wrapper {
-    width: calc(100% - 250px);
+#body-wrapper {
+    display: flex;
+    width: calc(100vw - 250px);
     margin: 0 auto;
     transition: 0.5s ease all;
+    justify-content: space-between;
 }
 
 #content-wrapper p {
@@ -143,6 +156,42 @@ input:-webkit-autofill {
     filter: brightness(1.2);
 }
 
+/*RECENT DONATOR*/
+#recent-donations-wrapper {
+    margin-top: 35px;
+}
+
+#donate-table {
+    width: 300px;
+    transition: 0.5s ease all;
+}
+
+#donate-table td:nth-child(2) {
+    width: 99%;
+    white-space: nowrap;
+}
+
+/*RECENT DONATOR*/
+
+
+/*ADVERTISEMENT*/
+#advertisement-wrapper {
+    margin-top: 115px;
+}
+
+#advertisement-wrapper h4 {
+    margin-bottom: 10px;
+}
+
+iframe {
+    opacity: .6;
+    border: none;
+    transition: 0.5s ease all;
+    box-shadow: 0 0 43px 0 rgb(0, 0, 0);
+}
+/*ADVERTISEMENT*/
+
+
 /*ERROR*/
 #error h1, #error p {
     text-align: center;
@@ -156,23 +205,16 @@ input:-webkit-autofill {
 /*ERROR*/
 
 /* TABLE */
-#leaderboard-wrapper {
-    width: calc(100% - 250px);
-    margin: 0 auto;
-    transition: 0.5s ease all;
-}
-
 h4 {
     margin: 16px 0 5px;
     font-family: 'Rajdhani', 'Roboto', sans-serif;
 }
 
 table {
-    opacity: 0.75;
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 0 43px 0 rgb(0, 0, 0);
-    background-color: #393939;
+    background-color: transparent;
     border-collapse: collapse;
     border: 1px solid white;
     font-family: 'Rajdhani', 'Roboto', sans-serif;
@@ -182,7 +224,7 @@ table {
 table thead {
     font-size: 15px;
     color: #fff;
-    background-color: #2d2c2c;
+    background-color: rgba(27, 17, 79, 0.46);
     white-space: nowrap;
     text-transform: capitalize;
     line-height: 30px;
@@ -198,7 +240,6 @@ table tbody {
     font-size: 15px;
     color: #fff;
     line-height: 1.4;
-    background-color: #151515;
     white-space: nowrap;
 }
 
@@ -211,11 +252,11 @@ table td {
 }
 
 table tbody tr:nth-child(even) {
-    background: #0e0e0e;
+    background: rgba(3, 169, 244, 0.2);
 }
 
 table tbody tr:nth-child(odd) {
-    background: #1f1f1f;
+    background: rgba(98, 119, 236, 0.2);
 }
 
 table td:nth-child(2) {
@@ -231,6 +272,10 @@ table td:nth-child(3) {
 table a {
     text-decoration: none;
     color: #fff;
+}
+
+.number {
+    text-align: center;
 }
 
 .number-rank {
@@ -307,6 +352,11 @@ table a {
     animation: glow 1s ease-in-out infinite alternate;
 }
 
+.fire-donator {
+    animation: burn 0.9s ease-in-out infinite alternate;
+    color: #f17821;
+}
+
 .icon:hover {
     filter: brightness(0.8);
 }
@@ -343,3 +393,24 @@ table a {
 }
 /*DONATOR*/
 
+/*FIRE*/
+.fire {
+    color: #ffaeae;
+    animation: burn 1s ease-in-out infinite alternate;
+}
+
+.burn {
+    color: #ffaeae;
+    animation: burn .65s ease-in-out infinite alternate;
+}
+
+@keyframes burn
+{
+    0% {
+        text-shadow: 0 0 10px #fefcc9, 5px -5px 15px #feec85, -10px -10px 4px #ffae34, 10px 6px 10px #ec760c, -12px 3px -5px #cd4606, 11px -40px 35px #973716, 10px 6px 10px #451b0e;
+    }
+    100% {
+        text-shadow: 0 0 10px #fefcc9, 5px -5px 8px #fefcc9, -10px -10px 8px #feec85, 11px 6px 6px #ffae34, -5px 11px 12px #ec760c, 0 -15px 5px #cd4606, 5px -1px 11px #973716;
+    }
+}
+/*FIRE*/

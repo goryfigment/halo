@@ -258,6 +258,15 @@ p {
     color: white;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
             animation: glow 1s ease-in-out infinite alternate;
+    font-weight: bold;
+}
+
+.fire-donator {
+    -webkit-animation: burn 0.9s ease-in-out infinite alternate;
+            animation: burn 0.9s ease-in-out infinite alternate;
+    color: #f17821;
+    font-weight: bold;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
 }
 
 .icon:hover {
@@ -298,3 +307,37 @@ p {
 }
 /*DONATOR*/
 
+
+/*FIRE*/
+.fire {
+    color: #ffaeae;
+    -webkit-animation: burn 1s ease-in-out infinite alternate;
+            animation: burn 1s ease-in-out infinite alternate;
+}
+
+.burn {
+    color: #ffaeae;
+    -webkit-animation: burn .65s ease-in-out infinite alternate;
+            animation: burn .65s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes burn
+{
+    0% {
+        text-shadow: 0 0 10px #fefcc9, 5px -5px 15px #feec85, -10px -10px 4px #ffae34, 10px 6px 10px #ec760c, -12px 3px -5px #cd4606, 11px -40px 35px #973716, 10px 6px 10px #451b0e;
+    }
+    100% {
+        text-shadow: 0 0 10px #fefcc9, 5px -5px 8px #fefcc9, -10px -10px 8px #feec85, 11px 6px 6px #ffae34, -5px 11px 12px #ec760c, 0 -15px 5px #cd4606, 5px -1px 11px #973716;
+    }
+}
+
+@keyframes burn
+{
+    0% {
+        text-shadow: 0 0 10px #fefcc9, 5px -5px 15px #feec85, -10px -10px 4px #ffae34, 10px 6px 10px #ec760c, -12px 3px -5px #cd4606, 11px -40px 35px #973716, 10px 6px 10px #451b0e;
+    }
+    100% {
+        text-shadow: 0 0 10px #fefcc9, 5px -5px 8px #fefcc9, -10px -10px 8px #feec85, 11px 6px 6px #ffae34, -5px 11px 12px #ec760c, 0 -15px 5px #cd4606, 5px -1px 11px #973716;
+    }
+}
+/*FIRE*/

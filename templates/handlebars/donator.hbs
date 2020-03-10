@@ -1,6 +1,11 @@
 {{#ifCond donation '>=' 50}}
-    <span class="icon diamond-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
-{{else}}
+    {{#ifCond donation '>=' 75}}
+        <span class="icon fire-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
+    {{else}}
+        <span class="icon diamond-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
+    {{/ifCond}}
+{{/ifCond}}
+{{#ifCond donation '<' 50}}
     <span class="icon donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}"><i style="color: {{donateColors donation}}" class="fas fa-dollar-sign"></i></span>
 {{/ifCond}}
 {{#ifCond youtube '!=' ''}}<a class="icon youtube" href="https://www.youtube.com/{{youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>{{/ifCond}}
