@@ -201,6 +201,11 @@ p {
     font-family: 'Rajdhani', 'Roboto', sans-serif;
 }
 
+.rgb-donator {
+    font-weight: bold;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
 .icon:hover {
     filter: brightness(0.8);
 }

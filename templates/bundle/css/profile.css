@@ -39,7 +39,214 @@
             filter: brightness(1.15) hue-rotate(10deg) contrast(1.5);
     -webkit-box-shadow: 0 10px 15px -1px rgba(0, 0, 0, 0.1), 0 25px 50px -4px rgba(0, 0, 0, 0.3);
             box-shadow: 0 10px 15px -1px rgba(0, 0, 0, 0.1), 0 25px 50px -4px rgba(0, 0, 0, 0.3);
-}/* Mobile Styles */
+}.anim-text-flow span, .rgb-donator {
+  -webkit-animation-name: rainbow;
+          animation-name: rainbow;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+@-webkit-keyframes rainbow {
+  0% {
+    color: #d65cce;
+  }
+  5% {
+    color: #5c72d6;
+  }
+  10% {
+    color: #d6bc5c;
+  }
+  15% {
+    color: #a75cd6;
+  }
+  20% {
+    color: #d65ca3;
+  }
+  25% {
+    color: #add65c;
+  }
+  30% {
+    color: #d6b85c;
+  }
+  35% {
+    color: #d65cd0;
+  }
+  40% {
+    color: #d6915c;
+  }
+  45% {
+    color: #ab5cd6;
+  }
+  50% {
+    color: #d6ce5c;
+  }
+  55% {
+    color: #5cabd6;
+  }
+  60% {
+    color: #5c85d6;
+  }
+  65% {
+    color: #d6c45c;
+  }
+  70% {
+    color: #5ca3d6;
+  }
+  75% {
+    color: #a3d65c;
+  }
+  80% {
+    color: #7e5cd6;
+  }
+  85% {
+    color: #5cd6b6;
+  }
+  90% {
+    color: #935cd6;
+  }
+  95% {
+    color: #5cd6ca;
+  }
+  100% {
+    color: #8d5cd6;
+  }
+}
+@keyframes rainbow {
+  0% {
+    color: #d65cce;
+  }
+  5% {
+    color: #5c72d6;
+  }
+  10% {
+    color: #d6bc5c;
+  }
+  15% {
+    color: #a75cd6;
+  }
+  20% {
+    color: #d65ca3;
+  }
+  25% {
+    color: #add65c;
+  }
+  30% {
+    color: #d6b85c;
+  }
+  35% {
+    color: #d65cd0;
+  }
+  40% {
+    color: #d6915c;
+  }
+  45% {
+    color: #ab5cd6;
+  }
+  50% {
+    color: #d6ce5c;
+  }
+  55% {
+    color: #5cabd6;
+  }
+  60% {
+    color: #5c85d6;
+  }
+  65% {
+    color: #d6c45c;
+  }
+  70% {
+    color: #5ca3d6;
+  }
+  75% {
+    color: #a3d65c;
+  }
+  80% {
+    color: #7e5cd6;
+  }
+  85% {
+    color: #5cd6b6;
+  }
+  90% {
+    color: #935cd6;
+  }
+  95% {
+    color: #5cd6ca;
+  }
+  100% {
+    color: #8d5cd6;
+  }
+}
+
+.anim-text-flow span:nth-of-type(1){
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+}
+.anim-text-flow span:nth-of-type(2) {
+  -webkit-animation-delay: -1.4s;
+          animation-delay: -1.4s;
+}
+.anim-text-flow span:nth-of-type(3){
+  -webkit-animation-delay: -1.3s;
+          animation-delay: -1.3s;
+}
+.anim-text-flow span:nth-of-type(4){
+  -webkit-animation-delay: -1.2s;
+          animation-delay: -1.2s;
+}
+.anim-text-flow span:nth-of-type(5) {
+  -webkit-animation-delay: -1.1s;
+          animation-delay: -1.1s;
+}
+.anim-text-flow span:nth-of-type(6) {
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+.anim-text-flow span:nth-of-type(7) {
+  -webkit-animation-delay: -0.9s;
+          animation-delay: -0.9s;
+}
+.anim-text-flow span:nth-of-type(8) {
+  -webkit-animation-delay: -0.8s;
+          animation-delay: -0.8s;
+}
+.anim-text-flow span:nth-of-type(9) {
+  -webkit-animation-delay: -0.7s;
+          animation-delay: -0.7s;
+}
+.anim-text-flow span:nth-of-type(10){
+  -webkit-animation-delay: -0.6s;
+          animation-delay: -0.6s;
+}
+.anim-text-flow span:nth-of-type(11) {
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+.anim-text-flow span:nth-of-type(12) {
+  -webkit-animation-delay: -0.4s;
+          animation-delay: -0.4s;
+}
+.anim-text-flow span:nth-of-type(13){
+  -webkit-animation-delay: -0.3s;
+          animation-delay: -0.3s;
+}
+.anim-text-flow span:nth-of-type(14) {
+  -webkit-animation-delay: -0.2s;
+          animation-delay: -0.2s;
+}
+.anim-text-flow span:nth-of-type(15), .rgb-donator{
+  -webkit-animation-delay: -0.1s;
+          animation-delay: -0.1s;
+}
+.anim-text-flow span:nth-of-type(16){
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+/* Mobile Styles */
 @media only screen and (max-width: 1000px) {
     body {
         height: 100% !important;
@@ -462,6 +669,11 @@ h1 {
     -webkit-animation: burn 0.9s ease-in-out infinite alternate;
             animation: burn 0.9s ease-in-out infinite alternate;
     color: #f17821;
+    font-weight: bold;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
+.rgb-donator {
     font-weight: bold;
     font-family: 'Rajdhani', 'Roboto', sans-serif;
 }

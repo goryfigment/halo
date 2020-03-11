@@ -337,6 +337,11 @@ h1 {
     font-family: 'Rajdhani', 'Roboto', sans-serif;
 }
 
+.rgb-donator {
+    font-weight: bold;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #415ce3, 0 0 8px #415ce3, 0 0 10px #415ce3, 0 0 12px #415ce3, 0 0 14px #415ce3;

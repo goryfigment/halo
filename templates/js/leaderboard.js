@@ -2,6 +2,7 @@ require('./../css/general.css');
 require('./../css/leaderboard.css');
 require('./../library/fontawesome/fontawesome.js');
 require('./../library/tippy/tippy.css');
+require('./../css/color_font.css');
 
 var $ = require('jquery');
 var helper = require('./../js/helpers.js');

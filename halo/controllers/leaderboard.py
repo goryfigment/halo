@@ -96,11 +96,11 @@ def service_func(request, handlebars, amount_type, title):
         data['page'] = page
 
     if amount_type == 'wl' or amount_type == 'kd':
-        data['leaderboard'] = json.dumps(list(Player.objects.filter(matches__gte=250, ban=False).values(amount=F(amount_type), exp=F('wins'), p_gamertag=F('gamertag'), p_id=F('id'), p_emblem=F('emblem'), p_donation=F('donation'), p_twitch=F('twitch'), p_youtube=F('youtube'), p_twitter=F('twitter'), p_notes=F('notes'), p_color=F('color'),  p_social=F('social'), p_mixer=F('mixer'), highest_rank=F('highest_skill'), p_glow=F('glow'), p_burn=F('burn')).order_by('-amount', '-exp')[first_record:last_record]))
+        data['leaderboard'] = json.dumps(list(Player.objects.filter(matches__gte=250, ban=False).values(amount=F(amount_type), exp=F('wins'), p_gamertag=F('gamertag'), p_id=F('id'), p_emblem=F('emblem'), p_donation=F('donation'), p_twitch=F('twitch'), p_youtube=F('youtube'), p_twitter=F('twitter'), p_notes=F('notes'), p_color=F('color'),  p_social=F('social'), p_mixer=F('mixer'), highest_rank=F('highest_skill'), p_glow=F('glow'), p_rgb=F('rgb')).order_by('-amount', '-exp')[first_record:last_record]))
     elif amount_type == 'donation':
-        data['leaderboard'] = json.dumps(list(Player.objects.filter(donation__gt=0).values(amount=F(amount_type), exp=F('wins'), p_gamertag=F('gamertag'), p_id=F('id'), p_emblem=F('emblem'), p_donation=F('donation'), p_twitch=F('twitch'), p_youtube=F('youtube'), p_twitter=F('twitter'), p_notes=F('notes'), p_color=F('color'),  p_social=F('social'), p_mixer=F('mixer'), p_glow=F('glow'), p_burn=F('burn')).order_by('-amount', '-exp')[first_record:last_record]))
+        data['leaderboard'] = json.dumps(list(Player.objects.filter(donation__gt=0).values(amount=F(amount_type), exp=F('wins'), p_gamertag=F('gamertag'), p_id=F('id'), p_emblem=F('emblem'), p_donation=F('donation'), p_twitch=F('twitch'), p_youtube=F('youtube'), p_twitter=F('twitter'), p_notes=F('notes'), p_color=F('color'),  p_social=F('social'), p_mixer=F('mixer'), p_glow=F('glow'), p_rgb=F('rgb')).order_by('-amount', '-exp')[first_record:last_record]))
     else:
-        data['leaderboard'] = json.dumps(list(Player.objects.filter(ban=False).values(amount=F(amount_type), exp=F('wins'), p_gamertag=F('gamertag'), p_id=F('id'), p_emblem=F('emblem'), p_donation=F('donation'), p_twitch=F('twitch'), p_youtube=F('youtube'), p_twitter=F('twitter'), p_notes=F('notes'), p_color=F('color'),  p_social=F('social'), p_mixer=F('mixer'), p_glow=F('glow'), p_burn=F('burn')).order_by('-amount', '-exp')[first_record:last_record]))
+        data['leaderboard'] = json.dumps(list(Player.objects.filter(ban=False).values(amount=F(amount_type), exp=F('wins'), p_gamertag=F('gamertag'), p_id=F('id'), p_emblem=F('emblem'), p_donation=F('donation'), p_twitch=F('twitch'), p_youtube=F('youtube'), p_twitter=F('twitter'), p_notes=F('notes'), p_color=F('color'),  p_social=F('social'), p_mixer=F('mixer'), p_glow=F('glow'), p_rgb=F('rgb')).order_by('-amount', '-exp')[first_record:last_record]))
 
     data['index'] = first_record
 
@@ -160,7 +160,7 @@ def most_playtime(request):
 
     leaderboards = Player.objects.filter(ban=False).order_by('-epoch')[first_record:last_record]
     data['index'] = first_record
-    data['leaderboard'] = json.dumps(list(leaderboards.values('gamertag', 'matches', 'emblem', 'id', 'playtime', 'epoch', 'donation', 'twitch', 'mixer', 'youtube', 'twitter', 'notes', 'color', 'social', 'glow', 'burn')))
+    data['leaderboard'] = json.dumps(list(leaderboards.values('gamertag', 'matches', 'emblem', 'id', 'playtime', 'epoch', 'donation', 'twitch', 'mixer', 'youtube', 'twitter', 'notes', 'color', 'social', 'glow', 'rgb')))
 
     return render(request, 'leaderboard.html', data)
 
@@ -193,7 +193,7 @@ def all_most_50s(request):
                                                  'halo_reach_invasion', 'halo_reach_team_slayer', 'pc_ranks__halo_reach_team_hardcore',
                                                  'pc_ranks__halo_reach_invasion', 'pc_ranks__halo_reach_team_slayer', 'player__emblem',
                                                  'player__donation', 'player__twitch', 'player__youtube', 'player__twitter',
-                                                 'player__notes', 'player__color', 'player__social', 'player__mixer', 'player__glow', 'player__burn').order_by('-player__matches'))
+                                                 'player__notes', 'player__color', 'player__social', 'player__mixer', 'player__glow', 'player__rgb').order_by('-player__matches'))
 
     list_50s = []
     playlists = ['h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'hce_hardcore_doubles', 'h2c_team_hardcore',
@@ -245,7 +245,7 @@ def xbox_most_50s(request):
                                                  'hce_hardcore_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore',
                                                  'halo_reach_invasion', 'halo_reach_team_slayer', 'player__emblem',
                                                  'player__donation', 'player__twitch', 'player__youtube', 'player__twitter',
-                                                 'player__notes', 'player__color', 'player__social', 'player__mixer', 'player__glow', 'player__burn').order_by('-player__matches'))
+                                                 'player__notes', 'player__color', 'player__social', 'player__mixer', 'player__glow', 'player__rgb').order_by('-player__matches'))
 
     list_50s = []
     playlists = ['h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'hce_hardcore_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore', 'halo_reach_invasion', 'halo_reach_team_slayer']
@@ -293,7 +293,7 @@ def pc_most_50s(request):
     sorted_50s = list(PcRanks.objects.filter(player__ban=False).values('player__gamertag', 'player__matches', 'halo_reach_team_hardcore',
                                                    'halo_reach_invasion', 'halo_reach_team_slayer', 'player__emblem',
                                                    'player__donation', 'player__twitch', 'player__youtube', 'player__twitter',
-                                                   'player__notes', 'player__color', 'player__social', 'player__mixer', 'player__glow', 'player__burn').order_by('-player__matches'))
+                                                   'player__notes', 'player__color', 'player__social', 'player__mixer', 'player__glow', 'player__rgb').order_by('-player__matches'))
 
     list_50s = []
     playlists = ['halo_reach_team_hardcore', 'halo_reach_invasion', 'halo_reach_team_slayer']
@@ -338,9 +338,9 @@ def rank_func(request, handlebars, amount_type, title):
 
     if 'pc_' in amount_type:
         amount_type = amount_type.replace('pc_', '')
-        data['leaderboard'] = json.dumps(list(PcRanks.objects.filter(player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('player__wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), burn=F('player__burn')).order_by('-amount', '-exp')[first_record:last_record]))
+        data['leaderboard'] = json.dumps(list(PcRanks.objects.filter(player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('player__wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb')).order_by('-amount', '-exp')[first_record:last_record]))
     else:
-        data['leaderboard'] = json.dumps(list(Ranks.objects.filter(player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('player__wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), burn=F('player__burn')).order_by('-amount', '-exp')[first_record:last_record]))
+        data['leaderboard'] = json.dumps(list(Ranks.objects.filter(player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('player__wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb')).order_by('-amount', '-exp')[first_record:last_record]))
     data['index'] = first_record
 
     return data
@@ -427,9 +427,9 @@ def season1_func(request, handlebars, amount_type, title, first=None, last=None)
         last_record += (page - 1) * 100
         data['page'] = page
     if amount_type == 'wl' or amount_type == 'kd':
-        data['leaderboard'] = json.dumps(list(Season1.objects.filter(matches__gte=250, player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), highest_rank=F('player__highest_skill'), burn=F('player__burn')).order_by('-amount', '-exp')[first_record:last_record]))
+        data['leaderboard'] = json.dumps(list(Season1.objects.filter(matches__gte=250, player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), highest_rank=F('player__highest_skill'), rgb=F('player__rgb')).order_by('-amount', '-exp')[first_record:last_record]))
     else:
-        data['leaderboard'] = json.dumps(list(Season1.objects.filter(player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), highest_rank=F('player__highest_skill'), burn=F('player__burn')).order_by('-amount', '-exp')[first_record:last_record]))
+        data['leaderboard'] = json.dumps(list(Season1.objects.filter(player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), highest_rank=F('player__highest_skill'), rgb=F('player__rgb')).order_by('-amount', '-exp')[first_record:last_record]))
     data['index'] = first_record
 
     return data
@@ -488,6 +488,6 @@ def s1_playtime(request):
 
     leaderboards = Season1.objects.filter(player__ban=False).order_by('-epoch')[first_record:last_record]
     data['index'] = first_record
-    data['leaderboard'] = json.dumps(list(leaderboards.values('playtime', gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), burn=F('player__burn'))))
+    data['leaderboard'] = json.dumps(list(leaderboards.values('playtime', gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb'))))
 
     return render(request, 'leaderboard.html', data)

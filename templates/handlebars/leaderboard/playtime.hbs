@@ -26,8 +26,8 @@
                     </td>
                     <td>
                         <a href="/profile/{{gamertag}}"><img class="emblem" src="{{emblem}}" /><span class="gamertag {{#if glow}}glow{{/if}}" style="color: {{color}}">
-                            {{#if burn}}
-                                {{burnFont gamertag}}
+                            {{#if rgb}}
+                                {{rgbFont gamertag}}
                             {{else}}
                                 {{gamertag}}
                             {{/if}}
@@ -36,7 +36,7 @@
                             <span id="donator-wrapper">
                                 {{#ifCond donation '>=' 50}}
                                     {{#ifCond donation '>=' 75}}
-                                        <span class="icon fire-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
+                                        <span class="icon rgb-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
                                     {{else}}
                                         <span class="icon diamond-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
                                     {{/ifCond}}
