@@ -21,8 +21,9 @@
     {% csrf_token %}
     <%= require('html-loader!./partial/header.html') %>
 
-    <video crossorigin="anonymous" preload="auto" loop autoplay muted src="{% static 'bundle/assets/vg1.mp4' %}"></video>
     <div id="body-wrapper">
+        <video crossorigin="anonymous" preload="auto" loop autoplay muted src="{% static 'bundle/assets/vg1.mp4' %}"></video>
+
         <div id="left-wrapper">
             <div id="content-wrapper">
                 <h2 id="title">MCCSTATS<span>.COM</span></h2>
@@ -42,16 +43,15 @@
                     <a class="icon-links" id="twitter" target="_blank" href="https://twitter.com/GoryFigment"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-
-            <div id="leaderboard-wrapper"></div>
         </div>
 
         <div id="right-wrapper">
             <div id="recent-donations-wrapper"></div>
-            <div id="advertisement-wrapper">
-                <h4>Tommy Kost: Halo 2/3 (MCC) Montage</h4>
-                <iframe width="320" height="180" src="https://www.youtube.com/embed/92G8ELYQGUQ?autoplay=1&cc_load_policy=1&mute=1" allowfullscreen></iframe>
-            </div>
+            <div id="leaderboard-wrapper"></div>
+{#            <div id="advertisement-wrapper">#}
+{#                <h4>Tommy Kost: Halo 2/3 (MCC) Montage</h4>#}
+{#                <iframe width="320" height="180" src="https://www.youtube.com/embed/92G8ELYQGUQ?autoplay=1&cc_load_policy=1&mute=1" allowfullscreen></iframe>#}
+{#            </div>#}
         </div>
     </div>
 
@@ -62,6 +62,7 @@
         <div id="tip-content"></div>
     </div>
 
+    <%= require('html-loader!./partial/footer.html') %>
 {#    <iframe src="https://player.twitch.tv/?channel=slimhaley&volume=0.11" frameborder="0" allowfullscreen="true" scrolling="no" height="555" width="555"></iframe>#}
 </body>
 </html>

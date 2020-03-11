@@ -48,6 +48,10 @@ h1 {
     text-align: center;
 }
 
+#body-wrapper {
+    min-height: calc(100vh - 162px);
+}
+
 #wrapper {
     display: flex;
     width: calc(100vw - 200px);
@@ -79,6 +83,10 @@ h1 {
     font-weight: bold;
     white-space: nowrap;
     color: #6e6e6e;
+}
+
+footer #leaderboard-button {
+    display: none !important;
 }
 
 /*SERVICE RECORD*/

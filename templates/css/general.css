@@ -141,6 +141,45 @@ button:hover, #donate-button:hover a {
 }
 /*HEADER*/
 
+/*FOOTER*/
+footer {
+    position: relative;
+    width: 100%;
+    background: #070707;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
+footer h3 {
+    margin: 0 25px;
+}
+
+footer h3 span {
+    color: #00ff66;
+}
+
+footer div {
+    display: flex;
+    margin-right: 20px;
+}
+
+footer button {
+    display: block !important;
+}
+
+footer p {
+    position: absolute;
+    font-size: 10px;
+    bottom: 4px;
+    color: #c4c4c4;
+    margin-left: 25px;
+}
+/*FOOTER*/
+
 /* OVERLAY */
 #overlay {
     position: fixed;

@@ -56,13 +56,17 @@ body {
 }
 
 video {
-    position: absolute;
-    min-height: 642px;
-    width: 100vw;
-    min-width: 947px;
-    left: 0;
-    top: 0;
-    z-index: -2;
+    /*min-height: 642px;*/
+    /*width: 100vw;*/
+    /*min-width: 947px;*/
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
 }
 
 h1, h2 {
@@ -92,6 +96,7 @@ input:-webkit-autofill {
     margin: 0 auto;
     transition: 0.5s ease all;
     justify-content: space-between;
+    min-height: calc(100vh - 60px);
 }
 
 #content-wrapper p {
@@ -218,7 +223,7 @@ table {
     border-collapse: collapse;
     border: 1px solid white;
     font-family: 'Rajdhani', 'Roboto', sans-serif;
-    width: 395px;
+    width: 300px;
 }
 
 table thead {

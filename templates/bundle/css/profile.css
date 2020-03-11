@@ -315,6 +315,10 @@ h1 {
     text-align: center;
 }
 
+#body-wrapper {
+    min-height: calc(100vh - 162px);
+}
+
 #wrapper {
     display: -webkit-box;
     display: -webkit-flex;
@@ -360,6 +364,10 @@ h1 {
     font-weight: bold;
     white-space: nowrap;
     color: #6e6e6e;
+}
+
+footer #leaderboard-button {
+    display: none !important;
 }
 
 /*SERVICE RECORD*/
