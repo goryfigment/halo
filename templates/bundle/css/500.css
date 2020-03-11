@@ -217,7 +217,6 @@ input:-webkit-autofill {
 }
 
 iframe {
-    opacity: .6;
     border: none;
     -webkit-transition: 0.5s ease all;
     -o-transition: 0.5s ease all;

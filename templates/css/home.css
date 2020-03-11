@@ -184,7 +184,6 @@ input:-webkit-autofill {
 }
 
 iframe {
-    opacity: .6;
     border: none;
     transition: 0.5s ease all;
     box-shadow: 0 0 43px 0 rgb(0, 0, 0);
