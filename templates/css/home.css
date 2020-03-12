@@ -22,8 +22,8 @@
         flex-direction: column;
     }
 
-    body #donate-table {
-        width: 395px;
+    body table {
+        width: 395px !important;
     }
 
     body #advertisement-wrapper {

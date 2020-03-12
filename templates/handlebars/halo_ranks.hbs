@@ -5,6 +5,8 @@
         <img class="halo-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcMajorRank rank record.wins) '.png'}}" />
         {{#ifCond (dict ../leaderboard key) '>' 0}}
             <div class="percent" style="color: {{percentColors (dict ../leaderboard key) ../player_count}}">#{{dict ../leaderboard key}} <span>&#8226;</span> Top {{percent (dict ../leaderboard key) ../player_count}}</div>
+        {{else}}
+            <div class="percent">NOT RANKED</div>
         {{/ifCond}}
     </div>
 {{/each}}
