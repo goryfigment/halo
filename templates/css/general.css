@@ -146,12 +146,14 @@ footer {
     position: relative;
     width: 100%;
     background: #070707;
-    white-space: nowrap;
+    padding: 25px 0 10px;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
+footer #footer-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 0;
-    font-family: 'Rajdhani', 'Roboto', sans-serif;
 }
 
 footer h3 {
@@ -162,7 +164,7 @@ footer h3 span {
     color: #00ff66;
 }
 
-footer div {
+footer #footer-button-wrapper {
     display: flex;
     margin-right: 20px;
 }
@@ -172,11 +174,10 @@ footer button {
 }
 
 footer p {
-    position: absolute;
     font-size: 10px;
     bottom: 4px;
     color: #c4c4c4;
-    margin-left: 25px;
+    margin: 0 25px;
 }
 /*FOOTER*/
 
@@ -299,6 +300,14 @@ footer p {
     #leaderboard-container .leaderboard-section {
         padding: 5px 0 !important;
         width: 250px !important;
+    }
+
+    footer #footer-wrapper {
+        flex-direction: column;
+    }
+
+    footer p {
+        text-align: center;
     }
 }
 

@@ -93,10 +93,9 @@ input:-webkit-autofill {
 #body-wrapper {
     display: flex;
     width: calc(100vw - 250px);
-    margin: 0 auto;
     transition: 0.5s ease all;
     justify-content: space-between;
-    min-height: calc(100vh - 60px);
+    margin: 0 auto 30px auto;
 }
 
 #content-wrapper p {

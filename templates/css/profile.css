@@ -12,13 +12,13 @@
         transform-origin: top;
     }
 
-    #right-wrapper {
-        width: 422px;
-        margin: 15px auto !important;
-    }
-
     #left-wrapper {
         margin: 0 auto;
+    }
+
+    #right-wrapper {
+        width: 422px;
+        margin: 0 auto !important;
     }
 
     .percent {
@@ -46,10 +46,6 @@ input {
 
 h1 {
     text-align: center;
-}
-
-#body-wrapper {
-    min-height: calc(100vh - 162px);
 }
 
 #wrapper {
