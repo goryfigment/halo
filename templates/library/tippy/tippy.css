@@ -1,5 +1,5 @@
 #tip-popup {
-    z-index: 9999;
+    z-index: 1;
     position: absolute;
     opacity: 0;
     transition-timing-function: cubic-bezier(.165,.84,.44,1);
