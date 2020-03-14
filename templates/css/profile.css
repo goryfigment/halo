@@ -17,7 +17,7 @@
     }
 
     #right-wrapper {
-        width: 422px;
+        width: 462px;
         margin: 0 auto !important;
     }
 
@@ -59,14 +59,6 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#right-wrapper {
-    background: #0b0b0b;
-    margin: 10px 10px 0 10px;
-    padding: 0 10px;
-    border-radius: 2px;
-    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
 }
 
 #player-details .percent {
@@ -212,6 +204,19 @@ footer #leaderboard-button {
 /*PLAYER DETAILS*/
 
 /*HALO RANKS*/
+#rank-wrapper, #stats-wrapper {
+    background: #0b0b0b;
+    margin: 10px 10px 0 10px;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
+}
+
+#stats-header {
+    display: flex;
+    justify-content: space-between;
+}
+
 #xbox-rank-wrapper, #pc-rank-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -231,7 +236,7 @@ footer #leaderboard-button {
 }
 
 #right-wrapper h4 {
-    margin: 10px 0 5px;
+    margin: 0 0 5px;
     padding-bottom: 7px;
     font-family: 'Rajdhani', sans-serif;
     font-size: 18px;
@@ -295,7 +300,8 @@ footer #leaderboard-button {
     text-align: center;
     box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
     height: 100%;
-    font-size: 30px;
+    font-size: 40px;
+    line-height: 70px;
     padding: 10px 0;
     margin: 10px 0;
     display: none;
@@ -418,4 +424,38 @@ ol span {
     display: none;
 }
 /*SEASON*/
+
+/*TROPHY*/
+.trophy-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.trophy {
+    text-align: center;
+}
+
+.trophy i {
+    font-size: 60px;
+    line-height: 80px;
+    font-weight: bold;
+    cursor: default;
+}
+
+.tier-0 {
+    color: rgba(200, 200, 200, 0.05);
+}
+
+.tier-1 {
+    color: #ae581c;
+}
+
+.tier-2 {
+    color: #cdcdcd;
+}
+
+.tier-3 {
+    color: #e2ef22;
+}
+/*TROPHY*/
 

@@ -1,6 +1,6 @@
 require('./../css/general.css');
 require('./../css/profile.css');
-require('./../library/fontawesome/fontawesome.js');
+require('./../library/fontawesome/css/fontawesome.css');
 require('./../library/tippy/tippy.css');
 require('./../css/color_font.css');
 
@@ -13,6 +13,7 @@ var serviceRecordTemplate = require('./../handlebars/service_record.hbs');
 var playerDetailsTemplate = require('./../handlebars/player_details.hbs');
 var haloRanksTemplate = require('./../handlebars/halo_ranks.hbs');
 var privateTemplate = require('./../handlebars/private.hbs');
+var statsTemplate = require('./../handlebars/stats.hbs');
 var donatorTemplate = require('./../handlebars/donator.hbs');
 var privateTutorialTemplate = require('./../handlebars/overlay/private_tutorial.hbs');
 
@@ -35,10 +36,12 @@ function sendRequest(url, data, request_type, success, error, exception) {
 function serviceRecordSuccess(response) {
     var $serviceRecord = $('#service-record');
     var $playerDetails = $('#player-details');
+    var $statsWrapper = $('#stats-wrapper');
+
     var prevDetails = globals.player;
     $serviceRecord.empty();
     $playerDetails.empty();
-
+    $statsWrapper.empty();
     $serviceRecord.append(serviceRecordTemplate({'highest_rank': response['highest_rank'], 'gt': globals.gamertag, 'record': response}));
 
     response['hits'] = prevDetails['hits'];
@@ -54,7 +57,8 @@ function serviceRecordSuccess(response) {
         'score': response['season']['score'] - prevDetails['season']['score']
     };
 
-    $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+    $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'total_50s': globals.total_50s}));
+    $statsWrapper.append(statsTemplate({'change': change, 'player': globals.player, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
 }
 
 function serviceRecordError() {
@@ -71,14 +75,21 @@ $(document).ready(function() {
 
     var sorted_xbl_ranks = [];
     var sorted_pc_ranks = [];
+    var total_50s = 0;
+
     //Xbox Ranks
     for (var playlist in xbox_ranks) {
         if (xbox_ranks.hasOwnProperty(playlist)) {
+            var rank = xbox_ranks[playlist][0]['SkillRank'];
             sorted_xbl_ranks.push({
                 'key': helper.replaceAll(playlist.toLowerCase(), ' ', '_').replace(':', ''),
                 'playlist': playlist,
-                'rank': xbox_ranks[playlist][0]['SkillRank']
+                'rank': rank
             });
+
+            if(rank == 50) {
+                total_50s += 1;
+            }
         }
     }
 
@@ -91,11 +102,17 @@ $(document).ready(function() {
     //PC Ranks
     for (var pc_playlist in pc_ranks) {
         if (pc_ranks.hasOwnProperty(pc_playlist) && avail_pc_ranks.indexOf(pc_playlist) > -1) {
+            rank = pc_ranks[pc_playlist][0]['SkillRank'];
+
             sorted_pc_ranks.push({
                 'key': 'pc_' + helper.replaceAll(pc_playlist.toLowerCase(), ' ', '_').replace(':', ''),
                 'playlist': pc_playlist,
-                'rank': pc_ranks[pc_playlist][0]['SkillRank']
+                'rank': rank
             });
+
+            if(rank == 50) {
+                total_50s += 1;
+            }
         }
     }
 
@@ -104,6 +121,7 @@ $(document).ready(function() {
     });
 
     globals.sorted_ranks = sorted_xbl_ranks;
+    globals.total_50s = total_50s;
 
     if(sorted_xbl_ranks[0]['rank'] >= sorted_pc_ranks[0]['rank']) {
         var highest_rank = sorted_xbl_ranks[0]['rank'];
@@ -113,7 +131,8 @@ $(document).ready(function() {
 
     if(!$.isEmptyObject(globals.player)) {
         $('#service-record').append(serviceRecordTemplate({highest_rank: highest_rank, 'gt': globals.gamertag, 'record': globals.player}));
-        $('#player-details').append(playerDetailsTemplate({'player': globals.player, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+        $('#player-details').append(playerDetailsTemplate({'player': globals.player, 'leaderboard': globals.leaderboard, 'total_50s': total_50s}));
+        $('#stats-wrapper').append(statsTemplate({'player': globals.player, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
     }
 
     if(globals.player['donation'] > 0) {

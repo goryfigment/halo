@@ -1,0 +1,211 @@
+<div id="stats-header">
+    <h5>Stats</h5>
+
+    <ol>
+        <li class="tab" id="all-tab" data-type="all-wrapper"><b>All</b></li>
+        <span>|</span>
+        <li class="tab active" id="s1-tab" data-type="season1-wrapper"><b>Season 1</b></li>
+    </ol>
+</div>
+
+
+<div class="tab-wrapper active-tab" id="season1-wrapper">
+    <div class="stat-container">
+        <div class="stat-item" id="score-item">
+            <div>MCC Score</div>
+            <span>{{player.season.score}}</span>
+            {{#ifCond change.score '>' 0}}<span class="change {{#ifCond change.score '<' 0}}neg{{/ifCond}}">{{#ifCond change.score '>' 0}}+{{/ifCond}}{{change.score}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.s1_score '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.s1_score player_count}}">#{{leaderboard.s1_score}} <span>&#8226;</span> Top {{percent leaderboard.s1_score player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item" id="playtime-item">
+            <div>Playtime</div>
+            <div class="playtime">{{player.season.playtime}}</div>
+            {{#ifCond leaderboard.s1_playtime '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.s1_playtime player_count}}">#{{leaderboard.s1_playtime}} <span>&#8226;</span> Top {{percent leaderboard.s1_playtime player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>Total Matches</div>
+            <span>{{numCommaFormat player.season.matches}}</span>
+            {{#ifCond change.matches '>' 0}}<span class="change {{#ifCond change.matches '<' 0}}neg{{/ifCond}}">{{#ifCond change.matches '>' 0}}+{{/ifCond}}{{change.matches}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.s1_matches '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.s1_matches player_count}}">#{{leaderboard.s1_matches}} <span>&#8226;</span> Top {{percent leaderboard.s1_matches player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+    </div>
+
+    <div class="stat-container">
+        <div class="stat-item">
+            <div>Wins</div>
+            <span>{{numCommaFormat player.season.wins}}</span>
+            {{#ifCond change.wins '>' 0}}<span class="change {{#ifCond change.wins '<' 0}}neg{{/ifCond}}">{{#ifCond change.wins '>' 0}}+{{/ifCond}}{{change.wins}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.s1_wins '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.s1_wins player_count}}">#{{leaderboard.s1_wins}} <span>&#8226;</span> Top {{percent leaderboard.s1_wins player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>Losses</div>
+            <span>{{numCommaFormat player.season.losses}}</span>
+            {{#ifCond change.losses '>' 0}}<span class="change {{#ifCond change.losses '<' 0}}neg{{/ifCond}}">{{#ifCond change.losses '>' 0}}+{{/ifCond}}{{change.losses}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.s1_losses '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.s1_losses player_count}}">#{{leaderboard.s1_losses}} <span>&#8226;</span> Top {{percent leaderboard.s1_losses player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>W/L Ratio</div>
+            <span>{{player.season.wl}}</span>
+            {{#ifCond change.wl '>' 0}}<span class="change {{#ifCond change.wl '<' 0}}neg{{/ifCond}}">{{#ifCond change.wl '>' 0}}+{{/ifCond}}{{change.wl}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.s1_wl '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.s1_wl player_count}}">#{{leaderboard.s1_wl}} <span>&#8226;</span> Top {{percent leaderboard.s1_wl player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+    </div>
+
+    <div class="stat-container">
+        <div class="stat-item">
+            <div>Kills</div>
+            <span>{{numCommaFormat player.season.kills}}</span>
+            {{#ifCond change.kills '>' 0}}<span class="change {{#ifCond change.kills '<' 0}}neg{{/ifCond}}">{{#ifCond change.kills '>' 0}}+{{/ifCond}}{{change.kills}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.s1_kills '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.s1_kills player_count}}">#{{leaderboard.s1_kills}} <span>&#8226;</span> Top {{percent leaderboard.s1_kills player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>Deaths</div>
+            <span>{{numCommaFormat player.season.deaths}}</span>
+            {{#ifCond change.deaths '>' 0}}<span class="change {{#ifCond change.deaths '<' 0}}neg{{/ifCond}}">{{#ifCond change.deaths '>' 0}}+{{/ifCond}}{{change.deaths}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.s1_deaths '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.s1_deaths player_count}}">#{{leaderboard.s1_deaths}} <span>&#8226;</span> Top {{percent leaderboard.s1_deaths player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>K/D Ratio</div>
+            <span>{{player.season.kd}}</span>
+            {{#ifCond change.kd '>' 0}}<span class="change {{#ifCond change.kd '<' 0}}neg{{/ifCond}}">{{#ifCond change.kd '>' 0}}+{{/ifCond}}{{change.kd}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.s1_kd '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.s1_kd player_count}}">#{{leaderboard.s1_kd}} <span>&#8226;</span> Top {{percent leaderboard.s1_kd player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+    </div>
+</div>
+
+<div class="tab-wrapper" id="all-wrapper">
+    <div class="stat-container">
+        <div class="stat-item" id="playtime-item">
+            <div>Playtime</div>
+            <div class="playtime">{{player.playtime}}</div>
+            {{#ifCond leaderboard.playtime '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.playtime player_count}}">#{{leaderboard.playtime}} <span>&#8226;</span> Top {{percent leaderboard.playtime player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>Total Matches</div>
+            <span>{{numCommaFormat player.matches}}</span>
+            {{#ifCond change.matches '>' 0}}<span class="change {{#ifCond change.matches '<' 0}}neg{{/ifCond}}">{{#ifCond change.matches '>' 0}}+{{/ifCond}}{{change.matches}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.matches '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.matches player_count}}">#{{leaderboard.matches}} <span>&#8226;</span> Top {{percent leaderboard.matches player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+    </div>
+
+    <div class="stat-container">
+        <div class="stat-item">
+            <div>Wins</div>
+            <span>{{numCommaFormat player.wins}}</span>
+            {{#ifCond change.wins '>' 0}}<span class="change {{#ifCond change.wins '<' 0}}neg{{/ifCond}}">{{#ifCond change.wins '>' 0}}+{{/ifCond}}{{change.wins}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.wins '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.wins player_count}}">#{{leaderboard.wins}} <span>&#8226;</span> Top {{percent leaderboard.wins player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>Losses</div>
+            <span>{{numCommaFormat player.losses}}</span>
+            {{#ifCond change.losses '>' 0}}<span class="change {{#ifCond change.losses '<' 0}}neg{{/ifCond}}">{{#ifCond change.losses '>' 0}}+{{/ifCond}}{{change.losses}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.losses '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.losses player_count}}">#{{leaderboard.losses}} <span>&#8226;</span> Top {{percent leaderboard.losses player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>W/L Ratio</div>
+            <span>{{player.wl}}</span>
+            {{#ifCond change.wl '>' 0}}<span class="change {{#ifCond change.wl '<' 0}}neg{{/ifCond}}">{{#ifCond change.wl '>' 0}}+{{/ifCond}}{{change.wl}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.wl '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.wl player_count}}">#{{leaderboard.wl}} <span>&#8226;</span> Top {{percent leaderboard.wl player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+    </div>
+
+    <div class="stat-container">
+        <div class="stat-item">
+            <div>Kills</div>
+            <span>{{numCommaFormat player.kills}}</span>
+            {{#ifCond change.kills '>' 0}}<span class="change {{#ifCond change.kills '<' 0}}neg{{/ifCond}}">{{#ifCond change.kills '>' 0}}+{{/ifCond}}{{change.kills}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.kills '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.kills player_count}}">#{{leaderboard.kills}} <span>&#8226;</span> Top {{percent leaderboard.kills player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>Deaths</div>
+            <span>{{numCommaFormat player.deaths}}</span>
+            {{#ifCond change.deaths '>' 0}}<span class="change {{#ifCond change.deaths '<' 0}}neg{{/ifCond}}">{{#ifCond change.deaths '>' 0}}+{{/ifCond}}{{change.deaths}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.deaths '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.deaths player_count}}">#{{leaderboard.deaths}} <span>&#8226;</span> Top {{percent leaderboard.deaths player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>K/D Ratio</div>
+            <span>{{player.kd}}</span>
+            {{#ifCond change.kd '>' 0}}<span class="change {{#ifCond change.kd '<' 0}}neg{{/ifCond}}">{{#ifCond change.kd '>' 0}}+{{/ifCond}}{{change.kd}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.kd '>' 0}}
+                <div class="percent" style="color: {{percentColors leaderboard.kd player_count}}">#{{leaderboard.kd}} <span>&#8226;</span> Top {{percent leaderboard.kd player_count}}</div>
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+    </div>
+</div>

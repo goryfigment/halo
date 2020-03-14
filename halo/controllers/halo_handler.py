@@ -335,8 +335,6 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
     # Every 50=50points
     bonus_points = (total_50s * 50)
 
-    print bonus_points
-
     s1_score = int(round((s1_wins*0.5) + (s1_kills*0.1) + (total_levels*10)) + bonus_points)
     # Save it to Season 1 Database!
     season1.kills = s1_kills
@@ -362,6 +360,7 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         'losses': losses,
         'wl': wl_ratio,
         'highest_rank': highest_rank,
+        'epoch': epoch,
         'season': {
             'playtime': s1_playtime,
             'matches': s1_matches,
