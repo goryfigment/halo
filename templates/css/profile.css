@@ -4,12 +4,29 @@
         height: 100% !important;
     }
 
-    #wrapper {
-        flex-direction: column;
-        width: 125% !important;
+    body #body-wrapper {
         transform: scale(0.75);
         transition: transform ease 0.5s;
         transform-origin: top;
+        width: 125% !important;
+    }
+
+    body #wrapper {
+        flex-direction: column;
+    }
+
+    body #stats-wrapper, body #rank-wrapper {
+        width: 422px;
+        margin: 10px auto;
+    }
+
+    body .clip {
+        flex: 0 0 100% !important;
+    }
+
+    body #file-share-wrapper {
+        margin: 0 auto;
+        width: 442px;
     }
 
     #left-wrapper {
@@ -48,9 +65,14 @@ h1 {
     text-align: center;
 }
 
+#body-wrapper {
+    width: calc(100vw - 200px);
+    margin-bottom: 25px;
+
+}
+
 #wrapper {
     display: flex;
-    width: calc(100vw - 200px);
     margin-bottom: 25px;
 }
 
@@ -206,7 +228,7 @@ footer #leaderboard-button {
 /*HALO RANKS*/
 #rank-wrapper, #stats-wrapper {
     background: #0b0b0b;
-    margin: 10px 10px 0 10px;
+    margin: 10px 0 0 20px;
     padding: 10px;
     border-radius: 2px;
     box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
@@ -511,3 +533,75 @@ ol span {
 }
 /*TROPHY*/
 
+/*FILE SHARE*/
+#file-share-wrapper {
+    width: calc(100vw - 200px);
+    margin-bottom: 25px;
+    background: #0b0b0b;
+    border-radius: 2px;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
+    padding: 10px 0;
+}
+
+#file-share-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#file-share-container .clip {
+    flex: 0 0 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clip .clip-header {
+    display: flex;
+    width: 240px;
+    justify-content: space-between;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
+.clip-header h5 {
+    margin: 30px 0 10px;
+}
+
+#file-share-container .video-controls {
+    width: 240px;
+    text-align: center;
+    background: #050505;
+    padding: 10px 0;
+    margin-top: 5px;
+}
+
+#file-share-container a {
+    color: #14b626;
+    transition: all ease 0.5s;;
+}
+
+#file-share-container a:hover {
+    color: #00ff66;
+}
+
+.loading {
+    width: 100%;
+    text-align: center;
+    font-size: 80px;
+    margin: 35px 0;
+}
+
+#show-all {
+    text-align: right;
+    padding: 20px 30px;
+    color: #0ed7d7;
+    text-decoration: underline;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease all;
+}
+
+.show-all {
+    color: #00d4d7;
+}
+/*FILE SHARE*/

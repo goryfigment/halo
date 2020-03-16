@@ -13,7 +13,7 @@
     <div class="stat-container">
         <div class="stat-item" id="score-item">
             <div>MCC Score</div>
-            <span>{{player.season.score}}</span>
+            <span>{{numCommaFormat player.season.score}}</span>
             {{#ifCond change.score '>' 0}}<span class="change {{#ifCond change.score '<' 0}}neg{{/ifCond}}">{{#ifCond change.score '>' 0}}+{{/ifCond}}{{change.score}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s1_score '>' 0}}
                 <div class="percent" style="color: {{percentColors leaderboard.s1_score player_count}}">#{{leaderboard.s1_score}} <span>&#8226;</span> Top {{percent leaderboard.s1_score player_count}}</div>

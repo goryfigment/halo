@@ -26,22 +26,31 @@
 
     <%= require('html-loader!./partial/header.html') %>
 
-
-    <div id="wrapper">
-        <div id="left-wrapper">
-            <div id="service-record"></div>
-            <div id="donator-wrapper"></div>
-            <div id="player-details"></div>
+    <div id="body-wrapper">
+        <div id="wrapper">
+            <div id="left-wrapper">
+                <div id="service-record"></div>
+                <div id="donator-wrapper"></div>
+                <div id="player-details"></div>
+            </div>
+            <div id="right-wrapper">
+                <div id="stats-wrapper"></div>
+                <div id="rank-wrapper">
+                    <h4><span id="xbox-icon"><i class="fab fa-xbox"></i></span> Xbox Ranks</h4>
+                    <div id="xbox-rank-wrapper"></div>
+                    <h4><span id="pc-icon"><i class="fab fa-steam"></i></span> PC Ranks</h4>
+                    <div id="pc-rank-wrapper"></div>
+                </div>
+            </div>
         </div>
-        <div id="right-wrapper">
-            <div id="stats-wrapper"></div>
-            <div id="rank-wrapper">
-                <h4><span id="xbox-icon"><i class="fab fa-xbox"></i></span> Xbox Ranks</h4>
-                <div id="xbox-rank-wrapper"></div>
-                <h4><span id="pc-icon"><i class="fab fa-steam"></i></span> PC Ranks</h4>
-                <div id="pc-rank-wrapper"></div>
+
+        <div id="file-share-wrapper">
+            <h2>File Share</h2>
+            <div id="file-share-container">
+                <i class="fas fa-circle-notch fa-spin loading"></i>
             </div>
 
+            <div id="show-all">Show all</div>
         </div>
     </div>
 

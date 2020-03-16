@@ -15,6 +15,7 @@ var haloRanksTemplate = require('./../handlebars/halo_ranks.hbs');
 var privateTemplate = require('./../handlebars/private.hbs');
 var statsTemplate = require('./../handlebars/stats.hbs');
 var donatorTemplate = require('./../handlebars/donator.hbs');
+var fileShareTemplate = require('./../handlebars/file_share.hbs');
 var privateTutorialTemplate = require('./../handlebars/overlay/private_tutorial.hbs');
 
 function sendRequest(url, data, request_type, success, error, exception) {
@@ -58,7 +59,7 @@ function serviceRecordSuccess(response) {
     };
 
     $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'total_50s': globals.total_50s}));
-    $statsWrapper.append(statsTemplate({'change': change, 'player': globals.player, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+    $statsWrapper.append(statsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
 }
 
 function serviceRecordError() {
@@ -145,7 +146,21 @@ $(document).ready(function() {
     $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
     $('#pc-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_pc_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
     sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, xbox_ranks: xbox_ranks, pc_ranks: pc_ranks, highest_rank: highest_rank}), 'POST', serviceRecordSuccess, serviceRecordError);
+    sendRequest('/xbox-clips/', {gt: globals.gamertag}, 'GET', xboxClipsSuccess, xboxClipsError);
 });
+
+function xboxClipsSuccess(response) {
+    //console.log(JSON.stringify(response));
+    globals.clips = response;
+
+    var $fileShare = $('#file-share-container');
+    $fileShare.empty();
+    $fileShare.append(fileShareTemplate({'clips': response['clips'].slice(0,6)}));
+}
+
+function xboxClipsError(response) {
+    console.log(JSON.stringify(response))
+}
 
 //PRIVATE/
 $(document).on('click', '#private-tutorial', function (e) {
@@ -175,3 +190,11 @@ $(document).on('click', '.tab', function () {
     tabHandler($this, $('#' + $this.attr('data-type')));
 });
 // TABS //
+
+// FILESHARE //
+$(document).on('click', '#show-all', function () {
+    $('#file-share-container').append(fileShareTemplate({'clips': globals.clips['clips'].slice(6)}));
+
+    $(this).remove();
+});
+// FILESHARE //

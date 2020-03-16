@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.views.generic import TemplateView
-from halo.controllers import site, profile, leaderboard, donate, account_handler
+from halo.controllers import site, profile, leaderboard, donate, account_handler, xbox_handler
 
 urlpatterns = [
     url(r'^$', site.home, name='home'),
@@ -26,6 +26,9 @@ urlpatterns = [
     url(r'^robots\.txt$', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
     url(r'^sitemap\.xml$', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
     url(r'^database/(?P<gt>.*)', site.update_database),
+
+    # XBOX CLIPS
+    url(r'^xbox-clips/', xbox_handler.xbox_clips),
 
     # DATABASE
     url(r'^update-leaderboard/', leaderboard.update_leaderboard),

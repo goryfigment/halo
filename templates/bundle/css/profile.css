@@ -252,13 +252,7 @@
         height: 100% !important;
     }
 
-    #wrapper {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        width: 125% !important;
+    body #body-wrapper {
         -webkit-transform: scale(0.75);
             -ms-transform: scale(0.75);
                 transform: scale(0.75);
@@ -270,6 +264,32 @@
         -webkit-transform-origin: top;
             -ms-transform-origin: top;
                 transform-origin: top;
+        width: 125% !important;
+    }
+
+    body #wrapper {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+
+    body #stats-wrapper, body #rank-wrapper {
+        width: 422px;
+        margin: 10px auto;
+    }
+
+    body .clip {
+        -webkit-box-flex: 0 !important;
+        -webkit-flex: 0 0 100% !important;
+            -ms-flex: 0 0 100% !important;
+                flex: 0 0 100% !important;
+    }
+
+    body #file-share-wrapper {
+        margin: 0 auto;
+        width: 442px;
     }
 
     #left-wrapper {
@@ -315,12 +335,17 @@ h1 {
     text-align: center;
 }
 
+#body-wrapper {
+    width: calc(100vw - 200px);
+    margin-bottom: 25px;
+
+}
+
 #wrapper {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    width: calc(100vw - 200px);
     margin-bottom: 25px;
 }
 
@@ -522,7 +547,7 @@ footer #leaderboard-button {
 /*HALO RANKS*/
 #rank-wrapper, #stats-wrapper {
     background: #0b0b0b;
-    margin: 10px 10px 0 10px;
+    margin: 10px 0 0 20px;
     padding: 10px;
     border-radius: 2px;
     -webkit-box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
@@ -878,7 +903,107 @@ ol span {
 }
 /*TROPHY*/
 
-/*!
+/*FILE SHARE*/
+#file-share-wrapper {
+    width: calc(100vw - 200px);
+    margin-bottom: 25px;
+    background: #0b0b0b;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
+            box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.8), 0 3px 24px rgba(0, 0, 0, 1);
+    padding: 10px 0;
+}
+
+#file-share-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+
+#file-share-container .clip {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33%;
+        -ms-flex: 0 0 33%;
+            flex: 0 0 33%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.clip .clip-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 240px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
+.clip-header h5 {
+    margin: 30px 0 10px;
+}
+
+#file-share-container .video-controls {
+    width: 240px;
+    text-align: center;
+    background: #050505;
+    padding: 10px 0;
+    margin-top: 5px;
+}
+
+#file-share-container a {
+    color: #14b626;
+    -webkit-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s;;
+}
+
+#file-share-container a:hover {
+    color: #00ff66;
+}
+
+.loading {
+    width: 100%;
+    text-align: center;
+    font-size: 80px;
+    margin: 35px 0;
+}
+
+#show-all {
+    text-align: right;
+    padding: 20px 30px;
+    color: #0ed7d7;
+    text-decoration: underline;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-transition: 0.5s ease all;
+    -o-transition: 0.5s ease all;
+    transition: 0.5s ease all;
+}
+
+.show-all {
+    color: #00d4d7;
+}
+/*FILE SHARE*//*!
  * Font Awesome Free 5.12.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */

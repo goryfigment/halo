@@ -1,0 +1,15 @@
+{{#each clips}}
+    <div class="clip">
+        <div class="clip-header">
+            <h5>Halo</h5> <h5>{{date datePublished true}}</h5>
+        </div>
+
+        <video width="240" height="135" controls>
+            <source src="{{gameClipUris.0.uri}}" type="video/mp4">
+        </video>
+
+        <div class="video-controls">
+            <a href="{{gameClipUris.0.uri}}" download target="_blank"><i class="fas fa-download"></i></a>
+        </div>
+    </div>
+{{/each}}

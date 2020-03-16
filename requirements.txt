@@ -6,3 +6,4 @@ django-mysql==2.2.2
 requests
 beautifulsoup4==4.6.0
 html5lib==0.999999999
+xbox
