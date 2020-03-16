@@ -159,7 +159,11 @@ function xboxClipsSuccess(response) {
 }
 
 function xboxClipsError(response) {
-    console.log(JSON.stringify(response))
+
+    var $fileShare = $('#file-share-container');
+    $fileShare.empty();
+    $fileShare.append('<p>This user has no videos.</p>');
+    //console.log(JSON.stringify(response));
 }
 
 //PRIVATE/
@@ -194,7 +198,6 @@ $(document).on('click', '.tab', function () {
 // FILESHARE //
 $(document).on('click', '#show-all', function () {
     $('#file-share-container').append(fileShareTemplate({'clips': globals.clips['clips'].slice(6)}));
-
     $(this).remove();
 });
 // FILESHARE //

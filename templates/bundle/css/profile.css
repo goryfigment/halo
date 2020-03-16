@@ -1003,6 +1003,12 @@ ol span {
 .show-all {
     color: #00d4d7;
 }
+
+#file-share-wrapper p {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+}
 /*FILE SHARE*//*!
  * Font Awesome Free 5.12.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)

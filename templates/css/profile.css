@@ -604,4 +604,10 @@ ol span {
 .show-all {
     color: #00d4d7;
 }
+
+#file-share-wrapper p {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+}
 /*FILE SHARE*/

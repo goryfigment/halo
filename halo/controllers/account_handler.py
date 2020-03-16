@@ -11,7 +11,7 @@ from django.http import HttpResponseRedirect, HttpResponseBadRequest, JsonRespon
 from django.contrib.auth import authenticate, login, logout
 
 from halo.settings_secret import GMAIL, GMAIL_PASSWORD
-from halo.controllers.base import render_json, model_to_dict, create_password
+from halo.controllers.base import render_json, create_password
 from halo.models import User
 from halo.decorators import data_required
 

@@ -1,6 +1,6 @@
-import xbox
+import xbox, json
 from .. import settings_secret
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseBadRequest
 
 
 def xbox_authenticate():
@@ -8,16 +8,18 @@ def xbox_authenticate():
 
 
 def xbox_clips(request):
-
-
-
     try:
         gamertag = xbox.GamerProfile.from_gamertag(request.GET['gt'])
     except:
         xbox_authenticate()
         gamertag = xbox.GamerProfile.from_gamertag(request.GET['gt'])
 
-    clips = list(gamertag.clips())
+    try:
+        clips = list(gamertag.clips())
+    except:
+        data = {'success': False,  'error_msg': 'Users has no videos.'}
+        return HttpResponseBadRequest(json.dumps(data), 'application/json')
+
     halo_list = []
 
     for clip in clips:
