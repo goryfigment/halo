@@ -200,4 +200,26 @@ $(document).on('click', '#show-all', function () {
     $('#file-share-container').append(fileShareTemplate({'clips': globals.clips['clips'].slice(6)}));
     $(this).remove();
 });
+
+$(document).on('click', '.copy-button', function () {
+    var $this = $(this);
+    $this.siblings('textarea').select();
+    document.execCommand('copy');
+
+    var $message = $this.siblings('.copy-message');
+    $message.show();
+    $message.delay(1000).fadeOut("slow");
+});
+
+//$(document).on('click play', 'video', function (e) {
+//    e.stopPropagation();
+//    var $this = $(this);
+//    $("video").each(function() {
+//        var $currentVideo = $(this);
+//        if($currentVideo !== $this) {
+//            $(this).get(0).pause();
+//        }
+//    });
+//});
+
 // FILESHARE //

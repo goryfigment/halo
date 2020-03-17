@@ -338,7 +338,10 @@ h1 {
 #body-wrapper {
     width: calc(100vw - 200px);
     margin-bottom: 25px;
-
+    height: calc(100vh - 190px);
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
 }
 
 #wrapper {
@@ -364,6 +367,10 @@ h1 {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
+}
+
+#right-wrapper {
+    width: 99%;
 }
 
 #player-details .percent {
@@ -967,17 +974,49 @@ ol span {
     background: #050505;
     padding: 10px 0;
     margin-top: 5px;
+    position: relative;
+}
+
+.video-controls textarea {
+    height: 0;
+    opacity: 0.01;
+    position: absolute;
+    z-index: -1;
+}
+
+.video-controls .copy-message {
+    position: absolute;
+    bottom: 41px;
+    left: 67px;
+    background: #272727;
+    padding: 5px 7px;
+    border-radius: 2px;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    display: none;
+}
+
+.video-controls i {
+    margin: 0 5px;
+    padding: 5px;
+    cursor: pointer;
+    -webkit-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+}
+
+.video-controls i:hover {
+    -webkit-filter: brightness(1.25);
+            filter: brightness(1.25);
+}
+
+.copy-button {
+    color: #d3d3d3;
 }
 
 #file-share-container a {
-    color: #14b626;
-    -webkit-transition: all ease 0.5s;
-    -o-transition: all ease 0.5s;
-    transition: all ease 0.5s;;
-}
-
-#file-share-container a:hover {
-    color: #00ff66;
+    color: #42d5dc;
 }
 
 .loading {

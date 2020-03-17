@@ -96,6 +96,8 @@ input:-webkit-autofill {
 
 #body-wrapper {
     display: flex;
+    height: calc(100vh - 93px);
+    min-height: fit-content;
     width: calc(100vw - 250px);
     transition: 0.5s ease all;
     justify-content: space-between;
