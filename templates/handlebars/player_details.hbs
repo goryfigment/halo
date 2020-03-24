@@ -12,11 +12,12 @@
             <h6>MCCS</h6>
             <i class="fas fa-crown tier-{{trophyTier 'mccs' player.season.score}}"></i>
             <span class="bar">
-                <i class='fas fa-crown tier-1 tippy' data-title="1,000 MCCS"></i>
-                <i class='fas fa-crown tier-2 tippy' data-title="1,500 MCCS"></i>
-                <i class='fas fa-crown tier-3 tippy' data-title="2,000 MCCS"></i>
-                <span class="progress" style="width: {{mathMax (math player.season.score '/' 2000) '*' 100 100}}%"></span>
-                <span class="progress-number">{{numCommaFormat player.season.score}} / 2,000</span>
+                <i class='fas fa-crown tier-1 tippy' data-title="1,000 MCCS" style="{{#ifCond player.season.score '<' 1000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-crown tier-2 tippy' data-title="1,500 MCCS" style="{{#ifCond player.season.score '<' 1500}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-crown tier-3 tippy' data-title="2,000 MCCS" style="{{#ifCond player.season.score '<' 2000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-crown tier-4 tippy' data-title="2,500 MCCS" style="{{#ifCond player.season.score '<' 2500}}opacity:0.2;{{/ifCond}}"></i>
+                <span class="progress" style="width: {{mathMax (math player.season.score '/' 2500) '*' 100 100}}%"></span>
+                <span class="progress-number">{{numCommaFormat player.season.score}} / 2,500</span>
             </span>
         </div>
 
@@ -24,11 +25,12 @@
             <h6>RANK 50</h6>
             <i class="tier-{{trophyTier '50' total_50s}}">50</i>
             <span class="bar">
-                <i class='tier-1 tippy' data-title="1 RANK 50">50</i>
-                <i class='tier-2 tippy' data-title="2 RANK 50">50</i>
-                <i class='tier-3 tippy' data-title="3 RANK 50">50</i>
-                <span class="progress" style="width: {{mathMax (math total_50s '/' 3) '*' 100 100}}%"></span>
-                <span class="progress-number">{{total_50s}} / 3</span>
+                <i class='tier-1 tippy' data-title="1 RANK 50" style="{{#ifCond total_50s '<' 1}}opacity:0.2;{{/ifCond}}">50</i>
+                <i class='tier-2 tippy' data-title="2 RANK 50" style="{{#ifCond total_50s '<' 2}}opacity:0.2;{{/ifCond}}">50</i>
+                <i class='tier-3 tippy' data-title="3 RANK 50" style="{{#ifCond total_50s '<' 3}}opacity:0.2;{{/ifCond}}">50</i>
+                <i class='tier-4 tippy' data-title="4 RANK 50" style="{{#ifCond total_50s '<' 4}}opacity:0.2;{{/ifCond}}">50</i>
+                <span class="progress" style="width: {{mathMax (math total_50s '/' 4) '*' 100 100}}%"></span>
+                <span class="progress-number">{{total_50s}} / 4</span>
             </span>
         </div>
     </div>
@@ -37,33 +39,36 @@
             <h6>WINNER</h6>
             <i class="fas fa-award tier-{{trophyTier 'wins' player.wins}}"></i>
             <span class="bar">
-                <i class='fas fa-award tier-1 tippy' data-title="1,500 WINS"></i>
-                <i class='fas fa-award tier-2 tippy' data-title="3,000 WINS"></i>
-                <i class='fas fa-award tier-3 tippy' data-title="4,500 WINS"></i>
-                <span class="progress" style="width: {{mathMax (math player.wins '/' 4500) '*' 100 100}}%"></span>
-                <span class="progress-number">{{numCommaFormat player.wins}} / 4500</span>
+                <i class='fas fa-award tier-1 tippy' data-title="1,500 WINS" style="{{#ifCond player.wins '<' 1500}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-award tier-2 tippy' data-title="3,000 WINS" style="{{#ifCond player.wins '<' 3000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-award tier-3 tippy' data-title="4,500 WINS" style="{{#ifCond player.wins '<' 4500}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-award tier-4 tippy' data-title="6,000 WINS" style="{{#ifCond player.wins '<' 6000}}opacity:0.2;{{/ifCond}}"></i>
+                <span class="progress" style="width: {{mathMax (math player.wins '/' 6000) '*' 100 100}}%"></span>
+                <span class="progress-number">{{numCommaFormat player.wins}} / 6000</span>
             </span>
         </div>
         <div class="trophy">
             <h6>ATHLETIC</h6>
             <i class="far fa-chart-bar tier-{{trophyTier 'kd' player.kd}}"></i>
             <span class="bar">
-                <i class='far fa-chart-bar tier-1 tippy' data-title="1KD"></i>
-                <i class='far fa-chart-bar tier-2 tippy' data-title="1.5KD"></i>
-                <i class='far fa-chart-bar tier-3 tippy' data-title="2KD"></i>
-                <span class="progress" style="width: {{mathMax (math player.kd '/' 2) '*' 100 100}}%"></span>
-                <span class="progress-number">{{player.kd}}KD / 2KD</span>
+                <i class='far fa-chart-bar tier-1 tippy' data-title="1KD" style="{{#ifCond player.kd '<' 1}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='far fa-chart-bar tier-2 tippy' data-title="1.5KD" style="{{#ifCond player.kd '<' 1.5}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='far fa-chart-bar tier-3 tippy' data-title="2KD" style="{{#ifCond player.kd '<' 2}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='far fa-chart-bar tier-4 tippy' data-title="2.5KD" style="{{#ifCond player.kd '<' 2.5}}opacity:0.2;{{/ifCond}}"></i>
+                <span class="progress" style="width: {{mathMax (math player.kd '/' 2.5) '*' 100 100}}%"></span>
+                <span class="progress-number">{{player.kd}}KD / 2.5KD</span>
             </span>
         </div>
         <div class="trophy">
             <h6>KILLER</h6>
             <i class="fas fa-skull-crossbones tier-{{trophyTier 'kills' player.kills}}"></i>
             <span class="bar">
-                <i class='fas fa-skull-crossbones tier-1 tippy' data-title="25,000 KILLS"></i>
-                <i class='fas fa-skull-crossbones tier-2 tippy' data-title="50,000 KILLS"></i>
-                <i class='fas fa-skull-crossbones tier-3 tippy' data-title="75,000 KILLS"></i>
-                <span class="progress" style="width: {{mathMax (math player.kills '/' 75000) '*' 100 100}}%"></span>
-                <span class="progress-number">{{numCommaFormat player.kills}} / 75,000</span>
+                <i class='fas fa-skull-crossbones tier-1 tippy' data-title="25,000 KILLS" style="{{#ifCond player.kills '<' 25000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-skull-crossbones tier-2 tippy' data-title="50,000 KILLS" style="{{#ifCond player.kills '<' 50000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-skull-crossbones tier-3 tippy' data-title="75,000 KILLS" style="{{#ifCond player.kills '<' 75000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-skull-crossbones tier-4 tippy' data-title="100,000 KILLS" style="{{#ifCond player.kills '<' 100000}}opacity:0.2;{{/ifCond}}"></i>
+                <span class="progress" style="width: {{mathMax (math player.kills '/' 100000) '*' 100 100}}%"></span>
+                <span class="progress-number">{{numCommaFormat player.kills}} / 100,000</span>
             </span>
         </div>
     </div>
@@ -72,33 +77,36 @@
             <h6>MATCHMODER</h6>
             <i class="fas fa-gamepad tier-{{trophyTier 'matches' player.matches}}"></i>
             <span class="bar">
-                <i class='fas fa-gamepad tier-1 tippy' data-title="2,500 MATCHES"></i>
-                <i class='fas fa-gamepad tier-2 tippy' data-title="5,000 MATCHES"></i>
-                <i class='fas fa-gamepad tier-3 tippy' data-title="7,500 MATCHES"></i>
-                <span class="progress" style="width: {{mathMax (math player.matches '/' 7500) '*' 100 100}}%"></span>
-                <span class="progress-number">{{numCommaFormat player.matches}} / 7,500</span>
+                <i class='fas fa-gamepad tier-1 tippy' data-title="2,500 MATCHES" style="{{#ifCond player.matches '<' 2500}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-gamepad tier-2 tippy' data-title="5,000 MATCHES" style="{{#ifCond player.matches '<' 5000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-gamepad tier-3 tippy' data-title="7,500 MATCHES" style="{{#ifCond player.matches '<' 7500}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-gamepad tier-4 tippy' data-title="10,000 MATCHES" style="{{#ifCond player.matches '<' 10000}}opacity:0.2;{{/ifCond}}"></i>
+                <span class="progress" style="width: {{mathMax (math player.matches '/' 10000) '*' 100 100}}%"></span>
+                <span class="progress-number">{{numCommaFormat player.matches}} / 10,000</span>
             </span>
         </div>
         <div class="trophy">
             <h6>SCIENTIST</h6>
             <i class="fas fa-exchange-alt tier-{{trophyTier 'wl' player.wl}}"></i>
             <span class="bar">
-                <i class='fas fa-exchange-alt tier-1 tippy' data-title="1.5 WL"></i>
-                <i class='fas fa-exchange-alt tier-2 tippy' data-title="2.0 WL"></i>
-                <i class='fas fa-exchange-alt tier-3 tippy' data-title="2.5 WL"></i>
-                <span class="progress" style="width: {{mathMax (math player.wl '/' 2.5) '*' 100 100}}%"></span>
-                <span class="progress-number">{{player.wl}}WL / 3WL</span>
+                <i class='fas fa-exchange-alt tier-1 tippy' data-title="1.5 WL" style="{{#ifCond player.wl '<' 1.5}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-exchange-alt tier-2 tippy' data-title="2.0 WL" style="{{#ifCond player.wl '<' 2}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-exchange-alt tier-3 tippy' data-title="2.5 WL" style="{{#ifCond player.wl '<' 2.5}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-exchange-alt tier-4 tippy' data-title="3.0 WL" style="{{#ifCond player.wl '<' 3}}opacity:0.2;{{/ifCond}}"></i>
+                <span class="progress" style="width: {{mathMax (math player.wl '/' 3) '*' 100 100}}%"></span>
+                <span class="progress-number">{{player.wl}}WL / 4WL</span>
             </span>
         </div>
         <div class="trophy">
             <h6>NERD</h6>
             <i class="fas fa-clock tier-{{trophyTier 'playtime' player.epoch}}"></i>
             <span class="bar">
-                <i class='fas fa-clock tier-1 tippy' data-title="15 DAYS"></i>
-                <i class='fas fa-clock tier-2 tippy' data-title="30 DAYS"></i>
-                <i class='fas fa-clock tier-3 tippy' data-title="45 DAYS"></i>
-                <span class="progress" style="width: {{mathMax (math player.epoch '/' 3888000) '*' 100 100}}%"></span>
-                <span class="progress-number">{{player.playtime}} / 45 days </span>
+                <i class='fas fa-clock tier-1 tippy' data-title="15 DAYS" style="{{#ifCond player.epoch '<' 1296000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-clock tier-2 tippy' data-title="30 DAYS" style="{{#ifCond player.epoch '<' 2592000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-clock tier-3 tippy' data-title="45 DAYS" style="{{#ifCond player.epoch '<' 3888000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-clock tier-4 tippy' data-title="60 DAYS" style="{{#ifCond player.epoch '<' 5184000}}opacity:0.2;{{/ifCond}}"></i>
+                <span class="progress" style="width: {{mathMax (math player.epoch '/' 5184000) '*' 100 100}}%"></span>
+                <span class="progress-number">{{player.playtime}} / 60 days</span>
             </span>
         </div>
     </div>

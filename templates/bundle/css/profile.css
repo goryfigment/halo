@@ -862,12 +862,19 @@ ol span {
     color: #ffd816;
 }
 
+.tier-4 {
+    color: #6e6e6e;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+            animation: glow 1s ease-in-out infinite alternate;
+    font-weight: bold;
+}
+
 .bar {
     display: block;
     height: 11px;
     background: rgba(0, 0, 0, 0.8);
     position: relative;
-    width: 80%;
+    width: 115px;
     margin: 25px auto;
 }
 
@@ -879,15 +886,19 @@ ol span {
 }
 
 .bar i:nth-child(1) {
-    left: 30%;
+    left: 25%;
 }
 
 .bar i:nth-child(2) {
-    left: 60%;
+    left: 50%;
 }
 
 .bar i:nth-child(3) {
-    left: 90%;
+    left: 75%;
+}
+
+.bar i:nth-child(4) {
+    left: 98%;
 }
 
 .progress-number {
