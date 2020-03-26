@@ -175,6 +175,7 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
     emblem = soup.findAll("img", {"class": "emblem"})[0]['src']
     kills = int(value_element[0].get_text())
     deaths = int(value_element[1].get_text())
+
     playtime = numeric_medium[0].get_text().split(':')[0].replace('.', ' days ') + ' hours'
     matches = int(numeric_medium[1].get_text())
     wins = int(value_element[2].get_text())

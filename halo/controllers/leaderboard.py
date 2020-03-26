@@ -96,7 +96,7 @@ def service_func(request, handlebars, amount_type, title):
         data['page'] = page
 
     if amount_type == 'wl' or amount_type == 'kd':
-        data['leaderboard'] = json.dumps(list(Player.objects.filter(matches__gte=250, ban=False).values(amount=F(amount_type), exp=F('wins'), p_gamertag=F('gamertag'), p_id=F('id'), p_emblem=F('emblem'), p_donation=F('donation'), p_twitch=F('twitch'), p_youtube=F('youtube'), p_twitter=F('twitter'), p_notes=F('notes'), p_color=F('color'),  p_social=F('social'), p_mixer=F('mixer'), highest_rank=F('highest_skill'), p_glow=F('glow'), p_rgb=F('rgb')).order_by('-amount', '-exp')[first_record:last_record]))
+        data['leaderboard'] = json.dumps(list(Player.objects.filter(matches__gte=1000, ban=False).values(amount=F(amount_type), exp=F('wins'), p_gamertag=F('gamertag'), p_id=F('id'), p_emblem=F('emblem'), p_donation=F('donation'), p_twitch=F('twitch'), p_youtube=F('youtube'), p_twitter=F('twitter'), p_notes=F('notes'), p_color=F('color'),  p_social=F('social'), p_mixer=F('mixer'), highest_rank=F('highest_skill'), p_glow=F('glow'), p_rgb=F('rgb')).order_by('-amount', '-exp')[first_record:last_record]))
     elif amount_type == 'donation':
         data['leaderboard'] = json.dumps(list(Player.objects.filter(donation__gt=0).values(amount=F(amount_type), exp=F('wins'), p_gamertag=F('gamertag'), p_id=F('id'), p_emblem=F('emblem'), p_donation=F('donation'), p_twitch=F('twitch'), p_youtube=F('youtube'), p_twitter=F('twitter'), p_notes=F('notes'), p_color=F('color'),  p_social=F('social'), p_mixer=F('mixer'), p_glow=F('glow'), p_rgb=F('rgb')).order_by('-amount', '-exp')[first_record:last_record]))
     else:
