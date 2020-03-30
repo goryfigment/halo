@@ -50,6 +50,14 @@ def privacy_policy(request):
     return render(request, 'privacy_policy.html', data)
 
 
+def timer(request):
+    data = {
+        'base_url': get_base_url()
+    }
+
+    return render(request, 'timer.html', data)
+
+
 def about(request):
     data = {
         'base_url': get_base_url()

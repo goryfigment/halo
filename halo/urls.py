@@ -29,6 +29,7 @@ urlpatterns = [
 
     url(r'^privacy-policy/$', site.privacy_policy, name='privacy_policy'),
     url(r'^about/$', site.about, name='about'),
+    url(r'^timer/$', site.timer, name='timer'),
 
     # XBOX CLIPS
     url(r'^xbox-clips/', xbox_handler.xbox_clips),
