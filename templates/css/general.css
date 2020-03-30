@@ -135,7 +135,7 @@ button:hover, #donate-button:hover a {
     height: 38px;
 }
 
-#donate-link {
+footer a, header a {
     text-decoration: none;
     color: #cccccc;
 }

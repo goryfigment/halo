@@ -27,6 +27,9 @@ urlpatterns = [
     url(r'^sitemap\.xml$', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
     url(r'^database/(?P<gt>.*)', site.update_database),
 
+    url(r'^privacy-policy/$', site.privacy_policy, name='privacy_policy'),
+    url(r'^about/$', site.about, name='about'),
+
     # XBOX CLIPS
     url(r'^xbox-clips/', xbox_handler.xbox_clips),
 

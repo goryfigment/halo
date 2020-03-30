@@ -16,10 +16,14 @@ module.exports = {
         profile: './templates/js/profile.js',
         leaderboard: './templates/js/leaderboard.js',
         donate: './templates/js/donate.js',
+
         login: './templates/js/login.js',
         register: './templates/js/register.js',
         forgot_password: './templates/js/forgot_password.js',
         dashboard: './templates/js/dashboard.js',
+
+        privacy_policy: './templates/js/default.js',
+        about: './templates/js/default.js'
     },
     output: {path: __dirname + '/templates/bundle', filename: 'js/[name].js', publicPath: '/templates/bundle/'},
     module: {
@@ -52,7 +56,9 @@ module.exports = {
         new HtmlWebpackPlugin({filename: 'home.html', chunks: ['vendors','home'], minify: {collapseWhitespace: true}, hash: true, template: './templates/home.html'}),
         new HtmlWebpackPlugin({filename: 'profile.html', chunks: ['vendors','profile'], minify: {collapseWhitespace: true}, hash: true, template: './templates/profile.html'}),
         new HtmlWebpackPlugin({filename: 'leaderboard.html', chunks: ['vendors','leaderboard'], minify: {collapseWhitespace: true}, hash: true, template: './templates/leaderboard.html'}),
-        new HtmlWebpackPlugin({filename: 'donate.html', chunks: ['vendors','donate'], minify: {collapseWhitespace: true}, hash: true, template: './templates/donate.html'})
+        new HtmlWebpackPlugin({filename: 'donate.html', chunks: ['vendors','donate'], minify: {collapseWhitespace: true}, hash: true, template: './templates/donate.html'}),
+        new HtmlWebpackPlugin({filename: 'privacy_policy.html', chunks: ['vendors','privacy_policy'], minify: {collapseWhitespace: true}, hash: true, template: './templates/privacy_policy.html'}),
+        new HtmlWebpackPlugin({filename: 'about.html', chunks: ['vendors','about'], minify: {collapseWhitespace: true}, hash: true, template: './templates/about.html'}),
     ],
     resolve: {
         alias: {

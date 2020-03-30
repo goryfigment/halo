@@ -42,6 +42,22 @@ def donate(request):
     return render(request, 'donate.html', data)
 
 
+def privacy_policy(request):
+    data = {
+        'base_url': get_base_url()
+    }
+
+    return render(request, 'privacy_policy.html', data)
+
+
+def about(request):
+    data = {
+        'base_url': get_base_url()
+    }
+
+    return render(request, 'about.html', data)
+
+
 def register(request):
     data = {
         'base_url': get_base_url()
