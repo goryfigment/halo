@@ -16,15 +16,15 @@ $(document).ready(function() {
     $('#leaderboard-wrapper').append(leaderboardTemplate({mccs: globals.mccs}));
     $('#recent-donations-wrapper').append(recentDonationsTemplate(globals.recent_donations));
 
-    var wrapper = document.getElementById('body-wrapper');
-    var observer = new MutationObserver(function (mutations, observer) {
-      wrapper.style.height = '';
-      wrapper.style.minHeight = '';
-    });
-    observer.observe(wrapper, {
-      attributes: true,
-      attributeFilter: ['style']
-    });
+    //var wrapper = document.getElementById('body-wrapper');
+    //var observer = new MutationObserver(function (mutations, observer) {
+    //  wrapper.style.height = '';
+    //  wrapper.style.minHeight = '';
+    //});
+    //observer.observe(wrapper, {
+    //  attributes: true,
+    //  attributeFilter: ['style']
+    //});
 });
 
 
