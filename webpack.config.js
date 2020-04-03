@@ -24,7 +24,7 @@ module.exports = {
 
         privacy_policy: './templates/js/default.js',
         about: './templates/js/default.js',
-        timers: './templates/js/default.js'
+        timer: './templates/js/default.js'
     },
     output: {path: __dirname + '/templates/bundle', filename: 'js/[name].js', publicPath: '/templates/bundle/'},
     module: {
