@@ -139,6 +139,28 @@ footer a, header a {
     text-decoration: none;
     color: #cccccc;
 }
+
+#more-button {
+    display: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 570px) {
+    #more-button {
+        display: inline-block;
+        position: absolute;
+        right: 25px;
+    }
+
+    #more-wrapper {
+        display: none;
+    }
+}
+
+#more-wrapper.active {
+    display: flex;
+    flex-direction: column;
+}
 /*HEADER*/
 
 /*FOOTER*/

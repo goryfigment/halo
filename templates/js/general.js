@@ -54,3 +54,17 @@ $(document).on('click', '#leaderboard-button, #leaderboard', function (e) {
     $overlay.addClass('active');
 });
 //LEADERBOARD//
+
+//HEADER//
+$(document).on('click', '#more-button', function (e) {
+    e.stopPropagation();
+    $('#more-wrapper').toggleClass('active');
+});
+
+$(window).on('resize', function(){
+      var win = $(this); //this = window
+      if (win.width() >= 570) {
+        $('#more-wrapper').removeClass('active');
+      }
+});
+//HEADER//

@@ -153,6 +153,35 @@ footer a, header a {
     text-decoration: none;
     color: #cccccc;
 }
+
+#more-button {
+    display: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 570px) {
+    #more-button {
+        display: inline-block;
+        position: absolute;
+        right: 25px;
+    }
+
+    #more-wrapper {
+        display: none;
+    }
+}
+
+#more-wrapper.active {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
 /*HEADER*/
 
 /*FOOTER*/

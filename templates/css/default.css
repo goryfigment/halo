@@ -1,3 +1,25 @@
+/* Mobile Styles */
+@media only screen and (max-width: 1000px) {
+    .power-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flex-wrapper {
+        flex-direction: column;
+    }
+
+    img {
+        transition: 0.5s ease all;
+        transform: scale(0.7);
+    }
+
+    .description {
+        font-size: 13px;
+    }
+}
+
+
 #body-wrapper {
     width: calc(100vw - 100px);
     margin: 0 auto;
@@ -71,6 +93,8 @@ ul {
 
 .description {
     font-size: 15px;
+    max-width: calc(100vw - 20px);
+    margin: 0 auto;
 }
 
 .power-wrapper {
