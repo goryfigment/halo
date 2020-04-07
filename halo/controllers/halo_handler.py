@@ -288,32 +288,6 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         season1 = Season1.objects.create(player=player)
         epoch = 0
 
-    # Calculations!
-    s1_kills = kills - season1_record.kills
-    s1_matches = matches - season1_record.matches
-    s1_deaths = deaths - season1_record.deaths
-    s1_wins = wins - season1_record.wins
-    s1_loses = losses - season1_record.losses
-
-    try:
-        s1_kd = decimal_format(float(s1_kills)/float(s1_deaths), 2, False)
-    except ZeroDivisionError:
-        s1_kd = decimal_format(float(s1_kills)/float(1), 2, False)
-
-    try:
-        s1_wl = decimal_format(float(s1_wins)/float(s1_loses), 2, False)
-    except ZeroDivisionError:
-        s1_wl = decimal_format(float(s1_wins)/float(1), 2, False)
-
-    s1_epoch = epoch - season1_record.epoch
-    s1_total_hours = s1_epoch / 3600
-
-    if s1_epoch <= 0:
-        s1_playtime = '0 days 0 hours'
-        s1_epoch = 0
-    else:
-        s1_playtime = str(s1_total_hours/24) + ' days ' + str(s1_total_hours % 24) + ' hours'
-
     total_levels = 0
     total_50s = 0
 
@@ -333,23 +307,6 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
             if current_rank == 50:
                 total_50s += 1
 
-    # Every 50=50points
-    bonus_points = (total_50s * 50)
-
-    s1_score = int(round((s1_wins*0.5) + (s1_kills*0.1) + (total_levels*10)) + bonus_points)
-    # Save it to Season 1 Database!
-    season1.kills = s1_kills
-    season1.matches = s1_matches
-    season1.deaths = s1_deaths
-    season1.wins = s1_wins
-    season1.losses = s1_loses
-    season1.kd = s1_kd
-    season1.wl = s1_wl
-    season1.epoch = s1_epoch
-    season1.playtime = s1_playtime
-    season1.score = s1_score
-    season1.save()
-
     return {
         'emblem': emblem,
         'playtime': playtime,
@@ -363,15 +320,15 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         'highest_rank': highest_rank,
         'epoch': epoch,
         'season': {
-            'playtime': s1_playtime,
-            'matches': s1_matches,
-            'kills': s1_kills,
-            'deaths': s1_deaths,
-            'kd': s1_kd,
-            'wins': s1_wins,
-            'losses': s1_loses,
-            'wl': s1_wl,
-            'score': s1_score
+            'playtime': season1.playtime,
+            'matches': season1.matches,
+            'kills': season1.kills,
+            'deaths': season1.deaths,
+            'kd': season1.kd,
+            'wins': season1.wins,
+            'losses': season1.losses,
+            'wl': season1.wl,
+            'score': season1.score
         }
     }
 
