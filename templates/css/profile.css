@@ -331,7 +331,6 @@ footer #leaderboard-button {
     line-height: 70px;
     padding: 10px 0;
     margin: 10px 0;
-    display: none;
 }
 
 .icon {
@@ -657,3 +656,14 @@ ol span {
     font-size: 30px;
 }
 /*FILE SHARE*/
+
+/*ADDS*/
+#ad-wrapper {
+    width: fit-content;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+/*ADDS*/

@@ -15,7 +15,7 @@ function checkEmail(email) {
 $(document).ready(function() {
     init();
 
-    $(document).on('click', '#register', function () {
+    $(document).on('click', '#sign-up-submit', function () {
         var $errors = $('.error');
         $errors.hide();
 
@@ -24,9 +24,9 @@ $(document).ready(function() {
         var email = $('#email').val();
 
         // Check if username is greater than 2 characters or less than 16
-        if(username.length <= 2 || username.length >= 16) {
+        if(username.length <= 3 || username.length >= 17) {
             var $error = $('.error.username');
-            $error.text('Username must be between 3 to 15 characters.');
+            $error.text('Username must be between 4 to 16 characters.');
             $error.show();
         }
 

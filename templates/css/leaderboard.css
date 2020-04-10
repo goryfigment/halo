@@ -235,9 +235,9 @@ p {
 }
 
 .glow {
-  color: #fff;
-  text-align: center;
-  animation: glow 1s ease-in-out infinite alternate;
+    color: #fff;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
 }
 
 @-webkit-keyframes glow {
@@ -249,6 +249,15 @@ p {
   }
 }
 /*DONATOR*/
+
+/*ADDS*/
+#ad-wrapper {
+    width: fit-content;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+}
+/*ADDS*/
 
 
 /*FIRE*/

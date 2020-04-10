@@ -511,10 +511,10 @@ p {
 }
 
 .glow {
-  color: #fff;
-  text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-          animation: glow 1s ease-in-out infinite alternate;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+            animation: glow 1s ease-in-out infinite alternate;
 }
 
 @-webkit-keyframes glow {
@@ -526,6 +526,23 @@ p {
   }
 }
 /*DONATOR*/
+
+/*ADDS*/
+#ad-wrapper {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0px auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+/*ADDS*/
 
 
 /*FIRE*/

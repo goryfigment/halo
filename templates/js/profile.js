@@ -138,9 +138,8 @@ $(document).ready(function() {
 
     if(globals.player['donation'] > 0) {
         var $donatorWrapper = $('#donator-wrapper');
-
+        $donatorWrapper.empty();
         $donatorWrapper.append(donatorTemplate(globals.player));
-        $donatorWrapper.show();
     }
 
     $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));

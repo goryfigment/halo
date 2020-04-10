@@ -403,6 +403,14 @@ table a {
 }
 /*DONATOR*/
 
+/*ADDS*/
+#ad-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+}
+/*ADDS*/
+
 /*FIRE*/
 .fire {
     color: #ffaeae;

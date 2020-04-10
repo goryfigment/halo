@@ -671,7 +671,6 @@ footer #leaderboard-button {
     line-height: 70px;
     padding: 10px 0;
     margin: 10px 0;
-    display: none;
 }
 
 .icon {
@@ -1059,7 +1058,29 @@ ol span {
     text-align: center;
     font-size: 30px;
 }
-/*FILE SHARE*//*!
+/*FILE SHARE*/
+
+/*ADDS*/
+#ad-wrapper {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0px auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 100%;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+/*ADDS*//*!
  * Font Awesome Free 5.12.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
