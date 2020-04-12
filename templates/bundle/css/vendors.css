@@ -106,6 +106,10 @@ header {
     font-size: 20px;
 }
 
+#home-link span {
+    color: #00ff66;
+}
+
 button {
     background: transparent;
     color: #cccccc;

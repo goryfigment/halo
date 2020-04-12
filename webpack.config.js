@@ -24,7 +24,8 @@ module.exports = {
 
         privacy_policy: './templates/js/default.js',
         about: './templates/js/default.js',
-        timer: './templates/js/default.js'
+        timer: './templates/js/default.js',
+        resources: './templates/js/resources.js',
     },
     output: {path: __dirname + '/templates/bundle', filename: 'js/[name].js', publicPath: '/templates/bundle/'},
     module: {
@@ -61,6 +62,7 @@ module.exports = {
         new HtmlWebpackPlugin({filename: 'privacy_policy.html', chunks: ['vendors','privacy_policy'], minify: {collapseWhitespace: true}, hash: true, template: './templates/privacy_policy.html'}),
         new HtmlWebpackPlugin({filename: 'about.html', chunks: ['vendors','about'], minify: {collapseWhitespace: true}, hash: true, template: './templates/about.html'}),
         new HtmlWebpackPlugin({filename: 'timer.html', chunks: ['vendors','timer'], minify: {collapseWhitespace: true}, hash: true, template: './templates/timer.html'}),
+        new HtmlWebpackPlugin({filename: 'resources.html', chunks: ['vendors','resources'], minify: {collapseWhitespace: true}, hash: true, template: './templates/resources.html'}),
     ],
     resolve: {
         alias: {

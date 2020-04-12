@@ -66,6 +66,14 @@ def about(request):
     return render(request, 'about.html', data)
 
 
+def resources(request):
+    data = {
+        'base_url': get_base_url()
+    }
+
+    return render(request, 'resources.html', data)
+
+
 def register(request):
     data = {
         'base_url': get_base_url()

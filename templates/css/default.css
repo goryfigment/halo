@@ -19,11 +19,21 @@
     }
 }
 
+#title {
+    margin-top: 35px;
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+#title span {
+    color: #00ff66;
+}
 
 #body-wrapper {
     width: calc(100vw - 100px);
     margin: 0 auto;
     min-height: calc(100vh - 200px);
+    max-width: 1000px;
 }
 
 h4 {
@@ -40,6 +50,7 @@ h1, h2, i {
 
 a {
     color: deepskyblue;
+    text-decoration: none;
 }
 
 li {

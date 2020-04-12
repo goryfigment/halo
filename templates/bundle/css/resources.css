@@ -1,0 +1,46 @@
+#body-wrapper {
+    min-height: calc(100vh - 159px);
+}
+
+nav {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background: #0a0a0a;
+    padding: 20px;
+}
+
+nav.column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+a {
+    color: #79e6ff;
+    text-decoration: none;
+}
+
+.coming-soon {
+    color: #969696;
+}
+
+.timer-wrapper {
+    margin: 0 20px;
+    text-align: center;
+}
+
+.timer-wrapper div {
+    font-size: 24px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.credit {
+    font-size: 13px;
+    margin: 10px 0 0;
+    color: darkgrey;
+}
