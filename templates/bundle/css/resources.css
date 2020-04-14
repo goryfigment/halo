@@ -2,7 +2,7 @@
     min-height: calc(100vh - 159px);
 }
 
-nav {
+#body-wrapper nav {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -11,7 +11,7 @@ nav {
     padding: 20px;
 }
 
-nav.column {
+#body-wrapper nav.column {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;

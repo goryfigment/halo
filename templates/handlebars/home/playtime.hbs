@@ -1,0 +1,61 @@
+
+    <table id="leaderboard-table">
+        <thead>
+            <tr>
+                <th scope="col">Rank</th>
+                <th scope="col">Player</th>
+                <th scope="col"></th>
+                <th scope="col">Playtime</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each leaderboards}}
+                <tr>
+                    <td class="number-right">
+                        {{#ifCond (inc @index) '==' 1}}
+                            <span id="first"><i class="fas fa-trophy"></i></span> {{inc @index}}
+                        {{/ifCond}}
+                        {{#ifCond (inc @index) '==' 2}}
+                            <span id="second"><i class="fas fa-trophy"></i></span> {{inc @index}}
+                        {{/ifCond}}
+                        {{#ifCond (inc @index) '==' 3}}
+                            <span id="third"><i class="fas fa-trophy"></i></span> {{inc @index}}
+                        {{/ifCond}}
+                        {{#ifCond (inc @index) '>' 3}}
+                            {{inc @index}}
+                        {{/ifCond}}
+                    </td>
+                    <td>
+                        <a href="/profile/{{gamertag}}"><img class="emblem" src="{{emblem}}" /><span class="gamertag {{#if glow}}glow{{/if}}" style="color: {{color}}">
+                            {{#if rgb}}
+                                {{rgbFont gamertag}}
+                            {{else}}
+                                {{gamertag}}
+                            {{/if}}
+                        </span></a>
+                    </td>
+                    <td>
+                        {{#ifCond donation '>' 0}}
+                            <span id="donator-wrapper">
+                                {{#ifCond donation '>=' 50}}
+                                    {{#ifCond donation '>=' 75}}
+                                        <span class="icon rgb-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
+                                    {{else}}
+                                        <span class="icon diamond-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
+                                    {{/ifCond}}
+                                {{/ifCond}}
+                                {{#ifCond player__donation '<' 50}}
+                                    <span class="icon donator tippy" data-title="${{player__donation}}{{#if player__notes}} + {{player__notes}}{{/if}}"><i style="color: {{donateColors player__donation}}" class="fas fa-dollar-sign"></i></span>
+                                {{/ifCond}}
+                                {{#ifCond social '==' 'youtube'}}<a class="icon youtube" href="https://www.youtube.com/{{youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>{{/ifCond}}
+                                {{#ifCond social '==' 'twitch'}}<a class="icon twitch" href="https://www.twitch.tv/{{twitch}}" target="_blank"><i class="fab fa-twitch"></i></a>{{/ifCond}}
+                                {{#ifCond social '==' 'mixer'}}<a class="icon mixer" href="https://mixer.com/{{mixer}}" target="_blank"><i class="fab fa-mixer"></i></a>{{/ifCond}}
+                                {{#ifCond social '==' 'twitter'}}<a class="icon twitter" href="https://twitter.com/{{twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>{{/ifCond}}
+                            </span>
+                        {{/ifCond}}
+                    </td>
+                    <td class="number">{{playtime}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>

@@ -9,25 +9,43 @@ var helper = require('./../js/helpers.js');
 require('./../js/general.js');
 require('./../library/tippy/tippy.js');
 
-var leaderboardTemplate = require('./../handlebars/home/leaderboards.hbs');
+var mccsTemplate = require('./../handlebars/home/leaderboards.hbs');
+var playtimeTemplate = require('./../handlebars/home/playtime.hbs');
+var leaderboardTemplate = require('./../handlebars/home/s1_leaderboard.hbs');
 var recentDonationsTemplate = require('./../handlebars/home/recent_donations.hbs');
 
 $(document).ready(function() {
-    $('#leaderboard-wrapper').append(leaderboardTemplate({mccs: globals.mccs}));
     $('#recent-donations-wrapper').append(recentDonationsTemplate(globals.recent_donations));
 
-    //var wrapper = document.getElementById('body-wrapper');
-    //var observer = new MutationObserver(function (mutations, observer) {
-    //  wrapper.style.height = '';
-    //  wrapper.style.minHeight = '';
-    //});
-    //observer.observe(wrapper, {
-    //  attributes: true,
-    //  attributeFilter: ['style']
-    //});
+    //S1 LEADERBOARDS
+    $('#mccs-wrapper').append(mccsTemplate({mccs: globals.mccs}));
+    $('#playtime-wrapper').append(playtimeTemplate({leaderboards: globals.playtime, type: 'playtime'}));
+    $('#kills-wrapper').append(leaderboardTemplate({leaderboards: globals.kills, type: 'kills'}));
+    $('#deaths-wrapper').append(leaderboardTemplate({leaderboards: globals.deaths, type: 'deaths'}));
+    $('#wins-wrapper').append(leaderboardTemplate({leaderboards: globals.wins, type: 'wins'}));
+    $('#losses-wrapper').append(leaderboardTemplate({leaderboards: globals.losses, type: 'losses'}));
+    $('#matches-wrapper').append(leaderboardTemplate({leaderboards: globals.matches, type: 'matches'}));
+    $('#kd-wrapper').append(leaderboardTemplate({leaderboards: globals.kd, type: 'kd'}));
+    $('#wl-wrapper').append(leaderboardTemplate({leaderboards: globals.wl, type: 'wl'}));
+
 });
 
 
 $(document).on('click', '#leaderboard-button', function () {
     $('#tip-popup').hide();
 });
+
+// TABS //
+function tabHandler($tab, $wrapper) {
+    $('.tab.active').removeClass('active');
+    $tab.addClass('active');
+
+    $('.active-tab').removeClass('active-tab');
+    $wrapper.addClass('active-tab');
+}
+
+$(document).on('click', '.tab', function () {
+    var $this = $(this);
+    tabHandler($this, $('#' + $this.attr('data-type')));
+});
+// TABS //

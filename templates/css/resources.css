@@ -2,13 +2,13 @@
     min-height: calc(100vh - 159px);
 }
 
-nav {
+#body-wrapper nav {
     display: flex;
     background: #0a0a0a;
     padding: 20px;
 }
 
-nav.column {
+#body-wrapper nav.column {
     flex-direction: column;
 }
 

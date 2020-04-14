@@ -9,6 +9,11 @@
     body table {
         opacity: 1;
     }
+
+    ol {
+        border: transparent 1px solid;
+        background: transparent;
+    }
 }
 
 @media only screen and (max-width: 650px) {
@@ -218,6 +223,7 @@ iframe {
 h4 {
     margin: 16px 0 5px;
     font-family: 'Rajdhani', 'Roboto', sans-serif;
+    font-size: 22px;
 }
 
 table {
@@ -410,6 +416,51 @@ table a {
     margin-top: 90px;
 }
 /*ADDS*/
+
+/*TABS*/
+ol {
+    display: flex;
+    padding: 5px 20px;
+    list-style: none;
+    font-size: 13px;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    color: #d2d2d2;
+    width: 260px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+    background: rgba(14, 14, 14, 0.7);
+    border: #484848 solid 1px;
+}
+
+ol span {
+    line-height: 33px;
+}
+
+.tab {
+    cursor: pointer;
+    margin: 4px 5px;
+    padding: 5px 4px;
+    transition: 0.5s ease all;
+    border-radius: 1px;
+}
+
+.tab.active {
+    background: #4354a5;
+}
+
+.tab:hover, .operation-tab:hover {
+    background: #4354a5;
+}
+
+.active-tab {
+    display: block !important;
+}
+
+.tab-wrapper {
+    display: none;
+}
+/*TABS*/
 
 /*FIRE*/
 .fire {

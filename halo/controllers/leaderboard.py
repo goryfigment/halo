@@ -435,6 +435,32 @@ def season1_func(request, handlebars, amount_type, title, first=None, last=None)
     return data
 
 
+def season1_playtime_func(request, first, last):
+    first_record = first
+    last_record = last
+
+    data = {
+        'type': 's1_playtime',
+        'handlebars': 'playtime',
+        'title': '(Season 1) Playtime',
+        'base_url': get_base_url(),
+        'page': 1,
+        'rank': 0
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    leaderboards = Season1.objects.filter(player__ban=False).order_by('-epoch')[first_record:last_record]
+    data['index'] = first_record
+    data['leaderboard'] = json.dumps(list(leaderboards.values('playtime', gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb'))))
+
+    return data
+
+
 def s1_score(request):
     return render(request, 'leaderboard.html', season1_func(request, 'mccs', 'score', '(Season 1) MCC Score'))
 
@@ -468,26 +494,4 @@ def s1_kd(request):
 
 
 def s1_playtime(request):
-    first_record = 0
-    last_record = 100
-
-    data = {
-        'type': 's1_playtime',
-        'handlebars': 'playtime',
-        'title': '(Season 1) Playtime',
-        'base_url': get_base_url(),
-        'page': 1,
-        'rank': 0
-    }
-
-    if 'page' in request.GET:
-        page = int(request.GET['page'])
-        first_record += (page - 1) * 100
-        last_record += (page - 1) * 100
-        data['page'] = page
-
-    leaderboards = Season1.objects.filter(player__ban=False).order_by('-epoch')[first_record:last_record]
-    data['index'] = first_record
-    data['leaderboard'] = json.dumps(list(leaderboards.values('playtime', gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb'))))
-
-    return render(request, 'leaderboard.html', data)
+    return render(request, 'leaderboard.html', season1_playtime_func(request, 0, 100))

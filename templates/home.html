@@ -8,8 +8,16 @@
         var globals = {};
         globals.base_url = '{{base_url}}';
         globals.gamertag = '{{gamertag}}';
-        globals.mccs = {{mccs.leaderboard|safe}};
         globals.recent_donations = {{recent_donations|safe}};
+        globals.mccs = {{mccs.leaderboard|safe}};
+        globals.playtime = {{playtime.leaderboard|safe}};
+        globals.kills = {{kills.leaderboard|safe}};
+        globals.deaths = {{deaths.leaderboard|safe}};
+        globals.wins = {{wins.leaderboard|safe}};
+        globals.losses = {{losses.leaderboard|safe}};
+        globals.matches = {{matches.leaderboard|safe}};
+        globals.kd = {{kd.leaderboard|safe}};
+        globals.wl = {{wl.leaderboard|safe}};
     </script>
 
     <meta property="title" content="MCC Stats: Leaderboards, Ranks, and more!">
@@ -65,7 +73,36 @@
 
         <div id="right-wrapper">
             <div id="recent-donations-wrapper"></div>
-            <div id="leaderboard-wrapper"></div>
+
+            <h4>Season 1 Leaderboards</h4>
+            <ol>
+                <li class="tab active" id="mccs-tab" data-type="mccs-wrapper"><b>MCCS</b></li>
+                <span>|</span>
+                <li class="tab" id="playtime-tab" data-type="playtime-wrapper"><b>Playtime</b></li>
+                <span>|</span>
+                <li class="tab" id="kills-tab" data-type="kills-wrapper"><b>Kills</b></li>
+                <span>|</span>
+                <li class="tab" id="deaths-tab" data-type="deaths-wrapper"><b>Deaths</b></li>
+                <li class="tab" id="wins-tab" data-type="wins-wrapper"><b>Wins</b></li>
+                <span>|</span>
+                <li class="tab" id="losses-tab" data-type="losses-wrapper"><b>Losses</b></li>
+                <span>|</span>
+                <li class="tab" id="matches-tab" data-type="matches-wrapper"><b>Matches</b></li>
+                <span>|</span>
+                <li class="tab" id="kd-tab" data-type="kd-wrapper"><b>KD</b></li>
+                <span>|</span>
+                <li class="tab" id="wl-tab" data-type="wl-wrapper"><b>WL</b></li>
+            </ol>
+
+            <div class="tab-wrapper active-tab" id="mccs-wrapper"></div>
+            <div class="tab-wrapper" id="playtime-wrapper"></div>
+            <div class="tab-wrapper" id="kills-wrapper"></div>
+            <div class="tab-wrapper" id="deaths-wrapper"></div>
+            <div class="tab-wrapper" id="wins-wrapper"></div>
+            <div class="tab-wrapper" id="losses-wrapper"></div>
+            <div class="tab-wrapper" id="matches-wrapper"></div>
+            <div class="tab-wrapper" id="kd-wrapper"></div>
+            <div class="tab-wrapper" id="wl-wrapper"></div>
 {#            <div id="advertisement-wrapper">#}
 {#                <h4>Tommy Kost: Halo 2/3 (MCC) Montage</h4>#}
 {#                <iframe width="320" height="180" src="https://www.youtube.com/embed/92G8ELYQGUQ?autoplay=1&cc_load_policy=1&mute=1" allowfullscreen></iframe>#}

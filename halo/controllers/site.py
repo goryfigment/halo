@@ -5,7 +5,7 @@ from django.db.models import F
 from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
 from halo.models import Player, Leaderboard, User, Season1, RecentDonations
-from halo.controllers.leaderboard import season1_func
+from halo.controllers.leaderboard import season1_func, season1_playtime_func
 
 
 def error_page(request):
@@ -28,6 +28,15 @@ def home(request):
     data = {
         'base_url': get_base_url(),
         'mccs': season1_func(request, 'mccs', 'score', 'MCCS', 0, 10),
+        'playtime': season1_playtime_func(request, 0, 10),
+        'kills': season1_func(request, 'season1', 'kills', '(Season 1) Kills', 0, 10),
+        'deaths': season1_func(request, 'season1', 'deaths', '(Season 1) Deaths', 0, 10),
+        'wins': season1_func(request, 'season1', 'wins', '(Season 1) Wins', 0, 10),
+        'losses': season1_func(request, 'season1', 'losses', '(Season 1) Losses', 0, 10),
+        'matches': season1_func(request, 'season1', 'matches', '(Season 1) Matches', 0, 10),
+        'kd': season1_func(request, 'season1_ratio', 'kd', '(Season 1) K/D Ratio', 0, 10),
+        'wl': season1_func(request, 'season1_ratio', 'wl', '(Season 1) W/L Ratio', 0, 10),
+
         'recent_donations': json.dumps(list(RecentDonations.objects.all().values(amount=F('player__donation'), gamertag=F('player__gamertag'), player_id=F('player__id'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb')).order_by('-id')[0:5]))
     }
 
