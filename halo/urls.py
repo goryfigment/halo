@@ -44,6 +44,7 @@ urlpatterns = [
     url(r'^login/$', site.login, name='login_page'),
     url(r'^forgot_password/$', site.forgot_password, name='forgot_password'),
     url(r'^dashboard/$', site.dashboard, name='dashboard'),
+    url(r'^ban/dashboard/$', site.ban_dashboard, name='ban_dashboard'),
 
     # PROFILE
     url(r'^edit-player/$', profile.edit_player, name='edit_player'),

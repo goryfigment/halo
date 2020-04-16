@@ -124,6 +124,23 @@ def dashboard(request):
     return render(request, 'dashboard.html', data)
 
 
+def ban_dashboard(request):
+    current_user = request.user
+
+    # Only go to overview if user is logged in
+    if not current_user.is_authenticated():
+        return HttpResponseRedirect('/login/')
+
+    players = list(Player.objects.filter(ban=True).values('id', 'gamertag', 'ban', 'donation', 'twitch', 'youtube', 'twitter', 'mixer', 'social', 'notes', 'color', 'rgb'))
+
+    data = {
+        'base_url': get_base_url(),
+        'players': json.dumps(players)
+    }
+
+    return render(request, 'dashboard.html', data)
+
+
 def forgot_password(request):
     data = {
         'base_url': get_base_url(),
