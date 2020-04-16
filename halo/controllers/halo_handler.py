@@ -105,8 +105,14 @@ def get_xbox_auth():
     write_json_file(s.cookies.get_dict())
 
 
-def halo_matches(gt):
+def halo_matches(gt, game_variant, game):
     endpoint = 'https://www.halowaypoint.com/en-us/games/halo-the-master-chief-collection/xbox-one/game-history?view=DataOnly&gamertags=' + gt
+
+    if game_variant != '':
+        endpoint += '&gameVariant=' + game_variant
+
+    if game != '':
+        endpoint += '&game=' + game
 
     hundred_matches = []
 

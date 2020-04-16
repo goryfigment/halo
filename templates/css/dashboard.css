@@ -166,6 +166,20 @@ tbody input {
 .lose {
     background: #571111;
 }
+
+#select-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#select-wrapper div {
+    margin: 0 10px;
+}
+
+#select-wrapper button {
+    border: 2px solid;
+}
 /*POPUPS*/
 
 /*CheckBOX*/

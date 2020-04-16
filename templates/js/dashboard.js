@@ -159,7 +159,7 @@ $(document).on('click', '.history-button', function (e) {
     $overlay.empty();
     $overlay.addClass('active');
     $overlay.append('<i style="font-size:40px" class="fas fa-circle-notch fa-spin"></i>');
-    sendRequest('/player-matches/', {'gt': $(this).attr('data-gt')}, 'GET', playerMatchesSuccess, playerMatchesError);
+    sendRequest('/player-matches/', {'gt': $(this).attr('data-gt'), 'game_variant': ''}, 'GET', playerMatchesSuccess, playerMatchesError);
 });
 
 function playerMatchesSuccess(response) {
