@@ -50,6 +50,7 @@ urlpatterns = [
     url(r'^edit-player/$', profile.edit_player, name='edit_player'),
     url(r'^service-record/', profile.service_record),
     url(r'^player-matches/', profile.player_matches),
+    url(r'^game-matches/', profile.game_matches),
 
     # Account Handler
     # url(r'^account/register/$', account_handler.register, name='register'),

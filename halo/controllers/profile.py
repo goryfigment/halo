@@ -29,13 +29,13 @@ def player_matches(request):
 
 @login_required
 @data_required(['gt', 'game_variant', 'game'], 'GET')
-def player_matches(request):
+def game_matches(request):
     gt = request.GET['gt']
     game_variant = request.GET['game_variant']
     game = request.GET['game']
     matches = halo_matches(gt, game_variant, game)
 
-    return JsonResponse({'gt': gt, 'game_variant': game_variant, 'game': game, 'matches': matches}, safe=False)
+    return JsonResponse({'gt': gt, 'matches': matches}, safe=False)
 
 
 @login_required

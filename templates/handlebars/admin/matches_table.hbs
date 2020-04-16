@@ -1,0 +1,32 @@
+<table class="table-container">
+    <thead>
+        <tr>
+            <th class="sortable">NUMBER</th>
+            <th class="sortable">DATETIME</th>
+            <th class="sortable">KILLS</th>
+            <th class="sortable">DEATHS</th>
+            <th class="sortable">ASSISTS</th>
+            <th class="sortable">KD</th>
+            <th class="sortable">HEADSHOTS</th>
+            <th class="sortable">MEDALS</th>
+            <th class="sortable">MAP</th>
+            <th class="sortable">GAMETYPE</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each matches}}
+            <tr class="{{#if Won}}win{{else}}lose{{/if}}">
+                <td>{{inc @index}}</td>
+                <td>{{date DateTime false}}</td>
+                <td>{{Kills}}</td>
+                <td>{{Deaths}}</td>
+                <td>{{Assists}}</td>
+                <td>{{decimals KD}}</td>
+                <td>{{Headshots}}</td>
+                <td>{{Medals}}</td>
+                <td>{{MapId}}</td>
+                <td>{{GameType}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

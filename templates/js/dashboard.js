@@ -7,6 +7,7 @@ var $ = require('jquery');
 var playerTemplate = require('./../handlebars/admin/players.hbs');
 var banTemplate = require('./../handlebars/admin/ban.hbs');
 var matchesTemplate = require('./../handlebars/admin/matches.hbs');
+var matchesTableTemplate = require('./../handlebars/admin/matches_table.hbs');
 
 function sendRequest(url, data, request_type, success, error, exception) {
     $.ajax({
@@ -162,10 +163,24 @@ $(document).on('click', '.history-button', function (e) {
     sendRequest('/player-matches/', {'gt': $(this).attr('data-gt'), 'game_variant': ''}, 'GET', playerMatchesSuccess, playerMatchesError);
 });
 
+$(document).on('click', '#game-submit', function (e) {
+    e.stopPropagation();
+    var $tableWrapper = $('#table-wrapper');
+    $tableWrapper.empty();
+    $tableWrapper.append('<i style="font-size:40px" class="fas fa-circle-notch fa-spin"></i>');
+    sendRequest('/game-matches/', {'gt': $(this).attr('data-gt'), 'game_variant': $('#game-variant-input').val(), 'game': $('#game-input').val()}, 'GET', gameMatchesSuccess, playerMatchesError);
+});
+
 function playerMatchesSuccess(response) {
     var $overlay = $('#overlay');
     $overlay.empty();
     $overlay.append(matchesTemplate(response));
+}
+
+function gameMatchesSuccess(response) {
+    var $tableWrapper = $('#table-wrapper');
+    $tableWrapper.empty();
+    $tableWrapper.append(matchesTableTemplate(response));
 }
 
 function playerMatchesError(response) {
