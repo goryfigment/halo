@@ -185,7 +185,13 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
     playtime = numeric_medium[0].get_text().split(':')[0].replace('.', ' days ') + ' hours'
     matches = int(numeric_medium[1].get_text())
     wins = int(value_element[2].get_text())
-    losses = int(value_element[3].get_text())
+    losses = abs(matches - wins)
+
+    # Handle an exception
+    if wins > matches:
+        win_holder = wins
+        wins = matches
+        matches = win_holder
 
     kd_ratio = decimal_format(float(kills)/float(deaths), 2, False)
     wl_ratio = decimal_format(float(wins)/float(losses), 2, False)
