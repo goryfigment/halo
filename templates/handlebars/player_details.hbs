@@ -6,18 +6,18 @@
 
 <div id="exp">{{numCommaFormat player.wins}} EXP {{#ifCond change.wins '>' 0}}<span class="change {{#ifCond change.wins '<' 0}}neg{{/ifCond}}">{{#ifCond change.wins '>' 0}}+{{/ifCond}}{{change.wins}}</span>{{/ifCond}}</div>
 
-<div class="tab-wrapper active-tab" id="season1-trophy-wrapper">
+<div id="season1-trophy-wrapper">
     <div class="trophy-container">
         <div class="trophy">
             <h6>MCCS</h6>
-            <i class="fas fa-crown tier-{{trophyTier 'mccs' player.season.score}}"></i>
+            <i class="fas fa-crown tier-{{trophyTier 'mccs' player.season2.score}}"></i>
             <span class="bar">
-                <i class='fas fa-crown tier-1 tippy' data-title="1,000 MCCS" style="{{#ifCond player.season.score '<' 1000}}opacity:0.2;{{/ifCond}}"></i>
-                <i class='fas fa-crown tier-2 tippy' data-title="1,500 MCCS" style="{{#ifCond player.season.score '<' 1500}}opacity:0.2;{{/ifCond}}"></i>
-                <i class='fas fa-crown tier-3 tippy' data-title="2,000 MCCS" style="{{#ifCond player.season.score '<' 2000}}opacity:0.2;{{/ifCond}}"></i>
-                <i class='fas fa-crown tier-4 tippy' data-title="2,500 MCCS" style="{{#ifCond player.season.score '<' 2500}}opacity:0.2;{{/ifCond}}"></i>
-                <span class="progress" style="width: {{mathMax (math player.season.score '/' 2500) '*' 100 100}}%"></span>
-                <span class="progress-number">{{numCommaFormat player.season.score}} / 2,500</span>
+                <i class='fas fa-crown tier-1 tippy' data-title="1,000 MCCS" style="{{#ifCond player.season2.score '<' 1000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-crown tier-2 tippy' data-title="1,500 MCCS" style="{{#ifCond player.season2.score '<' 1500}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-crown tier-3 tippy' data-title="2,000 MCCS" style="{{#ifCond player.season2.score '<' 2000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-crown tier-4 tippy' data-title="2,500 MCCS" style="{{#ifCond player.season2.score '<' 2500}}opacity:0.2;{{/ifCond}}"></i>
+                <span class="progress" style="width: {{mathMax (math player.season2.score '/' 2500) '*' 100 100}}%"></span>
+                <span class="progress-number">{{numCommaFormat player.season2.score}} / 2,500</span>
             </span>
         </div>
 

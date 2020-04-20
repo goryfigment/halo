@@ -2,7 +2,7 @@ import json
 from django.shortcuts import render
 from base import sort_list, get_base_url, models_to_dict
 from django.db.models import F
-from halo.models import Player, Ranks, Leaderboard, PcRanks, Season1
+from halo.models import Player, Ranks, Leaderboard, PcRanks, Season1, Season2
 from django.http import JsonResponse
 
 
@@ -404,7 +404,6 @@ def pc_hce_hardcore_doubles(request):
 
 
 def season1_func(request, handlebars, amount_type, title, first=None, last=None):
-
     if first is not None and last is not None:
         first_record = first
         last_record = last
@@ -418,7 +417,8 @@ def season1_func(request, handlebars, amount_type, title, first=None, last=None)
         'title': title,
         'base_url': get_base_url(),
         'page': 1,
-        'rank': 0
+        'rank': 0,
+        'season': 1
     }
 
     if 'page' in request.GET:
@@ -495,3 +495,97 @@ def s1_kd(request):
 
 def s1_playtime(request):
     return render(request, 'leaderboard.html', season1_playtime_func(request, 0, 100))
+
+
+def season2_func(request, handlebars, amount_type, title, first=None, last=None):
+    if first is not None and last is not None:
+        first_record = first
+        last_record = last
+    else:
+        first_record = 0
+        last_record = 100
+
+    data = {
+        'type': 's2_' + amount_type,
+        'handlebars': handlebars,
+        'title': title,
+        'base_url': get_base_url(),
+        'page': 1,
+        'rank': 0,
+        'season': 2
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+    if amount_type == 'wl' or amount_type == 'kd':
+        data['leaderboard'] = json.dumps(list(Season2.objects.filter(matches__gte=250, player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), highest_rank=F('player__highest_skill'), rgb=F('player__rgb')).order_by('-amount', '-exp')[first_record:last_record]))
+    else:
+        data['leaderboard'] = json.dumps(list(Season2.objects.filter(player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), highest_rank=F('player__highest_skill'), rgb=F('player__rgb')).order_by('-amount', '-exp')[first_record:last_record]))
+    data['index'] = first_record
+
+    return data
+
+
+def season2_playtime_func(request, first, last):
+    first_record = first
+    last_record = last
+
+    data = {
+        'type': 's2_playtime',
+        'handlebars': 'playtime',
+        'title': '(Season 2) Playtime',
+        'base_url': get_base_url(),
+        'page': 1,
+        'rank': 0
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    leaderboards = Season2.objects.filter(player__ban=False).order_by('-epoch')[first_record:last_record]
+    data['index'] = first_record
+    data['leaderboard'] = json.dumps(list(leaderboards.values('playtime', gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb'))))
+
+    return data
+
+
+def s2_score(request):
+    return render(request, 'leaderboard.html', season2_func(request, 'mccs', 'score', '(Season 2) MCC Score'))
+
+
+def s2_kills(request):
+    return render(request, 'leaderboard.html', season2_func(request, 'season1', 'kills', '(Season 2) Kills'))
+
+
+def s2_deaths(request):
+    return render(request, 'leaderboard.html', season2_func(request, 'season1', 'deaths', '(Season 2) Deaths'))
+
+
+def s2_wins(request):
+    return render(request, 'leaderboard.html', season2_func(request, 'season1', 'wins', '(Season 2) Wins'))
+
+
+def s2_losses(request):
+    return render(request, 'leaderboard.html', season2_func(request, 'season1', 'losses', '(Season 2) Losses'))
+
+
+def s2_matches(request):
+    return render(request, 'leaderboard.html', season2_func(request, 'season1', 'matches', '(Season 2) Matches'))
+
+
+def s2_wl(request):
+    return render(request, 'leaderboard.html', season2_func(request, 'season1_ratio', 'wl', '(Season 2) W/L Ratio'))
+
+
+def s2_kd(request):
+    return render(request, 'leaderboard.html', season2_func(request, 'season1_ratio', 'kd', '(Season 2) K/D Ratio'))
+
+
+def s2_playtime(request):
+    return render(request, 'leaderboard.html', season2_playtime_func(request, 0, 100))

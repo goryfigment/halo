@@ -99,6 +99,17 @@ class Leaderboard(models.Model):
     s1_wl = models.FloatField(default=0)
     s1_kd = models.FloatField(default=0)
 
+    # Leaderboard placement
+    s2_score = models.IntegerField(default=0)
+    s2_playtime = models.IntegerField(default=0)
+    s2_kills = models.IntegerField(default=0)
+    s2_deaths = models.IntegerField(default=0)
+    s2_wins = models.IntegerField(default=0)
+    s2_losses = models.IntegerField(default=0)
+    s2_matches = models.IntegerField(default=0)
+    s2_wl = models.FloatField(default=0)
+    s2_kd = models.FloatField(default=0)
+
     h3_team_slayer = models.IntegerField(default=0)
     h3_team_hardcore = models.IntegerField(default=0)
     ms_2v2_series = models.IntegerField(default=0)
@@ -179,3 +190,37 @@ class Season1Record(models.Model):
 
     class Meta:
         db_table = "season1_record"
+
+
+# For S1 leaderboards
+class Season2(models.Model):
+    player = models.ForeignKey(Player, default=None)
+    score = models.IntegerField(default=0)
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
+    epoch = models.IntegerField(default=0)
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    kd = models.FloatField(default=0)
+    wl = models.FloatField(default=0)
+
+    class Meta:
+        db_table = "season2"
+
+
+# Screenshot of that given day stats to subtract from
+class Season2Record(models.Model):
+    player = models.ForeignKey(Player, default=None)
+
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    epoch = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "season2_record"

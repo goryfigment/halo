@@ -387,7 +387,7 @@ footer p {
     padding-right: 4px;
 }
 
-.platform a:nth-child(2) {
+.platform a:not(:first-child) {
     padding-left: 4px;
 }
 /*LEADERBOARD*/

@@ -73,6 +73,17 @@ urlpatterns = [
     url(r'^leaderboards/s1/kd', leaderboard.s1_kd),
     url(r'^leaderboards/s1/playtime', leaderboard.s1_playtime),
 
+    # SEASON2 LEADERBOARDS
+    url(r'^leaderboards/s2/mccs', leaderboard.s2_score),
+    url(r'^leaderboards/s2/kills', leaderboard.s2_kills),
+    url(r'^leaderboards/s2/deaths', leaderboard.s2_deaths),
+    url(r'^leaderboards/s2/wins', leaderboard.s2_wins),
+    url(r'^leaderboards/s2/losses', leaderboard.s2_losses),
+    url(r'^leaderboards/s2/matches', leaderboard.s2_matches),
+    url(r'^leaderboards/s2/wl', leaderboard.s2_wl),
+    url(r'^leaderboards/s2/kd', leaderboard.s2_kd),
+    url(r'^leaderboards/s2/playtime', leaderboard.s2_playtime),
+
     # GENERAL LEADERBOARDS
     url(r'^leaderboards/donations', leaderboard.most_donations),
     url(r'^leaderboards/kills', leaderboard.most_kills),

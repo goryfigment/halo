@@ -51,11 +51,13 @@ function serviceRecordSuccess(response) {
         'matches': response['matches'] - prevDetails['matches'],
         'kills': response['kills'] - prevDetails['kills'],
         'deaths': response['deaths'] - prevDetails['deaths'],
-        'kd': (response['kd'] - prevDetails['kd']).toFixed(2),
         'wins': response['wins'] - prevDetails['wins'],
         'losses': response['losses'] - prevDetails['losses'],
+        'kd': (response['kd'] - prevDetails['kd']).toFixed(2),
         'wl': (response['wl'] - prevDetails['wl']).toFixed(2),
-        'score': response['season']['score'] - prevDetails['season']['score']
+        'score': response['season2']['score'] - prevDetails['season2']['score'],
+        's_wl': (response['season2']['wl'] - prevDetails['season2']['wl']).toFixed(2),
+        's_kd': (response['season2']['kd'] - prevDetails['season2']['kd']).toFixed(2)
     };
 
     $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'total_50s': globals.total_50s}));
@@ -138,6 +140,7 @@ $(document).ready(function() {
 
     if(globals.player['donation'] > 0) {
         var $donatorWrapper = $('#donator-wrapper');
+        $donatorWrapper.show();
         $donatorWrapper.empty();
         $donatorWrapper.append(donatorTemplate(globals.player));
     }
@@ -158,7 +161,6 @@ function xboxClipsSuccess(response) {
 }
 
 function xboxClipsError(response) {
-
     var $fileShare = $('#file-share-container');
     $fileShare.empty();
     $fileShare.append('<p>This user has no videos.</p>');
