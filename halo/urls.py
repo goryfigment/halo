@@ -28,6 +28,8 @@ urlpatterns = [
     url(r'^database/(?P<gt>.*)', site.update_database),
 
     url(r'^privacy-policy/$', site.privacy_policy, name='privacy_policy'),
+    url(r'^terms-conditions/$', site.terms_conditions, name='terms_conditions'),
+    url(r'^contact/$', site.contact, name='contact'),
     url(r'^about/$', site.about, name='about'),
     url(r'^timer/$', site.timer, name='timer'),
     url(r'^resources/$', site.resources, name='resources'),
@@ -61,6 +63,7 @@ urlpatterns = [
 
     # DONATE
     url(r'^donate-message/', donate.donate_email),
+    url(r'^contact-message/', donate.contact_email),
 
     # SEASON1 LEADERBOARDS
     url(r'^leaderboards/s1/mccs', leaderboard.s1_score),

@@ -134,3 +134,76 @@ ul {
     justify-content: center;
 }
 /*ADDS*/
+
+/*CONTACT*/
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form h1 {
+    font-size: 80px;
+    margin: 50px 0;
+}
+
+select {
+    font-size: 19px;
+    padding: 5px;
+}
+
+label {
+    font-size: 19px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+textarea {
+    resize: none;
+    height: 150px;
+    font-family: 'Roboto', 'Rajdhani', sans-serif;
+    font-size: 19px;
+    padding: 10px;
+}
+
+#send-message {
+    margin: 20px auto 50px;
+    display: block;
+    background: green;
+    padding: 10px 30px;
+}
+
+#other-wrapper {
+    background: #0c0c0c;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    font-size: 25px;
+}
+
+#other-wrapper a {
+    color: #dcdcdc;
+    display: flex;
+    align-items: center;
+    transition: 0.5s ease all;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#other-wrapper a:hover {
+    color: #ffffff;
+}
+
+#other-wrapper span {
+    margin-left: 10px;
+}
+
+#twitter svg {
+    color: #1DA1F2;
+    font-size: 60px;
+}
+
+#discord svg {
+    color: #7289DA;
+    font-size: 60px;
+}
+/*CONTACT*/

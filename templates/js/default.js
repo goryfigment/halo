@@ -5,6 +5,22 @@ require('./../js/general.js');
 
 var $ = require('jquery');
 
+function sendRequest(url, data, request_type, success, error, exception) {
+    $.ajax({
+        headers: {"X-CSRFToken": $('input[name="csrfmiddlewaretoken"]').attr('value')},
+        url: window.location.origin + url,
+        data: data,
+        dataType: 'json',
+        type: request_type,
+        success: function (response) {
+            success(response, exception);
+        },
+        error: function (response) {
+            error(response, exception);
+        }
+    });
+}
+
 // TABS //
 function tabHandler($tab, $wrapper) {
     $('.tab.active').removeClass('active');
@@ -28,6 +44,31 @@ $(document).on('click', '.tab', function () {
 
     tabHandler($this, $('#' + $this.attr('data-type')));
 });
-
-
 // TABS //
+
+// CONTACT //
+function contactSuccess(response) {
+    console.log('Donate Sent');
+    var $formWrapper = $('form');
+    $formWrapper.empty();
+    $formWrapper.append('<h1><i class="far fa-paper-plane"></i> Message Sent</h1>');
+}
+
+function contactError() {
+    console.log("Contact Error");
+}
+
+$(document).on('click', '#send-message', function (e) {
+    e.stopPropagation();
+
+    var data = {
+        reason: $('#reason').val(),
+        gamertag: $('#gamertag').val(),
+        email: $('#email').val(),
+        subject: $('#subject').val(),
+        message: $('#message').val()
+    };
+
+    sendRequest('/contact-message/', data, 'POST', contactSuccess, contactError);
+});
+// CONTACT //
