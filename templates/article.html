@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MCC Stats: {{ title }}</title>
+
+    <meta property="title" content="MCC Stats: {{ title }}">
+    <meta name="description" content="Halo MCC Stats! {{ title }}" />
+    <%= require('html-loader!./partial/meta.html') %>
+</head>
+<body>
+    {% csrf_token %}
+    <%= require('html-loader!./partial/header.html') %>
+
+    <div id="body-wrapper">
+        <h1>{{ title }}</h1>
+        <time>Published: {{ date }}</time>
+        {% for section in content %}
+            <p>
+                {{ section }}
+            </p>
+        {% endfor %}
+    </div>
+
+    <div id="overlay"></div>
+    <%= require('html-loader!./partial/footer.html') %>
+</body>
+</html>

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset>
     <url>
       <loc>https://www.mccstats.com/</loc>
       <changefreq>daily</changefreq>
@@ -44,7 +40,98 @@
       <changefreq>daily</changefreq>
       <priority>0.90</priority>
     </url>
-
+{#    ALL ARTICLES#}
+    <url>
+      <loc>https://www.mccstats.com/article/1</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/2</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/3</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/4</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/5</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/6</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/7</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/8</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/9</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/10</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/11</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/12</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/13</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/14</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/15</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/16</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/17</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+    <url>
+      <loc>https://www.mccstats.com/article/18</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.90</priority>
+    </url>
+{#    ALL ARTICLES#}
 {#    ALL LEADERBOARDS#}
     <url>
      <loc>https://www.mccstats.com/leaderboards/donations</loc>
@@ -216,5 +303,52 @@
      <changefreq>daily</changefreq>
      <priority>0.80</priority>
     </url>
-
+{#S1#}
+{#S2#}
+    <url>
+     <loc>https://www.mccstats.com/leaderboards/s2/mccs</loc>
+     <changefreq>daily</changefreq>
+     <priority>0.90</priority>
+    </url>
+    <url>
+     <loc>https://www.mccstats.com/leaderboards/s2/playtime</loc>
+     <changefreq>daily</changefreq>
+     <priority>0.80</priority>
+    </url>
+    <url>
+     <loc>https://www.mccstats.com/leaderboards/s2/kills</loc>
+     <changefreq>daily</changefreq>
+     <priority>0.80</priority>
+    </url>
+    <url>
+     <loc>https://www.mccstats.com/leaderboards/s2/deaths</loc>
+     <changefreq>daily</changefreq>
+     <priority>0.80</priority>
+    </url>
+    <url>
+     <loc>https://www.mccstats.com/leaderboards/s2/wins</loc>
+     <changefreq>daily</changefreq>
+     <priority>0.80</priority>
+    </url>
+    <url>
+     <loc>https://www.mccstats.com/leaderboards/s2/losses</loc>
+     <changefreq>daily</changefreq>
+     <priority>0.80</priority>
+    </url>
+    <url>
+     <loc>https://www.mccstats.com/leaderboards/s2/matches</loc>
+     <changefreq>daily</changefreq>
+     <priority>0.80</priority>
+    </url>
+    <url>
+     <loc>https://www.mccstats.com/leaderboards/s2/wl</loc>
+     <changefreq>daily</changefreq>
+     <priority>0.80</priority>
+    </url>
+    <url>
+     <loc>https://www.mccstats.com/leaderboards/s2/kd</loc>
+     <changefreq>daily</changefreq>
+     <priority>0.80</priority>
+    </url>
+{#S2#}
 </urlset>

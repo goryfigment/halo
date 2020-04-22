@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^about/$', site.about, name='about'),
     url(r'^timer/$', site.timer, name='timer'),
     url(r'^resources/$', site.resources, name='resources'),
+    url(r'article/(?P<id>\d+)', site.article, name='article'),
 
     # XBOX CLIPS
     url(r'^xbox-clips/', xbox_handler.xbox_clips),

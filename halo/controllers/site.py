@@ -1,4 +1,4 @@
-import json, time
+import json, time, os
 from django.shortcuts import render
 from base import get_base_url, model_to_dict
 from django.db.models import F
@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
 from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2
 from halo.controllers.leaderboard import season2_func, season2_playtime_func
+from django.http import HttpResponse
 
 
 def error_page(request):
@@ -253,3 +254,13 @@ def update_database(request, gt):
     }
 
     return render(request, 'profile.html', data)
+
+
+def article(request, id):
+    file_path = os.path.join(os.path.dirname(__file__), 'article.json')
+    articles = json.loads(open(file_path).read().decode('latin-1'))
+
+    if id in articles:
+        return render(request, 'article.html', articles[id])
+    else:
+        return render(request, '404.html', {'base_url': get_base_url()})
