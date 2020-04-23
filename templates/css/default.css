@@ -38,6 +38,7 @@
 
 h4 {
     font-family: 'Rajdhani', 'Roboto', sans-serif;
+    margin: 10px;
 }
 
 footer {
@@ -57,7 +58,14 @@ li {
     margin: 10px 0;
 }
 
-ul {
+ol {
+    padding: 10px 0;
+    text-align: left;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#tabular-wrapper {
     list-style: none;
     display: flex;
     padding: 0;
@@ -69,6 +77,14 @@ ul {
     color: #b4b4b4;
     font-weight: bold;
     font-size: 13px;
+    width: 100%;
+}
+
+.inner {
+    display: block;
+    color: #b1b1b1;
+    font-size: 14px;
+    margin-left: 10px;
 }
 
 .tab {
@@ -97,9 +113,15 @@ ul {
 }
 
 .flex-wrapper img {
-    height: 70px;
-    margin: 20px auto;
+    max-width: 200px;
+    max-height: 50px;
+    margin: 10px auto;
     display: block;
+}
+
+.flex-wrapper div {
+    width: 200px;
+    margin: 0 auto;
 }
 
 .description {
@@ -109,12 +131,9 @@ ul {
 }
 
 .power-wrapper {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.power-wrapper div {
-    width: 350px;
+    background: #191919;
+    border: #313131 solid 1px;
+    margin-top: 15px;
     text-align: center;
 }
 
@@ -124,6 +143,7 @@ ul {
     border: #313131 solid 2px;
     margin: 15px 0;
     text-align: center;
+    display: none;
 }
 
 /*ADDS*/

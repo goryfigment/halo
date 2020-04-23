@@ -32,7 +32,6 @@ function tabHandler($tab, $wrapper) {
 
 $(document).on('click', '.tab', function () {
     var $this = $(this);
-    var $tabs = $('.tab');
 
     $.each( $('.tab-wrapper'), function() {
         if($this.hasClass('all-tabs')) {
@@ -72,3 +71,12 @@ $(document).on('click', '#send-message', function (e) {
     sendRequest('/contact-message/', data, 'POST', contactSuccess, contactError);
 });
 // CONTACT //
+
+
+$(document).ready(function() {
+    if('handlebars' in globals) {
+        var timerTemplate = require('./../handlebars/timer/' + globals.handlebars + '.hbs');
+
+        $('#body-wrapper').append(timerTemplate({}));
+    }
+});

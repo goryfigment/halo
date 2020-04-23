@@ -31,7 +31,7 @@ urlpatterns = [
     url(r'^terms-conditions/$', site.terms_conditions, name='terms_conditions'),
     url(r'^contact/$', site.contact, name='contact'),
     url(r'^about/$', site.about, name='about'),
-    url(r'^timer/$', site.timer, name='timer'),
+    url(r'^timer/(?P<game>.*)/(?P<type>.*)$', site.timer, name='h3_radar'),
     url(r'^resources/$', site.resources, name='resources'),
     url(r'article/(?P<id>\d+)', site.article, name='article'),
 
