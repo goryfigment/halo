@@ -21,7 +21,7 @@
       <priority>0.90</priority>
     </url>
     <url>
-      <loc>https://www.mccstats.com/timer/</loc>
+      <loc>https://www.mccstats.com/timer/h3/radar</loc>
       <changefreq>daily</changefreq>
       <priority>0.90</priority>
     </url>
