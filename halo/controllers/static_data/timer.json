@@ -1,0 +1,397 @@
+{
+  "h3": {
+    "radar": [
+      {
+        "map": "assembly",
+        "power": {
+          "rockets": "2:00",
+          "hammer": "3:00"
+        },
+        "power_up": {
+          "camouflage": "3:00"
+        },
+        "equipment": {
+          "power drain": "1:00",
+          "regenerator": "1:00"
+        }
+      },
+      {
+        "map": "blackout",
+        "power": {
+          "sniper": "3:00",
+          "shotgun": "3:00",
+          "sword": "2:30"
+        },
+        "equipment": {
+          "bubble shield": "2:00",
+          "regenerator": "2:00",
+          "power drain": "2:00"
+        }
+      },
+      {
+        "map": "boundless",
+        "power": {
+          "beam": "3:00",
+          "shotgun": "2:30",
+          "mauler": "1:30"
+        },
+        "power_up": {
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:30"
+        }
+      },
+      {
+        "map": "citadel",
+        "power": {
+          "rockets": "2:00",
+          "sniper": "3:00",
+          "shotgun": "3:00"
+        },
+        "power_up": {
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "2:00",
+          "power drain": "2:00"
+        }
+      },
+      {
+        "map": "cold storage",
+        "power": {
+          "rockets": "2:00",
+          "sniper": "2:00",
+          "shotgun": "2:00"
+        },
+        "power_up": {
+          "camouflage": "3:00",
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00",
+          "regenerator": "1:00",
+          "power drain": "1:00"
+        }
+      },
+      {
+        "map": "construct",
+        "power": {
+          "sniper": "3:00",
+          "laser": "2:00",
+          "sword": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00",
+          "power drain": "1:00"
+        }
+      },
+      {
+        "map": "epilogue",
+        "power": {
+          "rockets": "2:00",
+          "shotgun": "2:00"
+        },
+        "power_up": {
+          "camouflage": "3:00",
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00",
+          "regenerator": "1:00",
+          "power drain": "1:00"
+        }
+      },
+      {
+        "map": "epitaph",
+        "power": {
+          "rockets": "2:00",
+          "shotgun": "2:00",
+          "hammer": "3:00"
+        },
+        "power_up": {
+          "camouflage": "3:00",
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00"
+        }
+      },
+      {
+        "map": "foundry",
+        "power": {
+          "rockets": "1:30",
+          "sniper": "1:30",
+          "shotgun": "2:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00",
+          "power drain": "1:00"
+        }
+      },
+      {
+        "map": "ghost town",
+        "power": {
+          "rockets": "3:00",
+          "sniper": "2:00",
+          "shotgun": "3:00"
+        },
+        "power_up": {
+          "camouflage": "3:00",
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00",
+          "power drain": "1:00",
+          "grav lift": "1:00"
+        }
+      },
+      {
+        "map": "guardian",
+        "power": {
+          "sniper": "3:00",
+          "shotgun": "3:00",
+          "hammer": "3:00"
+        },
+        "power_up": {
+          "camouflage": "3:00",
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00"
+        }
+      },
+      {
+        "map": "heretic",
+        "power": {
+          "shotgun": "2:00",
+          "sword": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00"
+        }
+      },
+      {
+        "map": "high ground",
+        "power": {
+          "rockets": "2:00",
+          "sniper": "1:30",
+          "shotgun": "1:30",
+          "laser": "2:00"
+        },
+        "power_up": {
+          "camouflage": "3:00",
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:30",
+          "power drain": "2:00",
+          "grav lift": "1:30"
+        }
+      },
+      {
+        "map": "isolation",
+        "power": {
+          "rockets": "3:00",
+          "sniper": "3:00",
+          "shotgun": "0:30"
+        },
+        "equipment": {
+          "regenerator": "1:00"
+        }
+      },
+      {
+        "map": "last resort",
+        "power": {
+          "sniper": "1:30",
+          "shotgun": "1:30",
+          "laser": "2:00"
+        },
+        "power_up": {
+          "camouflage": "1:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00",
+          "power drain": "1:00",
+          "grav lift": "1:00"
+        }
+      },
+      {
+        "map": "longshore",
+        "power": {
+          "rockets": "1:30",
+          "sniper": "2:00",
+          "shotgun": "2:00"
+        },
+        "power_up": {
+          "camouflage": "3:00",
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00",
+          "regenerator": "1:00",
+          "power drain": "1:00",
+          "grav lift": "1:00"
+        }
+      },
+      {
+        "map": "narrows",
+        "power": {
+          "rockets": "3:00",
+          "sniper": "2:30"
+        },
+        "power_up": {
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:30",
+          "power drain": "1:30"
+        }
+      },
+      {
+        "map": "orbital",
+        "power": {
+          "rockets": "2:00",
+          "sniper": "2:00",
+          "mauler": "2:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00",
+          "regenerator": "1:00",
+          "power drain": "1:00"
+        }
+      },
+      {
+        "map": "pit",
+        "power": {
+          "rockets": "3:00",
+          "sniper": "2:00",
+          "shotgun": "2:00",
+          "sword": "2:00"
+        },
+        "power_up": {
+          "camouflage": "3:00",
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "regenerator": "1:30",
+          "power drain": "1:30"
+        }
+      },
+      {
+        "map": "snowbound",
+        "power": {
+          "laser": "2:30",
+          "mauler": "0:45"
+        },
+        "power_up": {
+          "camouflage": "3:00",
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:30",
+          "power drain": "1:30"
+        }
+      },
+      {
+        "map": "standoff",
+        "power": {
+          "rockets": "3:00",
+          "laser": "3:00"
+        },
+        "power_up": {
+          "camouflage": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00",
+          "power drain": "1:00"
+        }
+      },
+      {
+        "map": "sandbox",
+        "power": {
+          "rockets": "2:00"
+        },
+        "power_up": {
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "2:00",
+          "regenerator": "2:00",
+          "power drain": "2:00",
+          "grav lift": "1:00"
+        }
+      },
+      {
+        "map": "pantheon",
+        "power": {
+          "rockets": "2:30",
+          "sword": "1:30"
+        },
+        "power_up": {
+          "camouflage": "3:00",
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "2:00",
+          "regenerator": "2:00"
+        }
+      },
+      {
+        "map": "reminiscent",
+        "power": {
+          "sniper": "3:00",
+          "shotgun": "3:00",
+          "hammer": "3:00"
+        },
+        "power_up": {
+          "camouflage": "3:00",
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "2:00",
+          "regenerator": "2:00"
+        }
+      },
+      {
+        "map": "tundra",
+        "power": {
+          "sniper": "2:00",
+          "mauler": "1:30"
+        }
+      },
+      {
+        "map": "wasteland",
+        "power": {
+          "rockets": "1:00",
+          "sword": "0:30",
+          "shotgun": "0:30"
+        },
+        "power_up": {
+          "camouflage": "1:30",
+          "overshield": "1:00"
+        },
+        "equipment": {
+          "bubble shield": "1:00",
+          "power drain": "2:00",
+          "grav lift": "1:00"
+        }
+      },
+      {
+        "map": "vessel",
+        "power": {
+          "rockets": "3:00",
+          "sniper": "3:00",
+          "shotgun": "3:00"
+        },
+        "power_up": {
+          "overshield": "3:00"
+        },
+        "equipment": {
+          "bubble shield": "2:00",
+          "power drain": "2:00"
+        }
+      }
+    ]
+  }
+}

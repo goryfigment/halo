@@ -88,6 +88,8 @@ def timer(request, game, type):
     if game not in games or type not in types:
         return render(request, '404.html', data)
     else:
+        file_path = os.path.join(os.path.dirname(__file__), 'static_data/timer.json')
+        data['timers'] = json.dumps(json.loads(open(file_path).read())[game][type])
         return render(request, 'timer.html', data)
 
 
@@ -264,7 +266,7 @@ def update_database(request, gt):
 
 
 def article(request, id):
-    file_path = os.path.join(os.path.dirname(__file__), 'article.json')
+    file_path = os.path.join(os.path.dirname(__file__), 'static_data/article.json')
     articles = json.loads(open(file_path).read().decode('latin-1'))
 
     if id in articles:

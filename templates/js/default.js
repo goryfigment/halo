@@ -74,9 +74,9 @@ $(document).on('click', '#send-message', function (e) {
 
 
 $(document).ready(function() {
-    if('handlebars' in globals) {
+    if('timers' in globals) {
         var timerTemplate = require('./../handlebars/timer/' + globals.handlebars + '.hbs');
-
-        $('#body-wrapper').append(timerTemplate({}));
+        $('#body-wrapper').append(timerTemplate(globals.timers));
+        $($('#tabular-wrapper').find('.tab')[0]).click();
     }
 });
