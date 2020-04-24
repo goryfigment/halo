@@ -82,6 +82,7 @@ body {
     -webkit-align-items: flex-start;
         -ms-flex-align: start;
             align-items: flex-start;
+    width: 100vw;
 }
 
 video {
