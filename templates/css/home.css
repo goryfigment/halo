@@ -410,10 +410,14 @@ table a {
 /*DONATOR*/
 
 /*ADDS*/
+#left-wrapper {
+    width: 390px;
+}
+
 #ad-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 90px;
+    margin-top: 60px;
 }
 /*ADDS*/
 

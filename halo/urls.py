@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^404/$', site.error_page, name='404'),
     url(r'^500/$', site.server_error, name='500'),
     url(r'^robots\.txt$', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
+    url(r'^ads\.txt$', TemplateView.as_view(template_name="ads.txt", content_type='text/plain')),
     url(r'^sitemap\.xml$', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
     url(r'^database/(?P<gt>.*)', site.update_database),
 
