@@ -24,14 +24,14 @@
     <meta name="description" content="Halo MCC Stats! Check your profile. View the top Halo players on our leaderboards and your stats and rankings!" />
     <%= require('html-loader!./partial/meta.html') %>
 </head>
-<body style="width: 100vw; min-width: 400px;">
+<body>
     {% csrf_token %}
     <%= require('html-loader!./partial/header.html') %>
 
-    <div id="body-wrapper" style="max-width: 1600px; max-height: 809px;">
+    <div id="body-wrapper">
         <video crossorigin="anonymous" preload="auto" loop autoplay muted src="{% static 'bundle/assets/vg1.mp4' %}"></video>
 
-        <div id="left-wrapper" style="width: 390px; max-width: 390px; height: 809px;max-height:809px;">
+        <div id="left-wrapper">
             <div id="content-wrapper">
                 <h2 id="title">MCCSTATS<span>.COM</span></h2>
 
@@ -51,8 +51,12 @@
                 </div>
             </div>
 
-            <div id="ad-wrapper" style="min-width: 390px;max-width:390px;min-height: 500px;max-height:500px;">
-                <ins class="adsbygoogle" style="display:inline-block;width:390px;height:500px" data-ad-client="ca-pub-1676522332244979" data-ad-slot="7714995143"></ins>
+            <div id="ad-wrapper" style="max-height:500px;">
+                <!-- 336x280 Sq Ad -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:336px;height:280px"
+                     data-ad-client="ca-pub-1676522332244979"
+                     data-ad-slot="7714995143"></ins>
             </div>
         </div>
 

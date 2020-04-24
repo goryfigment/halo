@@ -1,6 +1,6 @@
 @media only screen and (max-width: 420px) {
     body #body-wrapper {
-        transform: scale(0.7);
+        transform: scale(0.9);
         transform-origin: top;
         position: relative;
         left: -20px;
