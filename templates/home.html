@@ -24,7 +24,7 @@
     <meta name="description" content="Halo MCC Stats! Check your profile. View the top Halo players on our leaderboards and your stats and rankings!" />
     <%= require('html-loader!./partial/meta.html') %>
 </head>
-<body>
+<body style="width: 100vw; min-width: 400px;">
     {% csrf_token %}
     <%= require('html-loader!./partial/header.html') %>
 
@@ -51,7 +51,9 @@
                 </div>
             </div>
 
-            <div id="ad-wrapper" style="width: 390px;max-width:390px;height: 500px;max-height:500px;"></div>
+            <div id="ad-wrapper" style="min-width: 390px;max-width:390px;min-height: 500px;max-height:500px;">
+                <ins class="adsbygoogle" style="display:inline-block;width:390px;height:500px" data-ad-client="ca-pub-1676522332244979" data-ad-slot="7714995143"></ins>
+            </div>
         </div>
 
         <div id="right-wrapper">
@@ -101,6 +103,5 @@
     </div>
 
     <%= require('html-loader!./partial/footer.html') %>
-    <script data-ad-client="ca-pub-1676522332244979" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </body>
 </html>

@@ -28,10 +28,13 @@ $(document).ready(function() {
     $('#kd-wrapper').append(leaderboardTemplate({leaderboards: globals.kd, type: 'kd'}));
     $('#wl-wrapper').append(leaderboardTemplate({leaderboards: globals.wl, type: 'wl'}));
 
-    $("#ad-wrapper").each(function () {
-        $(this).append('<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1676522332244979" data-ad-slot="3635508703" data-ad-format="auto" data-full-width-responsive="true"></ins>');
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    });
+    //$.getScript("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+
+    //$("#ad-wrapper").each(function () {
+    //    $(this).append('<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1676522332244979" data-ad-slot="3635508703" data-ad-format="auto" data-full-width-responsive="true"></ins>');
+    //    (adsbygoogle = window.adsbygoogle || []).push({});
+    //});
+    (adsbygoogle = window.adsbygoogle || []).push({});
 });
 
 $(document).on('click', '#leaderboard-button', function () {
