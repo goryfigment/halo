@@ -663,7 +663,15 @@ ol span {
     margin: 0px auto;
     display: flex;
     justify-content: center;
-    height: 100%;
-    align-items: center;
+    background: #1c1c1c;
+    position: relative;
+}
+
+#ad-wrapper:after {
+    content: "Ads go here!";
+    position: absolute;
+    text-align: center;
+    margin: 18px 0;
+    font-size: 20px;
 }
 /*ADDS*/

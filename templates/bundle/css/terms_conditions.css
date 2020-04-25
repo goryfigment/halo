@@ -43,6 +43,10 @@
 }
 
 @media only screen and (max-width: 620px) {
+    body #body-wrapper {
+        width: 100vw;
+    }
+
     .map-img {
         -webkit-transform-origin: left;
             -ms-transform-origin: left;
@@ -329,3 +333,30 @@ textarea {
     font-size: 60px;
 }
 /*CONTACT*/
+
+/*ADDS*/
+#ad-wrapper {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 20px auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: #1c1c1c;
+    position: relative;
+}
+
+#ad-wrapper:after {
+    content: "Ads go here!";
+    position: absolute;
+    text-align: center;
+    margin: 18px 0;
+    font-size: 20px;
+}
+/*ADDS*/

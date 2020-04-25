@@ -79,4 +79,6 @@ $(document).ready(function() {
         $('#body-wrapper').append(timerTemplate(globals.timers));
         $($('#tabular-wrapper').find('.tab')[0]).click();
     }
+
+    (adsbygoogle = window.adsbygoogle || []).push({});
 });

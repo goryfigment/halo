@@ -261,6 +261,15 @@ p {
     margin: 0px auto;
     display: flex;
     justify-content: center;
+    background: #1c1c1c;
+    position: relative;
+}
+
+#ad-wrapper:after {
+    content: "Ads go here!";
+    position: absolute;
+    text-align: center;
+    margin: 40px 0;
 }
 /*ADDS*/
 

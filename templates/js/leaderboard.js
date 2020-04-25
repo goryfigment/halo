@@ -51,6 +51,7 @@ $(document).ready(function() {
     $('#pagination').append(pagination({'page': globals.page}));
 
     sendRequest('/update-leaderboard/', JSON.stringify({leaderboards: globals.leaderboard, type: globals.type, index: globals.index}), 'POST', updateLeaderboardSuccess, updateLeaderboardError);
+    (adsbygoogle = window.adsbygoogle || []).push({});
 });
 
 $(document).on('click', '#pagination li', function () {
