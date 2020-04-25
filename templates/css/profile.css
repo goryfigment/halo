@@ -674,4 +674,8 @@ ol span {
     margin: 18px 0;
     font-size: 20px;
 }
+
+#ad-wrapper ins {
+    z-index: 1;
+}
 /*ADDS*/

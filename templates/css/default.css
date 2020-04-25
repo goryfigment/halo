@@ -284,5 +284,6 @@ textarea {
     text-align: center;
     margin: 18px 0;
     font-size: 20px;
+    z-index: -1;
 }
 /*ADDS*/
