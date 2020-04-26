@@ -62,6 +62,8 @@ function serviceRecordSuccess(response) {
 
     $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'total_50s': globals.total_50s}));
     $statsWrapper.append(statsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+
+    (adsbygoogle = window.adsbygoogle || []).push({});
 }
 
 function serviceRecordError() {
@@ -148,8 +150,6 @@ $(document).ready(function() {
     $('#pc-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_pc_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
     sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, xbox_ranks: xbox_ranks, pc_ranks: pc_ranks, highest_rank: highest_rank}), 'POST', serviceRecordSuccess, serviceRecordError);
     sendRequest('/xbox-clips/', {gt: globals.gamertag}, 'GET', xboxClipsSuccess, xboxClipsError);
-
-    (adsbygoogle = window.adsbygoogle || []).push({});
 });
 
 function xboxClipsSuccess(response) {

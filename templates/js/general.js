@@ -2,6 +2,14 @@ var $ = require('jquery');
 var searchTemplate = require('./../handlebars/overlay/search.hbs');
 var leaderboardTemplate = require('./../handlebars/overlay/leaderboard.hbs');
 
+
+//ADSENSE//
+//$(document).ready(function() {
+//    (adsbygoogle = window.adsbygoogle || []).push({});
+//});
+//ADSENSE//
+
+
 //OVERLAY//
 $(document).on('click', '#overlay', function () {
     $('#overlay').removeClass('active');

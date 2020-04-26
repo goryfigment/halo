@@ -26,23 +26,26 @@
     <%= require('html-loader!./partial/header.html') %>
 
     <div id="body-wrapper">
-        <h1><i class="fas fa-chess-rook"></i> {{title}} Leaderboard</h1>
+        <div id="left-wrapper">
+            <h1><i class="fas fa-chess-rook"></i> {{title}} Leaderboard</h1>
 
-        <div id="ad-wrapper">
-            <!-- 320x100 -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:320px;height:100px"
-                 data-ad-client="ca-pub-1676522332244979"
-                 data-ad-slot="9382180472"></ins>
+            <div id="top-ad" class="ad-wrapper"></div>
+
+            <div id="leaderboard-wrapper">
+
+            </div>
+
+            <div id="page-wrapper">
+                <nav id="pagination"></nav>
+            </div>
+
+            <div id="bottom-ad" class="ad-wrapper"></div>
         </div>
 
-        <div id="leaderboard-wrapper">
-
+        <div id="right-wrapper">
+            <div id="right-ad"></div>
         </div>
 
-        <div id="page-wrapper">
-            <nav id="pagination"></nav>
-        </div>
     </div>
 
     <div id="overlay"></div>

@@ -71,14 +71,3 @@ $(document).on('click', '#send-message', function (e) {
     sendRequest('/contact-message/', data, 'POST', contactSuccess, contactError);
 });
 // CONTACT //
-
-
-$(document).ready(function() {
-    if('timers' in globals) {
-        var timerTemplate = require('./../handlebars/timer/' + globals.handlebars + '.hbs');
-        $('#body-wrapper').append(timerTemplate(globals.timers));
-        $($('#tabular-wrapper').find('.tab')[0]).click();
-    }
-
-    (adsbygoogle = window.adsbygoogle || []).push({});
-});

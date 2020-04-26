@@ -14,49 +14,63 @@
     <%= require('html-loader!./partial/header.html') %>
 
     <div id="body-wrapper">
-        <h1>Halo Timers</h1>
+        <div id="left-wrapper">
 
-        <nav>
-            <div class="timer-wrapper">
-                <div>Halo Reach</div>
-                <span><a class="coming-soon">Radar</a> | <a class="coming-soon">MLG</a></span>
+            <div id="resource-wrapper">
+                <h1>Halo Timers</h1>
+                <div id="top-ad" class="ad-wrapper"></div>
+                <nav>
+                    <div class="timer-wrapper">
+                        <div>Halo Reach</div>
+                        <span><a class="coming-soon">Radar</a> | <a class="coming-soon">MLG</a></span>
+                    </div>
+
+                    <div class="timer-wrapper">
+                        <div>Halo 1</div>
+                        <span><a class="coming-soon">Radar</a> | <a class="coming-soon">MLG</a></span>
+                    </div>
+
+                    <div class="timer-wrapper">
+                        <div>Halo 2</div>
+                        <span><a class="coming-soon">Radar</a> | <a class="coming-soon">MLG</a></span>
+                    </div>
+
+                    <div class="timer-wrapper">
+                        <div>Halo 3</div>
+                        <span><a href="/timer/h3/radar">Radar</a> | <a class="coming-soon">MLG</a></span>
+                    </div>
+
+                    <div class="timer-wrapper">
+                        <div>Halo 4</div>
+                        <span><a class="coming-soon">Radar</a> | <a class="coming-soon">MLG</a></span>
+                    </div>
+                </nav>
+
+                <h1>Halo MCC Matchmaking Updates</h1>
+
+                <nav class="column">
+                    <a href="https://docs.google.com/spreadsheets/d/1bBy-xlOHxUaFSFyLJt_lfVzCtrX2YJI2DubmL-NOvyY/edit?usp=sharing" target="_blank">Matchmaking Updates</a>
+                    <p class="credit">By omarlotrc and OTheGodfather</p>
+                </nav>
+
+                <h1>Official Halo MCC Report A Player</h1>
+
+                <nav class="column">
+                    <p>Please provide as much proof as possible such as clips, screenshots, etc.</p>
+                    <a href="https://support.halowaypoint.com/hc/en-us/requests/new?flash_digest=07c9f6bc0d66eac2aba5bd3e5041bf244bf978fe" target="_blank">Official Report Link</a>
+                </nav>
             </div>
 
-            <div class="timer-wrapper">
-                <div>Halo 1</div>
-                <span><a class="coming-soon">Radar</a> | <a class="coming-soon">MLG</a></span>
-            </div>
+            <div id="bottom-ad" class="ad-wrapper"></div>
+        </div>
 
-            <div class="timer-wrapper">
-                <div>Halo 2</div>
-                <span><a class="coming-soon">Radar</a> | <a class="coming-soon">MLG</a></span>
-            </div>
-
-            <div class="timer-wrapper">
-                <div>Halo 3</div>
-                <span><a href="/timer/h3/radar">Radar</a> | <a class="coming-soon">MLG</a></span>
-            </div>
-
-            <div class="timer-wrapper">
-                <div>Halo 4</div>
-                <span><a class="coming-soon">Radar</a> | <a class="coming-soon">MLG</a></span>
-            </div>
-        </nav>
-
-        <h1>Halo MCC Matchmaking Updates</h1>
-
-        <nav class="column">
-            <a href="https://docs.google.com/spreadsheets/d/1bBy-xlOHxUaFSFyLJt_lfVzCtrX2YJI2DubmL-NOvyY/edit?usp=sharing" target="_blank">Matchmaking Updates</a>
-            <p class="credit">By omarlotrc and OTheGodfather</p>
-        </nav>
-
-        <h1>Official Halo MCC Report A Player</h1>
-
-        <nav class="column">
-            <p>Please provide as much proof as possible such as clips, screenshots, etc.</p>
-            <a href="https://support.halowaypoint.com/hc/en-us/requests/new?flash_digest=07c9f6bc0d66eac2aba5bd3e5041bf244bf978fe" target="_blank">Official Report Link</a>
-        </nav>
+        <div id="right-wrapper">
+            <div id="right-ad"></div>
+        </div>
     </div>
+
+
+
 
     <div id="overlay"></div>
 

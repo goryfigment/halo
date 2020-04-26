@@ -19,7 +19,23 @@
     {% csrf_token %}
     <%= require('html-loader!./partial/header.html') %>
 
-    <div id="body-wrapper"></div>
+    <div id="body-wrapper">
+        <div id="left-wrapper">
+            <h1>Radar Halo 3 Timers</h1>
+
+            <div id="top-ad" class="ad-wrapper"></div>
+
+            <div id="timer-wrapper">
+
+            </div>
+
+            <div id="bottom-ad" class="ad-wrapper"></div>
+        </div>
+
+        <div id="right-wrapper">
+            <div id="right-ad"></div>
+        </div>
+    </div>
 
     <div id="overlay"></div>
     <%= require('html-loader!./partial/footer.html') %>

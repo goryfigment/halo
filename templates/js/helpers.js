@@ -117,7 +117,20 @@ function upAndDownPopups(keyCode, $popup, $options, scroll) {
     }
 }
 
+function adHandler(key) {
+    var adData = {
+        '728x90': '<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1676522332244979" data-ad-slot="8955052481"></ins>',
+        '320x100': '<ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-1676522332244979" data-ad-slot="9382180472"></ins>',
+        '336x280': '<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1676522332244979" data-ad-slot="7714995143"></ins>',
+        '300x250': '<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-1676522332244979" data-ad-slot="9139525946"></ins>',
+        '160x600': '<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-1676522332244979" data-ad-slot="2281832926"></ins>'
+    };
+
+    return adData[key];
+}
+
 module.exports = {
+    adHandler: adHandler,
     timePassed: timePassed,
     numberCommaFormat: numberCommaFormat,
     replaceAll: replaceAll,

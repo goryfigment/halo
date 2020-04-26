@@ -90,6 +90,7 @@
         "map": "epilogue",
         "power": {
           "rockets": "2:00",
+          "sniper": "2:00",
           "shotgun": "2:00"
         },
         "power_up": {

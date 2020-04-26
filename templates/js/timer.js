@@ -1,10 +1,34 @@
 require('./../css/general.css');
-require('./../css/resources.css');
+require('./../css/timer.css');
 require('./../library/fontawesome/fontawesome.js');
 require('./../js/general.js');
 
 var $ = require('jquery');
 var helper = require('./../js/helpers.js');
+
+// TABS //
+function tabHandler($tab, $wrapper) {
+    $('.tab.active').removeClass('active');
+    $tab.addClass('active');
+
+    $('.active-tab').removeClass('active-tab');
+    $wrapper.addClass('active-tab');
+}
+
+$(document).on('click', '.tab', function () {
+    var $this = $(this);
+
+    $.each( $('.tab-wrapper'), function() {
+        if($this.hasClass('all-tabs')) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+
+    tabHandler($this, $('#' + $this.attr('data-type')));
+});
+// TABS //
 
 function horizontalAdHandler($this) {
     var width = $this.width();
@@ -91,15 +115,17 @@ function adStart($this, adType){
     (adsbygoogle = window.adsbygoogle || []).push({});
 }
 
+
 $(document).ready(function() {
+    var timerTemplate = require('./../handlebars/timer/' + globals.handlebars + '.hbs');
+    $('#timer-wrapper').append(timerTemplate(globals.timers));
+    $($('#tabular-wrapper').find('.tab')[0]).click();
+
     adStart($('#top-ad'), 'h');
     adStart($('#bottom-ad'), 'h');
     adStart($('body'), 'v');
 });
 
-$(document).on('click', '#pagination li', function () {
-    window.location.replace(globals.base_url + window.location.pathname + '?page=' + $(this).text().trim());
-});
 
 var resizeTimeout;
 $(window).on('resize', function() {
