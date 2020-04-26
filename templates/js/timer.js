@@ -36,14 +36,14 @@ function horizontalAdHandler($this) {
     //Fire if current size is not correct for the ad type
     var type = $this.attr('type');
 
-    if(type == '1' && width >= 748) {
+    if(type == '1' && width >= 728) {
         $this.empty();
         $this.attr('type', 2);
         $this.append(helper.adHandler('728x90'));
         (adsbygoogle = window.adsbygoogle || []).push({});
     }
 
-    if(type == '2' && width < 748) {
+    if(type == '2' && width < 728) {
         $this.empty();
         $this.attr('type', 1);
         $this.append(helper.adHandler('320x100'));
