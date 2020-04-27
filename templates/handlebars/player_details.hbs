@@ -54,7 +54,7 @@
                 <i class='far fa-chart-bar tier-2 tippy' data-title="1.25KD" style="{{#ifCond player.kd '<' 1.25}}opacity:0.2;{{/ifCond}}"></i>
                 <i class='far fa-chart-bar tier-3 tippy' data-title="1.5KD" style="{{#ifCond player.kd '<' 1.5}}opacity:0.2;{{/ifCond}}"></i>
                 <i class='far fa-chart-bar tier-4 tippy' data-title="2KD" style="{{#ifCond player.kd '<' 2}}opacity:0.2;{{/ifCond}}"></i>
-                <span class="progress" style="width: {{mathMax (math player.kd '/' 2.5) '*' 100 100}}%"></span>
+                <span class="progress" style="width: {{mathMax (math player.kd '/' 2) '*' 100 100}}%"></span>
                 <span class="progress-number">{{player.kd}}KD / 2KD</span>
             </span>
         </div>
