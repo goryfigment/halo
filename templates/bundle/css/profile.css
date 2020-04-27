@@ -379,7 +379,6 @@ h1 {
 
 .percent {
     font-size: 10px;
-    margin-bottom: 10px;
     font-weight: bold;
     white-space: nowrap;
     color: #6e6e6e;
@@ -522,7 +521,6 @@ footer #leaderboard-button {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    min-height: 62px;
 }
 
 #playtime-item {
@@ -623,23 +621,25 @@ footer #leaderboard-button {
     margin: 10px 0 10px;
     max-height: 15px;
     font-size: 12px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 #right-wrapper h3 {
-    font-size: 50px;
+    font-size: 32px;
     margin: 0;
     position: relative;
     z-index: 1;
     font-family: 'Rajdhani', 'Roboto', sans-serif;
+    line-height: 43px;
 }
 
 #right-wrapper img {
-    opacity: 0.25;
+    opacity: 0.5;
     bottom: 0;
     right: 0;
-    height: 74px;
+    height: 64px;
     position: absolute;
-    top: 65px;
+    top: 54px;
     left: 50%;
     -webkit-transform: translateY(-50%) translateX(-50%);
 }
@@ -671,6 +671,18 @@ footer #leaderboard-button {
     line-height: 70px;
     padding: 10px 0;
     margin: 10px 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .icon {
@@ -835,14 +847,14 @@ ol span {
 }
 
 .trophy i {
-    font-size: 40px;
-    line-height: 80px;
+    font-size: 32px;
+    line-height: 42px;
     font-weight: bold;
     cursor: default;
 }
 
 .trophy h6 {
-    margin: 40px 0 10px;
+    margin: 10px 0;
 }
 
 .tier-0 {
@@ -862,19 +874,23 @@ ol span {
 }
 
 .tier-4 {
-    color: #6e6e6e;
+    color: #ffffff;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
             animation: glow 1s ease-in-out infinite alternate;
     font-weight: bold;
 }
 
 .bar {
-    display: block;
-    height: 11px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 10px;
     background: rgba(0, 0, 0, 0.8);
     position: relative;
-    width: 115px;
+    width: 94px;
     margin: 25px auto;
+    border: 1px solid #808080;
 }
 
 .bar i {
@@ -985,6 +1001,13 @@ ol span {
     padding: 10px 0;
     margin-top: 5px;
     position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
 }
 
 .video-controls textarea {
@@ -996,8 +1019,8 @@ ol span {
 
 .video-controls .copy-message {
     position: absolute;
-    bottom: 41px;
-    left: 67px;
+    bottom: 42px;
+    left: 125px;
     background: #272727;
     padding: 5px 7px;
     border-radius: 2px;
@@ -1065,7 +1088,7 @@ ol span {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-    margin: 0px auto;
+    margin: 0 auto;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1078,13 +1101,13 @@ ol span {
     position: relative;
 }
 
-#ad-wrapper:after {
-    content: "Ads go here!";
-    position: absolute;
-    text-align: center;
-    margin: 18px 0;
-    font-size: 20px;
-}
+/*#ad-wrapper:after {*/
+    /*content: "Ads go here!";*/
+    /*position: absolute;*/
+    /*text-align: center;*/
+    /*margin: 18px 0;*/
+    /*font-size: 20px;*/
+/*}*/
 
 #ad-wrapper ins {
     z-index: 1;

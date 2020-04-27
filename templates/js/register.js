@@ -15,7 +15,7 @@ function checkEmail(email) {
 $(document).ready(function() {
     init();
 
-    $(document).on('click', '#sign-up-submit', function () {
+    $(document).on('click', '#register', function () {
         var $errors = $('.error');
         $errors.hide();
 

@@ -3,7 +3,6 @@
     <p id="profile-hits">{{#if player.hits}}Profile Hits: {{numCommaFormat player.hits}}{{/if}}</p>
 </div>
 
-
 <div id="exp">{{numCommaFormat player.wins}} EXP {{#ifCond change.wins '>' 0}}<span class="change {{#ifCond change.wins '<' 0}}neg{{/ifCond}}">{{#ifCond change.wins '>' 0}}+{{/ifCond}}{{change.wins}}</span>{{/ifCond}}</div>
 
 <div id="season1-trophy-wrapper">
@@ -13,11 +12,11 @@
             <i class="fas fa-crown tier-{{trophyTier 'mccs' player.season2.score}}"></i>
             <span class="bar">
                 <i class='fas fa-crown tier-1 tippy' data-title="1,000 MCCS" style="{{#ifCond player.season2.score '<' 1000}}opacity:0.2;{{/ifCond}}"></i>
-                <i class='fas fa-crown tier-2 tippy' data-title="1,500 MCCS" style="{{#ifCond player.season2.score '<' 1500}}opacity:0.2;{{/ifCond}}"></i>
-                <i class='fas fa-crown tier-3 tippy' data-title="2,000 MCCS" style="{{#ifCond player.season2.score '<' 2000}}opacity:0.2;{{/ifCond}}"></i>
-                <i class='fas fa-crown tier-4 tippy' data-title="2,500 MCCS" style="{{#ifCond player.season2.score '<' 2500}}opacity:0.2;{{/ifCond}}"></i>
-                <span class="progress" style="width: {{mathMax (math player.season2.score '/' 2500) '*' 100 100}}%"></span>
-                <span class="progress-number">{{numCommaFormat player.season2.score}} / 2,500</span>
+                <i class='fas fa-crown tier-2 tippy' data-title="2,000 MCCS" style="{{#ifCond player.season2.score '<' 2000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-crown tier-3 tippy' data-title="3,000 MCCS" style="{{#ifCond player.season2.score '<' 3000}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-crown tier-4 tippy' data-title="4,000 MCCS" style="{{#ifCond player.season2.score '<' 4000}}opacity:0.2;{{/ifCond}}"></i>
+                <span class="progress" style="width: {{mathMax (math player.season2.score '/' 4000) '*' 100 100}}%"></span>
+                <span class="progress-number">{{numCommaFormat player.season2.score}} / 4,000</span>
             </span>
         </div>
 
@@ -106,7 +105,7 @@
                 <i class='fas fa-clock tier-3 tippy' data-title="45 DAYS" style="{{#ifCond player.epoch '<' 3888000}}opacity:0.2;{{/ifCond}}"></i>
                 <i class='fas fa-clock tier-4 tippy' data-title="60 DAYS" style="{{#ifCond player.epoch '<' 5184000}}opacity:0.2;{{/ifCond}}"></i>
                 <span class="progress" style="width: {{mathMax (math player.epoch '/' 5184000) '*' 100 100}}%"></span>
-                <span class="progress-number">{{player.playtime}} / 60 days</span>
+                <span class="progress-number">{{player.playtime}} / 60d</span>
             </span>
         </div>
     </div>

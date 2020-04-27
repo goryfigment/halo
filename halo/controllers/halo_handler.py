@@ -177,12 +177,12 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
 
     numeric_medium = soup.findAll("h3", {"class": "numeric--medium"})
     value_element = soup.findAll("div", {"class": "value"})
-
     emblem = soup.findAll("img", {"class": "emblem"})[0]['src']
+
     kills = int(value_element[0].get_text())
     deaths = int(value_element[1].get_text())
 
-    playtime = numeric_medium[0].get_text().split(':')[0].replace('.', ' days ') + ' hours'
+    playtime = numeric_medium[0].get_text().split(':')[0].replace('.', 'd ') + 'h'
     matches = int(numeric_medium[1].get_text())
     wins = int(value_element[2].get_text())
     losses = abs(matches - wins)
@@ -196,7 +196,7 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
     kd_ratio = decimal_format(float(kills)/float(deaths), 2, False)
     wl_ratio = decimal_format(float(wins)/float(losses), 2, False)
     # Epoch
-    playtime_txt = playtime.replace(' hours', '').replace(' days ', '')
+    playtime_txt = playtime.replace('h', '').replace('d ', '')
     epoch_hours = int(playtime_txt[-2:])*3600
     day_length = len(playtime_txt)-2
 
@@ -338,10 +338,10 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
     s2_total_hours = s2_epoch / 3600
 
     if s2_epoch <= 0:
-        s2_playtime = '0 days 0 hours'
+        s2_playtime = '0h'
         s2_epoch = 0
     else:
-        s2_playtime = str(s2_total_hours/24) + ' days ' + str(s2_total_hours % 24) + ' hours'
+        s2_playtime = str(s2_total_hours/24) + 'd ' + str(s2_total_hours % 24) + 'h'
     ##### SEASON CALCULATIONS ######
 
     total_levels = 0

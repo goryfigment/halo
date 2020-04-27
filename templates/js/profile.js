@@ -68,10 +68,10 @@ function serviceRecordSuccess(response) {
 
 function serviceRecordError() {
     console.log("Service Record error!");
-    var $leftWrapper = $('#left-wrapper');
+    var $wrapper = $('#player-details');
 
-    $leftWrapper.empty();
-    $leftWrapper.append(privateTemplate({}));
+    $wrapper.empty();
+    $wrapper.append(privateTemplate({}));
 }
 
 $(document).ready(function() {
