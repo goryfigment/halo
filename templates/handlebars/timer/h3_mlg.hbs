@@ -1,0 +1,71 @@
+<ul id="tabular-wrapper">
+    <li class="tab active" data-type="fifteen">15 Minute Game</li>
+    <li class="tab" data-type="thirty">30 Minute Game</li>
+</ul>
+
+<div class="power-wrapper">
+    <h3>Dirtying Weapons</h3>
+    <p class="description">To successfully dirty a weapon you must do the following:</p>
+    <ol>
+        <li>Pick up a weapon before it hits the ground and stops moving.</li>
+    </ol>
+
+    <p class="description">If condition is met, timer starts once the player dies or stops moving for a full 2 seconds.</p>
+</div>
+
+<div id="map-wrapper">
+    <div class="tab-wrapper" id="fifteen">
+        <div class="flex-wrapper">
+            <div>
+                <img title="Sniper" src="/templates/bundle/assets/timer/sniper.png">
+                <h4>Sniper</h4>
+                <ol>
+                    {{#each fifteen.sniper}}<li>{{this}}</li>{{/each}}
+                </ol>
+            </div>
+            <div>
+                <img title="Rockets" src="/templates/bundle/assets/timer/rockets.png">
+                <h4>Rockets</h4>
+                <ol>
+                    {{#each fifteen.rockets}}<li>{{this}}</li>{{/each}}
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-wrapper" id="thirty">
+        <div class="flex-wrapper">
+            <div>
+                <img title="Sniper" src="/templates/bundle/assets/timer/sniper.png">
+                <h4>Sniper</h4>
+                <ol>
+                    {{#each thirty.sniper}}<li>{{this}}</li>{{/each}}
+                </ol>
+            </div>
+            <div>
+                <img title="Rockets" src="/templates/bundle/assets/timer/rockets.png">
+                <h4>Rockets</h4>
+                <ol>
+                    {{#each thirty.rockets}}<li>{{this}}</li>{{/each}}
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="power-wrapper">
+    <h3>Timing Power Ups</h3>
+    <p class="description">Power Ups spawn every two minutes from the time it is pick up.</p>
+    <div class="flex-wrapper">
+        <div>
+            <img title="Camouflage" src="/templates/bundle/assets/timer/camouflage.png">
+            <h4>Camouflage</h4>
+            <p class="description">2:00</p>
+        </div>
+        <div>
+            <img title="Overshield" src="/templates/bundle/assets/timer/overshield.png">
+            <h4>Overshield</h4>
+            <p class="description">2:00</p>
+        </div>
+    </div>
+</div>
