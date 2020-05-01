@@ -419,6 +419,17 @@ table a {
     display: flex;
     justify-content: center;
     margin-top: 60px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#ad-wrapper:after {
+    content: "Ad space!";
+    position: absolute;
+    margin: 28px 0;
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 1;
 }
 /*ADDS*/
 

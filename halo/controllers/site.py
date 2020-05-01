@@ -77,12 +77,13 @@ def terms_conditions(request):
 
 
 def timer(request, game, type):
-    games = ['h3']
+    games = ['h2', 'h3']
     types = ['radar', 'mlg']
 
     data = {
         'base_url': get_base_url(),
-        'handlebars': game + '_' + type
+        'handlebars': game + '_' + type,
+        'title': type.capitalize() + " Halo " + game.replace('h', '') + " Timers"
     }
 
     if game not in games or type not in types:

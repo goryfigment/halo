@@ -28,7 +28,7 @@ $(document).ready(function() {
     $('#kd-wrapper').append(leaderboardTemplate({leaderboards: globals.kd, type: 'kd'}));
     $('#wl-wrapper').append(leaderboardTemplate({leaderboards: globals.wl, type: 'wl'}));
 
-    (adsbygoogle = window.adsbygoogle || []).push({});
+    //(adsbygoogle = window.adsbygoogle || []).push({});
 });
 
 $(document).on('click', '#leaderboard-button', function () {

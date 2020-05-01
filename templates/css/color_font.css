@@ -10,71 +10,18 @@
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
-@-webkit-keyframes rainbow {
-  0% {
-    color: #d65cce;
-  }
-  5% {
-    color: #5c72d6;
-  }
-  10% {
-    color: #d6bc5c;
-  }
-  15% {
-    color: #a75cd6;
-  }
-  20% {
-    color: #d65ca3;
-  }
-  25% {
-    color: #add65c;
-  }
-  30% {
-    color: #d6b85c;
-  }
-  35% {
-    color: #d65cd0;
-  }
-  40% {
-    color: #d6915c;
-  }
-  45% {
-    color: #ab5cd6;
-  }
-  50% {
-    color: #d6ce5c;
-  }
-  55% {
-    color: #5cabd6;
-  }
-  60% {
-    color: #5c85d6;
-  }
-  65% {
-    color: #d6c45c;
-  }
-  70% {
-    color: #5ca3d6;
-  }
-  75% {
-    color: #a3d65c;
-  }
-  80% {
-    color: #7e5cd6;
-  }
-  85% {
-    color: #5cd6b6;
-  }
-  90% {
-    color: #935cd6;
-  }
-  95% {
-    color: #5cd6ca;
-  }
-  100% {
-    color: #8d5cd6;
-  }
-}
+/*@keyframes rainbow {*/
+  /*0% {*/
+    /*color: red;*/
+  /*}*/
+  /*5% {*/
+    /*color: white;*/
+  /*}*/
+  /*10% {*/
+    /*color: #d6bc5c;*/
+  /*}*/
+/*}*/
+
 @keyframes rainbow {
   0% {
     color: #d65cce;

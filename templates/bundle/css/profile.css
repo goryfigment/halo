@@ -51,6 +51,18 @@
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
+/*@keyframes rainbow {*/
+  /*0% {*/
+    /*color: red;*/
+  /*}*/
+  /*5% {*/
+    /*color: white;*/
+  /*}*/
+  /*10% {*/
+    /*color: #d6bc5c;*/
+  /*}*/
+/*}*/
+
 @-webkit-keyframes rainbow {
   0% {
     color: #d65cce;
@@ -116,6 +128,7 @@
     color: #8d5cd6;
   }
 }
+
 @keyframes rainbow {
   0% {
     color: #d65cce;
@@ -1099,15 +1112,17 @@ ol span {
             justify-content: center;
     background: #1c1c1c;
     position: relative;
+    height: 90px;
 }
 
-/*#ad-wrapper:after {*/
-    /*content: "Ads go here!";*/
-    /*position: absolute;*/
-    /*text-align: center;*/
-    /*margin: 18px 0;*/
-    /*font-size: 20px;*/
-/*}*/
+.ad-wrapper:after {
+    content: "Ad space!";
+    position: absolute;
+    margin: 28px 0;
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 1;
+}
 
 #ad-wrapper ins {
     z-index: 1;

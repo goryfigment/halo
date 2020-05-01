@@ -1,0 +1,85 @@
+<ul id="tabular-wrapper">
+    <li class="tab active" data-type="ascension">Ascension</li>
+    <li class="tab" data-type="backwash">Backwash</li>
+    <li class="tab" data-type="beaver-creek">Beaver Creek</li>
+    <li class="tab" data-type="burial-mounds">Burial Mounds</li>
+    <li class="tab" data-type="coagulation">Coagulation</li>
+    <li class="tab" data-type="containment">Containment</li>
+    <li class="tab" data-type="desolation">Desolation</li>
+    <li class="tab" data-type="district">District</li>
+    <li class="tab" data-type="elongation">Elongation</li>
+    <li class="tab" data-type="foundation">Foundation</li>
+    <li class="tab" data-type="gemini">Gemini</li>
+    <li class="tab" data-type="headlong">Headlong</li>
+    <li class="tab" data-type="ivory-tower">Ivory Tower</li>
+    <li class="tab" data-type="lockout">Lockout</li>
+    <li class="tab" data-type="midship">Midship</li>
+    <li class="tab" data-type="relic">Relic</li>
+    <li class="tab" data-type="sanctuary">Sanctuary</li>
+    <li class="tab" data-type="terminal">Terminal</li>
+    <li class="tab" data-type="tombstone">Tombstone</li>
+    <li class="tab" data-type="turf">Turf</li>
+    <li class="tab" data-type="uplift">Uplift</li>
+    <li class="tab" data-type="warlock">Warlock</li>
+    <li class="tab" data-type="waterworks">Waterworks</li>
+    <li class="tab" data-type="zanzibar">Zanzibar</li>
+</ul>
+<div id="map-wrapper">
+    {{#each this}}
+        <div class="tab-wrapper" id="{{replaceAll this.map ' ' '-'}}">
+            <h3>{{this.map}}</h3>
+            <img class="map-img" src="/templates/bundle/assets/maps/h2_map/{{replaceAll this.map ' ' ''}}.png" />
+            {{#if this.super}}
+                <h5>Super Weapons**</h5>
+                <div class="flex-wrapper">
+                    {{#each this.super}}
+                        <div class="{{../this.map}}_{{@key}}">
+                            <img title="{{@key}}" src="/templates/bundle/assets/timer/{{@key}}.png">
+                            <h4>{{replaceAll @key '_' ' '}}</h4>
+                            <p class="description">{{this}}</p>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/if}}
+            {{#if this.power}}
+                <h5>Power Weapons</h5>
+                <div class="flex-wrapper">
+                    {{#each this.power}}
+                        <div class="{{../this.map}}_{{@key}}">
+                            <img title="{{@key}}" src="/templates/bundle/assets/timer/{{@key}}.png">
+                            <h4>{{replaceAll @key '_' ' '}}</h4>
+                            <p class="description">{{this}}</p>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/if}}
+            {{#if this.power_up}}
+                <h5>Power Up</h5>
+                <div class="flex-wrapper">
+                    {{#each this.power_up}}
+                        <div class="{{../this.map}}_{{@key}}">
+                            <img title="{{@key}}" src="/templates/bundle/assets/timer/h2_{{replaceAll @key ' ' ''}}.png">
+                            <h4>{{@key}}</h4>
+                            <p class="description">{{this}}</p>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+    {{/each}}
+</div>
+
+<div class="power-wrapper">
+    <div>
+        <h3>Super Weapons**</h3>
+        <p class="description">To time "Super Weapons" is by the following:</p>
+        <ol>
+            <li>The timer starts when the weapon disappears (when nobody is carrying this weapon).</li>
+        </ol>
+        <h3>Power Weapons</h3>
+        <p class="description">To time "Power Weapons" is by the following:</p>
+        <ol>
+            <li>The timer for power weapons are static relative to the game time.</li>
+        </ol>
+    </div>
+</div>

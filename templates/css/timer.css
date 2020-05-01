@@ -74,6 +74,7 @@
     max-width: 300px;
     min-width: 160px;
     margin: 84px 0 0 10px;
+    display: none;
 }
 
 h4 {
@@ -90,8 +91,8 @@ h5 {
     text-align: left;
     font-size: 14.5px;
     border-bottom: 1px solid #383838;
-    margin: 0;
-    padding: 0px 0 3px;
+    margin: 20px 0;
+    padding: 0 0 3px;
     margin-bottom: 2px;
 }
 
@@ -164,6 +165,7 @@ ol {
 .flex-wrapper {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .flex-wrapper img {
@@ -187,7 +189,7 @@ ol {
 .power-wrapper {
     background: #191919;
     border: #313131 solid 1px;
-    margin-top: 15px;
+    margin: 15px 0;
     text-align: center;
 }
 
@@ -219,12 +221,13 @@ ol {
     margin-bottom: 25px;
 }
 
-#ad-wrapper:after {
-    content: "Ads go here!";
+.ad-wrapper:after {
+    content: "Ad space!";
     position: absolute;
-    text-align: center;
-    margin: 40px 0;
-    z-index: -1;
+    margin: 28px 0;
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 1;
 }
 
 .ad-wrapper ins {

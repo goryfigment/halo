@@ -1,4 +1,329 @@
 {
+  "h2": {
+    "radar": [
+      {
+        "map": "sanctuary",
+        "super": {
+          "shotgun": "0:45",
+          "plasma_pistol": "0:45",
+          "sword": "1:30",
+          "sniper": "1:30"
+        }
+      },
+      {
+        "map": "ivory tower",
+        "super": {
+          "shotgun": "0:45",
+          "rockets": "0:15",
+          "sword": "0:15"
+        },
+        "power_up": {
+          "overshield": "1:23"
+        },
+        "power": {
+          "plasma_pistol": "0:45",
+          "rocket_ammo": "1:10",
+          "sniper": "1:00"
+        }
+      },
+      {
+        "map": "gemini",
+        "super": {
+          "shotgun": "0:45",
+          "beam": "0:45",
+          "sword": "0:45",
+          "plasma_pistol": "0:45"
+        },
+        "power_up": {
+          "overshield": "1:00"
+        }
+      },
+      {
+        "map": "burial mounds",
+        "super": {
+          "beam": "0:45",
+          "sword": "0:45",
+          "sniper": "0:30"
+        },
+        "power": {
+          "plasma_pistol": "0:30"
+        }
+      },
+      {
+        "map": "ascension",
+        "super": {
+          "sniper": "0:15"
+        },
+        "power_up": {
+          "overshield": "2:20"
+        },
+        "power": {
+          "plasma_pistol": "0:30",
+          "banshee": "2:35",
+          "rockets": "1:15",
+          "shotgun": "1:25",
+          "sniper": "1:20"
+        }
+      },
+      {
+        "map": "uplift",
+        "super": {
+          "plasma_pistol": "0:30",
+          "rockets": "0:30",
+          "sword": "0:30",
+          "sniper": "1:00"
+        },
+        "power_up": {
+          "camouflage": "1:00",
+          "overshield": "NO RESPAWN"
+        },
+        "power": {
+          "rocket_ammo": "0:30"
+        }
+      },
+      {
+        "map": "zanzibar",
+        "super": {
+          "sword": "0:25"
+        },
+        "power_up": {
+          "camouflage": "1:16"
+        },
+        "power": {
+          "rocket_ammo": "0:30",
+          "sniper": "0:40"
+        }
+      },
+      {
+        "map": "district",
+        "power_up": {
+          "camouflage": "1:30",
+          "overshield": "1:30"
+        },
+        "power": {
+          "rocket_ammo": "1:00",
+          "plasma_pistol": "0:30",
+          "rockets": "0:45",
+          "sword": "0:30",
+          "beam": "0:45",
+          "shotgun": "0:30",
+          "sniper_ammo": "1:00",
+          "sniper": "0:45"
+        }
+      },
+      {
+        "map": "terminal",
+        "super": {
+          "shotgun": "0:30",
+          "rockets": "0:30",
+          "sword": "0:45",
+          "plasma_pistol": "0:45"
+        },
+        "power_up": {
+          "overshield": "0:45"
+        },
+        "power": {
+          "rocket_ammo": "2:30",
+          "sniper": "2:30"
+        }
+      },
+      {
+        "map": "waterworks",
+        "super": {
+          "shotgun": "0:25",
+          "sword": "0:40"
+        },
+        "power": {
+          "plasma_pistol": "0:30",
+          "sniper": "1:00",
+          "rockets": "0:37",
+          "banshee": "0:30"
+        }
+      },
+      {
+        "map": "backwash",
+        "super": {
+          "shotgun": "1:30",
+          "sword": "1:30",
+          "plasma_pistol": "1:30"
+        },
+        "power_up": {
+          "camouflage": "3:00"
+        }
+      },
+      {
+        "map": "tombstone",
+        "super": {
+          "rockets": "1:35",
+          "shotgun": "0:41",
+          "shotgun1": "0:52",
+          "sword": "2:10",
+          "sniper": "1:32"
+        },
+        "power_up": {
+          "overshield": "2:02",
+          "overshield1": "2:11"
+        }
+      },
+      {
+        "map": "warlock",
+        "super": {
+          "shotgun": "1:00"
+        },
+        "power_up": {
+          "camouflage": "1:10"
+        }
+      },
+      {
+        "map": "foundation",
+        "super": {
+          "rockets": "0:30",
+          "sword": "0:30"
+        },
+        "power": {
+          "rocket_ammo": "1:00"
+        }
+      },
+      {
+        "map": "relic",
+        "super": {
+          "shotgun": "0:30",
+          "beam": "0:30",
+          "rockets": "2:00",
+          "sword": "0:30",
+          "plasma_pistol": "0:30",
+          "sniper": "0:30"
+        }
+      },
+      {
+        "map": "desolation",
+        "super": {
+          "rockets": "1:34",
+          "sword": "1:12"
+        },
+        "power_up": {
+          "overshield": "2:11"
+        },
+        "power": {
+          "shotgun": "0:51"
+        }
+      },
+      {
+        "map": "midship",
+        "super": {
+          "shotgun": "0:15",
+          "sword": "0:15"
+        },
+        "power": {
+          "plasma_pistol": "1:30"
+        }
+      },
+      {
+        "map": "headlong",
+        "super": {
+          "beam": "0:30",
+          "rockets": "0:45",
+          "sword": "1:00",
+          "sniper": "0:30"
+        },
+        "power_up": {
+          "overshield": "1:05"
+        },
+        "power": {
+          "shotgun": "0:30",
+          "plasma_pistol": "0:45",
+          "sniper_ammo": "0:59",
+          "banshee": "1:00"
+        }
+      },
+      {
+        "map": "colossus",
+        "super": {
+          "shotgun": "0:15",
+          "beam": "0:25"
+        },
+        "power_up": {
+          "overshield": "0:53"
+        },
+        "power": {
+          "plasma_pistol": "1:00"
+        }
+      },
+      {
+        "map": "elongation",
+        "super": {
+          "plasma_pistol": "1:00",
+          "shotgun": "0:45"
+        }
+      },
+      {
+        "map": "coagulation",
+        "super": {
+          "shotgun": "0:15",
+          "rockets": "0:47",
+          "sniper": "0:15"
+        },
+        "power": {
+          "plasma_pistol": "0:30",
+          "sniper_ammo": "0:40",
+          "rocket_ammo": "0:45",
+          "banshee": "1:50"
+        }
+      },
+      {
+        "map": "lockout",
+        "super": {
+          "shotgun": "0:15",
+          "sword": "0:25",
+          "sniper": "0:38"
+        },
+        "power": {
+          "plasma_pistol": "0:30"
+        }
+      },
+      {
+        "map": "containment",
+        "super": {
+          "rockets": "0:45",
+          "sniper": "4:00"
+        },
+        "power_up": {
+          "camouflage": "1:00",
+          "overshield": "1:00"
+        },
+        "power": {
+          "plasma_pistol": "1:00",
+          "shotgun": "1:00",
+          "rocket_ammo": "1:40",
+          "banshee": "0:50"
+        }
+      },
+      {
+        "map": "turf",
+        "super": {
+          "shotgun": "1:00",
+          "sniper": "1:00"
+        },
+        "power": {
+          "sniper_ammo": "1:00"
+        }
+      },
+      {
+        "map": "beaver creek",
+        "super": {
+          "rockets": "0:15",
+          "sniper": "0:15"
+        },
+        "power_up": {
+          "overshield": "1:00"
+        },
+        "power": {
+          "plasma_pistol": "0:30",
+          "shotgun": "0:45"
+        }
+      }
+    ]
+  },
   "h3": {
     "mlg": {
       "thirty": {

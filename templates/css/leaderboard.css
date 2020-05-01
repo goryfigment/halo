@@ -39,6 +39,7 @@ h1 {
     max-width: 300px;
     min-width: 160px;
     margin: 52px 0 0 10px;
+    display: none;
 }
 
 footer #leaderboard-button {
@@ -278,15 +279,16 @@ p {
     background: #1c1c1c;
     position: relative;
     width: 100%;
-    height: 100px;
+    height: 90px;
 }
 
-#ad-wrapper:after {
-    content: "Ads go here!";
+.ad-wrapper:after {
+    content: "Ad space!";
     position: absolute;
-    text-align: center;
-    margin: 40px 0;
-    z-index: -1;
+    margin: 28px 0;
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 1;
 }
 
 .ad-wrapper ins {
