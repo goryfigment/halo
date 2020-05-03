@@ -161,10 +161,19 @@ def verified(request):
     xbox_ranks = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'v_h3_team_slayer', 'v_h3_team_hardcore', 'v_ms_2v2_series', 'v_h3_team_doubles', 'v_halo_reach_team_hardcore', 'v_halo_reach_invasion', 'v_h2c_team_hardcore', 'v_hce_hardcore_doubles', 'v_hce_team_doubles', 'v_halo_reach_team_slayer'))
     pc_ranks = list(PcRanks.objects.all().values('player__gamertag', 'player__id', 'v_halo_reach_team_hardcore', 'v_halo_reach_invasion', 'v_hce_hardcore_doubles', 'v_halo_reach_team_slayer'))
 
+    xbox_dict = {}
+    pc_dict = {}
+
+    for xbox in xbox_ranks:
+        xbox_dict[xbox['player__id']] = xbox
+
+    for pc in pc_ranks:
+        pc_dict[pc['player__id']] = pc
+
     data = {
         'base_url': get_base_url(),
-        'xbox_ranks': json.dumps(xbox_ranks),
-        'pc_ranks': json.dumps(pc_ranks)
+        'xbox_ranks': json.dumps(xbox_dict),
+        'pc_ranks': json.dumps(pc_dict)
     }
 
     return render(request, 'verified.html', data)

@@ -21,10 +21,20 @@ function sendRequest(url, data, request_type, success, error, exception) {
     });
 }
 
+function spliceDict(dict, minKey, maxKey) {
+  var newDict = {};
+  for(var i in dict) {
+    if(i >= minKey && i <= maxKey) {
+      newDict[i] = dict[i];
+    }
+  }
+  return newDict;
+}
+
 
 $(document).ready(function() {
     //var players = globals.players;
-    $('#player-wrapper').append(verifyTemplate({'xbox': globals.xbox_ranks, 'pc': globals.pc_ranks}));
+    $('#player-wrapper').append(verifyTemplate({'xbox': spliceDict(globals.xbox_ranks, 0, 101), 'pc': spliceDict(globals.pc_ranks, 0, 101)}));
 
     //globals.players = {};
     //
@@ -39,18 +49,26 @@ $(document).ready(function() {
 $(document).on('keyup', '#search-gt-input', function () {
     var $searchInput = $(this);
     var searchValue = $searchInput.val().trim().toLowerCase();
-    var $table = $('.table-container tbody');
+    var xboxList = globals.xbox_ranks;
+    var pcList = globals.pc_ranks;
+    var newXboxList = [];
+    var newPCList = [];
 
-    //loops through rows
-    $table.find('tr').each(function() {
-        var $currentRow = $(this);
-        var gamertag = $currentRow.find('.gamertag').text().toLowerCase();
-        if(gamertag.indexOf(searchValue) != -1) {
-            $currentRow.show();
-        } else {
-            $currentRow.hide();
+    for (var key in xboxList) {
+        var xboxItem = xboxList[key];
+        if(xboxItem['player__gamertag'].toLowerCase().indexOf(searchValue) != -1) {
+            newXboxList.push(xboxItem);
         }
-    })
+    }
+
+    for (var p = 0; p < newXboxList.length; p++) {
+        var playerKey = newXboxList[p]['player__id'];
+        newPCList.push(pcList[playerKey]);
+    }
+
+    var $playerWrapper = $('#player-wrapper');
+    $playerWrapper.empty();
+    $playerWrapper.append(verifyTemplate({'xbox': newXboxList, 'pc': newPCList}));
 });
 //SEARCH//
 
@@ -58,12 +76,16 @@ $(document).on('keyup', '#search-gt-input', function () {
 $(document).on('change', '.checkbox-input', function () {
     var $this = $(this);
     var $player = $this.closest('.player');
+    var key = $this.val();
+    var playerId = $player.attr('data-id');
+    var value = $this.prop('checked');
+    var type = $this.closest('.table-container').attr('data-type');
 
     var data = {
-        id: $player.attr('data-id'),
-        key: $this.val(),
-        type: $this.closest('.table-container').attr('data-type'),
-        value: $this.prop('checked')
+        id: playerId,
+        key: key,
+        type: type,
+        value: value
     };
 
     sendRequest('/verify-player/', data, 'POST', success, error, 'edit');
@@ -83,6 +105,14 @@ $(document).on('change', '.checkbox-input', function () {
         //$playerWrapper.empty();
         //$playerWrapper.append(verifyTemplate({'xbox': globals.xbox_ranks}));
         $('.instructions').text($player.find('.gamertag').text() + ' ' + response['success_msg']);
+
+        if(type == 'xbox') {
+            globals.xbox_ranks[playerId][key] = value;
+        } else {
+            globals.pc_ranks[playerId][key] = value;
+        }
+
+
     }
 });
 //VERIFY//
