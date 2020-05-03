@@ -257,7 +257,7 @@ def profile(request, gt):
         player['season'] = model_to_dict(Season1.objects.get(player=player_obj))
         player['season2'] = model_to_dict(Season2.objects.get(player=player_obj))
     else:
-        player = {'season': {}}
+        player = {'season': {}, 'season2': {}}
         leaderboard = {}
         saved_ranks = {}
 
