@@ -1,0 +1,139 @@
+body {
+    min-width: fit-content;
+}
+
+#player-wrapper {
+    display: flex;
+}
+
+/* TABLE */
+table {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+    background-color: #393939;
+    margin: 15px auto;
+}
+
+table thead {
+    font-size: 13px;
+    color: #9baaf0;
+    background-color: #2d2c2c;
+    white-space: nowrap;
+    text-transform: capitalize;
+    line-height: 25px;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+}
+
+table tbody {
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.4;
+    background-color: #151515;
+    white-space: nowrap;
+}
+
+table td {
+    display: table-cell;
+    padding: 8px;
+    text-align: center;
+}
+/* TABLE */
+
+/*SEARCH*/
+body #search-gt-wrapper {
+    background: #242424;
+}
+
+body #search-gt-input {
+    color: #c5c5c5;
+    height: 43px;
+    width: 200px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-radius: 1px;
+    line-height: 20px;
+    padding: 0 10px 0 0;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    font-weight: bold;
+}
+/*SEARCH*/
+
+/*TEST*/
+.checkbox-input {
+    display: none;
+}
+
+.check-box-wrapper {
+    user-select: none;
+    cursor: pointer;
+	padding: 0 4px;
+    display: inline !important;
+}
+
+.check-box-wrapper span {
+	display: inline-block;
+	vertical-align: middle;
+	transform: translate3d(0, 0, 0);
+}
+
+.check-box-wrapper .check-box {
+	position: relative;
+    width: 18px;
+    background: #ffffff;
+    height: 18px;
+    border-radius: 3px;
+    transform: scale(1);
+    vertical-align: middle;
+    border: 1px solid #d1c9c9;
+    transition: all .2s ease;
+}
+
+.check-box-wrapper .check-box svg {
+	position: absolute;
+	top: 4px;
+	left: 3px;
+	fill: none;
+	stroke: #FFFFFF;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-dasharray: 16px;
+	stroke-dashoffset: 16px;
+	transition: all .3s ease;
+	transition-delay: .1s;
+	transform: translate3d(0, 0, 0);
+}
+
+.check-box-wrapper .check-box-label {
+	padding-left: 3px;
+    display: none;
+}
+
+.check-box-wrapper:hover .check-box {
+	border-color: #506EEC;
+}
+
+.checkbox-input:checked + .check-box-wrapper .check-box {
+	background: #506EEC;
+	border-color: #506EEC;
+	animation: wave .4s ease;
+}
+
+.checkbox-input:checked + .check-box-wrapper .check-box svg {
+	stroke-dashoffset: 0;
+}
+
+.checkbox-input:checked + .check-box-wrapper .check-box:before {
+	transform: scale(3.5);
+	opacity: 0;
+	transition: all .6s ease;
+}
+
+@keyframes wave {
+	50% {
+		transform: scale(0.9);
+	}
+}
+/*TEST*/

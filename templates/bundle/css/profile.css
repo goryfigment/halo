@@ -656,6 +656,44 @@ footer #leaderboard-button {
     left: 50%;
     -webkit-transform: translateY(-50%) translateX(-50%);
 }
+
+.verified-icon {
+    color: #23a523;
+    font-size: 14px;
+    cursor: default;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    top: 46px;
+    left: 54%;
+    z-index: 2;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 10px;
+}
+
+.unverified-icon {
+    color: #de3636;
+    font-size: 14px;
+    cursor: default;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    top: 46px;
+    left: 54%;
+    z-index: 2;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 10px;
+}
 /*HALO RANKS*/
 
 /*PRIVATE PROFILE*/
@@ -1115,12 +1153,13 @@ ol span {
     height: 90px;
 }
 
-.ad-wrapper:after {
+#ad-wrapper:after {
     content: "Ad space!";
     position: absolute;
-    margin: 28px 0;
+    margin: 10px 0;
     font-size: 22px;
     font-weight: bold;
+    width: 100px;
     z-index: 1;
 }
 

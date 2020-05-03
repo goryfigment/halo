@@ -2,7 +2,7 @@ import json
 from halo_handler import halo_matches, service_record as halo_service_record
 from django.http import JsonResponse
 from halo.decorators import login_required, data_required
-from halo.models import Player
+from halo.models import Player, Ranks, PcRanks
 from base import model_to_dict
 
 
@@ -56,3 +56,21 @@ def edit_player(request):
     player.save()
 
     return JsonResponse({'id': player.id, 'player': model_to_dict(player), 'success_msg': 'Player successfully saved!'}, safe=False)
+
+
+@login_required
+@data_required(['id', 'key', 'type', 'value'], 'POST')
+def verify_player(request):
+    player_id = request.POST['id']
+    console_type = request.POST['type']
+    key = request.POST['key']
+
+    if console_type == 'xbox':
+        rank = Ranks.objects.filter(player_id=player_id)[0]
+    else:
+        rank = PcRanks.objects.filter(player_id=player_id)[0]
+
+    rank.__dict__[request.POST['key']] = json.loads(request.POST['value'])
+    rank.save()
+
+    return JsonResponse({'success_msg': key.replace('v_', '').replace('_', ' ').title() + ' successfully saved!'}, safe=False)

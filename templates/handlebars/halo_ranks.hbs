@@ -3,6 +3,12 @@
         <h5>{{playlist}}</h5>
         <h3>{{rank}}</h3>
         <img class="halo-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcMajorRank rank record.wins) '.png'}}" />
+        {{#if (dict ../saved_ranks (concat 'v_' (replaceAll key 'pc_' '')))}}
+            <span class="verified-icon tippy" data-title="Verified">&#10004;</span>
+        {{else}}
+            <span class="unverified-icon tippy" data-title="Unverified">&#10006;</span>
+        {{/if}}
+
         {{#ifCond (dict ../leaderboard key) '>' 0}}
             <div class="percent" style="color: {{percentColors (dict ../leaderboard key) ../player_count}}">#{{dict ../leaderboard key}} <span>&#8226;</span> Top {{percent (dict ../leaderboard key) ../player_count}}</div>
         {{else}}

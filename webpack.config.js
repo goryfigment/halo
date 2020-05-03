@@ -22,6 +22,7 @@ module.exports = {
         //register: './templates/js/register.js',
         //forgot_password: './templates/js/forgot_password.js',
         dashboard: './templates/js/dashboard.js',
+        verified: './templates/js/verified.js',
         resources: './templates/js/resources.js',
         leaderboard: './templates/js/leaderboard.js',
 
@@ -57,6 +58,7 @@ module.exports = {
         new HtmlWebpackPlugin({filename: '500.html', chunks: ['vendors','home'], minify: {collapseWhitespace: true}, hash: true, template: './templates/500.html'}),
         new HtmlWebpackPlugin({filename: 'login.html', chunks: ['vendors','login'], minify: {collapseWhitespace: true}, hash: true, template: './templates/login.html'}),
         new HtmlWebpackPlugin({filename: 'dashboard.html', chunks: ['vendors','dashboard'], minify: {collapseWhitespace: true}, hash: true, template: './templates/dashboard.html'}),
+        new HtmlWebpackPlugin({filename: 'verified.html', chunks: ['vendors','verified'], minify: {collapseWhitespace: true}, hash: true, template: './templates/verified.html'}),
         //new HtmlWebpackPlugin({filename: 'register.html', chunks: ['vendors','register'], minify: {collapseWhitespace: true}, hash: true, template: './templates/register.html'}),
         //new HtmlWebpackPlugin({filename: 'forgot_password.html', chunks: ['vendors','forgot_password'], minify: {collapseWhitespace: true}, hash: true, template: './templates/forgot_password.html'}),
         new HtmlWebpackPlugin({filename: 'home.html', chunks: ['vendors','home'], minify: {collapseWhitespace: true}, hash: true, template: './templates/home.html'}),

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify</title>
+
+    <script>
+        var globals = {};
+        globals.base_url = '{{base_url}}';
+        globals.xbox_ranks = {{xbox_ranks|safe}};
+        globals.pc_ranks = {{pc_ranks|safe}};
+    </script>
+</head>
+<body>
+    {% csrf_token %}
+    <%= require('html-loader!./partial/header.html') %>
+
+    <div id="search-gt-wrapper">
+        <span id="search-icon"><i class="fas fa-search"></i></span>
+        <input id="search-gt-input" name="q" value="" autocomplete="off" placeholder="Search">
+    </div>
+
+    <div>
+        <p class="error"></p>
+        <p class="instructions"></p>
+    </div>
+
+    <div id="player-wrapper"></div>
+
+    <div id="overlay"></div>
+</body>
+</html>

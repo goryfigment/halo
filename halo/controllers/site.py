@@ -4,7 +4,7 @@ from base import get_base_url, model_to_dict
 from django.db.models import F
 from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
-from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2
+from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks
 from halo.controllers.leaderboard import season2_func, season2_playtime_func
 from django.http import HttpResponse
 
@@ -151,6 +151,25 @@ def dashboard(request):
     return render(request, 'dashboard.html', data)
 
 
+def verified(request):
+    current_user = request.user
+
+    # Only go to overview if user is logged in
+    if not current_user.is_authenticated():
+        return HttpResponseRedirect('/login/')
+
+    xbox_ranks = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'v_h3_team_slayer', 'v_h3_team_hardcore', 'v_ms_2v2_series', 'v_h3_team_doubles', 'v_halo_reach_team_hardcore', 'v_halo_reach_invasion', 'v_h2c_team_hardcore', 'v_hce_hardcore_doubles', 'v_hce_team_doubles', 'v_halo_reach_team_slayer'))
+    pc_ranks = list(PcRanks.objects.all().values('player__gamertag', 'player__id', 'v_halo_reach_team_hardcore', 'v_halo_reach_invasion', 'v_hce_hardcore_doubles', 'v_halo_reach_team_slayer'))
+
+    data = {
+        'base_url': get_base_url(),
+        'xbox_ranks': json.dumps(xbox_ranks),
+        'pc_ranks': json.dumps(pc_ranks)
+    }
+
+    return render(request, 'verified.html', data)
+
+
 def ban_dashboard(request):
     current_user = request.user
 
@@ -213,14 +232,29 @@ def profile(request, gt):
         else:
             leaderboard = {}
 
+        xbox_ranks = Ranks.objects.filter(player=player_obj)
+        pc_ranks = PcRanks.objects.filter(player=player_obj)
+        if xbox_ranks.exists() and pc_ranks.exists():
+            saved_ranks = {
+                'xbox': model_to_dict(xbox_ranks[0]),
+                'pc': model_to_dict(pc_ranks[0])
+            }
+        else:
+            saved_ranks = {
+                'xbox': {},
+                'pc': {}
+            }
+
         player['season'] = model_to_dict(Season1.objects.get(player=player_obj))
         player['season2'] = model_to_dict(Season2.objects.get(player=player_obj))
     else:
         player = {'season': {}}
         leaderboard = {}
+        saved_ranks = {}
 
     data = {
         'base_url': get_base_url(),
+        'saved_ranks': json.dumps(saved_ranks),
         'xbox_ranks': json.dumps(ranks['xbox']),
         'pc_ranks': json.dumps(ranks['pc']),
         'gt': ranks['xbox']['H3 Team Slayer'][0]['Gamertag'],

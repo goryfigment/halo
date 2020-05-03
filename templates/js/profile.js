@@ -6,8 +6,8 @@ require('./../css/color_font.css');
 
 var $ = require('jquery');
 var helper = require('./../js/helpers.js');
-require('./../library/tippy/tippy.js');
 require('./../js/general.js');
+require('./../library/tippy/tippy.js');
 
 var serviceRecordTemplate = require('./../handlebars/service_record.hbs');
 var playerDetailsTemplate = require('./../handlebars/player_details.hbs');
@@ -146,8 +146,8 @@ $(document).ready(function() {
         $donatorWrapper.append(donatorTemplate(globals.player));
     }
 
-    $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
-    $('#pc-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_pc_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+    $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count, saved_ranks: globals.saved_ranks['xbox']}));
+    $('#pc-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_pc_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count, saved_ranks: globals.saved_ranks['pc']}));
     sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, xbox_ranks: xbox_ranks, pc_ranks: pc_ranks, highest_rank: highest_rank}), 'POST', serviceRecordSuccess, serviceRecordError);
     sendRequest('/xbox-clips/', {gt: globals.gamertag}, 'GET', xboxClipsSuccess, xboxClipsError);
 });

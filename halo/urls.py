@@ -49,9 +49,11 @@ urlpatterns = [
     url(r'^forgot_password/$', site.forgot_password, name='forgot_password'),
     url(r'^dashboard/$', site.dashboard, name='dashboard'),
     url(r'^ban/dashboard/$', site.ban_dashboard, name='ban_dashboard'),
+    url(r'^verified/$', site.verified, name='verified'),
 
     # PROFILE
     url(r'^edit-player/$', profile.edit_player, name='edit_player'),
+    url(r'^verify-player/$', profile.verify_player, name='verify_player'),
     url(r'^service-record/', profile.service_record),
     url(r'^player-matches/', profile.player_matches),
     url(r'^game-matches/', profile.game_matches),
