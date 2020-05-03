@@ -266,7 +266,7 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
             epoch=epoch
         )
 
-        created_rank = PcRanks.objects.create(
+        pc_rank_obj = PcRanks.objects.create(
             player=player,
             halo_reach_team_hardcore=pc_ranks["Halo: Reach Team Hardcore"][0]['SkillRank'],
             halo_reach_invasion=pc_ranks["Halo: Reach Invasion"][0]['SkillRank'],
@@ -274,7 +274,7 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         )
 
         rank_obj = Ranks.objects.create(
-            pc_ranks=created_rank,
+            pc_ranks=pc_rank_obj,
             player=player,
             h3_team_slayer=xbox_ranks["H3 Team Slayer"][0]['SkillRank'],
             h3_team_hardcore=xbox_ranks["H3 Team Hardcore"][0]['SkillRank'],
@@ -362,7 +362,7 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
                 total_50s += 1
 
     # Add discontinued playlist
-    total_levels += rank_obj.halo_reach_team_slayer
+    total_levels += rank_obj.halo_reach_team_slayer + pc_rank_obj.halo_reach_team_slayer
 
     #### SEASON CALCULATIONS ####
     # Every 50 = 50points
