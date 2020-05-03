@@ -458,12 +458,6 @@ p {
     cursor: default;
 }
 
-.unverified-icon {
-    color: #de3636;
-    font-size: 14px;
-    cursor: default;
-}
-
 /*PAGINATION*/
 #page-wrapper {
     display: -webkit-box;

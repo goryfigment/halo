@@ -273,7 +273,7 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
             hce_hardcore_doubles=pc_ranks["HCE Hardcore Doubles"][0]['SkillRank']
         )
 
-        Ranks.objects.create(
+        rank_obj = Ranks.objects.create(
             pc_ranks=created_rank,
             player=player,
             h3_team_slayer=xbox_ranks["H3 Team Slayer"][0]['SkillRank'],
@@ -361,6 +361,8 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
             if current_rank == 50:
                 total_50s += 1
 
+    # Add discontinued playlist
+    total_levels += rank_obj.halo_reach_team_slayer
 
     #### SEASON CALCULATIONS ####
     # Every 50 = 50points

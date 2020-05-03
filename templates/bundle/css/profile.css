@@ -675,25 +675,6 @@ footer #leaderboard-button {
     height: fit-content;
     padding: 10px;
 }
-
-.unverified-icon {
-    color: #de3636;
-    font-size: 14px;
-    cursor: default;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    top: 46px;
-    left: 54%;
-    z-index: 2;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    padding: 10px;
-}
 /*HALO RANKS*/
 
 /*PRIVATE PROFILE*/

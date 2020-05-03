@@ -5,8 +5,6 @@
         <img class="halo-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcMajorRank rank record.wins) '.png'}}" />
         {{#if (dict ../saved_ranks (concat 'v_' (replaceAll key 'pc_' '')))}}
             <span class="verified-icon tippy" data-title="Verified">&#10004;</span>
-        {{else}}
-            <span class="unverified-icon tippy" data-title="Unverified">&#10006;</span>
         {{/if}}
 
         {{#ifCond (dict ../leaderboard key) '>' 0}}
