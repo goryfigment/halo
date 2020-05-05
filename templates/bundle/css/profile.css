@@ -744,6 +744,7 @@ footer #leaderboard-button {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
 }
 
 .icon {

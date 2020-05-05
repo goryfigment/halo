@@ -349,6 +349,7 @@ footer #leaderboard-button {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
 }
 
 .icon {
