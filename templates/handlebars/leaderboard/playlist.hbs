@@ -16,7 +16,7 @@
                         <span class="rank">{{amount}}</span>
                     </td>
                     <td>
-                        <a href="/profile/{{gamertag}}"><img class="emblem" src="{{emblem}}" /><span class="gamertag {{#if glow}}glow{{/if}}" style="color: {{color}}">
+                        <a href="/profile/{{gamertag}}"><img class="emblem" src="{{emblem}}" /><span class="gamertag {{#if glow}}glow{{/if}} {{#ifCond donation '>=' 100}}disco-donator{{/ifCond}}" style="color: {{color}}">
                             {{#if rgb}}
                                 {{rgbFont gamertag}}
                             {{else}}
@@ -26,14 +26,10 @@
                         {{#ifCond donation '>' 0}}
                             <span id="donator-wrapper">
                                 {{#ifCond donation '>=' 50}}
-                                    {{#ifCond donation '>=' 75}}
-                                        <span class="icon rgb-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
-                                    {{else}}
-                                        <span class="icon diamond-donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
-                                    {{/ifCond}}
+                                    <span class="icon {{donateStyle donation}} tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
                                 {{/ifCond}}
                                 {{#ifCond donation '<' 50}}
-                                    <span class="icon donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}"><i style="color: {{donateColors donation}}" class="fas fa-dollar-sign"></i></span>
+                                    <span class="icon donator tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}"><i style="color: {{donateStyle donation}}" class="fas fa-dollar-sign"></i></span>
                                 {{/ifCond}}
                                 {{#ifCond social '==' 'youtube'}}<a class="icon youtube" href="https://www.youtube.com/{{youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>{{/ifCond}}
                                 {{#ifCond social '==' 'twitch'}}<a class="icon twitch" href="https://www.twitch.tv/{{twitch}}" target="_blank"><i class="fab fa-twitch"></i></a>{{/ifCond}}
