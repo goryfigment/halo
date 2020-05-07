@@ -1,0 +1,51 @@
+<ul id="tabular-wrapper">
+    <li class="tab active" data-type="bloodline">Bloodline</li>
+    <li class="tab" data-type="lockdown">Lockdown</li>
+    <li class="tab" data-type="remnant">Remnant</li>
+    <li class="tab" data-type="shrine">Shrine</li>
+    <li class="tab" data-type="stonetown">Stonetown</li>
+    <li class="tab" data-type="warlord">Warlord</li>
+    <li class="tab" data-type="zenith">Zenith</li>
+</ul>
+<div id="map-wrapper">
+    {{#each this}}
+        <div class="tab-wrapper" id="{{replaceAll this.map ' ' '-'}}">
+            <h3>{{this.map}}</h3>
+            <img class="map-img" src="/templates/bundle/assets/maps/h2a_map/{{replaceAll this.map ' ' ''}}.png" />
+            {{#if this.power}}
+                <h5>Power Weapons</h5>
+                <div class="flex-wrapper">
+                    {{#each this.power}}
+                        <div class="{{../this.map}}_{{@key}}">
+                            <img title="{{@key}}" src="/templates/bundle/assets/timer/{{@key}}.png">
+                            <h4>{{replaceAll @key '_' ' '}}</h4>
+                            <p class="description">{{this}}</p>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/if}}
+            {{#if this.power_up}}
+                <h5>Power Up</h5>
+                <div class="flex-wrapper">
+                    {{#each this.power_up}}
+                        <div class="{{../this.map}}_{{@key}}">
+                            <img title="{{@key}}" src="/templates/bundle/assets/timer/h2_{{replaceAll @key ' ' ''}}.png">
+                            <h4>{{@key}}</h4>
+                            <p class="description">{{this}}</p>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+    {{/each}}
+</div>
+
+<div class="power-wrapper">
+    <div>
+        <h3>Power Weapons</h3>
+        <p class="description">To time "Power Weapons" is by the following:</p>
+        <ol>
+            <li>The timer starts when the weapon disappears (when nobody is carrying this weapon).</li>
+        </ol>
+    </div>
+</div>

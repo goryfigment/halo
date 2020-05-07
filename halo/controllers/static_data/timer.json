@@ -1,4 +1,82 @@
 {
+  "h2a": {
+    "radar": [
+      {
+        "map": "bloodline",
+        "power": {
+          "fuel_rod": "0:45",
+          "rockets": "0:47",
+          "sniper": "0:15",
+          "shotgun": "0:15"
+        },
+        "power_up": {
+          "speed_boost": "1:35"
+        }
+      },
+      {
+        "map": "lockdown",
+        "power": {
+          "sword": "0:25",
+          "shotgun": "0:15",
+          "sniper": "0:38"
+        }
+      },
+      {
+        "map": "remnant",
+        "power": {
+          "beam": "1:45",
+          "sword": "1:25",
+          "rockets": "3:00",
+          "shotgun": "1:25",
+          "sniper": "1:25"
+        },
+        "power_up": {
+          "speed_boost": "2:00"
+        }
+      },
+      {
+        "map": "shrine",
+        "power": {
+          "rockets": "2:30",
+          "shotgun": "0:45",
+          "sniper": "2:10"
+        }
+      },
+      {
+        "map": "stonetown",
+        "power": {
+          "sword": "1:30",
+          "rockets": "2:00",
+          "shotgun": "0:35",
+          "sniper": "0:30"
+        },
+        "power_up": {
+          "camouflage": "1:16"
+        }
+      },
+      {
+        "map": "warlord",
+        "power": {
+          "shotgun": "1:00",
+          "sentinel_beam": "1:00"
+        },
+        "power_up": {
+          "camouflage": "1:10"
+        }
+      },
+      {
+        "map": "zenith",
+        "power": {
+          "rockets": "1:15",
+          "sniper": "1:20",
+          "shotgun": "1:25"
+        },
+        "power_up": {
+          "overshield": "2:20"
+        }
+      }
+    ]
+  },
   "h2": {
     "radar": [
       {

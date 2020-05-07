@@ -77,7 +77,7 @@ def terms_conditions(request):
 
 
 def timer(request, game, type):
-    games = ['h2', 'h3']
+    games = ['h2a', 'h2', 'h3']
     types = ['radar', 'mlg']
 
     data = {
