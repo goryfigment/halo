@@ -30,7 +30,7 @@
                     {{#each this.power_up}}
                         <div class="{{../this.map}}_{{@key}}">
                             <img title="{{@key}}" src="/templates/bundle/assets/timer/h2_{{replaceAll @key ' ' ''}}.png">
-                            <h4>{{@key}}</h4>
+                            <h4>{{replaceAll @key '_' ' '}}</h4>
                             <p class="description">{{this}}</p>
                         </div>
                     {{/each}}
