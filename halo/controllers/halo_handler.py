@@ -194,7 +194,11 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         matches = win_holder
 
     kd_ratio = decimal_format(float(kills)/float(deaths), 2, False)
-    wl_ratio = decimal_format(float(wins)/float(losses), 2, False)
+
+    if losses == 0:
+        wl_ratio = decimal_format(float(wins)/float(1), 2, False)
+    else:
+        wl_ratio = decimal_format(float(wins)/float(losses), 2, False)
     # Epoch
     playtime_txt = playtime.replace('h', '').replace('d ', '')
     epoch_hours = int(playtime_txt[-2:])*3600
