@@ -274,7 +274,7 @@ footer #leaderboard-button {
 }
 
 #pc-rank-wrapper div {
-    flex: 0 0 33.333%;
+    flex: 0 0 25%;
     position: relative;
 }
 

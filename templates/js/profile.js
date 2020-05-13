@@ -102,7 +102,7 @@ $(document).ready(function() {
         return b['rank'] - a['rank'];
     });
 
-    var avail_pc_ranks = ['Halo: Reach Team Slayer', 'Halo: Reach Invasion', 'Halo: Reach Team Hardcore', 'HCE Hardcore Doubles'];
+    var avail_pc_ranks = ['Halo: Reach Team Slayer', 'Halo: Reach Invasion', 'Halo: Reach Team Hardcore', 'HCE Hardcore Doubles', 'H2C Team Hardcore'];
 
     //PC Ranks
     for (var pc_playlist in pc_ranks) {
