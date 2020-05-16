@@ -19,21 +19,22 @@ def service_record(request):
 
 
 @login_required
-@data_required(['gt'], 'GET')
+@data_required(['gt', 'req'], 'GET')
 def player_matches(request):
     gt = request.GET['gt']
-    matches = halo_matches(gt, '', '')
+    matches = halo_matches(gt, '', '', int(request.GET['req']))
+    matches = sorted(matches, key=lambda k: k['DateTime'], reverse=True)
 
     return JsonResponse({'gt': gt, 'matches': matches}, safe=False)
 
 
 @login_required
-@data_required(['gt', 'game_variant', 'game'], 'GET')
+@data_required(['gt', 'game_variant', 'game', 'req'], 'GET')
 def game_matches(request):
     gt = request.GET['gt']
     game_variant = request.GET['game_variant']
     game = request.GET['game']
-    matches = halo_matches(gt, game_variant, game)
+    matches = halo_matches(gt, game_variant, game, int(request.GET['req']))
 
     return JsonResponse({'gt': gt, 'matches': matches}, safe=False)
 

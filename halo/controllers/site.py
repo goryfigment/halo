@@ -257,7 +257,45 @@ def profile(request, gt):
         player['season'] = model_to_dict(Season1.objects.get(player=player_obj))
         player['season2'] = model_to_dict(Season2.objects.get(player=player_obj))
     else:
-        player = {'season': {}, 'season2': {}}
+        player = {
+            "wl": 0,
+            "kills": 0,
+            "deaths": 0,
+            "matches": 0,
+            "wins": 0,
+            "losses": 0,
+            "player": 10,
+            "epoch": 0,
+            "score": 0,
+            "kd": 0,
+            "playtime": "0h",
+            'season': {
+                "wl": 0,
+                "kills": 0,
+                "deaths": 0,
+                "matches": 0,
+                "wins": 0,
+                "losses": 0,
+                "player": 10,
+                "epoch": 0,
+                "score": 0,
+                "kd": 0,
+                "playtime": "0h"
+            },
+            'season2': {
+                "wl": 0,
+                "kills": 0,
+                "deaths": 0,
+                "matches": 0,
+                "wins": 0,
+                "losses": 0,
+                "player": 10,
+                "epoch": 0,
+                "score": 0,
+                "kd": 0,
+                "playtime": "0h"
+            }
+        }
         leaderboard = {}
         saved_ranks = {}
 

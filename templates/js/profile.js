@@ -9,13 +9,14 @@ var helper = require('./../js/helpers.js');
 require('./../js/general.js');
 require('./../library/tippy/tippy.js');
 
-var serviceRecordTemplate = require('./../handlebars/service_record.hbs');
-var playerDetailsTemplate = require('./../handlebars/player_details.hbs');
-var haloRanksTemplate = require('./../handlebars/halo_ranks.hbs');
-var privateTemplate = require('./../handlebars/private.hbs');
-var statsTemplate = require('./../handlebars/stats.hbs');
-var donatorTemplate = require('./../handlebars/donator.hbs');
-var fileShareTemplate = require('./../handlebars/file_share.hbs');
+var serviceRecordTemplate = require('./../handlebars/profile/service_record.hbs');
+var playerDetailsTemplate = require('./../handlebars/profile/player_details.hbs');
+var haloRanksTemplate = require('./../handlebars/profile/halo_ranks.hbs');
+var privateTemplate = require('./../handlebars/profile/private.hbs');
+var statsTemplate = require('./../handlebars/profile/stats.hbs');
+var donatorTemplate = require('./../handlebars/profile/donator.hbs');
+var fileShareTemplate = require('./../handlebars/profile/file_share.hbs');
+var matchesTemplate = require('./../handlebars/profile/matches.hbs');
 var privateTutorialTemplate = require('./../handlebars/overlay/private_tutorial.hbs');
 
 function sendRequest(url, data, request_type, success, error, exception) {
@@ -149,8 +150,19 @@ $(document).ready(function() {
     $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count, saved_ranks: globals.saved_ranks['xbox']}));
     $('#pc-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_pc_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count, saved_ranks: globals.saved_ranks['pc']}));
     sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, xbox_ranks: xbox_ranks, pc_ranks: pc_ranks, highest_rank: highest_rank}), 'POST', serviceRecordSuccess, serviceRecordError);
+    sendRequest('/player-matches/', {'gt': globals.gamertag, 'game_variant': '', 'req': 6}, 'GET', playerMatchesSuccess, playerMatchesError);
     sendRequest('/xbox-clips/', {gt: globals.gamertag}, 'GET', xboxClipsSuccess, xboxClipsError);
 });
+
+function playerMatchesSuccess(response) {
+    var $wrapper = $('#matches-wrapper');
+    $wrapper.empty();
+    $wrapper.append(matchesTemplate({'sessions': splitSessions(response['matches'])}));
+}
+
+function playerMatchesError(response) {
+    console.log("Player Matches error!");
+}
 
 function xboxClipsSuccess(response) {
     //console.log(JSON.stringify(response));
@@ -184,10 +196,12 @@ $(document).on('click', '#overlay img', function (e) {
 
 // TABS //
 function tabHandler($tab, $wrapper) {
-    $('.tab.active').removeClass('active');
+    var $ol = $tab.closest('ol');
+
+    $ol.find('.tab.active').removeClass('active');
     $tab.addClass('active');
 
-    $('.active-tab').removeClass('active-tab');
+    $wrapper.siblings('.active-tab').removeClass('active-tab');
     $wrapper.addClass('active-tab');
 }
 
@@ -212,6 +226,64 @@ $(document).on('click', '.copy-button', function () {
     $message.show();
     $message.delay(1000).fadeOut("slow");
 });
+
+function splitSessions(matches) {
+    var sessionsList = [];
+    var currentDict = {};
+    var currentList = [];
+
+    var kills = 0;
+    var deaths = 0;
+    var assists = 0;
+    var wins = 0;
+    var losses = 0;
+
+    for (var i = 0; i < matches.length; i++) {
+        var currentMatch = matches[i];
+        //Add to session
+        currentList.push(currentMatch);
+        kills += currentMatch['Kills'];
+        deaths += currentMatch['Deaths'];
+        assists += currentMatch['Assists'];
+
+        if(currentMatch['Won']) {
+            wins += 1;
+        }  else {
+            losses += 1;
+        }
+
+        if(i+1 < matches.length) {
+            var nextMatch = matches[i+1]
+        }
+
+        if(nextMatch != undefined) {
+            var firstMatch = Math.floor(new Date(currentMatch['DateTime']).getTime()/ 1000);
+            var secondMatch = Math.floor(new Date(nextMatch['DateTime']).getTime() / 1000);
+            var difference = firstMatch - secondMatch;
+
+            if(difference > 3600) {
+                currentDict['session'] = currentList;
+                currentDict['kills'] = kills;
+                currentDict['deaths'] = deaths;
+                currentDict['assists'] = assists;
+                currentDict['wins'] = wins;
+                currentDict['losses'] = losses;
+                currentDict['wl_ratio'] = Math.floor(parseFloat(wins)/parseFloat(wins+losses)*100);
+                sessionsList.push(currentDict);
+
+                currentList = [];
+                currentDict = {};
+                kills = 0;
+                deaths = 0;
+                assists = 0;
+                wins = 0;
+                losses = 0;
+            }
+        }
+    }
+
+    return sessionsList;
+}
 
 //$(document).on('click play', 'video', function (e) {
 //    e.stopPropagation();

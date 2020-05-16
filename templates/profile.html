@@ -53,12 +53,21 @@
         </div>
 
         <div id="file-share-wrapper">
-            <h2>File Share</h2>
-            <div id="file-share-container">
-                <i class="fas fa-circle-notch fa-spin loading"></i>
+            <ol>
+                <li class="tab active" id="matches-tab" data-type="matches-wrapper"><b>Matches</b></li>
+                <span>|</span>
+                <li class="tab" id="fileshare-tab" data-type="fileshare-wrapper"><b>Fileshare</b></li>
+            </ol>
+
+            <div id="matches-wrapper" class="tab-wrapper active-tab">
+                <h2>Matches</h2>
             </div>
 
-            <div id="show-all">Show all</div>
+            <div id="fileshare-wrapper" class="tab-wrapper">
+                <h2>File Share</h2>
+                <div id="file-share-container"></div>
+                <div id="show-all">Show all</div>
+            </div>
         </div>
     </div>
 

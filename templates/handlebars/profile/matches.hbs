@@ -1,0 +1,63 @@
+<h2>Matches</h2>
+{{#each sessions}}
+    <table class="table-container">
+        <thead>
+            <tr>
+                <td>
+                    <label>Session Overview <span class="time-span">{{timeDifference session.[0].DateTime}} ago</span></label>
+                    <div>{{wins}}W/{{losses}}L ({{wl_ratio}}%)</div>
+                </td>
+                <td>
+                    <label>Kills</label>
+                    <div>{{kills}}</div>
+                </td>
+                <td>
+                    <label>Deaths</label>
+                    <div>{{deaths}}</div>
+                </td>
+                <td>
+                    <label>Assists</label>
+                    <div>{{assists}}</div>
+                </td>
+                <td>
+                    <label>KD</label>
+                    <div>{{decimals (math kills '/' deaths false)}}</div>
+                </td>
+                <td>
+                    <label>KAD</label>
+                    <div>{{decimals (math (math kills '+' assists) '/' deaths false)}}</div>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each session}}
+                <tr class="{{#if Won}}win{{else}}lose{{/if}}">
+                    <td>
+                        <label>{{haloGame GameId}}</label>
+                        <div>Map</div>
+                    </td>
+                    <td>
+                        <label>Kills</label>
+                        <div>{{Kills}}</div>
+                    </td>
+                    <td>
+                        <label>Deaths</label>
+                        <div>{{Deaths}}</div>
+                    </td>
+                    <td>
+                        <label>Assists</label>
+                        <div>{{Assists}}</div>
+                    </td>
+                    <td>
+                        <label>KD</label>
+                        <div>{{decimals KD}}</div>
+                    </td>
+                    <td>
+                        <label>KAD</label>
+                        <div>{{decimals (math (math Kills '+' Assists) '/' Deaths false)}}</div>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{/each}}

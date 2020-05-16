@@ -160,7 +160,7 @@ $(document).on('click', '.history-button', function (e) {
     $overlay.empty();
     $overlay.addClass('active');
     $overlay.append('<i style="font-size:40px" class="fas fa-circle-notch fa-spin"></i>');
-    sendRequest('/player-matches/', {'gt': $(this).attr('data-gt'), 'game_variant': ''}, 'GET', playerMatchesSuccess, playerMatchesError);
+    sendRequest('/player-matches/', {'gt': $(this).attr('data-gt'), 'game_variant': '', 'req': 11}, 'GET', playerMatchesSuccess, playerMatchesError);
 });
 
 $(document).on('click', '#game-submit', function (e) {
@@ -168,7 +168,7 @@ $(document).on('click', '#game-submit', function (e) {
     var $tableWrapper = $('#table-wrapper');
     $tableWrapper.empty();
     $tableWrapper.append('<i style="font-size:40px" class="fas fa-circle-notch fa-spin"></i>');
-    sendRequest('/game-matches/', {'gt': $(this).attr('data-gt'), 'game_variant': $('#game-variant-input').val(), 'game': $('#game-input').val()}, 'GET', gameMatchesSuccess, playerMatchesError);
+    sendRequest('/game-matches/', {'gt': $(this).attr('data-gt'), 'game_variant': $('#game-variant-input').val(), 'game': $('#game-input').val(), 'req': 11}, 'GET', gameMatchesSuccess, playerMatchesError);
 });
 
 function playerMatchesSuccess(response) {
