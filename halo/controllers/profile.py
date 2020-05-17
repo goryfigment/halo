@@ -18,7 +18,6 @@ def service_record(request):
     return JsonResponse(player_record, safe=False)
 
 
-@login_required
 @data_required(['gt', 'req'], 'GET')
 def player_matches(request):
     gt = request.GET['gt']
