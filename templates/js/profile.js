@@ -62,7 +62,7 @@ function serviceRecordSuccess(response) {
     };
 
     $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'total_50s': globals.total_50s}));
-    $statsWrapper.append(statsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+    $statsWrapper.append(statsTemplate({'change': change, 'player': response, 'player': globals.player, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
 
     //(adsbygoogle = window.adsbygoogle || []).push({});
 }

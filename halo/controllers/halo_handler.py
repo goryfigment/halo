@@ -400,6 +400,7 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         'wl': wl_ratio,
         'highest_rank': highest_rank,
         'epoch': epoch,
+        'ban': player.ban,
         'season': {
             'playtime': season1.playtime,
             'matches': season1.matches,
