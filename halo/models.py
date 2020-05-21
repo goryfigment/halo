@@ -53,12 +53,14 @@ class PcRanks(models.Model):
     halo_reach_team_slayer = models.IntegerField(default=1)
     hce_hardcore_doubles = models.IntegerField(default=1)
     h2c_team_hardcore = models.IntegerField(default=1)
+    h2a_team_hardcore = models.IntegerField(default=1)
 
     v_halo_reach_team_hardcore = models.IntegerField(default=0)
     v_halo_reach_invasion = models.IntegerField(default=0)
     v_hce_hardcore_doubles = models.IntegerField(default=0)
     v_halo_reach_team_slayer = models.BooleanField(default=0)
     v_h2c_team_hardcore = models.IntegerField(default=0)
+    v_h2a_team_hardcore = models.IntegerField(default=0)
 
     class Meta:
         db_table = "pc_ranks"
@@ -77,6 +79,7 @@ class Ranks(models.Model):
     hce_team_doubles = models.IntegerField(default=1)
     hce_hardcore_doubles = models.IntegerField(default=1)
     halo_reach_team_slayer = models.IntegerField(default=1)
+    h2a_team_hardcore = models.IntegerField(default=1)
 
     v_h3_team_slayer = models.BooleanField(default=0)
     v_h3_team_hardcore = models.BooleanField(default=0)
@@ -88,6 +91,7 @@ class Ranks(models.Model):
     v_hce_hardcore_doubles = models.BooleanField(default=0)
     v_hce_team_doubles = models.BooleanField(default=0)
     v_halo_reach_team_slayer = models.BooleanField(default=0)
+    v_h2a_team_hardcore = models.IntegerField(default=0)
 
     class Meta:
         db_table = "ranks"
@@ -138,11 +142,13 @@ class Leaderboard(models.Model):
     halo_reach_team_hardcore = models.IntegerField(default=0)
     halo_reach_invasion = models.IntegerField(default=0)
     halo_reach_team_slayer = models.IntegerField(default=0)
+    h2a_team_hardcore = models.IntegerField(default=0)
 
     pc_halo_reach_team_hardcore = models.IntegerField(default=0)
     pc_halo_reach_invasion = models.IntegerField(default=0)
     pc_halo_reach_team_slayer = models.IntegerField(default=0)
     pc_hce_hardcore_doubles = models.IntegerField(default=0)
+    pc_h2a_team_hardcore = models.IntegerField(default=0)
 
     class Meta:
         db_table = "leaderboard"

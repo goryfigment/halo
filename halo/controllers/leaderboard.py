@@ -374,6 +374,10 @@ def h2c_team_hardcore(request):
     return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2c_team_hardcore', 'Halo 2 Classic: Team Hardcore'))
 
 
+def h2a_team_hardcore(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2a_team_hardcore', 'H2A: Team Hardcore'))
+
+
 def halo_reach_team_hardcore(request):
     return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'halo_reach_team_hardcore', '(Xbox) Reach: Team Hardcore'))
 
@@ -405,6 +409,10 @@ def pc_hce_hardcore_doubles(request):
 
 def pc_h2c_team_hardcore(request):
     return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h2c_team_hardcore', '(PC) Halo 2 Classic: Team Hardcore'))
+
+
+def pc_h2a_team_hardcore(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h2a_team_hardcore', '(PC) H2A: Team Hardcore'))
 
 
 def season1_func(request, handlebars, amount_type, title, first=None, last=None):

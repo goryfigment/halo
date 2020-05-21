@@ -113,6 +113,7 @@ urlpatterns = [
     url(r'^leaderboards/ms-2v2-series', leaderboard.ms_2v2_series),
     url(r'^leaderboards/hce-hardcore-doubles', leaderboard.hce_hardcore_doubles),
     url(r'^leaderboards/hce-team-doubles', leaderboard.hce_team_doubles),
+    url(r'^leaderboards/h2a-team-hardcore', leaderboard.h2a_team_hardcore),
     url(r'^leaderboards/h2c-team-hardcore', leaderboard.h2c_team_hardcore),
     url(r'^leaderboards/halo-reach-team-hardcore', leaderboard.halo_reach_team_hardcore),
     url(r'^leaderboards/halo-reach-invasion', leaderboard.halo_reach_invasion),
@@ -123,4 +124,5 @@ urlpatterns = [
     url(r'^leaderboards/pc/halo-reach-team-slayer', leaderboard.pc_reach_team_slayer),
     url(r'^leaderboards/pc/hce-hardcore-doubles', leaderboard.pc_hce_hardcore_doubles),
     url(r'^leaderboards/pc/h2c-team-hardcore', leaderboard.pc_h2c_team_hardcore),
+    url(r'^leaderboards/pc/h2a-team-hardcore', leaderboard.pc_h2a_team_hardcore),
 ]

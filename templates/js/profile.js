@@ -62,7 +62,7 @@ function serviceRecordSuccess(response) {
     };
 
     $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'total_50s': globals.total_50s}));
-    $statsWrapper.append(statsTemplate({'change': change, 'player': response, 'player': globals.player, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
+    $statsWrapper.append(statsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
 
     //(adsbygoogle = window.adsbygoogle || []).push({});
 }
@@ -103,7 +103,7 @@ $(document).ready(function() {
         return b['rank'] - a['rank'];
     });
 
-    var avail_pc_ranks = ['Halo: Reach Team Slayer', 'Halo: Reach Invasion', 'Halo: Reach Team Hardcore', 'HCE Hardcore Doubles', 'H2C Team Hardcore'];
+    var avail_pc_ranks = ['Halo: Reach Team Slayer', 'Halo: Reach Invasion', 'Halo: Reach Team Hardcore', 'HCE Hardcore Doubles', 'H2C Team Hardcore', 'H2A Team Hardcore'];
 
     //PC Ranks
     for (var pc_playlist in pc_ranks) {
