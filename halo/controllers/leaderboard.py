@@ -347,19 +347,19 @@ def rank_func(request, handlebars, amount_type, title):
 
 
 def h3_team_slayer(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_slayer', 'Halo 3: Team Slayer'))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_slayer', '(Xbox) Halo 3: Team Slayer'))
 
 
 def h3_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_hardcore', 'Halo 3: Team Hardcore'))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_hardcore', '(Xbox) Halo 3: Team Hardcore'))
 
 
 def h3_team_doubles(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_doubles', 'Halo 3: Team Doubles'))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_doubles', '(Xbox) Halo 3: Team Doubles'))
 
 
 def ms_2v2_series(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'ms_2v2_series', 'Halo 3: MS 2v2 Series'))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'ms_2v2_series', '(Xbox) Halo 3: MS 2v2 Series'))
 
 
 def hce_team_doubles(request):
@@ -371,11 +371,11 @@ def hce_hardcore_doubles(request):
 
 
 def h2c_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2c_team_hardcore', 'Halo 2 Classic: Team Hardcore'))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2c_team_hardcore', '(Xbox) Halo 2 Classic: Team Hardcore'))
 
 
 def h2a_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2a_team_hardcore', 'H2A: Team Hardcore'))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2a_team_hardcore', '(Xbox) H2A: Team Hardcore'))
 
 
 def halo_reach_team_hardcore(request):

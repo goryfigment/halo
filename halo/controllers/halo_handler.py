@@ -326,30 +326,30 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
         epoch = 0
 
     ##### SEASON CALCULATIONS ######
-    s2_kills = kills - season2_record.kills
-    s2_matches = matches - season2_record.matches
-    s2_deaths = deaths - season2_record.deaths
-    s2_wins = wins - season2_record.wins
-    s2_loses = losses - season2_record.losses
-
-    try:
-        s2_kd = decimal_format(float(s2_kills)/float(s2_deaths), 2, False)
-    except ZeroDivisionError:
-        s2_kd = decimal_format(float(s2_kills)/float(1), 2, False)
-
-    try:
-        s2_wl = decimal_format(float(s2_wins)/float(s2_loses), 2, False)
-    except ZeroDivisionError:
-        s2_wl = decimal_format(float(s2_wins)/float(1), 2, False)
-
-    s2_epoch = epoch - season2_record.epoch
-    s2_total_hours = s2_epoch / 3600
-
-    if s2_epoch <= 0:
-        s2_playtime = '0h'
-        s2_epoch = 0
-    else:
-        s2_playtime = str(s2_total_hours/24) + 'd ' + str(s2_total_hours % 24) + 'h'
+    # s2_kills = kills - season2_record.kills
+    # s2_matches = matches - season2_record.matches
+    # s2_deaths = deaths - season2_record.deaths
+    # s2_wins = wins - season2_record.wins
+    # s2_loses = losses - season2_record.losses
+    #
+    # try:
+    #     s2_kd = decimal_format(float(s2_kills)/float(s2_deaths), 2, False)
+    # except ZeroDivisionError:
+    #     s2_kd = decimal_format(float(s2_kills)/float(1), 2, False)
+    #
+    # try:
+    #     s2_wl = decimal_format(float(s2_wins)/float(s2_loses), 2, False)
+    # except ZeroDivisionError:
+    #     s2_wl = decimal_format(float(s2_wins)/float(1), 2, False)
+    #
+    # s2_epoch = epoch - season2_record.epoch
+    # s2_total_hours = s2_epoch / 3600
+    #
+    # if s2_epoch <= 0:
+    #     s2_playtime = '0h'
+    #     s2_epoch = 0
+    # else:
+    #     s2_playtime = str(s2_total_hours/24) + 'd ' + str(s2_total_hours % 24) + 'h'
     ##### SEASON CALCULATIONS ######
 
     total_levels = 0
@@ -375,21 +375,21 @@ def service_record(gt, xbox_ranks, pc_ranks, highest_rank):
     total_levels += rank_obj.halo_reach_team_slayer + pc_rank_obj.halo_reach_team_slayer
 
     #### SEASON CALCULATIONS ####
-    # Every 50 = 50points
-    bonus_points = (total_50s * 100)
-    s2_score = int(round((s2_wins*0.5) + (s2_kills*0.1) + (total_levels*20)) + bonus_points)
-    # Save it to Season 2 Database!
-    season2.kills = s2_kills
-    season2.matches = s2_matches
-    season2.deaths = s2_deaths
-    season2.wins = s2_wins
-    season2.losses = s2_loses
-    season2.kd = s2_kd
-    season2.wl = s2_wl
-    season2.epoch = s2_epoch
-    season2.playtime = s2_playtime
-    season2.score = s2_score
-    season2.save()
+    # # Every 50 = 50points
+    # bonus_points = (total_50s * 100)
+    # s2_score = int(round((s2_wins*0.5) + (s2_kills*0.1) + (total_levels*20)) + bonus_points)
+    # # Save it to Season 2 Database!
+    # season2.kills = s2_kills
+    # season2.matches = s2_matches
+    # season2.deaths = s2_deaths
+    # season2.wins = s2_wins
+    # season2.losses = s2_loses
+    # season2.kd = s2_kd
+    # season2.wl = s2_wl
+    # season2.epoch = s2_epoch
+    # season2.playtime = s2_playtime
+    # season2.score = s2_score
+    # season2.save()
     #### SEASON CALCULATIONS ####
 
     return {

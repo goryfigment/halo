@@ -2,21 +2,20 @@
     <h5>Stats</h5>
 
     <ol>
-        <li class="tab" id="all-tab" data-type="all-wrapper"><b>All</b></li>
+        <li class="tab active" id="all-tab" data-type="all-wrapper"><b>All</b></li>
         <span>|</span>
         <li class="tab" id="s1-tab" data-type="season1-wrapper"><b>Season 1</b></li>
         <span>|</span>
-        <li class="tab active" id="s2-tab" data-type="season2-wrapper"><b>Season 2</b></li>
+        <li class="tab" id="s2-tab" data-type="season2-wrapper"><b>Season 2</b></li>
     </ol>
 </div>
 
 
-<div class="tab-wrapper active-tab" id="season2-wrapper">
+<div class="tab-wrapper" id="season2-wrapper">
     <div class="stat-container">
         <div class="stat-item" id="score-item">
             <div>MCC Score</div>
             <span>{{numCommaFormat player.season2.score}}</span>
-            {{#ifCond change.score '>' 0}}<span class="change {{#ifCond change.score '<' 0}}neg{{/ifCond}}">{{#ifCond change.score '>' 0}}+{{/ifCond}}{{change.score}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s2_score '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -45,7 +44,6 @@
         <div class="stat-item">
             <div>Total Matches</div>
             <span>{{numCommaFormat player.season2.matches}}</span>
-            {{#ifCond change.matches '>' 0}}<span class="change {{#ifCond change.matches '<' 0}}neg{{/ifCond}}">{{#ifCond change.matches '>' 0}}+{{/ifCond}}{{change.matches}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s2_matches '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -62,7 +60,6 @@
         <div class="stat-item">
             <div>Wins</div>
             <span>{{numCommaFormat player.season2.wins}}</span>
-            {{#ifCond change.wins '>' 0}}<span class="change {{#ifCond change.wins '<' 0}}neg{{/ifCond}}">{{#ifCond change.wins '>' 0}}+{{/ifCond}}{{change.wins}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s2_wins '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -77,7 +74,6 @@
         <div class="stat-item">
             <div>Losses</div>
             <span>{{numCommaFormat player.season2.losses}}</span>
-            {{#ifCond change.losses '>' 0}}<span class="change {{#ifCond change.losses '<' 0}}neg{{/ifCond}}">{{#ifCond change.losses '>' 0}}+{{/ifCond}}{{change.losses}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s2_losses '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -92,7 +88,6 @@
         <div class="stat-item">
             <div>W/L Ratio</div>
             <span>{{player.season2.wl}}</span>
-            {{#ifCond change.s_wl '>' 0}}<span class="change {{#ifCond change.s_wl '<' 0}}neg{{/ifCond}}">{{#ifCond change.s_wl '>' 0}}+{{/ifCond}}{{change.s_wl}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s2_wl '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -109,7 +104,6 @@
         <div class="stat-item">
             <div>Kills</div>
             <span>{{numCommaFormat player.season2.kills}}</span>
-            {{#ifCond change.kills '>' 0}}<span class="change {{#ifCond change.kills '<' 0}}neg{{/ifCond}}">{{#ifCond change.kills '>' 0}}+{{/ifCond}}{{change.kills}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s2_kills '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -124,7 +118,6 @@
         <div class="stat-item">
             <div>Deaths</div>
             <span>{{numCommaFormat player.season2.deaths}}</span>
-            {{#ifCond change.deaths '>' 0}}<span class="change {{#ifCond change.deaths '<' 0}}neg{{/ifCond}}">{{#ifCond change.deaths '>' 0}}+{{/ifCond}}{{change.deaths}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s2_deaths '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -139,7 +132,6 @@
         <div class="stat-item">
             <div>K/D Ratio</div>
             <span>{{player.season2.kd}}</span>
-            {{#ifCond change.s_kd '>' 0}}<span class="change {{#ifCond change.s_kd '<' 0}}neg{{/ifCond}}">{{#ifCond change.s_kd '>' 0}}+{{/ifCond}}{{change.s_kd}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s2_kd '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -287,7 +279,7 @@
     </div>
 </div>
 
-<div class="tab-wrapper" id="all-wrapper">
+<div class="tab-wrapper active-tab" id="all-wrapper">
     <div class="stat-container">
         <div class="stat-item" id="playtime-item">
             <div>Playtime</div>
