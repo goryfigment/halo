@@ -41,6 +41,10 @@
         opacity: 1;
     }
 
+    body #update-section h1 {
+        font-size: 20px;
+    }
+
     #right-wrapper {
         margin-bottom: 30px;
     }
