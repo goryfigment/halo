@@ -3,7 +3,6 @@
         transform: scale(0.9);
         transform-origin: top;
         position: relative;
-        left: -20px;
     }
 
     body table {
@@ -42,7 +41,7 @@
     }
 
     body #update-section h1 {
-        font-size: 20px;
+        font-size: 50px;
     }
 
     #right-wrapper {
@@ -427,6 +426,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
 #update-container {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 10px;
 }
 
 .news-wrapper {
