@@ -22,24 +22,41 @@
 }
 
 #bronze-donator {
-    margin-right: 10px;
     color: #ff7d0d;
 }
 
 #silver-donator {
-    margin-right: 10px;
     color: silver;
 }
 
 #gold-donator {
-    margin-right: 10px;
     color: gold;
 }
 
 #diamond-donator {
-    margin-right: 10px;
     color: white;
     animation: glow 1s ease-in-out infinite alternate;
+}
+
+#diamond-donator {
+    color: white;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+.twitch {
+    color: #9257ff;
+}
+
+.youtube {
+    color: #ff3a30;
+}
+
+.twitter {
+    color: #55acee;
+}
+
+.mixer {
+    color: #1fbaed;
 }
 
 footer #leaderboard-button {
@@ -110,6 +127,7 @@ h4 {
 #choice-wrapper {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .donate-choice {
@@ -117,13 +135,13 @@ h4 {
     color: #c6cac8;
     padding: 7px 8px;
     border: 1px solid #366cc6;
-    margin-right: 10px;
     border-radius: 2px;
     font-weight: bold;
     text-align: center;
     font-size: 14px;
     min-width: 35px;
     font-family: 'Rajdhani', 'Roboto', sans-serif;
+    margin: 10px;
 }
 
 .donate-choice.active {

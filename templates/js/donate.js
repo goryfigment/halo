@@ -1,5 +1,6 @@
 require('./../css/general.css');
 require('./../css/donate.css');
+require('./../css/color_font.css');
 require('./../library/fontawesome/fontawesome.js');
 require('./../library/tippy/tippy.css');
 
