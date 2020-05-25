@@ -350,7 +350,7 @@ footer #leaderboard-button {
 
 /*PRIVATE PROFILE*/
 #private-tutorial {
-    height: 255px;
+    height: 245px;
     border: white solid 2px;
     cursor: pointer;
 }
@@ -358,6 +358,7 @@ footer #leaderboard-button {
 #private-message {
     text-align: center;
     line-height: 27px;
+    margin: 10px;
 }
 /*PRIVATE PROFILE*/
 

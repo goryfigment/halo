@@ -53,7 +53,9 @@ module.exports = function(mapId) {
         "158": "Bloodline",
         "159": "Warlord",
         "160": "Shrine",
-        "161": "Remnant"
+        "161": "Remnant",
+
+        "163": "Awash"
     };
 
     var h2c = {

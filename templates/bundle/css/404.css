@@ -77,7 +77,6 @@ body {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
-    height: 100vh;
     margin: 0;
     font-family: 'Roboto', 'Rajdhani', sans-serif;
     overflow-x: hidden;
@@ -143,6 +142,7 @@ input:-webkit-autofill {
         -ms-flex-pack: justify;
             justify-content: space-between;
     margin: 0 auto 30px auto;
+    overflow: auto;
 }
 
 #content-wrapper p {

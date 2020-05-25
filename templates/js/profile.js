@@ -67,6 +67,14 @@ function serviceRecordSuccess(response) {
     //(adsbygoogle = window.adsbygoogle || []).push({});
 }
 
+function emblemSuccess() {
+    console.log('Emblem updated');
+}
+
+function emblemError() {
+    console.log('Emblem error');
+}
+
 function serviceRecordError() {
     console.log("Service Record error!");
     var $wrapper = $('#player-details');
@@ -152,6 +160,7 @@ $(document).ready(function() {
     sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, xbox_ranks: xbox_ranks, pc_ranks: pc_ranks, highest_rank: highest_rank}), 'POST', serviceRecordSuccess, serviceRecordError);
     sendRequest('/player-matches/', {'gt': globals.gamertag, 'game_variant': '', 'req': 6}, 'GET', playerMatchesSuccess, playerMatchesError);
     sendRequest('/xbox-clips/', {gt: globals.gamertag}, 'GET', xboxClipsSuccess, xboxClipsError);
+    sendRequest('/update-emblem/', {gt: globals.gamertag}, 'GET', emblemSuccess, emblemError);
 });
 
 function playerMatchesSuccess(response) {
@@ -269,6 +278,7 @@ function splitSessions(matches) {
                 currentDict['wins'] = wins;
                 currentDict['losses'] = losses;
                 currentDict['wl_ratio'] = Math.floor(parseFloat(wins)/parseFloat(wins+losses)*100);
+                currentDict['kad'] = (parseFloat(kills + assists)/parseFloat(deaths)).toFixed(2);
                 sessionsList.push(currentDict);
 
                 currentList = [];

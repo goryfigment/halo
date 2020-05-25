@@ -60,7 +60,6 @@ body {
     color: whitesmoke;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     margin: 0;
     font-family: 'Roboto', 'Rajdhani', sans-serif;
     overflow-x: hidden;
@@ -111,6 +110,7 @@ input:-webkit-autofill {
     transition: 0.5s ease all;
     justify-content: space-between;
     margin: 0 auto 30px auto;
+    overflow: auto;
 }
 
 #content-wrapper p {
