@@ -98,6 +98,7 @@ ENV/
 .idea/
 
 # Files I don't want git to see
+halo_handler.py
 node_modules
 settings_secret.py
 settings.py
