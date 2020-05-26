@@ -20,6 +20,9 @@ class Player(models.Model):
     kd = models.FloatField(default=0)
     wl = models.FloatField(default=0)
     epoch = models.IntegerField(default=0)
+    assists = models.IntegerField(default=0)
+    betrayals = models.IntegerField(default=0)
+    headshots = models.IntegerField(default=0)
 
     hits = models.IntegerField(default=1)
     last_updated = models.IntegerField(default=get_utc_epoch_time, blank=True)
@@ -109,6 +112,9 @@ class Leaderboard(models.Model):
     matches = models.IntegerField(default=0)
     wl = models.IntegerField(default=0)
     kd = models.IntegerField(default=0)
+    assists = models.IntegerField(default=0)
+    betrayals = models.IntegerField(default=0)
+    headshots = models.IntegerField(default=0)
 
     # Leaderboard placement
     s1_score = models.IntegerField(default=0)

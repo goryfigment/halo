@@ -49,6 +49,9 @@ function serviceRecordSuccess(response) {
     response['hits'] = prevDetails['hits'];
 
     var change = {
+        'assists': response['assists'] - prevDetails['assists'],
+        'betrayals': response['betrayals'] - prevDetails['betrayals'],
+        'headshots': response['headshots'] - prevDetails['headshots'],
         'matches': response['matches'] - prevDetails['matches'],
         'kills': response['kills'] - prevDetails['kills'],
         'deaths': response['deaths'] - prevDetails['deaths'],

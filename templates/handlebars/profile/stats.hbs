@@ -404,4 +404,51 @@
             {{/ifCond}}
         </div>
     </div>
+
+    <div class="stat-container">
+        <div class="stat-item">
+            <div>Headshots</div>
+            <span>{{numCommaFormat player.headshots}}</span>
+            {{#ifCond change.headshots '>' 0}}<span class="change {{#ifCond change.headshots '<' 0}}neg{{/ifCond}}">{{#ifCond change.headshots '>' 0}}+{{/ifCond}}{{change.headshots}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.headshots '>' 0}}
+                {{#if player.ban}}
+                    <div class="percent">NOT RANKED</div>
+                {{else}}
+                    <div class="percent" style="color: {{percentColors leaderboard.headshots player_count}}">#{{leaderboard.headshots}} <span>&#8226;</span> Top {{percent leaderboard.headshots player_count}}</div>
+                {{/if}}
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>Assists</div>
+            <span>{{numCommaFormat player.assists}}</span>
+            {{#ifCond change.assists '>' 0}}<span class="change {{#ifCond change.assists '<' 0}}neg{{/ifCond}}">{{#ifCond change.assists '>' 0}}+{{/ifCond}}{{change.assists}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.assists '>' 0}}
+                {{#if player.ban}}
+                    <div class="percent">NOT RANKED</div>
+                {{else}}
+                    <div class="percent" style="color: {{percentColors leaderboard.assists player_count}}">#{{leaderboard.assists}} <span>&#8226;</span> Top {{percent leaderboard.assists player_count}}</div>
+                {{/if}}
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+
+        <div class="stat-item">
+            <div>Betrayals</div>
+            <span>{{player.betrayals}}</span>
+            {{#ifCond change.betrayals '>' 0}}<span class="change {{#ifCond change.betrayals '<' 0}}neg{{/ifCond}}">{{#ifCond change.betrayals '>' 0}}+{{/ifCond}}{{change.betrayals}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.betrayals '>' 0}}
+                {{#if player.ban}}
+                    <div class="percent">NOT RANKED</div>
+                {{else}}
+                    <div class="percent" style="color: {{percentColors leaderboard.betrayals player_count}}">#{{leaderboard.betrayals}} <span>&#8226;</span> Top {{percent leaderboard.betrayals player_count}}</div>
+                {{/if}}
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
+    </div>
 </div>

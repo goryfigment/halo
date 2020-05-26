@@ -268,6 +268,9 @@ def profile(request, gt):
             "epoch": 0,
             "score": 0,
             "kd": 0,
+            "assists": 0,
+            "betrayals": 0,
+            "headshots": 0,
             "playtime": "0h",
             'season': {
                 "wl": 0,

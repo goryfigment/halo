@@ -102,6 +102,9 @@ urlpatterns = [
     url(r'^leaderboards/wl', leaderboard.best_wl),
     url(r'^leaderboards/kd', leaderboard.best_kd),
     url(r'^leaderboards/playtime', leaderboard.most_playtime),
+    url(r'^leaderboards/assists', leaderboard.most_assists),
+    url(r'^leaderboards/betrayals', leaderboard.most_betrayals),
+    url(r'^leaderboards/headshots', leaderboard.most_headshots),
 
     url(r'^leaderboards/most-50s', leaderboard.all_most_50s),
     url(r'^leaderboards/xbox/most-50s', leaderboard.xbox_most_50s),

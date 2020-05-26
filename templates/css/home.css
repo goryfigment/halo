@@ -456,6 +456,10 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
     line-height: 30px;
 }
 
+#update-section a {
+    color: aqua;
+}
+
 #news-link {
     display: block;
     margin-left: auto;

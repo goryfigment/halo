@@ -139,6 +139,18 @@ def best_kd(request):
     return render(request, 'leaderboard.html', service_func(request, 'player_ratio', 'kd', 'K/D Ratio'))
 
 
+def most_assists(request):
+    return render(request, 'leaderboard.html', service_func(request, 'player', 'assists', 'Assists'))
+
+
+def most_betrayals(request):
+    return render(request, 'leaderboard.html', service_func(request, 'player', 'betrayals', 'Betrayals'))
+
+
+def most_headshots(request):
+    return render(request, 'leaderboard.html', service_func(request, 'player', 'headshots', 'Headshots'))
+
+
 def most_playtime(request):
     first_record = 0
     last_record = 100
