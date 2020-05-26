@@ -292,7 +292,6 @@
     #mccstats-form {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
             -ms-flex-direction: column;
                 flex-direction: column;
         width: 350px;
@@ -379,7 +378,6 @@ p a {
 /*Form*/
 form {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
 }
@@ -391,7 +389,6 @@ form .input-wrapper {
 form .input-container {
     margin: 10px 0;
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
 }
@@ -428,16 +425,13 @@ h4 {
 
 #choice-wrapper {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-    -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 .donate-choice {
@@ -487,15 +481,12 @@ h4 {
 /*Button*/
 #button-wrapper {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
     -webkit-box-pack: center;
-    -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
     margin: 20px 0 40px;
@@ -554,12 +545,10 @@ input[type="image"] {
 #mccstats-form {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
     margin: 0 auto;
     -webkit-box-align: center;
-    -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
 }
@@ -605,7 +594,6 @@ input[type="image"] {
     cursor: pointer;
 	padding: 0 5px;
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     margin: 10px;

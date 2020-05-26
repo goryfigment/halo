@@ -50,16 +50,13 @@ body {
     background: #131313;
     color: whitesmoke;
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
     -webkit-box-align: center;
-    -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
     min-height: 100vh;
@@ -177,12 +174,10 @@ footer a, header a {
 
 #more-wrapper.active {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
 }
@@ -199,15 +194,12 @@ footer {
 
 footer #footer-wrapper {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
     -webkit-box-align: center;
-    -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
 }
@@ -222,7 +214,6 @@ footer h3 span {
 
 footer #footer-button-wrapper {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     margin-right: 20px;
@@ -251,16 +242,13 @@ footer p {
     background: #000000c7;
     display: none;
     -webkit-box-align: center;
-    -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
     -webkit-box-pack: center;
-    -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
     color: #ffffff;
@@ -269,7 +257,6 @@ footer p {
 
 #overlay.active {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
 }
@@ -387,11 +374,9 @@ footer p {
         transition: transform ease 0.5s, -webkit-transform ease 0.5s;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
             -ms-flex-direction: column;
                 flex-direction: column;
         -webkit-box-align: center;
-        -webkit-align-items: center;
             -ms-flex-align: center;
                 align-items: center;
         width: 310px !important;
@@ -409,7 +394,6 @@ footer p {
     footer #footer-wrapper {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
             -ms-flex-direction: column;
                 flex-direction: column;
     }
@@ -421,7 +405,6 @@ footer p {
     footer #footer-button-wrapper {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
             -ms-flex-direction: column;
                 flex-direction: column;
         margin: 15px 0;
@@ -431,12 +414,10 @@ footer p {
 #leaderboard-container {
     background: #1f1f1f;
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     border-radius: 2px;
     padding: 18px 20px 30px;
     width: 520px;

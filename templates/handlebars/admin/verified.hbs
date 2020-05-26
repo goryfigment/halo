@@ -15,6 +15,7 @@
                 <th>HCE Hardcore Dubs</th>
                 <th>HCE Dubs</th>
                 <th>Reach Slayer</th>
+                <th>H2A Hardcore</th>
             </tr>
         </thead>
 
@@ -133,6 +134,17 @@
                             <span class="check-box-label"></span>
                         </label>
                     </td>
+                    <td class="h2a-team-hardcore">
+                        <input type="checkbox" id="h2a-team-hardcore-checkbox-{{player__id}}" class="checkbox-input" {{#if v_h2a_team_hardcore}}checked{{/if}} value="v_h2a_team_hardcore">
+                        <label for="h2a-team-hardcore-checkbox-{{player__id}}" class="check-box-wrapper">
+                            <span class="check-box">
+                                <svg width="12px" height="10px">
+                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                </svg>
+                            </span>
+                            <span class="check-box-label"></span>
+                        </label>
+                    </td>
                 </tr>
             {{/each}}
         </tbody>
@@ -150,6 +162,8 @@
                 <th>Reach Invasion</th>
                 <th>HCE Hardcore Dubs</th>
                 <th>Reach Slayer</th>
+                <th>H2C Hardcore</th>
+                <th>H2A Hardcore</th>
             </tr>
         </thead>
 
@@ -194,6 +208,28 @@
                     <td class="halo-reach-team-slayer">
                         <input type="checkbox" id="pc_halo-reach-team-slayer-checkbox-{{player__id}}" class="checkbox-input" {{#if v_halo_reach_team_slayer}}checked{{/if}} value="v_halo_reach_team_slayer">
                         <label for="pc_halo-reach-team-slayer-checkbox-{{player__id}}" class="check-box-wrapper">
+                            <span class="check-box">
+                                <svg width="12px" height="10px">
+                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                </svg>
+                            </span>
+                            <span class="check-box-label"></span>
+                        </label>
+                    </td>
+                    <td class="h2c-team-hardcore">
+                        <input type="checkbox" id="pc_h2c-team-hardcore-checkbox-{{player__id}}" class="checkbox-input" {{#if v_h2c_team_hardcore}}checked{{/if}} value="v_h2c_team_hardcore">
+                        <label for="pc_h2c-team-hardcore-checkbox-{{player__id}}" class="check-box-wrapper">
+                            <span class="check-box">
+                                <svg width="12px" height="10px">
+                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                </svg>
+                            </span>
+                            <span class="check-box-label"></span>
+                        </label>
+                    </td>
+                    <td class="h2a-team-hardcore">
+                        <input type="checkbox" id="pc_h2a-team-hardcore-checkbox-{{player__id}}" class="checkbox-input" {{#if v_h2a_team_hardcore}}checked{{/if}} value="v_h2a_team_hardcore">
+                        <label for="pc_h2a-team-hardcore-checkbox-{{player__id}}" class="check-box-wrapper">
                             <span class="check-box">
                                 <svg width="12px" height="10px">
                                     <polyline points="1.5 6 4.5 9 10.5 1"></polyline>

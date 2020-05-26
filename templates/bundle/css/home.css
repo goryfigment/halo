@@ -29,7 +29,6 @@
     body #body-wrapper {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
             -ms-flex-direction: column;
                 flex-direction: column;
     }
@@ -69,19 +68,16 @@ body {
     background: #131313;
     color: whitesmoke;
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
     margin: 0;
     font-family: 'Roboto', 'Rajdhani', sans-serif;
     overflow-x: hidden;
     -webkit-box-align: start;
-    -webkit-align-items: flex-start;
         -ms-flex-align: start;
             align-items: flex-start;
     width: 100vw;
@@ -126,7 +122,6 @@ input:-webkit-autofill {
 
 #body-wrapper {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     min-height: -webkit-fit-content;
@@ -138,7 +133,6 @@ input:-webkit-autofill {
     -o-transition: 0.5s ease all;
     transition: 0.5s ease all;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
     margin: 0 auto 30px auto;
@@ -537,11 +531,9 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
 
 #ad-wrapper {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-    -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
     margin-top: 60px;
@@ -562,7 +554,6 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
 /*TABS*/
 ol {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     padding: 5px 20px;
@@ -571,11 +562,9 @@ ol {
     font-family: 'Rajdhani', 'Roboto', sans-serif;
     color: #d2d2d2;
     width: 260px;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     -webkit-box-pack: center;
-    -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
     margin: 0 auto 10px auto;
