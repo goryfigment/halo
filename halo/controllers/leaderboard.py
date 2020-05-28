@@ -630,7 +630,7 @@ def season3_func(request, handlebars, amount_type, title, first=None, last=None)
         'base_url': get_base_url(),
         'page': 1,
         'rank': 0,
-        'season': 2
+        'season': 3
     }
 
     if 'page' in request.GET:

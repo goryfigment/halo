@@ -6,6 +6,9 @@
         {{#ifCond season '==' '2'}}
             MCCS formula: (wins * 0.5) + (kills * 0.1) + (total_ranks * 20) + (total_50s * 100)
         {{/ifCond}}
+        {{#ifCond season '==' '3'}}
+            MCCS formula: (wins * 0.5) + (kills * 0.1) + (headshots * 0.01) + (assists * 0.01) + (total_ranks * 10) + (total_50s * 50)
+        {{/ifCond}}
     </p>
 
     <table id="leaderboard-table">
