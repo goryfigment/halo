@@ -156,8 +156,8 @@ $(document).ready(function() {
 
     if(globals.player['donation'] > 0) {
         var $donatorWrapper = $('#donator-wrapper');
-        $donatorWrapper.empty();
-        $donatorWrapper.append(donatorTemplate(globals.player));
+        //$donatorWrapper.empty();
+        $donatorWrapper.prepend(donatorTemplate(globals.player));
     }
 
     $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count, saved_ranks: globals.saved_ranks['xbox']}));

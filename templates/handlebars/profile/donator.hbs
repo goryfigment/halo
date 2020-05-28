@@ -1,3 +1,4 @@
+<div>
 {{#ifCond donation '>=' 50}}
     <span class="icon {{donateStyle donation}} tippy" data-title="${{donation}}{{#if notes}} + {{notes}}{{/if}}">$</span>
 {{/ifCond}}
@@ -8,3 +9,4 @@
 {{#ifCond mixer '!=' ''}}<a class="icon mixer" href="https://mixer.com/{{mixer}}" target="_blank"><i class="fab fa-mixer"></i></a>{{/ifCond}}
 {{#ifCond twitch '!=' ''}}<a class="icon twitch" href="https://www.twitch.tv/{{twitch}}" target="_blank"><i class="fab fa-twitch"></i></a>{{/ifCond}}
 {{#ifCond twitter '!=' ''}}<a class="icon twitter" href="https://twitter.com/{{twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>{{/ifCond}}
+</div>

@@ -482,22 +482,56 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
     width: 390px;
 }
 
-#ad-wrapper {
+#lol-wrapper {
     display: flex;
-    justify-content: center;
     margin-top: 60px;
     height: 300px;
-    background: rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-#ad-wrapper:after {
-    content: "Ad space!";
+#lol-wrapper h2 {
     position: absolute;
-    margin: 28px 0;
-    font-size: 22px;
-    font-weight: bold;
-    z-index: 1;
+    top: 0;
 }
+
+#lol-wrapper img {
+    width: 390px;
+}
+
+#lol-wrapper p {
+    text-align: center;
+    top: 30px;
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#lol-wrapper a {
+    color: aqua;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+
+#lol-wrapper a:hover {
+    text-decoration: underline;
+}
+
+p span {
+    color: #00ff66;
+}
+
+
+/*#lol-wrapper:after {*/
+    /*content: "Ad space!";*/
+    /*position: absolute;*/
+    /*margin: 28px 0;*/
+    /*font-size: 22px;*/
+    /*font-weight: bold;*/
+    /*z-index: 1;*/
+/*}*/
 /*ADDS*/
 
 /*TABS*/
