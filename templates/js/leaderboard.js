@@ -132,7 +132,7 @@ function updateLeaderboardError() {
 //}
 
 $(document).ready(function() {
-    $('#leaderboard-wrapper').append(leaderboards[globals.handlebars]({leaderboards: globals.leaderboard, type: globals.type.replace('s1_', '').replace('s2_', ''), 'season': globals.season}));
+    $('#leaderboard-wrapper').append(leaderboards[globals.handlebars]({leaderboards: globals.leaderboard, type: globals.type.replace('s1_', '').replace('s2_', '').replace('s3_', ''), 'season': globals.season}));
     $('#pagination').append(pagination({'page': globals.page}));
 
     sendRequest('/update-leaderboard/', JSON.stringify({leaderboards: globals.leaderboard, type: globals.type, index: globals.index}), 'POST', updateLeaderboardSuccess, updateLeaderboardError);

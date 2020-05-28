@@ -27,6 +27,9 @@ $(document).ready(function() {
     $('#matches-wrapper').append(leaderboardTemplate({leaderboards: globals.matches, type: 'matches'}));
     $('#kd-wrapper').append(leaderboardTemplate({leaderboards: globals.kd, type: 'kd'}));
     $('#wl-wrapper').append(leaderboardTemplate({leaderboards: globals.wl, type: 'wl'}));
+    $('#assists-wrapper').append(leaderboardTemplate({leaderboards: globals.assists, type: 'assists'}));
+    $('#betrayals-wrapper').append(leaderboardTemplate({leaderboards: globals.betrayals, type: 'betrayals'}));
+    $('#headshots-wrapper').append(leaderboardTemplate({leaderboards: globals.headshots, type: 'headshots'}));
 
     //(adsbygoogle = window.adsbygoogle || []).push({});
 });

@@ -59,9 +59,9 @@ function serviceRecordSuccess(response) {
         'losses': response['losses'] - prevDetails['losses'],
         'kd': (response['kd'] - prevDetails['kd']).toFixed(2),
         'wl': (response['wl'] - prevDetails['wl']).toFixed(2),
-        'score': response['season2']['score'] - prevDetails['season2']['score'],
-        's_wl': (response['season2']['wl'] - prevDetails['season2']['wl']).toFixed(2),
-        's_kd': (response['season2']['kd'] - prevDetails['season2']['kd']).toFixed(2)
+        'score': response['season3']['score'] - prevDetails['season3']['score'],
+        's_wl': (response['season3']['wl'] - prevDetails['season3']['wl']).toFixed(2),
+        's_kd': (response['season3']['kd'] - prevDetails['season3']['kd']).toFixed(2)
     };
 
     $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'total_50s': globals.total_50s}));
@@ -70,8 +70,10 @@ function serviceRecordSuccess(response) {
     //(adsbygoogle = window.adsbygoogle || []).push({});
 }
 
-function emblemSuccess() {
-    console.log('Emblem updated');
+function emblemSuccess(response) {
+    console.log('Emblem updated: ' + response["emblem"]);
+
+    $("#emblem").attr("src", response["emblem"]);
 }
 
 function emblemError() {

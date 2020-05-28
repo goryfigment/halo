@@ -4,8 +4,8 @@ from base import get_base_url, model_to_dict
 from django.db.models import F
 from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
-from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks
-from halo.controllers.leaderboard import season2_func, season2_playtime_func
+from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks, Season3
+from halo.controllers.leaderboard import season3_func, season3_playtime_func
 from django.http import HttpResponse
 
 
@@ -28,15 +28,18 @@ def server_error(request):
 def home(request):
     data = {
         'base_url': get_base_url(),
-        'mccs': season2_func(request, 'mccs', 'score', 'MCCS', 0, 10),
-        'playtime': season2_playtime_func(request, 0, 10),
-        'kills': season2_func(request, 'season1', 'kills', '(Season 2) Kills', 0, 10),
-        'deaths': season2_func(request, 'season1', 'deaths', '(Season 2) Deaths', 0, 10),
-        'wins': season2_func(request, 'season1', 'wins', '(Season 2) Wins', 0, 10),
-        'losses': season2_func(request, 'season1', 'losses', '(Season 2) Losses', 0, 10),
-        'matches': season2_func(request, 'season1', 'matches', '(Season 2) Matches', 0, 10),
-        'kd': season2_func(request, 'season1_ratio', 'kd', '(Season 2) K/D Ratio', 0, 10),
-        'wl': season2_func(request, 'season1_ratio', 'wl', '(Season 2) W/L Ratio', 0, 10),
+        'mccs': season3_func(request, 'mccs', 'score', 'MCCS', 0, 10),
+        'playtime': season3_playtime_func(request, 0, 10),
+        'kills': season3_func(request, 'season1', 'kills', '(Season 3) Kills', 0, 10),
+        'deaths': season3_func(request, 'season1', 'deaths', '(Season 3) Deaths', 0, 10),
+        'wins': season3_func(request, 'season1', 'wins', '(Season 3) Wins', 0, 10),
+        'losses': season3_func(request, 'season1', 'losses', '(Season 3) Losses', 0, 10),
+        'matches': season3_func(request, 'season1', 'matches', '(Season 3) Matches', 0, 10),
+        'kd': season3_func(request, 'season1_ratio', 'kd', '(Season 3) K/D Ratio', 0, 10),
+        'wl': season3_func(request, 'season1_ratio', 'wl', '(Season 3) W/L Ratio', 0, 10),
+        'assists': season3_func(request, 'season1', 'assists', '(Season 3) Assists', 0, 10),
+        'betrayals': season3_func(request, 'season1', 'betrayals', '(Season 3) Betrayals', 0, 10),
+        'headshots': season3_func(request, 'season1', 'headshots', '(Season 3) Headshots', 0, 10),
 
         'recent_donations': json.dumps(list(RecentDonations.objects.all().values(amount=F('player__donation'), gamertag=F('player__gamertag'), player_id=F('player__id'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb')).order_by('-id')[0:5]))
     }
@@ -256,6 +259,13 @@ def profile(request, gt):
 
         player['season'] = model_to_dict(Season1.objects.get(player=player_obj))
         player['season2'] = model_to_dict(Season2.objects.get(player=player_obj))
+        season3 = Season3.objects.filter(player=player_obj)
+
+        if season3.exists():
+            player['season3'] = model_to_dict(season3[0])
+        else:
+            player['season3'] = model_to_dict(Season3.objects.create(player=player_obj))
+
     else:
         player = {
             "wl": 0,
@@ -296,6 +306,22 @@ def profile(request, gt):
                 "epoch": 0,
                 "score": 0,
                 "kd": 0,
+                "playtime": "0h"
+            },
+            'season3': {
+                "wl": 0,
+                "kills": 0,
+                "deaths": 0,
+                "matches": 0,
+                "wins": 0,
+                "losses": 0,
+                "player": 10,
+                "epoch": 0,
+                "score": 0,
+                "kd": 0,
+                "assists": 0,
+                "betrayals": 0,
+                "headshots": 0,
                 "playtime": "0h"
             }
         }

@@ -138,6 +138,20 @@ class Leaderboard(models.Model):
     s2_wl = models.FloatField(default=0)
     s2_kd = models.FloatField(default=0)
 
+    # Leaderboard placement
+    s3_score = models.IntegerField(default=0)
+    s3_playtime = models.IntegerField(default=0)
+    s3_kills = models.IntegerField(default=0)
+    s3_deaths = models.IntegerField(default=0)
+    s3_wins = models.IntegerField(default=0)
+    s3_losses = models.IntegerField(default=0)
+    s3_matches = models.IntegerField(default=0)
+    s3_wl = models.FloatField(default=0)
+    s3_kd = models.FloatField(default=0)
+    s3_assists = models.FloatField(default=0)
+    s3_betrayals = models.FloatField(default=0)
+    s3_headshots = models.FloatField(default=0)
+
     h3_team_slayer = models.IntegerField(default=0)
     h3_team_hardcore = models.IntegerField(default=0)
     ms_2v2_series = models.IntegerField(default=0)
@@ -222,7 +236,7 @@ class Season1Record(models.Model):
         db_table = "season1_record"
 
 
-# For S1 leaderboards
+# For S2 leaderboards
 class Season2(models.Model):
     player = models.ForeignKey(Player, default=None)
     score = models.IntegerField(default=0)
@@ -254,3 +268,43 @@ class Season2Record(models.Model):
 
     class Meta:
         db_table = "season2_record"
+
+
+# For S3 leaderboards
+class Season3(models.Model):
+    player = models.ForeignKey(Player, default=None)
+    score = models.IntegerField(default=0)
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
+    epoch = models.IntegerField(default=0)
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    kd = models.FloatField(default=0)
+    wl = models.FloatField(default=0)
+    assists = models.IntegerField(default=0)
+    betrayals = models.IntegerField(default=0)
+    headshots = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "season3"
+
+
+# Screenshot of that given day stats to subtract from
+class Season3Record(models.Model):
+    player = models.ForeignKey(Player, default=None)
+
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    epoch = models.IntegerField(default=0)
+    assists = models.IntegerField(default=0)
+    betrayals = models.IntegerField(default=0)
+    headshots = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "season3_record"

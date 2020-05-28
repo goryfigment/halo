@@ -887,7 +887,7 @@ ol span {
     display: block !important;
 }
 
-#all-wrapper, #season1-wrapper, #season2-wrapper, #matches-wrapper, #fileshare-wrapper {
+#all-wrapper, #season1-wrapper, #season2-wrapper, #season3-wrapper, #matches-wrapper, #fileshare-wrapper {
     display: none;
 }
 /*SEASON*/
@@ -1149,7 +1149,7 @@ ol span {
     height: 90px;
 }
 
-#ad-wrapper:after {
+#ad-wrapper::after {
     content: "Ad space!";
     position: absolute;
     margin: 10px 0;
