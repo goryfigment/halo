@@ -293,6 +293,19 @@ footer #leaderboard-button {
     font-family: 'Rajdhani', sans-serif;
     font-size: 18px;
     border-bottom: 1px solid #414141;
+    display: flex;
+}
+
+.waypoint {
+    margin-left: auto;
+}
+
+.Online {
+    color: green;
+}
+
+.Offline {
+    color: #de0000;
 }
 
 #xbox-rank-wrapper div {
