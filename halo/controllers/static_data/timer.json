@@ -421,7 +421,7 @@
           "hammer": "3:00"
         },
         "power_up": {
-          "camouflage": "3:00"
+          "camouflage": "2:00"
         },
         "equipment": {
           "power drain": "1:00",
@@ -651,7 +651,7 @@
       {
         "map": "narrows",
         "power": {
-          "rockets": "3:00",
+          "rockets": "2:00",
           "sniper": "2:30"
         },
         "power_up": {
