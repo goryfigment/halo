@@ -530,8 +530,10 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
 }
 
 #lol-wrapper {
-    /*display: flex;*/
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /*display: none;*/
     margin-top: 60px;
     height: 300px;
     -webkit-box-orient: vertical;
@@ -559,6 +561,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
     position: absolute;
     font-size: 30px;
     font-weight: bold;
+    text-shadow: 3px 2px #000000;
 }
 
 #lol-wrapper a {

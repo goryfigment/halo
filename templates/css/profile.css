@@ -733,8 +733,8 @@ ol span {
 /*}*/
 
 #lol-wrapper {
-    /*display: flex;*/
-    display: none;
+    display: flex;
+    /*display: none;*/
     margin-top: 10px;
     height: 226px;
     flex-direction: column;
@@ -761,6 +761,7 @@ ol span {
     font-weight: bold;
     margin: 0;
     line-height: 40px;
+    text-shadow: 3px 2px #000000;
 }
 
 #lol-wrapper a {
