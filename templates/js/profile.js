@@ -112,6 +112,13 @@ $(document).ready(function() {
         }
     }
 
+    //Add discontinued playlist ms2v2s
+    sorted_xbl_ranks.push({
+        'key': "ms_2v2_series",
+        'playlist': "MS 2v2 Series",
+        'rank': globals.saved_ranks['xbox']['ms_2v2_series']
+    });
+
     sorted_xbl_ranks.sort(function(a, b) {
         return b['rank'] - a['rank'];
     });
