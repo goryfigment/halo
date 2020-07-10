@@ -1163,8 +1163,10 @@ ol span {
 /*}*/
 
 #lol-wrapper {
-    /*display: flex;*/
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /*display: none;*/
     margin-top: 10px;
     height: 226px;
     -webkit-box-orient: vertical;
