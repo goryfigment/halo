@@ -242,40 +242,13 @@ def sort_ranks(ranks):
 def profile(request, gt):
     player_obj = Player.objects.filter(gamertag=gt)
 
-    # FOR NOW
-    ranks = {
-        "xbox": {
-            "H3 Team Slayer": [{
-                "Gamertag": gt,
-                "SkillRank": 1
-            }],
-            "H3 Team Hardcore": [{"SkillRank": 1}],
-            "H3 Team Doubles": [{"SkillRank": 1}],
-            "Halo: Reach Team Hardcore": [{"SkillRank": 1}],
-            "Halo: Reach Invasion": [{"SkillRank": 1}],
-            "H2C Team Hardcore": [{"SkillRank": 1}],
-            "HCE Hardcore Doubles": [{"SkillRank": 1}],
-            "H2A Team Hardcore": [{"SkillRank": 1}]
-        },
-        "pc": {
-            "H3 Team Slayer": [{"SkillRank": 1}],
-            "H3 Team Hardcore": [{"SkillRank": 1}],
-            "H3 Team Doubles": [{"SkillRank": 1}],
-            "Halo: Reach Team Hardcore": [{"SkillRank": 1}],
-            "Halo: Reach Invasion": [{"SkillRank": 1}],
-            "HCE Hardcore Doubles": [{"SkillRank": 1}],
-            "H2C Team Hardcore": [{"SkillRank": 1}],
-            "H2A Team Hardcore": [{"SkillRank": 1}],
-        }
-    }
-
     try:
-        # ranks = halo_ranks(gt)
+        ranks = halo_ranks(gt)
         waypoint = "Online"
     except:
         try:
             get_xbox_auth()
-            # ranks = halo_ranks(gt)
+            ranks = halo_ranks(gt)
             waypoint = "Online"
         except:
             waypoint = "Offline"
