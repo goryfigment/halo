@@ -9,18 +9,36 @@
         globals.base_url = '{{base_url}}';
         globals.gamertag = '{{gamertag}}';
         globals.recent_donations = {{recent_donations|safe}};
-        globals.mccs = {{mccs.leaderboard|safe}};
-        globals.playtime = {{playtime.leaderboard|safe}};
-        globals.kills = {{kills.leaderboard|safe}};
-        globals.deaths = {{deaths.leaderboard|safe}};
-        globals.wins = {{wins.leaderboard|safe}};
-        globals.losses = {{losses.leaderboard|safe}};
-        globals.matches = {{matches.leaderboard|safe}};
-        globals.kd = {{kd.leaderboard|safe}};
-        globals.wl = {{wl.leaderboard|safe}};
-        globals.assists = {{assists.leaderboard|safe}};
-        globals.betrayals = {{betrayals.leaderboard|safe}};
-        globals.headshots = {{headshots.leaderboard|safe}};
+{#        globals.mccs = {{mccs.leaderboard|safe}};#}
+{#        globals.playtime = {{playtime.leaderboard|safe}};#}
+{#        globals.kills = {{kills.leaderboard|safe}};#}
+{#        globals.deaths = {{deaths.leaderboard|safe}};#}
+{#        globals.wins = {{wins.leaderboard|safe}};#}
+{#        globals.losses = {{losses.leaderboard|safe}};#}
+{#        globals.matches = {{matches.leaderboard|safe}};#}
+{#        globals.kd = {{kd.leaderboard|safe}};#}
+{#        globals.wl = {{wl.leaderboard|safe}};#}
+{#        globals.assists = {{assists.leaderboard|safe}};#}
+{#        globals.betrayals = {{betrayals.leaderboard|safe}};#}
+{#        globals.headshots = {{headshots.leaderboard|safe}};#}
+
+        globals.h3_team_slayer = {{h3_team_slayer.leaderboard|safe}};
+        globals.h3_team_hardcore = {{h3_team_hardcore.leaderboard|safe}};
+        globals.h3_team_doubles = {{h3_team_doubles.leaderboard|safe}};
+        globals.hce_hardcore_doubles = {{hce_hardcore_doubles.leaderboard|safe}};
+        globals.h2c_team_hardcore = {{h2c_team_hardcore.leaderboard|safe}};
+        globals.h2a_team_hardcore = {{h2a_team_hardcore.leaderboard|safe}};
+        globals.halo_reach_team_hardcore = {{halo_reach_team_hardcore.leaderboard|safe}};
+        globals.halo_reach_invasion = {{halo_reach_invasion.leaderboard|safe}};
+
+        globals.pc_h3_team_slayer = {{pc_h3_team_slayer.leaderboard|safe}};
+        globals.pc_h3_team_hardcore = {{pc_h3_team_hardcore.leaderboard|safe}};
+        globals.pc_h3_team_doubles = {{pc_h3_team_doubles.leaderboard|safe}};
+        globals.pc_hce_hardcore_doubles = {{pc_hce_hardcore_doubles.leaderboard|safe}};
+        globals.pc_h2c_team_hardcore = {{pc_h2c_team_hardcore.leaderboard|safe}};
+        globals.pc_h2a_team_hardcore = {{pc_h2a_team_hardcore.leaderboard|safe}};
+        globals.pc_halo_reach_team_hardcore = {{pc_halo_reach_team_hardcore.leaderboard|safe}};
+        globals.pc_halo_reach_invasion = {{pc_halo_reach_invasion.leaderboard|safe}};
     </script>
 
     <meta property="title" content="MCC Stats: Leaderboards, Ranks, and more!">
@@ -69,49 +87,101 @@
 {#                     data-ad-client="ca-pub-1676522332244979"#}
 {#                     data-ad-slot="7714995143"></ins>#}
             </div>
+            <div id="recent-donations-wrapper"></div>
         </div>
 
         <div id="right-wrapper">
-            <div id="recent-donations-wrapper"></div>
-
-            <h4>Season 3 Leaderboards</h4>
+            <h4><i class="fab fa-steam-square steam"></i> PC Rank <span>Leaderboards</span></h4>
             <ol>
-                <li class="tab active" id="mccs-tab" data-type="mccs-wrapper"><b>MCCS</b></li>
+                <li class="tab active" id="pc-h3-slayer-tab" data-type="pc-h3-slayer-wrapper"><b>H3 Slayer</b></li>
                 <span>|</span>
-                <li class="tab" id="playtime-tab" data-type="playtime-wrapper"><b>Playtime</b></li>
+                <li class="tab" id="pc-h3-dubs-tab" data-type="pc-h3-dubs-wrapper"><b>H3 Dubs</b></li>
                 <span>|</span>
-                <li class="tab" id="kills-tab" data-type="kills-wrapper"><b>Kills</b></li>
+                <li class="tab" id="pc-h3-hardcore-tab" data-type="pc-h3-hardcore-wrapper"><b>H3 Hardcore</b></li>
+                <li class="tab" id="pc-h2a-hardcore-tab" data-type="pc-h2a-hardcore-wrapper"><b>H2A Hardcore</b></li>
                 <span>|</span>
-                <li class="tab" id="deaths-tab" data-type="deaths-wrapper"><b>Deaths</b></li>
-                <li class="tab" id="wins-tab" data-type="wins-wrapper"><b>Wins</b></li>
+                <li class="tab" id="pc-h2c-hardcore-tab" data-type="pc-h2c-hardcore-wrapper"><b>H2C Hardcore</b></li>
                 <span>|</span>
-                <li class="tab" id="losses-tab" data-type="losses-wrapper"><b>Losses</b></li>
+                <li class="tab" id="pc-h1-hardcore-tab" data-type="pc-h1-hardcore-wrapper"><b>H1 Hardcore</b></li>
+                <li class="tab" id="pc-reach-invasion-tab" data-type="pc-reach-invasion-wrapper"><b>Reach Invasion</b></li>
                 <span>|</span>
-                <li class="tab" id="matches-tab" data-type="matches-wrapper"><b>Matches</b></li>
-                <span>|</span>
-                <li class="tab" id="kd-tab" data-type="kd-wrapper"><b>KD</b></li>
-                <span>|</span>
-                <li class="tab" id="wl-tab" data-type="wl-wrapper"><b>WL</b></li>
-                <span>|</span>
-                <li class="tab" id="matches-tab" data-type="assists-wrapper"><b>Assists</b></li>
-                <span>|</span>
-                <li class="tab" id="matches-tab" data-type="betrayals-wrapper"><b>Betrayals</b></li>
-                <span>|</span>
-                <li class="tab" id="matches-tab" data-type="headshots-wrapper"><b>Headshots</b></li>
+                <li class="tab" id="pc-reach-hardcore-tab" data-type="pc-reach-hardcore-wrapper"><b>Reach Hardcore</b></li>
             </ol>
 
-            <div class="tab-wrapper active-tab" id="mccs-wrapper"></div>
-            <div class="tab-wrapper" id="playtime-wrapper"></div>
-            <div class="tab-wrapper" id="kills-wrapper"></div>
-            <div class="tab-wrapper" id="deaths-wrapper"></div>
-            <div class="tab-wrapper" id="wins-wrapper"></div>
-            <div class="tab-wrapper" id="losses-wrapper"></div>
-            <div class="tab-wrapper" id="matches-wrapper"></div>
-            <div class="tab-wrapper" id="assists-wrapper"></div>
-            <div class="tab-wrapper" id="betrayals-wrapper"></div>
-            <div class="tab-wrapper" id="headshots-wrapper"></div>
-            <div class="tab-wrapper" id="kd-wrapper"></div>
-            <div class="tab-wrapper" id="wl-wrapper"></div>
+            <div>
+            <div class="tab-wrapper active-tab" id="pc-h3-slayer-wrapper"></div>
+            <div class="tab-wrapper" id="pc-h3-hardcore-wrapper"></div>
+            <div class="tab-wrapper" id="pc-h3-dubs-wrapper"></div>
+            <div class="tab-wrapper" id="pc-h2a-hardcore-wrapper"></div>
+            <div class="tab-wrapper" id="pc-h2c-hardcore-wrapper"></div>
+            <div class="tab-wrapper" id="pc-h1-hardcore-wrapper"></div>
+            <div class="tab-wrapper" id="pc-reach-invasion-wrapper"></div>
+            <div class="tab-wrapper" id="pc-reach-hardcore-wrapper"></div>
+            </div>
+            <h4><i class="fab fa-xbox xbox"></i> Xbox Rank <span>Leaderboards</span></h4>
+            <ol>
+                <li class="tab active" id="h3-slayer-tab" data-type="h3-slayer-wrapper"><b>H3 Slayer</b></li>
+                <span>|</span>
+                <li class="tab" id="h3-dubs-tab" data-type="h3-dubs-wrapper"><b>H3 Dubs</b></li>
+                <span>|</span>
+                <li class="tab" id="h3-hardcore-tab" data-type="h3-hardcore-wrapper"><b>H3 Hardcore</b></li>
+                <li class="tab" id="h2a-hardcore-tab" data-type="h2a-hardcore-wrapper"><b>H2A Hardcore</b></li>
+                <span>|</span>
+                <li class="tab" id="h2c-hardcore-tab" data-type="h2c-hardcore-wrapper"><b>H2C Hardcore</b></li>
+                <span>|</span>
+                <li class="tab" id="h1-hardcore-tab" data-type="h1-hardcore-wrapper"><b>H1 Hardcore</b></li>
+                <li class="tab" id="reach-invasion-tab" data-type="reach-invasion-wrapper"><b>Reach Invasion</b></li>
+                <span>|</span>
+                <li class="tab" id="reach-hardcore-tab" data-type="reach-hardcore-wrapper"><b>Reach Hardcore</b></li>
+            </ol>
+            <div>
+                <div class="tab-wrapper active-tab" id="h3-slayer-wrapper"></div>
+                <div class="tab-wrapper" id="h3-hardcore-wrapper"></div>
+                <div class="tab-wrapper" id="h3-dubs-wrapper"></div>
+                <div class="tab-wrapper" id="h2a-hardcore-wrapper"></div>
+                <div class="tab-wrapper" id="h2c-hardcore-wrapper"></div>
+                <div class="tab-wrapper" id="h1-hardcore-wrapper"></div>
+                <div class="tab-wrapper" id="reach-invasion-wrapper"></div>
+                <div class="tab-wrapper" id="reach-hardcore-wrapper"></div>
+            </div>
+{#            <h4>Season 3 Leaderboards</h4>#}
+{#            <ol>#}
+{#                <li class="tab active" id="mccs-tab" data-type="mccs-wrapper"><b>MCCS</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="playtime-tab" data-type="playtime-wrapper"><b>Playtime</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="kills-tab" data-type="kills-wrapper"><b>Kills</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="deaths-tab" data-type="deaths-wrapper"><b>Deaths</b></li>#}
+{#                <li class="tab" id="wins-tab" data-type="wins-wrapper"><b>Wins</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="losses-tab" data-type="losses-wrapper"><b>Losses</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="matches-tab" data-type="matches-wrapper"><b>Matches</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="kd-tab" data-type="kd-wrapper"><b>KD</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="wl-tab" data-type="wl-wrapper"><b>WL</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="matches-tab" data-type="assists-wrapper"><b>Assists</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="matches-tab" data-type="betrayals-wrapper"><b>Betrayals</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="matches-tab" data-type="headshots-wrapper"><b>Headshots</b></li>#}
+{#            </ol>#}
+{##}
+{#            <div class="tab-wrapper active-tab" id="mccs-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="playtime-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="kills-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="deaths-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="wins-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="losses-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="matches-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="assists-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="betrayals-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="headshots-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="kd-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="wl-wrapper"></div>#}
 {#            <div id="advertisement-wrapper">#}
 {#                <h4>Tommy Kost: Halo 2/3 (MCC) Montage</h4>#}
 {#                <iframe width="320" height="180" src="https://www.youtube.com/embed/92G8ELYQGUQ?autoplay=1&cc_load_policy=1&mute=1" allowfullscreen></iframe>#}
@@ -122,6 +192,21 @@
     <section id="update-section">
         <div id="update-container">
             <h2>LATEST NEWS</h2>
+
+            <div class="news-wrapper">
+                <time>July 14th, 2020 12:00AM</time>
+
+                <h1>RANK <span>RESET</span></h1>
+
+                <img src="https://i.gyazo.com/cc70673131656ad4b8437868e5b3eacb.png" />
+
+                <p>If you are reading this the ranks are now officially saved on mccstats! We are no longer updating the ranks in preparation of the reset that will happen very soon! <br><br>
+                    Users can now view their previous ranks before reset under the <b>BEFORE RESET</b> tab on your profile. Leaderboards before reset were also saved and are also archived under the <b>BEFORE RESET</b> tab. <br><br>
+                    Halo 3 PC is coming out soon so prepare to start grinding the leaderboard ranks for each playlist for both PC and XBOX.
+                    <br><br>
+                    Thanks again for the huge support and Good Luck grinding!
+                </p>
+            </div>
 
             <div class="news-wrapper">
                 <time>July 10th, 2020 3:00PM</time>

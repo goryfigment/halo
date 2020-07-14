@@ -269,7 +269,7 @@ footer #leaderboard-button {
     justify-content: space-between;
 }
 
-#xbox-rank-wrapper, #pc-rank-wrapper {
+.rank-wrapper {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -294,6 +294,7 @@ footer #leaderboard-button {
     font-size: 18px;
     border-bottom: 1px solid #414141;
     display: flex;
+    justify-content: space-between;
 }
 
 .waypoint {
@@ -308,12 +309,7 @@ footer #leaderboard-button {
     color: #de0000;
 }
 
-#xbox-rank-wrapper div {
-    flex: 0 0 33%;
-    position: relative;
-}
-
-#pc-rank-wrapper div {
+.rank-wrapper div {
     flex: 0 0 33.33%;
     position: relative;
 }
@@ -323,6 +319,7 @@ footer #leaderboard-button {
     max-height: 15px;
     font-size: 12px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-transform: capitalize;
 }
 
 #right-wrapper h3 {
@@ -507,7 +504,7 @@ ol span {
     display: block !important;
 }
 
-#all-wrapper, #season1-wrapper, #season2-wrapper, #season3-wrapper, #matches-wrapper, #fileshare-wrapper {
+.tab-wrapper  {
     display: none;
 }
 /*SEASON*/

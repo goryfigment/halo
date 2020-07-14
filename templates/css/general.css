@@ -316,6 +316,7 @@ footer p {
 @media only screen and (max-width: 800px) {
     #leaderboard-container {
         transition: transform ease 0.5s;
+        transform-origin: top;
         flex-direction: column;
         align-items: center;
         width: 310px !important;
@@ -340,6 +341,48 @@ footer p {
         flex-direction: column;
         margin: 15px 0;
     }
+}
+
+#overlay ol {
+    background: #1f1f1f;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    color: #b4b4b4;
+    justify-content: flex-end;
+    border: none;
+    max-width: fit-content;
+}
+
+#overlay ol span {
+    line-height: 38px;
+}
+
+#overlay .tab {
+    cursor: pointer;
+    margin: 5px 14px;
+    padding: 6px;
+    transition: 0.5s ease all;
+    border-radius: 1px;
+}
+
+#overlay .tab.active {
+    background: #4354a5;
+}
+
+#overlay .tab:hover, .operation-tab:hover {
+    background: #4354a5;
+}
+
+#overlay .active-tab {
+    display: block !important;
+}
+
+#overlay .tab-wrapper {
+    display: none;
 }
 
 #leaderboard-container {

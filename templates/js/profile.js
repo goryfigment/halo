@@ -67,6 +67,8 @@ function serviceRecordSuccess(response) {
     $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'total_50s': globals.total_50s}));
     $statsWrapper.append(statsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
 
+    console.log(JSON.stringify(response));
+
     //(adsbygoogle = window.adsbygoogle || []).push({});
 }
 
@@ -100,10 +102,14 @@ $(document).ready(function() {
     for (var playlist in xbox_ranks) {
         if (xbox_ranks.hasOwnProperty(playlist)) {
             var rank = xbox_ranks[playlist][0]['SkillRank'];
+            var key = helper.replaceAll(playlist.toLowerCase(), ' ', '_').replace(':', '');
+
             sorted_xbl_ranks.push({
-                'key': helper.replaceAll(playlist.toLowerCase(), ' ', '_').replace(':', ''),
+                'key': key,
                 'playlist': playlist,
-                'rank': rank
+                'rank': rank,
+                'leaderboard': globals.leaderboard[key],
+                'verified': globals.saved_ranks['xbox']['v_' + key]
             });
 
             if(rank == 50) {
@@ -112,28 +118,24 @@ $(document).ready(function() {
         }
     }
 
-    //Add discontinued playlist ms2v2s
-    sorted_xbl_ranks.push({
-        'key': "ms_2v2_series",
-        'playlist': "MS 2v2 Series",
-        'rank': globals.saved_ranks['xbox']['ms_2v2_series']
-    });
-
     sorted_xbl_ranks.sort(function(a, b) {
         return b['rank'] - a['rank'];
     });
 
-    var avail_pc_ranks = ['Halo: Reach Team Slayer', 'Halo: Reach Invasion', 'Halo: Reach Team Hardcore', 'HCE Hardcore Doubles', 'H2C Team Hardcore', 'H2A Team Hardcore'];
+    //var avail_pc_ranks = ['Halo: Reach Team Slayer', 'Halo: Reach Invasion', 'Halo: Reach Team Hardcore', 'HCE Hardcore Doubles', 'H2C Team Hardcore', 'H2A Team Hardcore'];
 
     //PC Ranks
     for (var pc_playlist in pc_ranks) {
-        if (pc_ranks.hasOwnProperty(pc_playlist) && avail_pc_ranks.indexOf(pc_playlist) > -1) {
+        if (pc_ranks.hasOwnProperty(pc_playlist)/* && avail_pc_ranks.indexOf(pc_playlist) > -1*/) {
             rank = pc_ranks[pc_playlist][0]['SkillRank'];
+            key = helper.replaceAll(pc_playlist.toLowerCase(), ' ', '_').replace(':', '');
 
             sorted_pc_ranks.push({
-                'key': 'pc_' + helper.replaceAll(pc_playlist.toLowerCase(), ' ', '_').replace(':', ''),
+                'key': key,
                 'playlist': pc_playlist,
-                'rank': rank
+                'rank': rank,
+                'leaderboard': globals.leaderboard['pc_' + key],
+                'verified': globals.saved_ranks['pc']['v_' + key]
             });
 
             if(rank == 50) {
@@ -167,13 +169,60 @@ $(document).ready(function() {
         $donatorWrapper.prepend(donatorTemplate(globals.player));
     }
 
-    $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count, saved_ranks: globals.saved_ranks['xbox']}));
-    $('#pc-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_pc_ranks, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count, saved_ranks: globals.saved_ranks['pc']}));
+    $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'player_count': globals.player_count}));
+    $('#pc-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_pc_ranks, 'player_count': globals.player_count}));
     sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, xbox_ranks: xbox_ranks, pc_ranks: pc_ranks, highest_rank: highest_rank}), 'POST', serviceRecordSuccess, serviceRecordError);
     sendRequest('/player-matches/', {'gt': globals.gamertag, 'game_variant': '', 'req': 6}, 'GET', playerMatchesSuccess, playerMatchesError);
     sendRequest('/xbox-clips/', {gt: globals.gamertag}, 'GET', xboxClipsSuccess, xboxClipsError);
     sendRequest('/update-emblem/', {gt: globals.gamertag}, 'GET', emblemSuccess, emblemError);
+
+    //OLD RANKS//
+    prevRankshandler(globals.old_saved_ranks['xbox'], globals.old_saved_ranks['pc']);
+    //OLD RANKS//
 });
+
+function prevRankshandler(xbox_ranks, pc_ranks) {
+    var xbox_keys = ["ms_2v2_series", "hce_hardcore_doubles", "h2a_team_hardcore", "h3_team_doubles", "h3_team_slayer", "h2c_team_hardcore", "halo_reach_team_slayer", "halo_reach_team_hardcore", "hce_team_doubles", "h3_team_hardcore", "halo_reach_invasion"];
+    var pc_keys = ["h2c_team_hardcore", "hce_hardcore_doubles", "halo_reach_team_hardcore", "h2a_team_hardcore", "halo_reach_invasion", "halo_reach_team_slayer"];
+
+    var old_xbox_ranks = [];
+    var old_pc_ranks = [];
+
+    for (var i = 0; i < xbox_keys.length; i++) {
+        var key = xbox_keys[i];
+        var playlist_name = helper.replaceAll(key, '_', ' ').replace('halo reach', 'halo: reach').replace('h2a', 'H2A').replace('hce', 'HCE').replace('ms', 'MS').replace('h2c', 'H2C');
+        old_xbox_ranks.push({
+            'key': key,
+            'playlist': playlist_name,
+            'rank': xbox_ranks[key],
+            'leaderboard': globals.leaderboard['old_' + key],
+            'verified': xbox_ranks['v_' + key]
+        });
+    }
+
+    old_xbox_ranks.sort(function(a, b) {
+        return b['rank'] - a['rank'];
+    });
+
+    for (var p = 0; p < pc_keys.length; p++) {
+        key = pc_keys[p];
+        playlist_name = helper.replaceAll(key, '_', ' ').replace('halo reach', 'halo: reach').replace('h2a', 'H2A').replace('hce', 'HCE').replace('h2c', 'H2C');
+        old_pc_ranks.push({
+            'key': key,
+            'playlist': playlist_name,
+            'rank': pc_ranks[key],
+            'leaderboard': globals.leaderboard['old_pc_' + key],
+            'verified': pc_ranks['v_' + key]
+        });
+    }
+
+    old_pc_ranks.sort(function(a, b) {
+        return b['rank'] - a['rank'];
+    });
+
+    $('#prev-xbox-rank-wrapper').append(haloRanksTemplate({'ranks': old_xbox_ranks, 'player_count': globals.player_count}));
+    $('#prev-pc-rank-wrapper').append(haloRanksTemplate({'ranks': old_pc_ranks, 'player_count': globals.player_count}));
+}
 
 function playerMatchesSuccess(response) {
     var $wrapper = $('#matches-wrapper');
@@ -216,20 +265,21 @@ $(document).on('click', '#overlay img', function (e) {
 //PRIVATE//
 
 // TABS //
-function tabHandler($tab, $wrapper) {
-    var $ol = $tab.closest('ol');
-
-    $ol.find('.tab.active').removeClass('active');
-    $tab.addClass('active');
-
-    $wrapper.siblings('.active-tab').removeClass('active-tab');
-    $wrapper.addClass('active-tab');
-}
-
-$(document).on('click', '.tab', function () {
-    var $this = $(this);
-    tabHandler($this, $('#' + $this.attr('data-type')));
-});
+//function tabHandler($tab, $wrapper) {
+//    var $ol = $tab.closest('ol');
+//
+//    $ol.find('.tab.active').removeClass('active');
+//    $tab.addClass('active');
+//
+//    $wrapper.siblings('.active-tab').removeClass('active-tab');
+//    $wrapper.addClass('active-tab');
+//}
+//
+//$(document).on('click', '.tab', function (e) {
+//    e.stopPropagation();
+//    var $this = $(this);
+//    tabHandler($this, $('#' + $this.attr('data-type')));
+//});
 // TABS //
 
 // FILESHARE //

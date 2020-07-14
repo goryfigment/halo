@@ -76,3 +76,21 @@ $(window).on('resize', function(){
       }
 });
 //HEADER//
+
+function tabHandler($tab, $wrapper) {
+    var $ol = $tab.closest('ol');
+    var $ul = $tab.closest('ul');
+
+    $ol.find('.tab.active').removeClass('active');
+    $ul.find('.tab.active').removeClass('active');
+    $tab.addClass('active');
+
+    $wrapper.siblings('.active-tab').removeClass('active-tab');
+    $wrapper.addClass('active-tab');
+}
+
+$(document).on('click', '.tab', function (e) {
+    e.stopPropagation();
+    var $this = $(this);
+    tabHandler($this, $('#' + $this.attr('data-type')));
+});

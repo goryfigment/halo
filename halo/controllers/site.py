@@ -4,8 +4,8 @@ from base import get_base_url, model_to_dict
 from django.db.models import F
 from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
-from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks, Season3
-from halo.controllers.leaderboard import season3_func, season3_playtime_func
+from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks, Season3, NewRanks, NewPcRanks
+from halo.controllers.leaderboard import season3_func, season3_playtime_func, rank_func
 from django.http import HttpResponse
 
 
@@ -28,18 +28,35 @@ def server_error(request):
 def home(request):
     data = {
         'base_url': get_base_url(),
-        'mccs': season3_func(request, 'mccs', 'score', 'MCCS', 0, 10),
-        'playtime': season3_playtime_func(request, 0, 10),
-        'kills': season3_func(request, 'season1', 'kills', '(Season 3) Kills', 0, 10),
-        'deaths': season3_func(request, 'season1', 'deaths', '(Season 3) Deaths', 0, 10),
-        'wins': season3_func(request, 'season1', 'wins', '(Season 3) Wins', 0, 10),
-        'losses': season3_func(request, 'season1', 'losses', '(Season 3) Losses', 0, 10),
-        'matches': season3_func(request, 'season1', 'matches', '(Season 3) Matches', 0, 10),
-        'kd': season3_func(request, 'season1_ratio', 'kd', '(Season 3) K/D Ratio', 0, 10),
-        'wl': season3_func(request, 'season1_ratio', 'wl', '(Season 3) W/L Ratio', 0, 10),
-        'assists': season3_func(request, 'season1', 'assists', '(Season 3) Assists', 0, 10),
-        'betrayals': season3_func(request, 'season1', 'betrayals', '(Season 3) Betrayals', 0, 10),
-        'headshots': season3_func(request, 'season1', 'headshots', '(Season 3) Headshots', 0, 10),
+        # 'mccs': season3_func(request, 'mccs', 'score', 'MCCS', 0, 10),
+        # 'playtime': season3_playtime_func(request, 0, 10),
+        # 'kills': season3_func(request, 'season1', 'kills', '(Season 3) Kills', 0, 10),
+        # 'deaths': season3_func(request, 'season1', 'deaths', '(Season 3) Deaths', 0, 10),
+        # 'wins': season3_func(request, 'season1', 'wins', '(Season 3) Wins', 0, 10),
+        # 'losses': season3_func(request, 'season1', 'losses', '(Season 3) Losses', 0, 10),
+        # 'matches': season3_func(request, 'season1', 'matches', '(Season 3) Matches', 0, 10),
+        # 'kd': season3_func(request, 'season1_ratio', 'kd', '(Season 3) K/D Ratio', 0, 10),
+        # 'wl': season3_func(request, 'season1_ratio', 'wl', '(Season 3) W/L Ratio', 0, 10),
+        # 'assists': season3_func(request, 'season1', 'assists', '(Season 3) Assists', 0, 10),
+        # 'betrayals': season3_func(request, 'season1', 'betrayals', '(Season 3) Betrayals', 0, 10),
+        # 'headshots': season3_func(request, 'season1', 'headshots', '(Season 3) Headshots', 0, 10),
+        'h3_team_slayer': rank_func(request, 'playlist', 'h3_team_slayer', '(Xbox) Halo 3: Team Slayer', 0, 10),
+        'h3_team_hardcore': rank_func(request, 'playlist', 'h3_team_hardcore', '(Xbox) Halo 3: Team Hardcore', 0, 10),
+        'h3_team_doubles': rank_func(request, 'playlist', 'h3_team_doubles', '(Xbox) Halo 3: Team Doubles', 0, 10),
+        'hce_hardcore_doubles': rank_func(request, 'playlist', 'hce_hardcore_doubles', '(Xbox) Halo 1: Hardcore Doubles', 0, 10),
+        'h2c_team_hardcore': rank_func(request, 'playlist', 'h2c_team_hardcore', '(Xbox) Halo 2 Classic: Team Hardcore', 0, 10),
+        'h2a_team_hardcore': rank_func(request, 'playlist', 'h2a_team_hardcore', '(Xbox) H2A: Team Hardcore', 0, 10),
+        'halo_reach_team_hardcore': rank_func(request, 'playlist', 'halo_reach_team_hardcore', '(Xbox) Reach: Team Hardcore', 0, 10),
+        'halo_reach_invasion': rank_func(request, 'playlist', 'halo_reach_invasion', '(Xbox) Reach: Team Invasion', 0, 10),
+
+        'pc_h3_team_slayer': rank_func(request, 'playlist', 'pc_h3_team_slayer', '(PC) Halo 3: Team Slayer', 0, 10),
+        'pc_h3_team_hardcore': rank_func(request, 'playlist', 'pc_h3_team_hardcore', '(PC) Halo 3: Team Hardcore', 0, 10),
+        'pc_h3_team_doubles': rank_func(request, 'playlist', 'pc_h3_team_doubles', '(PC) Halo 3: Team Doubles', 0, 10),
+        'pc_hce_hardcore_doubles': rank_func(request, 'playlist', 'pc_hce_hardcore_doubles', '(PC) Halo 1: Hardcore Doubles', 0, 10),
+        'pc_h2c_team_hardcore': rank_func(request, 'playlist', 'pc_h2c_team_hardcore', '(PC) Halo 2 Classic: Team Hardcore', 0, 10),
+        'pc_h2a_team_hardcore': rank_func(request, 'playlist', 'pc_h2a_team_hardcore', '(PC) H2A: Team Hardcore', 0, 10),
+        'pc_halo_reach_team_hardcore': rank_func(request, 'playlist', 'pc_halo_reach_team_hardcore', '(PC) Reach: Team Hardcore', 0, 10),
+        'pc_halo_reach_invasion': rank_func(request, 'playlist', 'pc_halo_reach_invasion', '(PC) Reach: Team Invasion', 0, 10),
 
         'recent_donations': json.dumps(list(RecentDonations.objects.all().values(amount=F('player__donation'), gamertag=F('player__gamertag'), player_id=F('player__id'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb')).order_by('-id')[0:5]))
     }
@@ -225,19 +242,46 @@ def sort_ranks(ranks):
 def profile(request, gt):
     player_obj = Player.objects.filter(gamertag=gt)
 
+    # FOR NOW
+    ranks = {
+        "xbox": {
+            "H3 Team Slayer": [{
+                "Gamertag": gt,
+                "SkillRank": 1
+            }],
+            "H3 Team Hardcore": [{"SkillRank": 1}],
+            "H3 Team Doubles": [{"SkillRank": 1}],
+            "Halo: Reach Team Hardcore": [{"SkillRank": 1}],
+            "Halo: Reach Invasion": [{"SkillRank": 1}],
+            "H2C Team Hardcore": [{"SkillRank": 1}],
+            "HCE Hardcore Doubles": [{"SkillRank": 1}],
+            "H2A Team Hardcore": [{"SkillRank": 1}]
+        },
+        "pc": {
+            "H3 Team Slayer": [{"SkillRank": 1}],
+            "H3 Team Hardcore": [{"SkillRank": 1}],
+            "H3 Team Doubles": [{"SkillRank": 1}],
+            "Halo: Reach Team Hardcore": [{"SkillRank": 1}],
+            "Halo: Reach Invasion": [{"SkillRank": 1}],
+            "HCE Hardcore Doubles": [{"SkillRank": 1}],
+            "H2C Team Hardcore": [{"SkillRank": 1}],
+            "H2A Team Hardcore": [{"SkillRank": 1}],
+        }
+    }
+
     try:
-        ranks = halo_ranks(gt)
+        # ranks = halo_ranks(gt)
         waypoint = "Online"
     except:
         try:
             get_xbox_auth()
-            ranks = halo_ranks(gt)
+            # ranks = halo_ranks(gt)
             waypoint = "Online"
         except:
             waypoint = "Offline"
             if player_obj.exists():
-                xbox_ranks = model_to_dict(Ranks.objects.filter(player=player_obj)[0])
-                pc_ranks = model_to_dict(PcRanks.objects.filter(player=player_obj)[0])
+                xbox_ranks = model_to_dict(NewRanks.objects.filter(player=player_obj)[0])
+                pc_ranks = model_to_dict(NewPcRanks.objects.filter(player=player_obj)[0])
 
                 ranks = {
                     "xbox": {
@@ -246,7 +290,6 @@ def profile(request, gt):
                             "SkillRank": xbox_ranks['h3_team_slayer']
                         }],
                         "H3 Team Hardcore": [{"SkillRank": xbox_ranks['h3_team_hardcore']}],
-                        "MS 2v2 Series": [{"SkillRank": xbox_ranks['ms_2v2_series']}],
                         "H3 Team Doubles": [{"SkillRank": xbox_ranks['h3_team_doubles']}],
                         "Halo: Reach Team Hardcore": [{"SkillRank": xbox_ranks['halo_reach_team_hardcore']}],
                         "Halo: Reach Invasion": [{"SkillRank": xbox_ranks['halo_reach_invasion']}],
@@ -255,6 +298,9 @@ def profile(request, gt):
                         "H2A Team Hardcore": [{"SkillRank": xbox_ranks['h2a_team_hardcore']}]
                     },
                     "pc": {
+                        "H3 Team Slayer": [{"SkillRank": pc_ranks['h3_team_slayer']}],
+                        "H3 Team Hardcore": [{"SkillRank": pc_ranks['h3_team_hardcore']}],
+                        "H3 Team Doubles": [{"SkillRank": pc_ranks['h3_team_doubles']}],
                         "Halo: Reach Team Hardcore": [{"SkillRank": pc_ranks['halo_reach_team_hardcore']}],
                         "Halo: Reach Invasion": [{"SkillRank": pc_ranks['halo_reach_invasion']}],
                         "HCE Hardcore Doubles": [{"SkillRank": pc_ranks['hce_hardcore_doubles']}],
@@ -270,7 +316,6 @@ def profile(request, gt):
                             "SkillRank": 1
                         }],
                         "H3 Team Hardcore": [{"SkillRank": 1}],
-                        "MS 2v2 Series": [{"SkillRank": 1}],
                         "H3 Team Doubles": [{"SkillRank": 1}],
                         "Halo: Reach Team Hardcore": [{"SkillRank": 1}],
                         "Halo: Reach Invasion": [{"SkillRank": 1}],
@@ -279,6 +324,9 @@ def profile(request, gt):
                         "H2A Team Hardcore": [{"SkillRank": 1}]
                     },
                     "pc": {
+                        "H3 Team Slayer": [{"SkillRank": 1}],
+                        "H3 Team Hardcore": [{"SkillRank": 1}],
+                        "H3 Team Doubles": [{"SkillRank": 1}],
                         "Halo: Reach Team Hardcore": [{"SkillRank": 1}],
                         "Halo: Reach Invasion": [{"SkillRank": 1}],
                         "HCE Hardcore Doubles": [{"SkillRank": 1}],
@@ -300,8 +348,24 @@ def profile(request, gt):
         else:
             leaderboard = {}
 
-        xbox_ranks = Ranks.objects.filter(player=player_obj)
-        pc_ranks = PcRanks.objects.filter(player=player_obj)
+        # OLD RANKS #
+        old_xbox_ranks = Ranks.objects.filter(player=player_obj)
+        old_pc_ranks = PcRanks.objects.filter(player=player_obj)
+        if old_xbox_ranks.exists() and old_pc_ranks.exists():
+            old_saved_ranks = {
+                'xbox': model_to_dict(old_xbox_ranks[0]),
+                'pc': model_to_dict(old_pc_ranks[0])
+            }
+        else:
+            old_saved_ranks = {
+                'xbox': {},
+                'pc': {}
+            }
+        # OLD RANKS #
+
+        # NEW RANKS #
+        xbox_ranks = NewRanks.objects.filter(player=player_obj)
+        pc_ranks = NewPcRanks.objects.filter(player=player_obj)
         if xbox_ranks.exists() and pc_ranks.exists():
             saved_ranks = {
                 'xbox': model_to_dict(xbox_ranks[0]),
@@ -312,6 +376,7 @@ def profile(request, gt):
                 'xbox': {},
                 'pc': {}
             }
+        # NEW RANKS #
 
         player['season'] = model_to_dict(Season1.objects.get(player=player_obj))
         player['season2'] = model_to_dict(Season2.objects.get(player=player_obj))
@@ -382,11 +447,13 @@ def profile(request, gt):
             }
         }
         leaderboard = {}
-        saved_ranks = {}
+        saved_ranks = {"pc":{"v_halo_reach_team_hardcore":0,"v_h3_team_hardcore":0,"h3_team_slayer":1,"v_h3_team_slayer":0,"h2c_team_hardcore":1,"v_h3_team_doubles":0,"v_halo_reach_invasion":0,"v_h2c_team_hardcore":0,"hce_hardcore_doubles":1,"halo_reach_team_hardcore":1,"v_h2a_team_hardcore":0,"h2a_team_hardcore":1,"v_hce_hardcore_doubles":0,"h3_team_doubles":1,"h3_team_hardcore":1,"halo_reach_invasion":1},"xbox":{"v_halo_reach_team_hardcore":0,"v_h3_team_hardcore":0,"h3_team_slayer":1,"v_h3_team_slayer":0,"h2c_team_hardcore":1,"v_h3_team_doubles":0,"v_halo_reach_invasion":0,"v_h2c_team_hardcore":0,"hce_hardcore_doubles":1,"h2a_team_hardcore":1,"v_h2a_team_hardcore":0,"halo_reach_team_hardcore":1,"v_hce_hardcore_doubles":0,"halo_reach_invasion":1,"h3_team_doubles":1,"h3_team_hardcore":1,"pc_ranks":1}}
+        old_saved_ranks = {"pc":{"v_halo_reach_team_hardcore":0,"v_halo_reach_invasion":0,"v_halo_reach_team_slayer":0,"v_hce_hardcore_doubles":0,"v_h2a_team_hardcore":0,"v_h2c_team_hardcore":0,"hce_hardcore_doubles":1,"halo_reach_team_hardcore":1,"halo_reach_team_slayer":1,"h2a_team_hardcore":1,"h2c_team_hardcore":1,"halo_reach_invasion":1},"xbox":{"v_halo_reach_team_hardcore":0,"v_halo_reach_invasion":0,"v_h3_team_doubles":0,"v_h2a_team_hardcore":0,"ms_2v2_series":1,"hce_hardcore_doubles":1,"h2a_team_hardcore":1,"h3_team_doubles":1,"h3_team_slayer":1,"v_halo_reach_team_slayer":0,"h2c_team_hardcore":1,"v_ms_2v2_series":0,"v_hce_hardcore_doubles":0,"v_hce_team_doubles":0,"halo_reach_team_slayer":1,"v_h2c_team_hardcore":0,"v_h3_team_hardcore":0,"halo_reach_team_hardcore":1,"hce_team_doubles":1,"v_h3_team_slayer":0,"h3_team_hardcore":1,"halo_reach_invasion":1}}
 
     data = {
         'base_url': get_base_url(),
         'saved_ranks': json.dumps(saved_ranks),
+        'old_saved_ranks': json.dumps(old_saved_ranks),
         'xbox_ranks': json.dumps(ranks['xbox']),
         'pc_ranks': json.dumps(ranks['pc']),
         'gt': ranks['xbox']['H3 Team Slayer'][0]['Gamertag'],
@@ -395,6 +462,9 @@ def profile(request, gt):
         'player_count': Player.objects.all().count(),
         'waypoint': waypoint
     }
+
+    print json.dumps(saved_ranks)
+    print json.dumps(old_saved_ranks)
 
     return render(request, 'profile.html', data)
 

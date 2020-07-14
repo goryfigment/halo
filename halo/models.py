@@ -49,6 +49,56 @@ class RecentDonations(models.Model):
         db_table = "recent_donations"
 
 
+class NewPcRanks(models.Model):
+    player = models.ForeignKey(Player, default=None)
+    h3_team_slayer = models.IntegerField(default=1)
+    h3_team_hardcore = models.IntegerField(default=1)
+    h3_team_doubles = models.IntegerField(default=1)
+    halo_reach_team_hardcore = models.IntegerField(default=1)
+    halo_reach_invasion = models.IntegerField(default=1)
+    hce_hardcore_doubles = models.IntegerField(default=1)
+    h2c_team_hardcore = models.IntegerField(default=1)
+    h2a_team_hardcore = models.IntegerField(default=1)
+
+    v_h3_team_slayer = models.BooleanField(default=0)
+    v_h3_team_hardcore = models.BooleanField(default=0)
+    v_h3_team_doubles = models.BooleanField(default=0)
+    v_halo_reach_team_hardcore = models.IntegerField(default=0)
+    v_halo_reach_invasion = models.IntegerField(default=0)
+    v_hce_hardcore_doubles = models.IntegerField(default=0)
+    v_h2c_team_hardcore = models.IntegerField(default=0)
+    v_h2a_team_hardcore = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "new_pc_ranks"
+
+
+class NewRanks(models.Model):
+    player = models.ForeignKey(Player, default=None)
+    pc_ranks = models.ForeignKey(NewPcRanks, default=1)
+
+    h3_team_slayer = models.IntegerField(default=1)
+    h3_team_hardcore = models.IntegerField(default=1)
+    h3_team_doubles = models.IntegerField(default=1)
+    h2a_team_hardcore = models.IntegerField(default=1)
+    h2c_team_hardcore = models.IntegerField(default=1)
+    hce_hardcore_doubles = models.IntegerField(default=1)
+    halo_reach_team_hardcore = models.IntegerField(default=1)
+    halo_reach_invasion = models.IntegerField(default=1)
+
+    v_h3_team_slayer = models.BooleanField(default=0)
+    v_h3_team_hardcore = models.BooleanField(default=0)
+    v_h3_team_doubles = models.BooleanField(default=0)
+    v_halo_reach_team_hardcore = models.BooleanField(default=0)
+    v_halo_reach_invasion = models.BooleanField(default=0)
+    v_h2c_team_hardcore = models.BooleanField(default=0)
+    v_hce_hardcore_doubles = models.BooleanField(default=0)
+    v_h2a_team_hardcore = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "new_ranks"
+
+
 class PcRanks(models.Model):
     player = models.ForeignKey(Player, default=None)
     halo_reach_team_hardcore = models.IntegerField(default=1)
@@ -152,23 +202,45 @@ class Leaderboard(models.Model):
     s3_betrayals = models.FloatField(default=0)
     s3_headshots = models.FloatField(default=0)
 
-    h3_team_slayer = models.IntegerField(default=0)
-    h3_team_hardcore = models.IntegerField(default=0)
-    ms_2v2_series = models.IntegerField(default=0)
-    h3_team_doubles = models.IntegerField(default=0)
-    h2c_team_hardcore = models.IntegerField(default=0)
-    hce_team_doubles = models.IntegerField(default=0)
-    hce_hardcore_doubles = models.IntegerField(default=0)
-    halo_reach_team_hardcore = models.IntegerField(default=0)
-    halo_reach_invasion = models.IntegerField(default=0)
-    halo_reach_team_slayer = models.IntegerField(default=0)
-    h2a_team_hardcore = models.IntegerField(default=0)
+    # NEW
+    # new_h3_team_slayer = models.IntegerField(default=0)
+    # new_h3_team_hardcore = models.IntegerField(default=0)
+    # new_h3_team_doubles = models.IntegerField(default=0)
+    # new_h2c_team_hardcore = models.IntegerField(default=0)
+    # new_hce_hardcore_doubles = models.IntegerField(default=0)
+    # new_halo_reach_team_hardcore = models.IntegerField(default=0)
+    # new_halo_reach_invasion = models.IntegerField(default=0)
+    # new_h2a_team_hardcore = models.IntegerField(default=0)
+    #
+    # new_pc_h3_team_slayer = models.IntegerField(default=0)
+    # new_pc_h3_team_hardcore = models.IntegerField(default=0)
+    # new_pc_h3_team_doubles = models.IntegerField(default=0)
+    # new_pc_h2c_team_hardcore = models.IntegerField(default=0)
+    # new_pc_hce_hardcore_doubles = models.IntegerField(default=0)
+    # new_pc_halo_reach_team_hardcore = models.IntegerField(default=0)
+    # new_pc_halo_reach_invasion = models.IntegerField(default=0)
+    # new_pc_h2a_team_hardcore = models.IntegerField(default=0)
+    # NEW
 
-    pc_halo_reach_team_hardcore = models.IntegerField(default=0)
-    pc_halo_reach_invasion = models.IntegerField(default=0)
-    pc_halo_reach_team_slayer = models.IntegerField(default=0)
-    pc_hce_hardcore_doubles = models.IntegerField(default=0)
-    pc_h2a_team_hardcore = models.IntegerField(default=0)
+    # OLD
+    old_h3_team_slayer = models.IntegerField(default=0)
+    old_h3_team_hardcore = models.IntegerField(default=0)
+    old_ms_2v2_series = models.IntegerField(default=0)
+    old_h3_team_doubles = models.IntegerField(default=0)
+    old_h2c_team_hardcore = models.IntegerField(default=0)
+    old_hce_team_doubles = models.IntegerField(default=0)
+    old_hce_hardcore_doubles = models.IntegerField(default=0)
+    old_halo_reach_team_hardcore = models.IntegerField(default=0)
+    old_halo_reach_invasion = models.IntegerField(default=0)
+    old_halo_reach_team_slayer = models.IntegerField(default=0)
+    old_h2a_team_hardcore = models.IntegerField(default=0)
+
+    old_pc_halo_reach_team_hardcore = models.IntegerField(default=0)
+    old_pc_halo_reach_invasion = models.IntegerField(default=0)
+    old_pc_halo_reach_team_slayer = models.IntegerField(default=0)
+    old_pc_hce_hardcore_doubles = models.IntegerField(default=0)
+    old_pc_h2a_team_hardcore = models.IntegerField(default=0)
+    # OLD
 
     class Meta:
         db_table = "leaderboard"

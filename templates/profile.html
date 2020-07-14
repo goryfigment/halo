@@ -8,6 +8,7 @@
         var globals = {};
         globals.base_url = '{{base_url}}';
         globals.saved_ranks = {{saved_ranks|safe}};
+        globals.old_saved_ranks = {{old_saved_ranks|safe}};
         globals.xbox_ranks = {{xbox_ranks|safe}};
         globals.pc_ranks = {{pc_ranks|safe}};
         globals.player = {{player|safe}};
@@ -52,10 +53,29 @@
             <div id="right-wrapper">
                 <div id="stats-wrapper"></div>
                 <div id="rank-wrapper">
-                    <h4><span id="xbox-icon"><i class="fab fa-xbox"></i></span> Xbox Ranks <span class="waypoint">Waypoint: <span class="{{ waypoint }}">{{ waypoint }}</span></span></h4>
-                    <div id="xbox-rank-wrapper"></div>
-                    <h4><span id="pc-icon"><i class="fab fa-steam"></i></span> PC Ranks</h4>
-                    <div id="pc-rank-wrapper"></div>
+                    <h4>
+                        <span>
+                        <span id="xbox-icon">
+                        <i class="fab fa-xbox"></i>
+                        </span> Xbox Ranks</span>
+                        <ol>
+                            <li class="tab active" id="current-ranks-tab" data-type="current-ranks-wrapper"><b>Current</b></li>
+                            <span>|</span>
+                            <li class="tab" id="prev-ranks-tab" data-type="prev-ranks-wrapper"><b>Before Reset</b></li>
+                        </ol>
+                    </h4>
+
+                    <div id="current-ranks-wrapper" class="tab-wrapper active-tab">
+                        <div id="xbox-rank-wrapper" class="rank-wrapper"></div>
+                        <h4><span id="pc-icon"><i class="fab fa-steam"></i></span> PC Ranks<span class="waypoint">Waypoint: <span class="{{ waypoint }}">{{ waypoint }}</span></span></h4>
+                        <div id="pc-rank-wrapper" class="rank-wrapper"></div>
+                    </div>
+
+                    <div id="prev-ranks-wrapper" class="tab-wrapper">
+                        <div id="prev-xbox-rank-wrapper" class="rank-wrapper"></div>
+                        <h4><span id="pc-icon"><i class="fab fa-steam"></i></span> PC Ranks<span class="waypoint">Waypoint: <span class="{{ waypoint }}">{{ waypoint }}</span></span></h4>
+                        <div id="prev-pc-rank-wrapper" class="rank-wrapper"></div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ import json
 from django.shortcuts import render
 from base import sort_list, get_base_url, models_to_dict
 from django.db.models import F
-from halo.models import Player, Ranks, Leaderboard, PcRanks, Season1, Season2, Season3
+from halo.models import Player, Ranks, Leaderboard, PcRanks, Season1, Season2, Season3, NewRanks, NewPcRanks
 from django.http import JsonResponse
 
 
@@ -177,7 +177,8 @@ def most_playtime(request):
     return render(request, 'leaderboard.html', data)
 
 
-def all_most_50s(request):
+# OLD PLAYLIST
+def old_all_most_50s(request):
     first_record = 0
     last_record = 100
 
@@ -230,7 +231,7 @@ def all_most_50s(request):
     return render(request, 'leaderboard.html', data)
 
 
-def xbox_most_50s(request):
+def old_xbox_most_50s(request):
     first_record = 0
     last_record = 100
 
@@ -280,7 +281,7 @@ def xbox_most_50s(request):
     return render(request, 'leaderboard.html', data)
 
 
-def pc_most_50s(request):
+def old_pc_most_50s(request):
     first_record = 0
     last_record = 100
 
@@ -328,8 +329,7 @@ def pc_most_50s(request):
     return render(request, 'leaderboard.html', data)
 
 
-# PLAYLIST
-def rank_func(request, handlebars, amount_type, title):
+def old_rank_func(request, handlebars, amount_type, title):
     first_record = 0
     last_record = 100
 
@@ -358,73 +358,314 @@ def rank_func(request, handlebars, amount_type, title):
     return data
 
 
-def h3_team_slayer(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_slayer', '(Xbox) Halo 3: Team Slayer'))
+def old_h3_team_slayer(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'h3_team_slayer', '(Xbox) Halo 3: Team Slayer'))
 
 
-def h3_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_hardcore', '(Xbox) Halo 3: Team Hardcore'))
+def old_h3_team_hardcore(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'h3_team_hardcore', '(Xbox) Halo 3: Team Hardcore'))
 
 
-def h3_team_doubles(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_doubles', '(Xbox) Halo 3: Team Doubles'))
+def old_h3_team_doubles(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'h3_team_doubles', '(Xbox) Halo 3: Team Doubles'))
 
 
-def ms_2v2_series(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'ms_2v2_series', '(Xbox) Halo 3: MS 2v2 Series'))
+def old_ms_2v2_series(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'ms_2v2_series', '(Xbox) Halo 3: MS 2v2 Series'))
 
 
-def hce_team_doubles(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'hce_team_doubles', '(Xbox) Halo 1: Team Doubles'))
+def old_hce_team_doubles(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'hce_team_doubles', '(Xbox) Halo 1: Team Doubles'))
 
 
-def hce_hardcore_doubles(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'hce_hardcore_doubles', '(Xbox) Halo 1: Hardcore Doubles'))
+def old_hce_hardcore_doubles(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'hce_hardcore_doubles', '(Xbox) Halo 1: Hardcore Doubles'))
 
 
-def h2c_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2c_team_hardcore', '(Xbox) Halo 2 Classic: Team Hardcore'))
+def old_h2c_team_hardcore(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'h2c_team_hardcore', '(Xbox) Halo 2 Classic: Team Hardcore'))
 
 
-def h2a_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2a_team_hardcore', '(Xbox) H2A: Team Hardcore'))
+def old_h2a_team_hardcore(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'h2a_team_hardcore', '(Xbox) H2A: Team Hardcore'))
 
 
-def halo_reach_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'halo_reach_team_hardcore', '(Xbox) Reach: Team Hardcore'))
+def old_halo_reach_team_hardcore(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'halo_reach_team_hardcore', '(Xbox) Reach: Team Hardcore'))
 
 
-def halo_reach_invasion(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'halo_reach_invasion', '(Xbox) Reach: Team Invasion'))
+def old_halo_reach_invasion(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'halo_reach_invasion', '(Xbox) Reach: Team Invasion'))
 
 
-def halo_reach_team_slayer(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'halo_reach_team_slayer', '(Xbox) Reach: Team Slayer'))
+def old_halo_reach_team_slayer(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'halo_reach_team_slayer', '(Xbox) Reach: Team Slayer'))
 
 
 # PC
-def pc_reach_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_halo_reach_team_hardcore', '(PC) Reach: Team Hardcore'))
+def old_pc_reach_team_hardcore(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'pc_halo_reach_team_hardcore', '(PC) Reach: Team Hardcore'))
 
 
-def pc_reach_invasion(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_halo_reach_invasion', '(PC) Reach: Team Invasion'))
+def old_pc_reach_invasion(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'pc_halo_reach_invasion', '(PC) Reach: Team Invasion'))
 
 
-def pc_reach_team_slayer(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_halo_reach_team_slayer', '(PC) Reach: Team Slayer'))
+def old_pc_reach_team_slayer(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'pc_halo_reach_team_slayer', '(PC) Reach: Team Slayer'))
+
+
+def old_pc_hce_hardcore_doubles(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'pc_hce_hardcore_doubles', '(PC) Halo 1: Hardcore Doubles'))
+
+
+def old_pc_h2c_team_hardcore(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'pc_h2c_team_hardcore', '(PC) Halo 2 Classic: Team Hardcore'))
+
+
+def old_pc_h2a_team_hardcore(request):
+    return render(request, 'leaderboard.html', old_rank_func(request, 'playlist', 'pc_h2a_team_hardcore', '(PC) H2A: Team Hardcore'))
+# OLD PLAYLIST
+
+
+# NEW PLAYLIST
+def all_most_50s(request):
+    first_record = 0
+    last_record = 100
+
+    data = {
+        'type': 'most_50s',
+        'handlebars': 'most_50s',
+        'title': "(All Platforms) Most 50's",
+        'base_url': get_base_url(),
+        'page': 1,
+        'rank': 0
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+        if page > 1:
+            data['rank'] = 3
+
+    sorted_50s = list(NewRanks.objects.filter(player__ban=False).values('player__gamertag', 'player__matches', 'h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'h2a_team_hardcore', 'hce_hardcore_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore', 'halo_reach_invasion',
+    'pc_ranks__h3_team_slayer', 'pc_ranks__h3_team_hardcore', 'pc_ranks__h3_team_doubles', 'pc_ranks__h2a_team_hardcore', 'pc_ranks__hce_hardcore_doubles', 'pc_ranks__h2c_team_hardcore', 'pc_ranks__halo_reach_team_hardcore', 'pc_ranks__halo_reach_invasion',
+                                                 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__emblem',
+                                                 'player__notes', 'player__color', 'player__social', 'player__mixer', 'player__glow', 'player__rgb').order_by('-player__matches'))
+
+    list_50s = []
+    playlists = ['h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'h2a_team_hardcore', 'hce_hardcore_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore', 'halo_reach_invasion',
+    'pc_ranks__h3_team_slayer', 'pc_ranks__h3_team_hardcore', 'pc_ranks__h3_team_doubles', 'pc_ranks__h2a_team_hardcore', 'pc_ranks__hce_hardcore_doubles', 'pc_ranks__h2c_team_hardcore', 'pc_ranks__halo_reach_team_hardcore', 'pc_ranks__halo_reach_invasion',]
+
+    for player in sorted_50s:
+        fifty = 0
+
+        for playlist in playlists:
+            if player[playlist] == 50:
+                fifty += 1
+
+        player['fifty'] = fifty
+
+        if fifty > 0:
+            list_50s.append(player)
+
+    data['leaderboard'] = json.dumps(sort_list(list_50s, 'fifty')[first_record:last_record])
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
+
+
+def xbox_most_50s(request):
+    first_record = 0
+    last_record = 100
+
+    data = {
+        'type': 'most_50s',
+        'handlebars': 'most_50s',
+        'title': "(Xbox) Most 50's",
+        'base_url': get_base_url(),
+        'page': 1,
+        'rank': 0
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+        if page > 1:
+            data['rank'] = 3
+
+    sorted_50s = list(NewRanks.objects.filter(player__ban=False).values('h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'h2a_team_hardcore', 'hce_hardcore_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore', 'halo_reach_invasion',
+                                                 'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__emblem', 'player__gamertag', 'player__matches',
+                                                 'player__notes', 'player__color', 'player__social', 'player__mixer', 'player__glow', 'player__rgb').order_by('-player__matches'))
+
+    list_50s = []
+    playlists = ['h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'h2a_team_hardcore', 'hce_hardcore_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore', 'halo_reach_invasion']
+
+    for player in sorted_50s:
+        fifty = 0
+
+        for playlist in playlists:
+            if player[playlist] == 50:
+                fifty += 1
+
+        player['fifty'] = fifty
+
+        if fifty > 0:
+            list_50s.append(player)
+
+    data['leaderboard'] = json.dumps(sort_list(list_50s, 'fifty')[first_record:last_record])
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
+
+
+def pc_most_50s(request):
+    first_record = 0
+    last_record = 100
+
+    data = {
+        'type': 'most_50s',
+        'handlebars': 'most_50s',
+        'title': "(PC) Most 50's",
+        'base_url': get_base_url(),
+        'page': 1,
+        'rank': 0
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+        if page > 1:
+            data['rank'] = 3
+
+    sorted_50s = list(NewPcRanks.objects.filter(player__ban=False).values(
+                                                   'h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'h2a_team_hardcore', 'hce_hardcore_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore', 'halo_reach_invasion',
+                                                   'player__donation', 'player__twitch', 'player__youtube', 'player__twitter', 'player__emblem', 'player__gamertag', 'player__matches',
+                                                   'player__notes', 'player__color', 'player__social', 'player__mixer', 'player__glow', 'player__rgb').order_by('-player__matches'))
+
+    list_50s = []
+    playlists = ['h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'h2a_team_hardcore', 'hce_hardcore_doubles', 'h2c_team_hardcore', 'halo_reach_team_hardcore', 'halo_reach_invasion']
+
+    for player in sorted_50s:
+        fifty = 0
+
+        for playlist in playlists:
+            if player[playlist] == 50:
+                fifty += 1
+
+        player['fifty'] = fifty
+
+        if fifty > 0:
+            list_50s.append(player)
+
+    data['leaderboard'] = json.dumps(sort_list(list_50s, 'fifty')[first_record:last_record])
+    data['index'] = first_record
+
+    return render(request, 'leaderboard.html', data)
+
+
+def rank_func(request, handlebars, amount_type, title, first, last):
+    first_record = first
+    last_record = last
+
+    data = {
+        'type': amount_type,
+        'handlebars': handlebars,
+        'title': title,
+        'base_url': get_base_url(),
+        'page': 1,
+        'rank': 0
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    if 'pc_' in amount_type:
+        amount_type = amount_type.replace('pc_', '')
+        data['leaderboard'] = json.dumps(list(NewPcRanks.objects.filter(player__ban=False).values(amount=F(amount_type), verified=F('v_'+amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('player__wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb')).order_by('-amount', '-verified', '-exp')[first_record:last_record]))
+    else:
+        data['leaderboard'] = json.dumps(list(NewRanks.objects.filter(player__ban=False).values(amount=F(amount_type), verified=F('v_'+amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('player__wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb')).order_by('-amount', '-verified', '-exp')[first_record:last_record]))
+    data['index'] = first_record
+
+    return data
+
+
+def h3_team_slayer(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_slayer', '(Xbox) Halo 3: Team Slayer', 0, 100))
+
+
+def h3_team_hardcore(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_hardcore', '(Xbox) Halo 3: Team Hardcore', 0, 100))
+
+
+def h3_team_doubles(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_doubles', '(Xbox) Halo 3: Team Doubles', 0, 100))
+
+
+def hce_hardcore_doubles(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'hce_hardcore_doubles', '(Xbox) Halo 1: Hardcore Doubles', 0, 100))
+
+
+def h2c_team_hardcore(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2c_team_hardcore', '(Xbox) Halo 2 Classic: Team Hardcore', 0, 100))
+
+
+def h2a_team_hardcore(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2a_team_hardcore', '(Xbox) H2A: Team Hardcore', 0, 100))
+
+
+def halo_reach_team_hardcore(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'halo_reach_team_hardcore', '(Xbox) Reach: Team Hardcore', 0, 100))
+
+
+def halo_reach_invasion(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'halo_reach_invasion', '(Xbox) Reach: Team Invasion', 0, 100))
+
+
+# PC
+def pc_h3_team_slayer(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h3_team_slayer', '(PC) Halo 3: Team Slayer', 0, 100))
+
+
+def pc_h3_team_hardcore(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h3_team_hardcore', '(PC) Halo 3: Team Hardcore', 0, 100))
+
+
+def pc_h3_team_doubles(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h3_team_doubles', '(PC) Halo 3: Team Doubles', 0, 100))
+
+
+def pc_halo_reach_team_hardcore(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_halo_reach_team_hardcore', '(PC) Reach: Team Hardcore', 0, 100))
+
+
+def pc_halo_reach_invasion(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_halo_reach_invasion', '(PC) Reach: Team Invasion', 0, 100))
 
 
 def pc_hce_hardcore_doubles(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_hce_hardcore_doubles', '(PC) Halo 1: Hardcore Doubles'))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_hce_hardcore_doubles', '(PC) Halo 1: Hardcore Doubles', 0, 100))
 
 
 def pc_h2c_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h2c_team_hardcore', '(PC) Halo 2 Classic: Team Hardcore'))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h2c_team_hardcore', '(PC) Halo 2 Classic: Team Hardcore', 0, 100))
 
 
 def pc_h2a_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h2a_team_hardcore', '(PC) H2A: Team Hardcore'))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h2a_team_hardcore', '(PC) H2A: Team Hardcore', 0, 100))
+# NEW PLAYLIST
 
 
 def season1_func(request, handlebars, amount_type, title, first=None, last=None):

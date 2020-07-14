@@ -620,7 +620,7 @@ footer #leaderboard-button {
             justify-content: space-between;
 }
 
-#xbox-rank-wrapper, #pc-rank-wrapper {
+.rank-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -650,6 +650,9 @@ footer #leaderboard-button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 .waypoint {
@@ -664,14 +667,7 @@ footer #leaderboard-button {
     color: #de0000;
 }
 
-#xbox-rank-wrapper div {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 33%;
-            flex: 0 0 33%;
-    position: relative;
-}
-
-#pc-rank-wrapper div {
+.rank-wrapper div {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 33.33%;
             flex: 0 0 33.33%;
@@ -683,6 +679,7 @@ footer #leaderboard-button {
     max-height: 15px;
     font-size: 12px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-transform: capitalize;
 }
 
 #right-wrapper h3 {
@@ -906,7 +903,7 @@ ol span {
     display: block !important;
 }
 
-#all-wrapper, #season1-wrapper, #season2-wrapper, #season3-wrapper, #matches-wrapper, #fileshare-wrapper {
+.tab-wrapper  {
     display: none;
 }
 /*SEASON*/

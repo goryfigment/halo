@@ -210,7 +210,7 @@ input:-webkit-autofill {
 }
 
 #donate-table {
-    width: 300px;
+    width: 386px;
     -webkit-transition: 0.5s ease all;
     -o-transition: 0.5s ease all;
     transition: 0.5s ease all;
@@ -262,6 +262,19 @@ h4 {
     margin: 16px 0 5px;
     font-family: 'Rajdhani', 'Roboto', sans-serif;
     font-size: 22px;
+    text-align: center;
+}
+
+.xbox {
+    color: #20a720;
+}
+
+.steam {
+    color: #375973;
+}
+
+.money {
+    color: #34a534;
 }
 
 table {
@@ -345,7 +358,7 @@ table a {
 .halo-rank {
     height: 25px;
     position: absolute;
-    top: 6.5px;
+    top: 1.5px;
     left: 5px;
 }
 
@@ -535,7 +548,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
     display: flex;
     /*display: none;*/
     margin-top: 60px;
-    height: 300px;
+    height: 205px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -595,19 +608,19 @@ ol {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 5px 20px;
+    padding: 3px;
     list-style: none;
-    font-size: 13px;
+    font-size: 12px;
     font-family: 'Rajdhani', 'Roboto', sans-serif;
     color: #d2d2d2;
-    width: 260px;
+    width: 286px;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     margin: 0 auto 10px auto;
-    background: rgba(14, 14, 14, 0.7);
+    background: #000000;
     border: #484848 solid 1px;
 }
 
