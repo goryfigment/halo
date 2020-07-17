@@ -124,10 +124,8 @@ input:-webkit-autofill {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    min-height: -webkit-fit-content;
-    min-height: -moz-fit-content;
-    min-height: fit-content;
-    height: 100vh;
+    /*min-height: 100vh;*/
+    /*height: fit-content;*/
     width: calc(100vw - 250px);
     -webkit-transition: 0.5s ease all;
     -o-transition: 0.5s ease all;
