@@ -447,6 +447,10 @@ footer #leaderboard-button {
     display: none !important;
 }
 
+footer {
+    display: none;
+}
+
 /*SERVICE RECORD*/
 #service-record {
     display: -webkit-box;
