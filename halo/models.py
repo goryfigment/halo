@@ -203,23 +203,23 @@ class Leaderboard(models.Model):
     s3_headshots = models.FloatField(default=0)
 
     # NEW
-    # new_h3_team_slayer = models.IntegerField(default=0)
-    # new_h3_team_hardcore = models.IntegerField(default=0)
-    # new_h3_team_doubles = models.IntegerField(default=0)
-    # new_h2c_team_hardcore = models.IntegerField(default=0)
-    # new_hce_hardcore_doubles = models.IntegerField(default=0)
-    # new_halo_reach_team_hardcore = models.IntegerField(default=0)
-    # new_halo_reach_invasion = models.IntegerField(default=0)
-    # new_h2a_team_hardcore = models.IntegerField(default=0)
-    #
-    # new_pc_h3_team_slayer = models.IntegerField(default=0)
-    # new_pc_h3_team_hardcore = models.IntegerField(default=0)
-    # new_pc_h3_team_doubles = models.IntegerField(default=0)
-    # new_pc_h2c_team_hardcore = models.IntegerField(default=0)
-    # new_pc_hce_hardcore_doubles = models.IntegerField(default=0)
-    # new_pc_halo_reach_team_hardcore = models.IntegerField(default=0)
-    # new_pc_halo_reach_invasion = models.IntegerField(default=0)
-    # new_pc_h2a_team_hardcore = models.IntegerField(default=0)
+    new_h3_team_slayer = models.IntegerField(default=0)
+    new_h3_team_hardcore = models.IntegerField(default=0)
+    new_h3_team_doubles = models.IntegerField(default=0)
+    new_h2c_team_hardcore = models.IntegerField(default=0)
+    new_hce_hardcore_doubles = models.IntegerField(default=0)
+    new_halo_reach_team_hardcore = models.IntegerField(default=0)
+    new_halo_reach_invasion = models.IntegerField(default=0)
+    new_h2a_team_hardcore = models.IntegerField(default=0)
+
+    new_pc_h3_team_slayer = models.IntegerField(default=0)
+    new_pc_h3_team_hardcore = models.IntegerField(default=0)
+    new_pc_h3_team_doubles = models.IntegerField(default=0)
+    new_pc_h2c_team_hardcore = models.IntegerField(default=0)
+    new_pc_hce_hardcore_doubles = models.IntegerField(default=0)
+    new_pc_halo_reach_team_hardcore = models.IntegerField(default=0)
+    new_pc_halo_reach_invasion = models.IntegerField(default=0)
+    new_pc_h2a_team_hardcore = models.IntegerField(default=0)
     # NEW
 
     # OLD

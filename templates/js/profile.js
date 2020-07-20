@@ -108,7 +108,7 @@ $(document).ready(function() {
                 'key': key,
                 'playlist': playlist,
                 'rank': rank,
-                'leaderboard': globals.leaderboard[key],
+                'leaderboard': globals.leaderboard['new_' + key],
                 'verified': globals.saved_ranks['xbox']['v_' + key]
             });
 
@@ -134,7 +134,7 @@ $(document).ready(function() {
                 'key': key,
                 'playlist': pc_playlist,
                 'rank': rank,
-                'leaderboard': globals.leaderboard['pc_' + key],
+                'leaderboard': globals.leaderboard['new_pc_' + key],
                 'verified': globals.saved_ranks['pc']['v_' + key]
             });
 

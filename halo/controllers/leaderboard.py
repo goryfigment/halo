@@ -38,6 +38,8 @@ def update_leaderboard(request):
 
         record_leaderboard(player_id, query_request['type'], index)
 
+    print query_request['type']
+
     return JsonResponse({'success': True}, safe=False)
 
 
@@ -334,7 +336,7 @@ def old_rank_func(request, handlebars, amount_type, title):
     last_record = 100
 
     data = {
-        'type': amount_type,
+        'type': 'old_' + amount_type,
         'handlebars': handlebars,
         'title': title,
         'base_url': get_base_url(),
@@ -578,7 +580,7 @@ def rank_func(request, handlebars, amount_type, title, first, last):
     last_record = last
 
     data = {
-        'type': amount_type,
+        'type': 'new_' + amount_type,
         'handlebars': handlebars,
         'title': title,
         'base_url': get_base_url(),
