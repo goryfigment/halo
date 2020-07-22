@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.views.generic import TemplateView
-from halo.controllers import site, profile, leaderboard, donate, account_handler, xbox_handler
+from halo.controllers import site, profile, leaderboard, donate, account_handler, xbox_handler, halo_handler
 
 urlpatterns = [
     url(r'^$', site.home, name='home'),
@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^about/$', site.about, name='about'),
     url(r'^timer/(?P<game>.*)/(?P<type>.*)$', site.timer, name='h3_radar'),
     url(r'^resources/$', site.resources, name='resources'),
+    url(r'^halo-population/$', halo_handler.halo_population, name='population'),
     url(r'article/(?P<id>\d+)', site.article, name='article'),
 
     # XBOX CLIPS

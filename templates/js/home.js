@@ -14,6 +14,25 @@ var playtimeTemplate = require('./../handlebars/home/playtime.hbs');
 var playlistTemplate = require('./../handlebars/home/playlist.hbs');
 var leaderboardTemplate = require('./../handlebars/home/s1_leaderboard.hbs');
 var recentDonationsTemplate = require('./../handlebars/home/recent_donations.hbs');
+var populationTemplate = require('./../handlebars/home/population.hbs');
+
+
+function sendRequest(url, data, request_type, success, error, exception) {
+    $.ajax({
+        headers: {"X-CSRFToken": $('input[name="csrfmiddlewaretoken"]').attr('value')},
+        url: globals.base_url + url,
+        data: data,
+        dataType: 'json',
+        type: request_type,
+        success: function (response) {
+            success(response, exception);
+        },
+        error: function (response) {
+            error(response, exception);
+        }
+    });
+}
+
 
 $(document).ready(function() {
     $('#recent-donations-wrapper').append(recentDonationsTemplate(globals.recent_donations));
@@ -37,7 +56,7 @@ $(document).ready(function() {
     $('#reach-invasion-wrapper').append(playlistTemplate({leaderboards: globals.halo_reach_invasion}));
     $('#reach-hardcore-wrapper').append(playlistTemplate({leaderboards: globals.halo_reach_team_hardcore}));
 
-
+    getPopulation();
     //S1 LEADERBOARDS
     //$('#mccs-wrapper').append(mccsTemplate({mccs: globals.mccs}));
     //$('#playtime-wrapper').append(playtimeTemplate({leaderboards: globals.playtime, type: 'playtime'}));
@@ -58,6 +77,18 @@ $(document).ready(function() {
 $(document).on('click', '#leaderboard-button', function () {
     $('#tip-popup').hide();
 });
+
+function getPopulation() {
+    sendRequest("/halo-population/", {}, "GET", success, error);
+
+    function success(response) {
+        $('#population-wrapper').append(populationTemplate(response));
+    }
+
+    function error(response) {
+        console.log(JSON.stringify(response));
+    }
+}
 
 // TABS //
 //function tabHandler($tab, $wrapper) {

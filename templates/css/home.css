@@ -539,6 +539,14 @@ p span {
 }
 
 
+#population-wrapper {
+    margin-top: 20px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    text-shadow: 3px 2px #000000;
+}
+
 /*#lol-wrapper:after {*/
     /*content: "Ad space!";*/
     /*position: absolute;*/
