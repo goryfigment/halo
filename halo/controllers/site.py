@@ -350,10 +350,19 @@ def profile(request, gt):
                 'pc': {}
             }
         # NEW RANKS #
-
-        player['season'] = model_to_dict(Season1.objects.get(player=player_obj))
-        player['season2'] = model_to_dict(Season2.objects.get(player=player_obj))
+        season1 = Season1.objects.filter(player=player_obj)
+        season2 = Season2.objects.filter(player=player_obj)
         season3 = Season3.objects.filter(player=player_obj)
+
+        if season1.exists():
+            player['season'] = model_to_dict(season1[0])
+        else:
+            player['season'] = model_to_dict(Season1.objects.create(player=player_obj))
+
+        if season2.exists():
+            player['season2'] = model_to_dict(season2[0])
+        else:
+            player['season2'] = model_to_dict(Season2.objects.create(player=player_obj))
 
         if season3.exists():
             player['season3'] = model_to_dict(season3[0])
