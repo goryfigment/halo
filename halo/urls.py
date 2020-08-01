@@ -107,6 +107,21 @@ urlpatterns = [
     url(r'^leaderboards/s3/betrayals', leaderboard.s3_betrayals),
     url(r'^leaderboards/s3/headshots', leaderboard.s3_headshots),
 
+
+    # SEASON4 LEADERBOARDS
+    url(r'^leaderboards/s4/mccs', leaderboard.s4_score),
+    url(r'^leaderboards/s4/kills', leaderboard.s4_kills),
+    url(r'^leaderboards/s4/deaths', leaderboard.s4_deaths),
+    url(r'^leaderboards/s4/wins', leaderboard.s4_wins),
+    url(r'^leaderboards/s4/losses', leaderboard.s4_losses),
+    url(r'^leaderboards/s4/matches', leaderboard.s4_matches),
+    url(r'^leaderboards/s4/wl', leaderboard.s4_wl),
+    url(r'^leaderboards/s4/kd', leaderboard.s4_kd),
+    url(r'^leaderboards/s4/playtime', leaderboard.s4_playtime),
+    url(r'^leaderboards/s4/assists', leaderboard.s4_assists),
+    url(r'^leaderboards/s4/betrayals', leaderboard.s4_betrayals),
+    url(r'^leaderboards/s4/headshots', leaderboard.s4_headshots),
+
     # GENERAL LEADERBOARDS
     url(r'^leaderboards/donations', leaderboard.most_donations),
     url(r'^leaderboards/kills', leaderboard.most_kills),

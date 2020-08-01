@@ -380,3 +380,43 @@ class Season3Record(models.Model):
 
     class Meta:
         db_table = "season3_record"
+
+
+# For S4 leaderboards
+class Season4(models.Model):
+    player = models.ForeignKey(Player, default=None)
+    score = models.IntegerField(default=0)
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
+    epoch = models.IntegerField(default=0)
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    kd = models.FloatField(default=0)
+    wl = models.FloatField(default=0)
+    assists = models.IntegerField(default=0)
+    betrayals = models.IntegerField(default=0)
+    headshots = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "season4"
+
+
+# Screenshot of that given day stats to subtract from
+class Season4Record(models.Model):
+    player = models.ForeignKey(Player, default=None)
+
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    epoch = models.IntegerField(default=0)
+    assists = models.IntegerField(default=0)
+    betrayals = models.IntegerField(default=0)
+    headshots = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "season4_record"

@@ -59,9 +59,9 @@ function serviceRecordSuccess(response) {
         'losses': response['losses'] - prevDetails['losses'],
         'kd': (response['kd'] - prevDetails['kd']).toFixed(2),
         'wl': (response['wl'] - prevDetails['wl']).toFixed(2),
-        'score': response['season3']['score'] - prevDetails['season3']['score'],
-        's_wl': (response['season3']['wl'] - prevDetails['season3']['wl']).toFixed(2),
-        's_kd': (response['season3']['kd'] - prevDetails['season3']['kd']).toFixed(2)
+        'score': response['season4']['score'] - prevDetails['season4']['score'],
+        's_wl': (response['season4']['wl'] - prevDetails['season4']['wl']).toFixed(2),
+        's_kd': (response['season4']['kd'] - prevDetails['season4']['kd']).toFixed(2)
     };
 
     $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'total_50s': globals.total_50s}));

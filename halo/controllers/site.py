@@ -4,7 +4,7 @@ from base import get_base_url, model_to_dict
 from django.db.models import F
 from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
-from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks, Season3, NewRanks, NewPcRanks
+from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks, Season3, NewRanks, NewPcRanks, Season4
 from halo.controllers.leaderboard import season3_func, season3_playtime_func, rank_func
 from django.http import HttpResponse
 
@@ -353,6 +353,7 @@ def profile(request, gt):
         season1 = Season1.objects.filter(player=player_obj)
         season2 = Season2.objects.filter(player=player_obj)
         season3 = Season3.objects.filter(player=player_obj)
+        season4 = Season4.objects.filter(player=player_obj)
 
         if season1.exists():
             player['season'] = model_to_dict(season1[0])
@@ -368,6 +369,11 @@ def profile(request, gt):
             player['season3'] = model_to_dict(season3[0])
         else:
             player['season3'] = model_to_dict(Season3.objects.create(player=player_obj))
+
+        if season4.exists():
+            player['season4'] = model_to_dict(season4[0])
+        else:
+            player['season4'] = model_to_dict(Season4.objects.create(player=player_obj))
 
     else:
         player = {
@@ -412,6 +418,22 @@ def profile(request, gt):
                 "playtime": "0h"
             },
             'season3': {
+                "wl": 0,
+                "kills": 0,
+                "deaths": 0,
+                "matches": 0,
+                "wins": 0,
+                "losses": 0,
+                "player": 10,
+                "epoch": 0,
+                "score": 0,
+                "kd": 0,
+                "assists": 0,
+                "betrayals": 0,
+                "headshots": 0,
+                "playtime": "0h"
+            },
+            'season4': {
                 "wl": 0,
                 "kills": 0,
                 "deaths": 0,
