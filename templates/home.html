@@ -9,18 +9,18 @@
         globals.base_url = '{{base_url}}';
         globals.gamertag = '{{gamertag}}';
         globals.recent_donations = {{recent_donations|safe}};
-{#        globals.mccs = {{mccs.leaderboard|safe}};#}
-{#        globals.playtime = {{playtime.leaderboard|safe}};#}
-{#        globals.kills = {{kills.leaderboard|safe}};#}
-{#        globals.deaths = {{deaths.leaderboard|safe}};#}
-{#        globals.wins = {{wins.leaderboard|safe}};#}
-{#        globals.losses = {{losses.leaderboard|safe}};#}
-{#        globals.matches = {{matches.leaderboard|safe}};#}
-{#        globals.kd = {{kd.leaderboard|safe}};#}
-{#        globals.wl = {{wl.leaderboard|safe}};#}
-{#        globals.assists = {{assists.leaderboard|safe}};#}
-{#        globals.betrayals = {{betrayals.leaderboard|safe}};#}
-{#        globals.headshots = {{headshots.leaderboard|safe}};#}
+        globals.mccs = {{mccs.leaderboard|safe}};
+        globals.playtime = {{playtime.leaderboard|safe}};
+        globals.kills = {{kills.leaderboard|safe}};
+        globals.deaths = {{deaths.leaderboard|safe}};
+        globals.wins = {{wins.leaderboard|safe}};
+        globals.losses = {{losses.leaderboard|safe}};
+        globals.matches = {{matches.leaderboard|safe}};
+        globals.kd = {{kd.leaderboard|safe}};
+        globals.wl = {{wl.leaderboard|safe}};
+        globals.assists = {{assists.leaderboard|safe}};
+        globals.betrayals = {{betrayals.leaderboard|safe}};
+        globals.headshots = {{headshots.leaderboard|safe}};
 
         globals.h3_team_slayer = {{h3_team_slayer.leaderboard|safe}};
         globals.h3_team_hardcore = {{h3_team_hardcore.leaderboard|safe}};
@@ -74,7 +74,7 @@
 
             <div id="population-wrapper"></div>
 
-            <div id="lol-wrapper" style="max-height:500px;">
+            <div id="lol-wrapper" style="max-height:500px; display: none;">
 
                 <h2>H3 PC Dubs <span>Tournament</span></h2>
                 <img src="https://pbs.twimg.com/media/DyB1bHTVAAADxA2.jpg" />
@@ -90,6 +90,45 @@
 {#                     data-ad-slot="7714995143"></ins>#}
             </div>
             <div id="recent-donations-wrapper"></div>
+
+            <h4>Season 4 Leaderboards</h4>
+            <ol>
+                <li class="tab active" id="mccs-tab" data-type="mccs-wrapper"><b>MCCS</b></li>
+                <span>|</span>
+                <li class="tab" id="playtime-tab" data-type="playtime-wrapper"><b>Playtime</b></li>
+                <span>|</span>
+                <li class="tab" id="kills-tab" data-type="kills-wrapper"><b>Kills</b></li>
+                <span>|</span>
+                <li class="tab" id="deaths-tab" data-type="deaths-wrapper"><b>Deaths</b></li>
+                <li class="tab" id="wins-tab" data-type="wins-wrapper"><b>Wins</b></li>
+                <span>|</span>
+                <li class="tab" id="losses-tab" data-type="losses-wrapper"><b>Losses</b></li>
+                <span>|</span>
+                <li class="tab" id="matches-tab" data-type="matches-wrapper"><b>Matches</b></li>
+                <span>|</span>
+                <li class="tab" id="kd-tab" data-type="kd-wrapper"><b>KD</b></li>
+                <span>|</span>
+                <li class="tab" id="wl-tab" data-type="wl-wrapper"><b>WL</b></li>
+                <span>|</span>
+                <li class="tab" id="matches-tab" data-type="assists-wrapper"><b>Assists</b></li>
+                <span>|</span>
+                <li class="tab" id="matches-tab" data-type="betrayals-wrapper"><b>Betrayals</b></li>
+                <span>|</span>
+                <li class="tab" id="matches-tab" data-type="headshots-wrapper"><b>Headshots</b></li>
+            </ol>
+
+            <div class="tab-wrapper active-tab" id="mccs-wrapper"></div>
+            <div class="tab-wrapper" id="playtime-wrapper"></div>
+            <div class="tab-wrapper" id="kills-wrapper"></div>
+            <div class="tab-wrapper" id="deaths-wrapper"></div>
+            <div class="tab-wrapper" id="wins-wrapper"></div>
+            <div class="tab-wrapper" id="losses-wrapper"></div>
+            <div class="tab-wrapper" id="matches-wrapper"></div>
+            <div class="tab-wrapper" id="assists-wrapper"></div>
+            <div class="tab-wrapper" id="betrayals-wrapper"></div>
+            <div class="tab-wrapper" id="headshots-wrapper"></div>
+            <div class="tab-wrapper" id="kd-wrapper"></div>
+            <div class="tab-wrapper" id="wl-wrapper"></div>
         </div>
 
         <div id="right-wrapper">
@@ -146,44 +185,7 @@
                 <div class="tab-wrapper" id="reach-invasion-wrapper"></div>
                 <div class="tab-wrapper" id="reach-hardcore-wrapper"></div>
             </div>
-{#            <h4>Season 3 Leaderboards</h4>#}
-{#            <ol>#}
-{#                <li class="tab active" id="mccs-tab" data-type="mccs-wrapper"><b>MCCS</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="playtime-tab" data-type="playtime-wrapper"><b>Playtime</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="kills-tab" data-type="kills-wrapper"><b>Kills</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="deaths-tab" data-type="deaths-wrapper"><b>Deaths</b></li>#}
-{#                <li class="tab" id="wins-tab" data-type="wins-wrapper"><b>Wins</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="losses-tab" data-type="losses-wrapper"><b>Losses</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="matches-tab" data-type="matches-wrapper"><b>Matches</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="kd-tab" data-type="kd-wrapper"><b>KD</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="wl-tab" data-type="wl-wrapper"><b>WL</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="matches-tab" data-type="assists-wrapper"><b>Assists</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="matches-tab" data-type="betrayals-wrapper"><b>Betrayals</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="matches-tab" data-type="headshots-wrapper"><b>Headshots</b></li>#}
-{#            </ol>#}
-{##}
-{#            <div class="tab-wrapper active-tab" id="mccs-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="playtime-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="kills-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="deaths-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="wins-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="losses-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="matches-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="assists-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="betrayals-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="headshots-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="kd-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="wl-wrapper"></div>#}
+
 {#            <div id="advertisement-wrapper">#}
 {#                <h4>Tommy Kost: Halo 2/3 (MCC) Montage</h4>#}
 {#                <iframe width="320" height="180" src="https://www.youtube.com/embed/92G8ELYQGUQ?autoplay=1&cc_load_policy=1&mute=1" allowfullscreen></iframe>#}

@@ -202,6 +202,20 @@ class Leaderboard(models.Model):
     s3_betrayals = models.FloatField(default=0)
     s3_headshots = models.FloatField(default=0)
 
+    # Leaderboard placement
+    s4_score = models.IntegerField(default=0)
+    s4_playtime = models.IntegerField(default=0)
+    s4_kills = models.IntegerField(default=0)
+    s4_deaths = models.IntegerField(default=0)
+    s4_wins = models.IntegerField(default=0)
+    s4_losses = models.IntegerField(default=0)
+    s4_matches = models.IntegerField(default=0)
+    s4_wl = models.FloatField(default=0)
+    s4_kd = models.FloatField(default=0)
+    s4_assists = models.FloatField(default=0)
+    s4_betrayals = models.FloatField(default=0)
+    s4_headshots = models.FloatField(default=0)
+
     # NEW
     new_h3_team_slayer = models.IntegerField(default=0)
     new_h3_team_hardcore = models.IntegerField(default=0)

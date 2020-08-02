@@ -5,7 +5,7 @@ from django.db.models import F
 from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
 from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks, Season3, NewRanks, NewPcRanks, Season4
-from halo.controllers.leaderboard import season3_func, season3_playtime_func, rank_func
+from halo.controllers.leaderboard import season4_func, season4_playtime_func, rank_func
 from django.http import HttpResponse
 
 
@@ -28,18 +28,19 @@ def server_error(request):
 def home(request):
     data = {
         'base_url': get_base_url(),
-        # 'mccs': season3_func(request, 'mccs', 'score', 'MCCS', 0, 10),
-        # 'playtime': season3_playtime_func(request, 0, 10),
-        # 'kills': season3_func(request, 'season1', 'kills', '(Season 3) Kills', 0, 10),
-        # 'deaths': season3_func(request, 'season1', 'deaths', '(Season 3) Deaths', 0, 10),
-        # 'wins': season3_func(request, 'season1', 'wins', '(Season 3) Wins', 0, 10),
-        # 'losses': season3_func(request, 'season1', 'losses', '(Season 3) Losses', 0, 10),
-        # 'matches': season3_func(request, 'season1', 'matches', '(Season 3) Matches', 0, 10),
-        # 'kd': season3_func(request, 'season1_ratio', 'kd', '(Season 3) K/D Ratio', 0, 10),
-        # 'wl': season3_func(request, 'season1_ratio', 'wl', '(Season 3) W/L Ratio', 0, 10),
-        # 'assists': season3_func(request, 'season1', 'assists', '(Season 3) Assists', 0, 10),
-        # 'betrayals': season3_func(request, 'season1', 'betrayals', '(Season 3) Betrayals', 0, 10),
-        # 'headshots': season3_func(request, 'season1', 'headshots', '(Season 3) Headshots', 0, 10),
+        'mccs': season4_func(request, 'mccs', 'score', 'MCCS', 0, 10),
+        'playtime': season4_playtime_func(request, 0, 10),
+        'kills': season4_func(request, 'season1', 'kills', '(Season 4) Kills', 0, 10),
+        'deaths': season4_func(request, 'season1', 'deaths', '(Season 4) Deaths', 0, 10),
+        'wins': season4_func(request, 'season1', 'wins', '(Season 4) Wins', 0, 10),
+        'losses': season4_func(request, 'season1', 'losses', '(Season 4) Losses', 0, 10),
+        'matches': season4_func(request, 'season1', 'matches', '(Season 4) Matches', 0, 10),
+        'kd': season4_func(request, 'season1_ratio', 'kd', '(Season 4) K/D Ratio', 0, 10),
+        'wl': season4_func(request, 'season1_ratio', 'wl', '(Season 4) W/L Ratio', 0, 10),
+        'assists': season4_func(request, 'season1', 'assists', '(Season 4) Assists', 0, 10),
+        'betrayals': season4_func(request, 'season1', 'betrayals', '(Season 4) Betrayals', 0, 10),
+        'headshots': season4_func(request, 'season1', 'headshots', '(Season 4) Headshots', 0, 10),
+
         'h3_team_slayer': rank_func(request, 'playlist', 'h3_team_slayer', '(Xbox) Halo 3: Team Slayer', 0, 10),
         'h3_team_hardcore': rank_func(request, 'playlist', 'h3_team_hardcore', '(Xbox) Halo 3: Team Hardcore', 0, 10),
         'h3_team_doubles': rank_func(request, 'playlist', 'h3_team_doubles', '(Xbox) Halo 3: Team Doubles', 0, 10),

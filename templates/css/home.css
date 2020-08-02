@@ -177,7 +177,7 @@ input:-webkit-autofill {
 
 /*RECENT DONATOR*/
 #recent-donations-wrapper {
-    margin-top: 35px;
+    margin-top: 20px;
 }
 
 #donate-table {
@@ -489,6 +489,10 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
     color: white;
 }
 /*UPDATES*/
+
+#leaderboard-table {
+    width: auto;
+}
 
 /*ADDS*/
 #left-wrapper {

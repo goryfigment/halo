@@ -58,18 +58,18 @@ $(document).ready(function() {
 
     getPopulation();
     //S1 LEADERBOARDS
-    //$('#mccs-wrapper').append(mccsTemplate({mccs: globals.mccs}));
-    //$('#playtime-wrapper').append(playtimeTemplate({leaderboards: globals.playtime, type: 'playtime'}));
-    //$('#kills-wrapper').append(leaderboardTemplate({leaderboards: globals.kills, type: 'kills'}));
-    //$('#deaths-wrapper').append(leaderboardTemplate({leaderboards: globals.deaths, type: 'deaths'}));
-    //$('#wins-wrapper').append(leaderboardTemplate({leaderboards: globals.wins, type: 'wins'}));
-    //$('#losses-wrapper').append(leaderboardTemplate({leaderboards: globals.losses, type: 'losses'}));
-    //$('#matches-wrapper').append(leaderboardTemplate({leaderboards: globals.matches, type: 'matches'}));
-    //$('#kd-wrapper').append(leaderboardTemplate({leaderboards: globals.kd, type: 'kd'}));
-    //$('#wl-wrapper').append(leaderboardTemplate({leaderboards: globals.wl, type: 'wl'}));
-    //$('#assists-wrapper').append(leaderboardTemplate({leaderboards: globals.assists, type: 'assists'}));
-    //$('#betrayals-wrapper').append(leaderboardTemplate({leaderboards: globals.betrayals, type: 'betrayals'}));
-    //$('#headshots-wrapper').append(leaderboardTemplate({leaderboards: globals.headshots, type: 'headshots'}));
+    $('#mccs-wrapper').append(mccsTemplate({mccs: globals.mccs}));
+    $('#playtime-wrapper').append(playtimeTemplate({leaderboards: globals.playtime, type: 'playtime'}));
+    $('#kills-wrapper').append(leaderboardTemplate({leaderboards: globals.kills, type: 'kills'}));
+    $('#deaths-wrapper').append(leaderboardTemplate({leaderboards: globals.deaths, type: 'deaths'}));
+    $('#wins-wrapper').append(leaderboardTemplate({leaderboards: globals.wins, type: 'wins'}));
+    $('#losses-wrapper').append(leaderboardTemplate({leaderboards: globals.losses, type: 'losses'}));
+    $('#matches-wrapper').append(leaderboardTemplate({leaderboards: globals.matches, type: 'matches'}));
+    $('#kd-wrapper').append(leaderboardTemplate({leaderboards: globals.kd, type: 'kd'}));
+    $('#wl-wrapper').append(leaderboardTemplate({leaderboards: globals.wl, type: 'wl'}));
+    $('#assists-wrapper').append(leaderboardTemplate({leaderboards: globals.assists, type: 'assists'}));
+    $('#betrayals-wrapper').append(leaderboardTemplate({leaderboards: globals.betrayals, type: 'betrayals'}));
+    $('#headshots-wrapper').append(leaderboardTemplate({leaderboards: globals.headshots, type: 'headshots'}));
 
     //(adsbygoogle = window.adsbygoogle || []).push({});
 });
