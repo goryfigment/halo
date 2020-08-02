@@ -29,7 +29,7 @@
                         {{/ifCond}}
                     </td>
                     <td>
-                        <a href="/profile/{{gamertag}}"><img class="emblem" src="{{emblem}}" /><span class="gamertag {{#if glow}}glow{{/if}} {{#ifCond donation '>=' 100}}disco-donator{{/ifCond}}" style="color: {{color}}">
+                        <a href="/profile/{{gamertag}}"><img class="emblem" src="{{emblem}}" /><span class="gamertag {{donateStyle donation}}" style="color: {{color}}">
                             {{#if rgb}}
                                 {{rgbFont gamertag}}
                             {{else}}
