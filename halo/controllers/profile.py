@@ -2,7 +2,7 @@ import json
 from halo_handler import halo_matches, service_record as halo_service_record, upd_emblem
 from django.http import JsonResponse
 from halo.decorators import login_required, data_required
-from halo.models import Player, Ranks, PcRanks
+from halo.models import Player, NewRanks, NewPcRanks
 from base import model_to_dict
 
 
@@ -72,9 +72,9 @@ def verify_player(request):
     key = request.POST['key']
 
     if console_type == 'xbox':
-        rank = Ranks.objects.filter(player_id=player_id)[0]
+        rank = NewRanks.objects.filter(player_id=player_id)[0]
     else:
-        rank = PcRanks.objects.filter(player_id=player_id)[0]
+        rank = NewPcRanks.objects.filter(player_id=player_id)[0]
 
     rank.__dict__[request.POST['key']] = json.loads(request.POST['value'])
     rank.save()

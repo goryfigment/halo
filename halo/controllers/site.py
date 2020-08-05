@@ -179,8 +179,8 @@ def verified(request):
     if not current_user.is_authenticated():
         return HttpResponseRedirect('/login/')
 
-    xbox_ranks = list(Ranks.objects.all().values('player__gamertag', 'player__id', 'v_h3_team_slayer', 'v_h3_team_hardcore', 'v_ms_2v2_series', 'v_h3_team_doubles', 'v_halo_reach_team_hardcore', 'v_halo_reach_invasion', 'v_h2c_team_hardcore', 'v_hce_hardcore_doubles', 'v_hce_team_doubles', 'v_halo_reach_team_slayer', 'v_h2a_team_hardcore'))
-    pc_ranks = list(PcRanks.objects.all().values('player__gamertag', 'player__id', 'v_halo_reach_team_hardcore', 'v_halo_reach_invasion', 'v_hce_hardcore_doubles', 'v_halo_reach_team_slayer', 'v_h2a_team_hardcore', 'v_h2c_team_hardcore'))
+    xbox_ranks = list(NewRanks.objects.all().values('player__gamertag', 'player__id', 'v_h3_team_slayer', 'v_h3_team_hardcore', 'v_h3_team_doubles', 'v_halo_reach_team_hardcore', 'v_halo_reach_invasion', 'v_h2c_team_hardcore', 'v_hce_hardcore_doubles', 'v_h2a_team_hardcore'))
+    pc_ranks = list(NewPcRanks.objects.all().values('player__gamertag', 'player__id', 'v_h3_team_slayer', 'v_h3_team_hardcore', 'v_h3_team_doubles', 'v_halo_reach_team_hardcore', 'v_halo_reach_invasion', 'v_h2c_team_hardcore', 'v_hce_hardcore_doubles', 'v_h2a_team_hardcore'))
 
     xbox_dict = {}
     pc_dict = {}
