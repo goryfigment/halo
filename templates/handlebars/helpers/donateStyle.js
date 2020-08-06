@@ -1,5 +1,7 @@
 module.exports = function(donate_total) {
-    if(donate_total >= 125) {
+    if(donate_total >= 150) {
+        return 'evil-donator';
+    } else if(donate_total >= 125) {
         return 'burple-donator';
     } else if(donate_total >= 100) { //disco
         return 'disco-donator';
