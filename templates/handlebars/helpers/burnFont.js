@@ -3,7 +3,6 @@ var Handlebars = require('handlebars');
 
 module.exports = function(gt) {
     var gamertag = $.map((gt + '').split(''), function(n, i) {
-
         if(i%2 == 0) {
             return '<span class="fire">'+ n + '</span>';
         } else {

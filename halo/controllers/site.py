@@ -252,10 +252,22 @@ def profile(request, gt):
             ranks = halo_ranks(gt)
             waypoint = "Online"
         except:
+            # get_xbox_auth()
+            # ranks = halo_ranks(gt)
             waypoint = "Offline"
             if player_obj.exists():
-                xbox_ranks = model_to_dict(NewRanks.objects.filter(player=player_obj)[0])
-                pc_ranks = model_to_dict(NewPcRanks.objects.filter(player=player_obj)[0])
+                xbox_ranks = NewRanks.objects.filter(player=player_obj)
+                pc_ranks = NewPcRanks.objects.filter(player=player_obj)
+
+                if xbox_ranks.exists():
+                    xbox_ranks = model_to_dict(xbox_ranks[0])
+                else:
+                    xbox_ranks = model_to_dict(NewRanks.objects.create(player=player_obj[0]))
+
+                if pc_ranks.exists():
+                    pc_ranks = model_to_dict(pc_ranks[0])
+                else:
+                    pc_ranks = model_to_dict(NewPcRanks.objects.create(player=player_obj[0]))
 
                 ranks = {
                     "xbox": {
@@ -468,8 +480,8 @@ def profile(request, gt):
         'waypoint': waypoint
     }
 
-    print json.dumps(saved_ranks)
-    print json.dumps(old_saved_ranks)
+    # print json.dumps(saved_ranks)
+    # print json.dumps(old_saved_ranks)
 
     return render(request, 'profile.html', data)
 
