@@ -4,8 +4,8 @@ from base import get_base_url, model_to_dict
 from django.db.models import F
 from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
-from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks, Season3, NewRanks, NewPcRanks, Season4
-from halo.controllers.leaderboard import season4_func, season4_playtime_func, rank_func
+from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks, Season3, NewRanks, NewPcRanks, Season4, Season5
+from halo.controllers.leaderboard import season5_func, season5_playtime_func, rank_func
 from django.http import HttpResponse
 
 
@@ -28,18 +28,18 @@ def server_error(request):
 def home(request):
     data = {
         'base_url': get_base_url(),
-        'mccs': season4_func(request, 'mccs', 'score', 'MCCS', 0, 10),
-        'playtime': season4_playtime_func(request, 0, 10),
-        'kills': season4_func(request, 'season1', 'kills', '(Season 4) Kills', 0, 10),
-        'deaths': season4_func(request, 'season1', 'deaths', '(Season 4) Deaths', 0, 10),
-        'wins': season4_func(request, 'season1', 'wins', '(Season 4) Wins', 0, 10),
-        'losses': season4_func(request, 'season1', 'losses', '(Season 4) Losses', 0, 10),
-        'matches': season4_func(request, 'season1', 'matches', '(Season 4) Matches', 0, 10),
-        'kd': season4_func(request, 'season1_ratio', 'kd', '(Season 4) K/D Ratio', 0, 10),
-        'wl': season4_func(request, 'season1_ratio', 'wl', '(Season 4) W/L Ratio', 0, 10),
-        'assists': season4_func(request, 'season1', 'assists', '(Season 4) Assists', 0, 10),
-        'betrayals': season4_func(request, 'season1', 'betrayals', '(Season 4) Betrayals', 0, 10),
-        'headshots': season4_func(request, 'season1', 'headshots', '(Season 4) Headshots', 0, 10),
+        'mccs': season5_func(request, 'mccs', 'score', 'MCCS', 0, 10),
+        'playtime': season5_playtime_func(request, 0, 10),
+        'kills': season5_func(request, 'season1', 'kills', '(Season 5) Kills', 0, 10),
+        'deaths': season5_func(request, 'season1', 'deaths', '(Season 5) Deaths', 0, 10),
+        'wins': season5_func(request, 'season1', 'wins', '(Season 5) Wins', 0, 10),
+        'losses': season5_func(request, 'season1', 'losses', '(Season 5) Losses', 0, 10),
+        'matches': season5_func(request, 'season1', 'matches', '(Season 5) Matches', 0, 10),
+        'kd': season5_func(request, 'season1_ratio', 'kd', '(Season 5) K/D Ratio', 0, 10),
+        'wl': season5_func(request, 'season1_ratio', 'wl', '(Season 5) W/L Ratio', 0, 10),
+        'assists': season5_func(request, 'season1', 'assists', '(Season 5) Assists', 0, 10),
+        'betrayals': season5_func(request, 'season1', 'betrayals', '(Season 5) Betrayals', 0, 10),
+        'headshots': season5_func(request, 'season1', 'headshots', '(Season 5) Headshots', 0, 10),
 
         'h3_team_slayer': rank_func(request, 'playlist', 'h3_team_slayer', '(Xbox) Halo 3: Team Slayer', 0, 10),
         'h3_team_hardcore': rank_func(request, 'playlist', 'h3_team_hardcore', '(Xbox) Halo 3: Team Hardcore', 0, 10),
@@ -367,6 +367,7 @@ def profile(request, gt):
         season2 = Season2.objects.filter(player=player_obj)
         season3 = Season3.objects.filter(player=player_obj)
         season4 = Season4.objects.filter(player=player_obj)
+        season5 = Season5.objects.filter(player=player_obj)
 
         if season1.exists():
             player['season'] = model_to_dict(season1[0])
@@ -387,6 +388,11 @@ def profile(request, gt):
             player['season4'] = model_to_dict(season4[0])
         else:
             player['season4'] = model_to_dict(Season4.objects.create(player=player_obj))
+
+        if season5.exists():
+            player['season5'] = model_to_dict(season5[0])
+        else:
+            player['season5'] = model_to_dict(Season5.objects.create(player=player_obj))
 
     else:
         player = {
@@ -447,6 +453,22 @@ def profile(request, gt):
                 "playtime": "0h"
             },
             'season4': {
+                "wl": 0,
+                "kills": 0,
+                "deaths": 0,
+                "matches": 0,
+                "wins": 0,
+                "losses": 0,
+                "player": 10,
+                "epoch": 0,
+                "score": 0,
+                "kd": 0,
+                "assists": 0,
+                "betrayals": 0,
+                "headshots": 0,
+                "playtime": "0h"
+            },
+            'season5': {
                 "wl": 0,
                 "kills": 0,
                 "deaths": 0,

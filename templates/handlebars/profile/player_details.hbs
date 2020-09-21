@@ -9,14 +9,14 @@
     <div class="trophy-container">
         <div class="trophy">
             <h6>MCCS</h6>
-            <i class="fas fa-crown tier-{{trophyTier 'mccs' player.season4.score}}"></i>
+            <i class="fas fa-crown tier-{{trophyTier 'mccs' player.season5.score}}"></i>
             <span class="bar">
                 <i class='fas fa-crown tier-1 tippy' data-title="1,000 MCCS" style="{{#ifCond player.season4.score '<' 1000}}opacity:0.2;{{/ifCond}}"></i>
                 <i class='fas fa-crown tier-2 tippy' data-title="1,250 MCCS" style="{{#ifCond player.season4.score '<' 1250}}opacity:0.2;{{/ifCond}}"></i>
                 <i class='fas fa-crown tier-3 tippy' data-title="1,500 MCCS" style="{{#ifCond player.season4.score '<' 1500}}opacity:0.2;{{/ifCond}}"></i>
-                <i class='fas fa-crown tier-4 tippy' data-title="1,750 MCCS" style="{{#ifCond player.season4.score '<' 1750}}opacity:0.2;{{/ifCond}}"></i>
+                <i class='fas fa-crown tier-4 tippy' data-title="1,750 MCCS" style="{{#ifCond player.season5.score '<' 1750}}opacity:0.2;{{/ifCond}}"></i>
                 <span class="progress" style="width: {{mathMax (math player.season4.score '/' 1750) '*' 100 100}}%"></span>
-                <span class="progress-number">{{numCommaFormat player.season4.score}} / 1,750</span>
+                <span class="progress-number">{{numCommaFormat player.season5.score}} / 1,750</span>
             </span>
         </div>
 
