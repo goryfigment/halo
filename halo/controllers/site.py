@@ -253,7 +253,7 @@ def profile(request, gt):
             waypoint = "Online"
         except:
             # get_xbox_auth()
-            ranks = halo_ranks(gt)
+            # ranks = halo_ranks(gt)
             waypoint = "Offline"
             if player_obj.exists():
                 xbox_ranks = NewRanks.objects.filter(player=player_obj)
