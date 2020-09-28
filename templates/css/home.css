@@ -177,7 +177,7 @@ input:-webkit-autofill {
 
 /*RECENT DONATOR*/
 #recent-donations-wrapper {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #donate-table {
@@ -225,7 +225,7 @@ iframe {
 
 /* TABLE */
 h4 {
-    margin: 16px 0 5px;
+    margin: 10px 0 5px;
     font-family: 'Rajdhani', 'Roboto', sans-serif;
     font-size: 22px;
     text-align: center;
@@ -543,8 +543,8 @@ p span {
 }
 
 
-#population-wrapper {
-    margin-top: 20px;
+.population-container {
+    margin-top: 5px;
     font-size: 30px;
     display: flex;
     align-items: center;
