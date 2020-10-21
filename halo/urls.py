@@ -179,6 +179,7 @@ urlpatterns = [
     url(r'^leaderboards/xbox/most-50s', leaderboard.xbox_most_50s),
     url(r'^leaderboards/pc/most-50s', leaderboard.pc_most_50s),
 
+    url(r'^leaderboards/xbox/h3-recon-slayer', leaderboard.h3_recon_slayer),
     url(r'^leaderboards/xbox/h3-team-slayer', leaderboard.h3_team_slayer),
     url(r'^leaderboards/xbox/h3-team-hardcore', leaderboard.h3_team_hardcore),
     url(r'^leaderboards/xbox/h3-team-doubles', leaderboard.h3_team_doubles),
@@ -188,6 +189,7 @@ urlpatterns = [
     url(r'^leaderboards/xbox/halo-reach-team-hardcore', leaderboard.halo_reach_team_hardcore),
     url(r'^leaderboards/xbox/halo-reach-invasion', leaderboard.halo_reach_invasion),
 
+    url(r'^leaderboards/pc/h3-recon-slayer', leaderboard.pc_h3_recon_slayer),
     url(r'^leaderboards/pc/h3-team-slayer', leaderboard.pc_h3_team_slayer),
     url(r'^leaderboards/pc/h3-team-hardcore', leaderboard.pc_h3_team_hardcore),
     url(r'^leaderboards/pc/h3-team-doubles', leaderboard.pc_h3_team_doubles),

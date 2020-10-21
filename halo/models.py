@@ -51,6 +51,7 @@ class RecentDonations(models.Model):
 
 class NewPcRanks(models.Model):
     player = models.ForeignKey(Player, default=None)
+    h3_recon_slayer = models.IntegerField(default=1)
     h3_team_slayer = models.IntegerField(default=1)
     h3_team_hardcore = models.IntegerField(default=1)
     h3_team_doubles = models.IntegerField(default=1)
@@ -60,6 +61,7 @@ class NewPcRanks(models.Model):
     h2c_team_hardcore = models.IntegerField(default=1)
     h2a_team_hardcore = models.IntegerField(default=1)
 
+    v_h3_recon_slayer = models.BooleanField(default=0)
     v_h3_team_slayer = models.BooleanField(default=0)
     v_h3_team_hardcore = models.BooleanField(default=0)
     v_h3_team_doubles = models.BooleanField(default=0)
@@ -77,6 +79,7 @@ class NewRanks(models.Model):
     player = models.ForeignKey(Player, default=None)
     pc_ranks = models.ForeignKey(NewPcRanks, default=1)
 
+    h3_recon_slayer = models.IntegerField(default=1)
     h3_team_slayer = models.IntegerField(default=1)
     h3_team_hardcore = models.IntegerField(default=1)
     h3_team_doubles = models.IntegerField(default=1)
@@ -86,6 +89,7 @@ class NewRanks(models.Model):
     halo_reach_team_hardcore = models.IntegerField(default=1)
     halo_reach_invasion = models.IntegerField(default=1)
 
+    v_h3_recon_slayer = models.BooleanField(default=0)
     v_h3_team_slayer = models.BooleanField(default=0)
     v_h3_team_hardcore = models.BooleanField(default=0)
     v_h3_team_doubles = models.BooleanField(default=0)

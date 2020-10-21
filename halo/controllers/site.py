@@ -41,6 +41,7 @@ def home(request):
         'betrayals': season5_func(request, 'season1', 'betrayals', '(Season 5) Betrayals', 0, 10),
         'headshots': season5_func(request, 'season1', 'headshots', '(Season 5) Headshots', 0, 10),
 
+        'h3_recon_slayer': rank_func(request, 'playlist', 'h3_recon_slayer', '(Xbox) Halo 3: Recon Slayer', 0, 10),
         'h3_team_slayer': rank_func(request, 'playlist', 'h3_team_slayer', '(Xbox) Halo 3: Team Slayer', 0, 10),
         'h3_team_hardcore': rank_func(request, 'playlist', 'h3_team_hardcore', '(Xbox) Halo 3: Team Hardcore', 0, 10),
         'h3_team_doubles': rank_func(request, 'playlist', 'h3_team_doubles', '(Xbox) Halo 3: Team Doubles', 0, 10),
@@ -50,6 +51,7 @@ def home(request):
         'halo_reach_team_hardcore': rank_func(request, 'playlist', 'halo_reach_team_hardcore', '(Xbox) Reach: Team Hardcore', 0, 10),
         'halo_reach_invasion': rank_func(request, 'playlist', 'halo_reach_invasion', '(Xbox) Reach: Team Invasion', 0, 10),
 
+        'pc_h3_recon_slayer': rank_func(request, 'playlist', 'pc_h3_recon_slayer', '(PC) Halo 3: Recon Slayer', 0, 10),
         'pc_h3_team_slayer': rank_func(request, 'playlist', 'pc_h3_team_slayer', '(PC) Halo 3: Team Slayer', 0, 10),
         'pc_h3_team_hardcore': rank_func(request, 'playlist', 'pc_h3_team_hardcore', '(PC) Halo 3: Team Hardcore', 0, 10),
         'pc_h3_team_doubles': rank_func(request, 'playlist', 'pc_h3_team_doubles', '(PC) Halo 3: Team Doubles', 0, 10),

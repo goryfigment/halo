@@ -604,6 +604,10 @@ def rank_func(request, handlebars, amount_type, title, first, last):
     return data
 
 
+def h3_recon_slayer(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_recon_slayer', '(Xbox) Halo 3: Recon Slayer', 0, 100))
+
+
 def h3_team_slayer(request):
     return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_slayer', '(Xbox) Halo 3: Team Slayer', 0, 100))
 
@@ -637,6 +641,10 @@ def halo_reach_invasion(request):
 
 
 # PC
+def pc_h3_recon_slayer(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h3_recon_slayer', '(PC) Halo 3: Recon Slayer', 0, 100))
+
+
 def pc_h3_team_slayer(request):
     return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h3_team_slayer', '(PC) Halo 3: Team Slayer', 0, 100))
 

@@ -38,6 +38,7 @@ $(document).ready(function() {
     $('#recent-donations-wrapper').append(recentDonationsTemplate(globals.recent_donations));
 
     //RANK LEADERBOARDS
+    $('#pc-h3-recon-wrapper').append(playlistTemplate({leaderboards: globals.pc_h3_recon_slayer}));
     $('#pc-h3-slayer-wrapper').append(playlistTemplate({leaderboards: globals.pc_h3_team_slayer}));
     $('#pc-h3-hardcore-wrapper').append(playlistTemplate({leaderboards: globals.pc_h3_team_hardcore}));
     $('#pc-h3-dubs-wrapper').append(playlistTemplate({leaderboards: globals.pc_h3_team_doubles}));
@@ -47,6 +48,7 @@ $(document).ready(function() {
     $('#pc-reach-invasion-wrapper').append(playlistTemplate({leaderboards: globals.pc_halo_reach_invasion}));
     $('#pc-reach-hardcore-wrapper').append(playlistTemplate({leaderboards: globals.pc_halo_reach_team_hardcore}));
 
+    $('#h3-recon-wrapper').append(playlistTemplate({leaderboards: globals.h3_recon_slayer}));
     $('#h3-slayer-wrapper').append(playlistTemplate({leaderboards: globals.h3_team_slayer}));
     $('#h3-hardcore-wrapper').append(playlistTemplate({leaderboards: globals.h3_team_hardcore}));
     $('#h3-dubs-wrapper').append(playlistTemplate({leaderboards: globals.h3_team_doubles}));
