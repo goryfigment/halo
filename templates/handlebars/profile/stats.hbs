@@ -875,7 +875,7 @@
         </div>
 
         <div class="stat-item">
-            <div>Total 1st Place</div>
+            <div>Total 1<sup>st</sup> Place</div>
             <span>{{numCommaFormat player.first_place}}</span>
             {{#ifCond change.first_place '>' 0}}<span class="change {{#ifCond change.first_place '<' 0}}neg{{/ifCond}}">{{#ifCond change.first_place '>' 0}}+{{/ifCond}}{{change.first_place}}</span>{{/ifCond}}
             {{#ifCond leaderboard.first_place '>' 0}}

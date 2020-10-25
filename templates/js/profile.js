@@ -169,8 +169,8 @@ $(document).ready(function() {
         $donatorWrapper.prepend(donatorTemplate(globals.player));
     }
 
-    $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'player_count': globals.player_count}));
-    $('#pc-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_pc_ranks, 'player_count': globals.player_count}));
+    $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'player_count': globals.player_count, 'player': globals.player}));
+    $('#pc-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_pc_ranks, 'player_count': globals.player_count, 'player': globals.player}));
     sendRequest('/service-record/', JSON.stringify({gt: globals.gamertag, xbox_ranks: xbox_ranks, pc_ranks: pc_ranks, highest_rank: highest_rank}), 'POST', serviceRecordSuccess, serviceRecordError);
     sendRequest('/player-matches/', {'gt': globals.gamertag, 'game_variant': '', 'req': 6}, 'GET', playerMatchesSuccess, playerMatchesError);
     sendRequest('/xbox-clips/', {gt: globals.gamertag}, 'GET', xboxClipsSuccess, xboxClipsError);
