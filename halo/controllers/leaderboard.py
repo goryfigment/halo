@@ -113,6 +113,10 @@ def most_donations(request):
     return render(request, 'leaderboard.html', service_func(request, 'player', 'donation', 'Donation'))
 
 
+def most_first_place(request):
+    return render(request, 'leaderboard.html', service_func(request, 'player', 'first_place', 'Most 1st Place'))
+
+
 def most_kills(request):
     return render(request, 'leaderboard.html', service_func(request, 'player', 'kills', 'Kills'))
 

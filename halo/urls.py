@@ -149,6 +149,7 @@ urlpatterns = [
     url(r'^leaderboards/assists', leaderboard.most_assists),
     url(r'^leaderboards/betrayals', leaderboard.most_betrayals),
     url(r'^leaderboards/headshots', leaderboard.most_headshots),
+    url(r'^leaderboards/first-place', leaderboard.most_first_place),
 
     # OLD PLAYLIST LEADERBOARDS
     url(r'^leaderboards/before-reset/most-50s', leaderboard.old_all_most_50s),

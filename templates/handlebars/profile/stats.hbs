@@ -873,6 +873,21 @@
                 <div class="percent">NOT RANKED</div>
             {{/ifCond}}
         </div>
+
+        <div class="stat-item">
+            <div>Total 1st Place</div>
+            <span>{{numCommaFormat player.first_place}}</span>
+            {{#ifCond change.first_place '>' 0}}<span class="change {{#ifCond change.first_place '<' 0}}neg{{/ifCond}}">{{#ifCond change.first_place '>' 0}}+{{/ifCond}}{{change.first_place}}</span>{{/ifCond}}
+            {{#ifCond leaderboard.first_place '>' 0}}
+                {{#if player.ban}}
+                    <div class="percent">NOT RANKED</div>
+                {{else}}
+                    <div class="percent" style="color: {{percentColors leaderboard.matches player_count}}">#{{leaderboard.first_place}} <span>&#8226;</span> Top {{percent leaderboard.first_place player_count}}</div>
+                {{/if}}
+            {{else}}
+                <div class="percent">NOT RANKED</div>
+            {{/ifCond}}
+        </div>
     </div>
 
     <div class="stat-container">

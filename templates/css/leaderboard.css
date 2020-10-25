@@ -290,6 +290,7 @@ p {
     position: relative;
     width: 100%;
     height: 90px;
+    display: none;
 }
 
 .ad-wrapper:after {
