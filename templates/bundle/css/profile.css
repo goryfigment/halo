@@ -1016,6 +1016,13 @@ ol span {
     font-weight: bold;
 }
 
+.tier-5 {
+    color: #fff6a9;
+    font-weight: 600;
+    -webkit-animation: disco 2s ease-in-out infinite;
+            animation: disco 2s ease-in-out infinite;
+}
+
 .bar {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1036,18 +1043,22 @@ ol span {
 }
 
 .bar i:nth-child(1) {
-    left: 25%;
+    left: 0;
 }
 
 .bar i:nth-child(2) {
-    left: 50%;
+    left: 25%;
 }
 
 .bar i:nth-child(3) {
-    left: 75%;
+    left: 50%;
 }
 
 .bar i:nth-child(4) {
+    left: 75%;
+}
+
+.bar i:nth-child(5) {
     left: 98%;
 }
 
