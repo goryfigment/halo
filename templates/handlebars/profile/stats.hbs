@@ -874,7 +874,7 @@
             {{/ifCond}}
         </div>
 
-        <div class="stat-item">
+        <div class="stat-item tippy" data-title="1st Place is rewarded to players<br>when they are on the top<br>slayers/objective of the lobby.">
             <div>Total 1<sup>st</sup> Place</div>
             <span>{{numCommaFormat player.first_place}}</span>
             {{#ifCond change.first_place '>' 0}}<span class="change {{#ifCond change.first_place '<' 0}}neg{{/ifCond}}">{{#ifCond change.first_place '>' 0}}+{{/ifCond}}{{change.first_place}}</span>{{/ifCond}}

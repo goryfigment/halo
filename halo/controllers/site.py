@@ -411,6 +411,7 @@ def profile(request, gt):
             "assists": 0,
             "betrayals": 0,
             "headshots": 0,
+            "first_place": 0,
             "playtime": "0h",
             'season': {
                 "wl": 0,

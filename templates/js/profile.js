@@ -57,6 +57,7 @@ function serviceRecordSuccess(response) {
         'deaths': response['deaths'] - prevDetails['deaths'],
         'wins': response['wins'] - prevDetails['wins'],
         'losses': response['losses'] - prevDetails['losses'],
+        'first_place': response['first_place'] - prevDetails['first_place'],
         'kd': (response['kd'] - prevDetails['kd']).toFixed(2),
         'wl': (response['wl'] - prevDetails['wl']).toFixed(2),
         'score': response['season4']['score'] - prevDetails['season4']['score'],
