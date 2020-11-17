@@ -189,6 +189,7 @@ urlpatterns = [
     url(r'^leaderboards/xbox/h2c-team-hardcore', leaderboard.h2c_team_hardcore),
     url(r'^leaderboards/xbox/halo-reach-team-hardcore', leaderboard.halo_reach_team_hardcore),
     url(r'^leaderboards/xbox/halo-reach-invasion', leaderboard.halo_reach_invasion),
+    url(r'^leaderboards/xbox/h4-squad-battle', leaderboard.h4_squad_battle),
 
     url(r'^leaderboards/pc/h3-recon-slayer', leaderboard.pc_h3_recon_slayer),
     url(r'^leaderboards/pc/h3-team-slayer', leaderboard.pc_h3_team_slayer),

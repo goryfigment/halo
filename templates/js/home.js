@@ -57,6 +57,7 @@ $(document).ready(function() {
     $('#h1-hardcore-wrapper').append(playlistTemplate({leaderboards: globals.hce_hardcore_doubles}));
     $('#reach-invasion-wrapper').append(playlistTemplate({leaderboards: globals.halo_reach_invasion}));
     $('#reach-hardcore-wrapper').append(playlistTemplate({leaderboards: globals.halo_reach_team_hardcore}));
+    $('#h4-squad-wrapper').append(playlistTemplate({leaderboards: globals.h4_squad_battle}));
 
     getPopulation();
     //S5 LEADERBOARDS

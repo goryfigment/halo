@@ -613,35 +613,39 @@ def h3_recon_slayer(request):
 
 
 def h3_team_slayer(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_slayer', '(Xbox) Halo 3: Team Slayer', 0, 100))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_slayer', 'Halo 3: Team Slayer', 0, 100))
 
 
 def h3_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_hardcore', '(Xbox) Halo 3: Team Hardcore', 0, 100))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_hardcore', 'Halo 3: Team Hardcore', 0, 100))
 
 
 def h3_team_doubles(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_doubles', '(Xbox) Halo 3: Team Doubles', 0, 100))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_team_doubles', 'Halo 3: Team Doubles', 0, 100))
 
 
 def hce_hardcore_doubles(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'hce_hardcore_doubles', '(Xbox) Halo 1: Hardcore Doubles', 0, 100))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'hce_hardcore_doubles', 'Halo 1: Hardcore Doubles', 0, 100))
 
 
 def h2c_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2c_team_hardcore', '(Xbox) Halo 2 Classic: Team Hardcore', 0, 100))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2c_team_hardcore', 'Halo 2 Classic: Team Hardcore', 0, 100))
 
 
 def h2a_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2a_team_hardcore', '(Xbox) H2A: Team Hardcore', 0, 100))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h2a_team_hardcore', 'H2A: Team Hardcore', 0, 100))
 
 
 def halo_reach_team_hardcore(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'halo_reach_team_hardcore', '(Xbox) Reach: Team Hardcore', 0, 100))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'halo_reach_team_hardcore', 'Halo Reach: Team Hardcore', 0, 100))
 
 
 def halo_reach_invasion(request):
-    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'halo_reach_invasion', '(Xbox) Reach: Team Invasion', 0, 100))
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'halo_reach_invasion', 'Halo Reach: Team Invasion', 0, 100))
+
+
+def h4_squad_battle(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h4_squad_battle', 'H4: Squad Battle', 0, 100))
 
 
 # PC

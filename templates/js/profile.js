@@ -105,6 +105,14 @@ $(document).ready(function() {
             var rank = xbox_ranks[playlist][0]['SkillRank'];
             var key = helper.replaceAll(playlist.toLowerCase(), ' ', '_').replace(':', '');
 
+            if(key == "") {
+                key = "h4_squad_battle"
+            }
+
+            if(playlist == "") {
+                playlist = "H4 Squad Battle"
+            }
+
             sorted_xbl_ranks.push({
                 'key': key,
                 'playlist': playlist,
@@ -129,6 +137,7 @@ $(document).ready(function() {
     for (var pc_playlist in pc_ranks) {
         if (pc_ranks.hasOwnProperty(pc_playlist)/* && avail_pc_ranks.indexOf(pc_playlist) > -1*/) {
             rank = pc_ranks[pc_playlist][0]['SkillRank'];
+
             key = helper.replaceAll(pc_playlist.toLowerCase(), ' ', '_').replace(':', '');
 
             sorted_pc_ranks.push({

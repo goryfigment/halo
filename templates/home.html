@@ -31,6 +31,7 @@
         globals.h2a_team_hardcore = {{h2a_team_hardcore.leaderboard|safe}};
         globals.halo_reach_team_hardcore = {{halo_reach_team_hardcore.leaderboard|safe}};
         globals.halo_reach_invasion = {{halo_reach_invasion.leaderboard|safe}};
+        globals.h4_squad_battle = {{h4_squad_battle.leaderboard|safe}};
 
         globals.pc_h3_recon_slayer = {{pc_h3_recon_slayer.leaderboard|safe}};
         globals.pc_h3_team_slayer = {{pc_h3_team_slayer.leaderboard|safe}};
@@ -134,50 +135,53 @@
         </div>
 
         <div id="right-wrapper">
-            <h4><i class="fab fa-steam-square steam"></i> PC Rank <span>Leaderboards</span></h4>
+{#            <h4><i class="fab fa-steam-square steam"></i> PC Rank <span>Leaderboards</span></h4>#}
+{#            <ol>#}
+{#                <li class="tab active" id="pc-h3-recon-tab" data-type="pc-h3-recon-wrapper"><b>H3 Recon</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="pc-h3-slayer-tab" data-type="pc-h3-slayer-wrapper"><b>H3 Slayer</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="pc-h3-dubs-tab" data-type="pc-h3-dubs-wrapper"><b>H3 Dubs</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="pc-h3-hardcore-tab" data-type="pc-h3-hardcore-wrapper"><b>H3 Hardcore</b></li>#}
+{#                <li class="tab" id="pc-h1-hardcore-tab" data-type="pc-h1-hardcore-wrapper"><b>H1 Hardcore</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="pc-reach-invasion-tab" data-type="pc-reach-invasion-wrapper"><b>Reach Invasion</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="pc-reach-hardcore-tab" data-type="pc-reach-hardcore-wrapper"><b>Reach Hardcore</b></li>#}
+{#            </ol>#}
+{##}
+{#            <div>#}
+{#            <div class="tab-wrapper active-tab" id="pc-h3-recon-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="pc-h3-slayer-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="pc-h3-hardcore-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="pc-h3-dubs-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="pc-h2a-hardcore-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="pc-h2c-hardcore-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="pc-h1-hardcore-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="pc-reach-invasion-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="pc-reach-hardcore-wrapper"></div>#}
+{#            </div>#}
+            <h4>Rank <span>Leaderboards</span></h4>
             <ol>
-                <li class="tab active" id="pc-h3-recon-tab" data-type="pc-h3-recon-wrapper"><b>H3 Recon</b></li>
+                <li class="tab active" id="h4-squad-tab" data-type="h4-squad-wrapper"><b>H4 Squad Battle</b></li>
                 <span>|</span>
-                <li class="tab" id="pc-h3-slayer-tab" data-type="pc-h3-slayer-wrapper"><b>H3 Slayer</b></li>
-                <span>|</span>
-                <li class="tab" id="pc-h3-dubs-tab" data-type="pc-h3-dubs-wrapper"><b>H3 Dubs</b></li>
-                <span>|</span>
-                <li class="tab" id="pc-h3-hardcore-tab" data-type="pc-h3-hardcore-wrapper"><b>H3 Hardcore</b></li>
-                <li class="tab" id="pc-h1-hardcore-tab" data-type="pc-h1-hardcore-wrapper"><b>H1 Hardcore</b></li>
-                <span>|</span>
-                <li class="tab" id="pc-reach-invasion-tab" data-type="pc-reach-invasion-wrapper"><b>Reach Invasion</b></li>
-                <span>|</span>
-                <li class="tab" id="pc-reach-hardcore-tab" data-type="pc-reach-hardcore-wrapper"><b>Reach Hardcore</b></li>
-            </ol>
-
-            <div>
-            <div class="tab-wrapper active-tab" id="pc-h3-recon-wrapper"></div>
-            <div class="tab-wrapper" id="pc-h3-slayer-wrapper"></div>
-            <div class="tab-wrapper" id="pc-h3-hardcore-wrapper"></div>
-            <div class="tab-wrapper" id="pc-h3-dubs-wrapper"></div>
-            <div class="tab-wrapper" id="pc-h2a-hardcore-wrapper"></div>
-            <div class="tab-wrapper" id="pc-h2c-hardcore-wrapper"></div>
-            <div class="tab-wrapper" id="pc-h1-hardcore-wrapper"></div>
-            <div class="tab-wrapper" id="pc-reach-invasion-wrapper"></div>
-            <div class="tab-wrapper" id="pc-reach-hardcore-wrapper"></div>
-            </div>
-            <h4><i class="fab fa-xbox xbox"></i> Xbox Rank <span>Leaderboards</span></h4>
-            <ol>
-                <li class="tab active" id="h3-slayer-tab" data-type="h3-recon-wrapper"><b>H3 Recon</b></li>
+                <li class="tab" id="h3-recon-tab" data-type="h3-recon-wrapper"><b>H3 Recon</b></li>
                 <span>|</span>
                 <li class="tab" id="h3-slayer-tab" data-type="h3-slayer-wrapper"><b>H3 Slayer</b></li>
-                <span>|</span>
+
                 <li class="tab" id="h3-dubs-tab" data-type="h3-dubs-wrapper"><b>H3 Dubs</b></li>
                 <span>|</span>
                 <li class="tab" id="h3-hardcore-tab" data-type="h3-hardcore-wrapper"><b>H3 Hardcore</b></li>
-                <li class="tab" id="h1-hardcore-tab" data-type="h1-hardcore-wrapper"><b>H1 Hardcore</b></li>
                 <span>|</span>
+                <li class="tab" id="h1-hardcore-tab" data-type="h1-hardcore-wrapper"><b>H1 Hardcore</b></li>
                 <li class="tab" id="reach-invasion-tab" data-type="reach-invasion-wrapper"><b>Reach Invasion</b></li>
                 <span>|</span>
                 <li class="tab" id="reach-hardcore-tab" data-type="reach-hardcore-wrapper"><b>Reach Hardcore</b></li>
             </ol>
             <div>
-                <div class="tab-wrapper active-tab" id="h3-recon-wrapper"></div>
+                <div class="tab-wrapper active-tab" id="h4-squad-wrapper"></div>
+                <div class="tab-wrapper" id="h3-recon-wrapper"></div>
                 <div class="tab-wrapper" id="h3-slayer-wrapper"></div>
                 <div class="tab-wrapper" id="h3-hardcore-wrapper"></div>
                 <div class="tab-wrapper" id="h3-dubs-wrapper"></div>
