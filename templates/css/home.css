@@ -104,7 +104,7 @@ input:-webkit-autofill {
 
 #body-wrapper {
     display: flex;
-    /*min-height: 100vh;*/
+    min-height: 100vh;
     /*height: fit-content;*/
     width: calc(100vw - 250px);
     transition: 0.5s ease all;
