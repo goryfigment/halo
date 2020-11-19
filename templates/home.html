@@ -9,18 +9,18 @@
         globals.base_url = '{{base_url}}';
         globals.gamertag = '{{gamertag}}';
         globals.recent_donations = {{recent_donations|safe}};
-        globals.mccs = {{mccs.leaderboard|safe}};
-        globals.playtime = {{playtime.leaderboard|safe}};
-        globals.kills = {{kills.leaderboard|safe}};
-        globals.deaths = {{deaths.leaderboard|safe}};
-        globals.wins = {{wins.leaderboard|safe}};
-        globals.losses = {{losses.leaderboard|safe}};
-        globals.matches = {{matches.leaderboard|safe}};
-        globals.kd = {{kd.leaderboard|safe}};
-        globals.wl = {{wl.leaderboard|safe}};
-        globals.assists = {{assists.leaderboard|safe}};
-        globals.betrayals = {{betrayals.leaderboard|safe}};
-        globals.headshots = {{headshots.leaderboard|safe}};
+{#        globals.mccs = {{mccs.leaderboard|safe}};#}
+{#        globals.playtime = {{playtime.leaderboard|safe}};#}
+{#        globals.kills = {{kills.leaderboard|safe}};#}
+{#        globals.deaths = {{deaths.leaderboard|safe}};#}
+{#        globals.wins = {{wins.leaderboard|safe}};#}
+{#        globals.losses = {{losses.leaderboard|safe}};#}
+{#        globals.matches = {{matches.leaderboard|safe}};#}
+{#        globals.kd = {{kd.leaderboard|safe}};#}
+{#        globals.wl = {{wl.leaderboard|safe}};#}
+{#        globals.assists = {{assists.leaderboard|safe}};#}
+{#        globals.betrayals = {{betrayals.leaderboard|safe}};#}
+{#        globals.headshots = {{headshots.leaderboard|safe}};#}
 
         globals.h3_recon_slayer = {{h3_recon_slayer.leaderboard|safe}};
         globals.h3_team_slayer = {{h3_team_slayer.leaderboard|safe}};
@@ -32,16 +32,6 @@
         globals.halo_reach_team_hardcore = {{halo_reach_team_hardcore.leaderboard|safe}};
         globals.halo_reach_invasion = {{halo_reach_invasion.leaderboard|safe}};
         globals.h4_squad_battle = {{h4_squad_battle.leaderboard|safe}};
-
-        globals.pc_h3_recon_slayer = {{pc_h3_recon_slayer.leaderboard|safe}};
-        globals.pc_h3_team_slayer = {{pc_h3_team_slayer.leaderboard|safe}};
-        globals.pc_h3_team_hardcore = {{pc_h3_team_hardcore.leaderboard|safe}};
-        globals.pc_h3_team_doubles = {{pc_h3_team_doubles.leaderboard|safe}};
-        globals.pc_hce_hardcore_doubles = {{pc_hce_hardcore_doubles.leaderboard|safe}};
-        globals.pc_h2c_team_hardcore = {{pc_h2c_team_hardcore.leaderboard|safe}};
-        globals.pc_h2a_team_hardcore = {{pc_h2a_team_hardcore.leaderboard|safe}};
-        globals.pc_halo_reach_team_hardcore = {{pc_halo_reach_team_hardcore.leaderboard|safe}};
-        globals.pc_halo_reach_invasion = {{pc_halo_reach_invasion.leaderboard|safe}};
     </script>
 
     <meta property="title" content="MCC Stats: Leaderboards, Ranks, and more!">
@@ -94,44 +84,44 @@
             </div>
             <div id="recent-donations-wrapper"></div>
 
-            <h4>Season 5 Leaderboards</h4>
-            <ol>
-                <li class="tab active" id="mccs-tab" data-type="mccs-wrapper"><b>MCCS</b></li>
-                <span>|</span>
-                <li class="tab" id="playtime-tab" data-type="playtime-wrapper"><b>Playtime</b></li>
-                <span>|</span>
-                <li class="tab" id="kills-tab" data-type="kills-wrapper"><b>Kills</b></li>
-                <span>|</span>
-                <li class="tab" id="deaths-tab" data-type="deaths-wrapper"><b>Deaths</b></li>
-                <span>|</span>
-                <li class="tab" id="wins-tab" data-type="wins-wrapper"><b>Wins</b></li>
-                <li class="tab" id="losses-tab" data-type="losses-wrapper"><b>Losses</b></li>
-                <span>|</span>
-                <li class="tab" id="matches-tab" data-type="matches-wrapper"><b>Matches</b></li>
-                <span>|</span>
-                <li class="tab" id="kd-tab" data-type="kd-wrapper"><b>KD</b></li>
-                <span>|</span>
-                <li class="tab" id="wl-tab" data-type="wl-wrapper"><b>WL</b></li>
-                <span>|</span>
-                <li class="tab" id="matches-tab" data-type="assists-wrapper"><b>Assists</b></li>
-
-                <li class="tab" id="matches-tab" data-type="betrayals-wrapper"><b>Betrayals</b></li>
-                <span>|</span>
-                <li class="tab" id="matches-tab" data-type="headshots-wrapper"><b>Headshots</b></li>
-            </ol>
-
-            <div class="tab-wrapper active-tab" id="mccs-wrapper"></div>
-            <div class="tab-wrapper" id="playtime-wrapper"></div>
-            <div class="tab-wrapper" id="kills-wrapper"></div>
-            <div class="tab-wrapper" id="deaths-wrapper"></div>
-            <div class="tab-wrapper" id="wins-wrapper"></div>
-            <div class="tab-wrapper" id="losses-wrapper"></div>
-            <div class="tab-wrapper" id="matches-wrapper"></div>
-            <div class="tab-wrapper" id="assists-wrapper"></div>
-            <div class="tab-wrapper" id="betrayals-wrapper"></div>
-            <div class="tab-wrapper" id="headshots-wrapper"></div>
-            <div class="tab-wrapper" id="kd-wrapper"></div>
-            <div class="tab-wrapper" id="wl-wrapper"></div>
+{#            <h4>Season 5 Leaderboards</h4>#}
+{#            <ol>#}
+{#                <li class="tab active" id="mccs-tab" data-type="mccs-wrapper"><b>MCCS</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="playtime-tab" data-type="playtime-wrapper"><b>Playtime</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="kills-tab" data-type="kills-wrapper"><b>Kills</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="deaths-tab" data-type="deaths-wrapper"><b>Deaths</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="wins-tab" data-type="wins-wrapper"><b>Wins</b></li>#}
+{#                <li class="tab" id="losses-tab" data-type="losses-wrapper"><b>Losses</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="matches-tab" data-type="matches-wrapper"><b>Matches</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="kd-tab" data-type="kd-wrapper"><b>KD</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="wl-tab" data-type="wl-wrapper"><b>WL</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="matches-tab" data-type="assists-wrapper"><b>Assists</b></li>#}
+{##}
+{#                <li class="tab" id="matches-tab" data-type="betrayals-wrapper"><b>Betrayals</b></li>#}
+{#                <span>|</span>#}
+{#                <li class="tab" id="matches-tab" data-type="headshots-wrapper"><b>Headshots</b></li>#}
+{#            </ol>#}
+{##}
+{#            <div class="tab-wrapper active-tab" id="mccs-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="playtime-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="kills-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="deaths-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="wins-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="losses-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="matches-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="assists-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="betrayals-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="headshots-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="kd-wrapper"></div>#}
+{#            <div class="tab-wrapper" id="wl-wrapper"></div>#}
         </div>
 
         <div id="right-wrapper">
