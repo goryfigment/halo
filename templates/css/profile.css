@@ -301,6 +301,21 @@ footer {
     margin-left: auto;
 }
 
+.halo-rank-title {
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.halo-rank-title img {
+    margin-right: 8px;
+    position: relative !important;
+    top: 15px !important;
+    left: 10px !important;
+    height: 33px !important;
+    opacity: 1 !important;
+}
+
 .Online {
     color: green;
 }

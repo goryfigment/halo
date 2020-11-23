@@ -367,6 +367,16 @@ function splitSessions(matches) {
     return sessionsList;
 }
 
+$(document).on('click', '#current-ranks-tab', function () {
+    $('.xbox-rank-title').hide();
+    $('.halo-rank-title').show();
+});
+
+$(document).on('click', '#prev-ranks-tab', function () {
+    $('.xbox-rank-title').show();
+    $('.halo-rank-title').hide();
+});
+
 //$(document).on('click play', 'video', function (e) {
 //    e.stopPropagation();
 //    var $this = $(this);
