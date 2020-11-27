@@ -273,6 +273,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
+    height: 100%;
 }
 
 #xbox-icon {
