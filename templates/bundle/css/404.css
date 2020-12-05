@@ -550,7 +550,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
     display: flex;
     /*display: none;*/
     margin-top: 15px;
-    height: 205px;
+    height: 280px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
