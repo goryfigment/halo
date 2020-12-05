@@ -503,7 +503,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
     display: flex;
     /*display: none;*/
     margin-top: 15px;
-    height: 280px;
+    height: 205px;
     flex-direction: column;
     align-items: center;
     position: relative;

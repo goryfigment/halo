@@ -1256,8 +1256,8 @@ ol span {
     display: flex;
     /*display: none;*/
     margin-top: 10px;
-    /*height: 226px;*/
-    height: 320px;
+    height: 226px;
+    /*height: 320px;*/
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
