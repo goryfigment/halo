@@ -28,8 +28,13 @@ def update_emblem(request):
 @data_required(['gt', 'req'], 'GET')
 def player_matches(request):
     gt = request.GET['gt']
-    matches = halo_matches(gt, '', '', int(request.GET['req']))
-    matches = sorted(matches, key=lambda k: k['DateTime'], reverse=True)
+
+    slayer = halo_matches(gt, '', '', int(request.GET['req']))
+    ctf = halo_matches(gt, 'Ctf', '', 2)
+    oddball = halo_matches(gt, 'Oddball', '', 2)
+    koth = halo_matches(gt, 'Koth', '', 2)
+    matches = slayer + ctf + oddball + koth
+    matches = sorted(matches, key=lambda k: k['DateTime'], reverse=True)[0:50]
 
     return JsonResponse({'gt': gt, 'matches': matches}, safe=False)
 

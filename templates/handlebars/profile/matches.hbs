@@ -32,9 +32,12 @@
         <tbody>
             {{#each session}}
                 <tr class="{{#if Won}}win{{else}}lose{{/if}}">
-                    <td>
-                        <label>{{haloGame GameId}}</label>
-                        <div>{{haloMaps MapId}}</div>
+                    <td class="game-history-row">
+                        <img class="game-icon {{haloGame GameId}}" src="{{concat 'base_url' '/templates/bundle/assets/game/' (haloGame GameId) '.png'}}">
+                        <div>
+                            <label>{{haloGame GameId}}</label>
+                            <div>{{haloMaps MapId}}</div>
+                        </div>
                     </td>
                     <td>
                         <label>Kills</label>

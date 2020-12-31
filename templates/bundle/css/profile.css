@@ -429,6 +429,21 @@
         padding: 0 14px;
         text-align: center;
     }
+
+    body .game-history-row {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+
+    body .game-history-row img {
+        margin: 0;
+    }
+
+    body table tbody tr td:first-child {
+        width: auto;
+    }
 }
 
 #input-wrapper {
@@ -1391,6 +1406,26 @@ table div {
 
 .win {
     border-left: 8px solid green;
+}
+
+.game-history-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.game-icon {
+    height: 55px;
+    margin-right: 8px;
+    max-width: 31px;
+}
+
+
+.game-icon.Capture, .game-icon.King, .game-icon.Oddball {
+    height: 35px;
 }
 /*MATCHES*//*!
  * Font Awesome Free 5.12.1 by @fontawesome - https://fontawesome.com

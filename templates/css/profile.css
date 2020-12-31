@@ -64,6 +64,18 @@
         padding: 0 14px;
         text-align: center;
     }
+
+    body .game-history-row {
+        flex-direction: column;
+    }
+
+    body .game-history-row img {
+        margin: 0;
+    }
+
+    body table tbody tr td:first-child {
+        width: auto;
+    }
 }
 
 #input-wrapper {
@@ -888,5 +900,21 @@ table div {
 
 .win {
     border-left: 8px solid green;
+}
+
+.game-history-row {
+    display: flex;
+    align-items: center;
+}
+
+.game-icon {
+    height: 55px;
+    margin-right: 8px;
+    max-width: 31px;
+}
+
+
+.game-icon.Capture, .game-icon.King, .game-icon.Oddball {
+    height: 35px;
 }
 /*MATCHES*/
