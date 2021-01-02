@@ -60,7 +60,7 @@ $(document).ready(function() {
     $('#h4-squad-wrapper').append(playlistTemplate({leaderboards: globals.h4_squad_battle}));
 
     getPopulation();
-    //S5 LEADERBOARDS
+    //S6 LEADERBOARDS
     $('#mccs-wrapper').append(mccsTemplate({mccs: globals.mccs}));
     $('#playtime-wrapper').append(playtimeTemplate({leaderboards: globals.playtime, type: 'playtime'}));
     $('#kills-wrapper').append(leaderboardTemplate({leaderboards: globals.kills, type: 'kills'}));

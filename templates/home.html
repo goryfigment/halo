@@ -9,18 +9,18 @@
         globals.base_url = '{{base_url}}';
         globals.gamertag = '{{gamertag}}';
         globals.recent_donations = {{recent_donations|safe}};
-{#        globals.mccs = {{mccs.leaderboard|safe}};#}
-{#        globals.playtime = {{playtime.leaderboard|safe}};#}
-{#        globals.kills = {{kills.leaderboard|safe}};#}
-{#        globals.deaths = {{deaths.leaderboard|safe}};#}
-{#        globals.wins = {{wins.leaderboard|safe}};#}
-{#        globals.losses = {{losses.leaderboard|safe}};#}
-{#        globals.matches = {{matches.leaderboard|safe}};#}
-{#        globals.kd = {{kd.leaderboard|safe}};#}
-{#        globals.wl = {{wl.leaderboard|safe}};#}
-{#        globals.assists = {{assists.leaderboard|safe}};#}
-{#        globals.betrayals = {{betrayals.leaderboard|safe}};#}
-{#        globals.headshots = {{headshots.leaderboard|safe}};#}
+        globals.mccs = {{mccs.leaderboard|safe}};
+        globals.playtime = {{playtime.leaderboard|safe}};
+        globals.kills = {{kills.leaderboard|safe}};
+        globals.deaths = {{deaths.leaderboard|safe}};
+        globals.wins = {{wins.leaderboard|safe}};
+        globals.losses = {{losses.leaderboard|safe}};
+        globals.matches = {{matches.leaderboard|safe}};
+        globals.kd = {{kd.leaderboard|safe}};
+        globals.wl = {{wl.leaderboard|safe}};
+        globals.assists = {{assists.leaderboard|safe}};
+        globals.betrayals = {{betrayals.leaderboard|safe}};
+        globals.headshots = {{headshots.leaderboard|safe}};
 
         globals.h3_recon_slayer = {{h3_recon_slayer.leaderboard|safe}};
         globals.h3_team_slayer = {{h3_team_slayer.leaderboard|safe}};
@@ -81,75 +81,48 @@
 {#                <iframe src="https://player.twitch.tv/?channel=tommy_kost&parent=localhost&volume=0.11" frameborder="0" allowfullscreen="true" scrolling="no" height="400" width="400" muted="false"></iframe>#}
             </div>
             <div id="recent-donations-wrapper"></div>
-
-{#            <h4>Season 5 Leaderboards</h4>#}
-{#            <ol>#}
-{#                <li class="tab active" id="mccs-tab" data-type="mccs-wrapper"><b>MCCS</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="playtime-tab" data-type="playtime-wrapper"><b>Playtime</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="kills-tab" data-type="kills-wrapper"><b>Kills</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="deaths-tab" data-type="deaths-wrapper"><b>Deaths</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="wins-tab" data-type="wins-wrapper"><b>Wins</b></li>#}
-{#                <li class="tab" id="losses-tab" data-type="losses-wrapper"><b>Losses</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="matches-tab" data-type="matches-wrapper"><b>Matches</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="kd-tab" data-type="kd-wrapper"><b>KD</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="wl-tab" data-type="wl-wrapper"><b>WL</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="matches-tab" data-type="assists-wrapper"><b>Assists</b></li>#}
-{##}
-{#                <li class="tab" id="matches-tab" data-type="betrayals-wrapper"><b>Betrayals</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="matches-tab" data-type="headshots-wrapper"><b>Headshots</b></li>#}
-{#            </ol>#}
-{##}
-{#            <div class="tab-wrapper active-tab" id="mccs-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="playtime-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="kills-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="deaths-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="wins-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="losses-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="matches-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="assists-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="betrayals-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="headshots-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="kd-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="wl-wrapper"></div>#}
         </div>
 
         <div id="right-wrapper">
-{#            <h4><i class="fab fa-steam-square steam"></i> PC Rank <span>Leaderboards</span></h4>#}
-{#            <ol>#}
-{#                <li class="tab active" id="pc-h3-recon-tab" data-type="pc-h3-recon-wrapper"><b>H3 Recon</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="pc-h3-slayer-tab" data-type="pc-h3-slayer-wrapper"><b>H3 Slayer</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="pc-h3-dubs-tab" data-type="pc-h3-dubs-wrapper"><b>H3 Dubs</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="pc-h3-hardcore-tab" data-type="pc-h3-hardcore-wrapper"><b>H3 Hardcore</b></li>#}
-{#                <li class="tab" id="pc-h1-hardcore-tab" data-type="pc-h1-hardcore-wrapper"><b>H1 Hardcore</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="pc-reach-invasion-tab" data-type="pc-reach-invasion-wrapper"><b>Reach Invasion</b></li>#}
-{#                <span>|</span>#}
-{#                <li class="tab" id="pc-reach-hardcore-tab" data-type="pc-reach-hardcore-wrapper"><b>Reach Hardcore</b></li>#}
-{#            </ol>#}
-{##}
-{#            <div>#}
-{#            <div class="tab-wrapper active-tab" id="pc-h3-recon-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="pc-h3-slayer-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="pc-h3-hardcore-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="pc-h3-dubs-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="pc-h2a-hardcore-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="pc-h2c-hardcore-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="pc-h1-hardcore-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="pc-reach-invasion-wrapper"></div>#}
-{#            <div class="tab-wrapper" id="pc-reach-hardcore-wrapper"></div>#}
-{#            </div>#}
+            <h4>Season 6 <span>Leaderboards</span></h4>
+            <ol>
+                <li class="tab active" id="mccs-tab" data-type="mccs-wrapper"><b>MCCS</b></li>
+                <span>|</span>
+                <li class="tab" id="playtime-tab" data-type="playtime-wrapper"><b>Playtime</b></li>
+                <span>|</span>
+                <li class="tab" id="kills-tab" data-type="kills-wrapper"><b>Kills</b></li>
+                <span>|</span>
+                <li class="tab" id="deaths-tab" data-type="deaths-wrapper"><b>Deaths</b></li>
+                <span>|</span>
+                <li class="tab" id="wins-tab" data-type="wins-wrapper"><b>Wins</b></li>
+                <li class="tab" id="losses-tab" data-type="losses-wrapper"><b>Losses</b></li>
+                <span>|</span>
+                <li class="tab" id="matches-tab" data-type="matches-wrapper"><b>Matches</b></li>
+                <span>|</span>
+                <li class="tab" id="kd-tab" data-type="kd-wrapper"><b>KD</b></li>
+                <span>|</span>
+                <li class="tab" id="wl-tab" data-type="wl-wrapper"><b>WL</b></li>
+                <span>|</span>
+                <li class="tab" id="matches-tab" data-type="assists-wrapper"><b>Assists</b></li>
+
+                <li class="tab" id="matches-tab" data-type="betrayals-wrapper"><b>Betrayals</b></li>
+                <span>|</span>
+                <li class="tab" id="matches-tab" data-type="headshots-wrapper"><b>Headshots</b></li>
+            </ol>
+
+            <div class="tab-wrapper active-tab" id="mccs-wrapper"></div>
+            <div class="tab-wrapper" id="playtime-wrapper"></div>
+            <div class="tab-wrapper" id="kills-wrapper"></div>
+            <div class="tab-wrapper" id="deaths-wrapper"></div>
+            <div class="tab-wrapper" id="wins-wrapper"></div>
+            <div class="tab-wrapper" id="losses-wrapper"></div>
+            <div class="tab-wrapper" id="matches-wrapper"></div>
+            <div class="tab-wrapper" id="assists-wrapper"></div>
+            <div class="tab-wrapper" id="betrayals-wrapper"></div>
+            <div class="tab-wrapper" id="headshots-wrapper"></div>
+            <div class="tab-wrapper" id="kd-wrapper"></div>
+            <div class="tab-wrapper" id="wl-wrapper"></div>
+
             <h4>Rank <span>Leaderboards</span></h4>
             <ol>
                 <li class="tab active" id="h4-squad-tab" data-type="h4-squad-wrapper"><b>H4 Squad Battle</b></li>
@@ -179,7 +152,6 @@
                 <div class="tab-wrapper" id="reach-invasion-wrapper"></div>
                 <div class="tab-wrapper" id="reach-hardcore-wrapper"></div>
             </div>
-
 {#            <div id="advertisement-wrapper">#}
 {#                <h4>Tommy Kost: Halo 2/3 (MCC) Montage</h4>#}
 {#                <iframe width="320" height="180" src="https://www.youtube.com/embed/92G8ELYQGUQ?autoplay=1&cc_load_policy=1&mute=1" allowfullscreen></iframe>#}
@@ -192,8 +164,27 @@
             <h2>LATEST NEWS</h2>
 
             <div class="news-wrapper">
+                <time>January 2nd, 2021 12:00AM</time>
+                <h1>SEASON <span>6 BEGINS</span></h1>
+
+                <p>Season 6 starts the moment you first load your profile after January 2nd, 2020 12:00AM US Eastern Time!</p>
+                <p>Please read the <a href="/about"><b>RULES</b></a> before participating in season 6.</p>
+                <p>Thank you and Good Luck grinding!</p>
+            </div>
+
+            <div class="news-wrapper">
+                <time>December 31st, 2020 12:00PM</time>
+                <h1>Game History <span>Improvements</span></h1>
+
+                <img src="https://i.gyazo.com/5b030015c13b2a9b219815a378907d9d.png" />
+
+                <p>Slayer, Ctf, Koh, Oddball Images added to match history</p>
+                <p>Match History now includes Oddball, King of the Hill and Capture the Flag games!</p>
+            </div>
+
+            <div class="news-wrapper">
                 <time>October 25th, 2020 11:00PM</time>
-                <h1>1<sup>st</sup> Place and New Trophys!</h1>
+                <h1>1<sup>st</sup> Place and New <span>Trophys!</span></h1>
 
                 <img src="https://i.gyazo.com/4749d040a0f97df31e954efea8580a9d.png" />
 

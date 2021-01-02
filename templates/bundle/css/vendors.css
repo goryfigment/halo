@@ -500,7 +500,7 @@ footer p {
 }
 
 .leaderboard-section {
-    padding: 5px 20px;
+    padding: 5px 10px;
 }
 
 .leaderboard-section nav div {
@@ -516,13 +516,6 @@ footer p {
     font-weight: bold;
 }
 
-.platform a:first-child {
-    padding-right: 4px;
-}
-
-.platform a:not(:first-child) {
-    padding-left: 4px;
-}
 /*LEADERBOARD*/
 
 /*ANIMATION*/

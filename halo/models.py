@@ -240,6 +240,20 @@ class Leaderboard(models.Model):
     s5_betrayals = models.FloatField(default=0)
     s5_headshots = models.FloatField(default=0)
 
+    # Leaderboard placement
+    s6_score = models.IntegerField(default=0)
+    s6_playtime = models.IntegerField(default=0)
+    s6_kills = models.IntegerField(default=0)
+    s6_deaths = models.IntegerField(default=0)
+    s6_wins = models.IntegerField(default=0)
+    s6_losses = models.IntegerField(default=0)
+    s6_matches = models.IntegerField(default=0)
+    s6_wl = models.FloatField(default=0)
+    s6_kd = models.FloatField(default=0)
+    s6_assists = models.FloatField(default=0)
+    s6_betrayals = models.FloatField(default=0)
+    s6_headshots = models.FloatField(default=0)
+
     # NEW
     new_h3_recon_slayer = models.IntegerField(default=0)
     new_h3_team_slayer = models.IntegerField(default=0)
@@ -501,3 +515,43 @@ class Season5Record(models.Model):
 
     class Meta:
         db_table = "season5_record"
+
+
+# For S5 leaderboards
+class Season6(models.Model):
+    player = models.ForeignKey(Player, default=None)
+    score = models.IntegerField(default=0)
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
+    epoch = models.IntegerField(default=0)
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    kd = models.FloatField(default=0)
+    wl = models.FloatField(default=0)
+    assists = models.IntegerField(default=0)
+    betrayals = models.IntegerField(default=0)
+    headshots = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "season6"
+
+
+# Screenshot of that given day stats to subtract from
+class Season6Record(models.Model):
+    player = models.ForeignKey(Player, default=None)
+
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    epoch = models.IntegerField(default=0)
+    assists = models.IntegerField(default=0)
+    betrayals = models.IntegerField(default=0)
+    headshots = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "season6_record"

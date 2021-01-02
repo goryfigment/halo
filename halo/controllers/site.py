@@ -4,8 +4,8 @@ from base import get_base_url, model_to_dict
 from django.db.models import F
 from django.http import HttpResponseRedirect
 from halo_handler import get_xbox_auth, halo_ranks, service_record
-from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks, Season3, NewRanks, NewPcRanks, Season4, Season5
-from halo.controllers.leaderboard import season5_func, season5_playtime_func, rank_func
+from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks, Season3, NewRanks, NewPcRanks, Season4, Season5, Season6
+from halo.controllers.leaderboard import season6_func, season6_playtime_func, rank_func
 from django.http import HttpResponse
 
 
@@ -28,29 +28,29 @@ def server_error(request):
 def home(request):
     data = {
         'base_url': get_base_url(),
-        # 'mccs': season5_func(request, 'mccs', 'score', 'MCCS', 0, 10),
-        # 'playtime': season5_playtime_func(request, 0, 10),
-        # 'kills': season5_func(request, 'season1', 'kills', '(Season 5) Kills', 0, 10),
-        # 'deaths': season5_func(request, 'season1', 'deaths', '(Season 5) Deaths', 0, 10),
-        # 'wins': season5_func(request, 'season1', 'wins', '(Season 5) Wins', 0, 10),
-        # 'losses': season5_func(request, 'season1', 'losses', '(Season 5) Losses', 0, 10),
-        # 'matches': season5_func(request, 'season1', 'matches', '(Season 5) Matches', 0, 10),
-        # 'kd': season5_func(request, 'season1_ratio', 'kd', '(Season 5) K/D Ratio', 0, 10),
-        # 'wl': season5_func(request, 'season1_ratio', 'wl', '(Season 5) W/L Ratio', 0, 10),
-        # 'assists': season5_func(request, 'season1', 'assists', '(Season 5) Assists', 0, 10),
-        # 'betrayals': season5_func(request, 'season1', 'betrayals', '(Season 5) Betrayals', 0, 10),
-        # 'headshots': season5_func(request, 'season1', 'headshots', '(Season 5) Headshots', 0, 10),
+        'mccs': season6_func(request, 'mccs', 'score', 'MCCS', 0, 10),
+        'playtime': season6_playtime_func(request, 0, 10),
+        'kills': season6_func(request, 'season1', 'kills', '(Season 6) Kills', 0, 10),
+        'deaths': season6_func(request, 'season1', 'deaths', '(Season 6) Deaths', 0, 10),
+        'wins': season6_func(request, 'season1', 'wins', '(Season 6) Wins', 0, 10),
+        'losses': season6_func(request, 'season1', 'losses', '(Season 6) Losses', 0, 10),
+        'matches': season6_func(request, 'season1', 'matches', '(Season 6) Matches', 0, 10),
+        'kd': season6_func(request, 'season1_ratio', 'kd', '(Season 6) K/D Ratio', 0, 10),
+        'wl': season6_func(request, 'season1_ratio', 'wl', '(Season 6) W/L Ratio', 0, 10),
+        'assists': season6_func(request, 'season1', 'assists', '(Season 6) Assists', 0, 10),
+        'betrayals': season6_func(request, 'season1', 'betrayals', '(Season 6) Betrayals', 0, 10),
+        'headshots': season6_func(request, 'season1', 'headshots', '(Season 6) Headshots', 0, 10),
 
-        'h3_recon_slayer': rank_func(request, 'playlist', 'h3_recon_slayer', 'Halo 3: Recon Slayer', 0, 20),
-        'h3_team_slayer': rank_func(request, 'playlist', 'h3_team_slayer', 'Halo 3: Team Slayer', 0, 20),
-        'h3_team_hardcore': rank_func(request, 'playlist', 'h3_team_hardcore', 'Halo 3: Team Hardcore', 0, 20),
-        'h3_team_doubles': rank_func(request, 'playlist', 'h3_team_doubles', 'Halo 3: Team Doubles', 0, 20),
-        'hce_hardcore_doubles': rank_func(request, 'playlist', 'hce_hardcore_doubles', 'Halo 1: Hardcore Doubles', 0, 20),
-        'h2c_team_hardcore': rank_func(request, 'playlist', 'h2c_team_hardcore', 'Halo 2 Classic: Team Hardcore', 0, 20),
-        'h2a_team_hardcore': rank_func(request, 'playlist', 'h2a_team_hardcore', 'H2A: Team Hardcore', 0, 20),
-        'halo_reach_team_hardcore': rank_func(request, 'playlist', 'halo_reach_team_hardcore', 'Reach: Team Hardcore', 0, 20),
-        'halo_reach_invasion': rank_func(request, 'playlist', 'halo_reach_invasion', 'Reach: Team Invasion', 0, 20),
-        'h4_squad_battle': rank_func(request, 'playlist', 'h4_squad_battle', 'H4 Squad Battle', 0, 20),
+        'h3_recon_slayer': rank_func(request, 'playlist', 'h3_recon_slayer', 'Halo 3: Recon Slayer', 0, 10),
+        'h3_team_slayer': rank_func(request, 'playlist', 'h3_team_slayer', 'Halo 3: Team Slayer', 0, 10),
+        'h3_team_hardcore': rank_func(request, 'playlist', 'h3_team_hardcore', 'Halo 3: Team Hardcore', 0, 10),
+        'h3_team_doubles': rank_func(request, 'playlist', 'h3_team_doubles', 'Halo 3: Team Doubles', 0, 10),
+        'hce_hardcore_doubles': rank_func(request, 'playlist', 'hce_hardcore_doubles', 'Halo 1: Hardcore Doubles', 0, 10),
+        'h2c_team_hardcore': rank_func(request, 'playlist', 'h2c_team_hardcore', 'Halo 2 Classic: Team Hardcore', 0, 10),
+        'h2a_team_hardcore': rank_func(request, 'playlist', 'h2a_team_hardcore', 'H2A: Team Hardcore', 0, 10),
+        'halo_reach_team_hardcore': rank_func(request, 'playlist', 'halo_reach_team_hardcore', 'Reach: Team Hardcore', 0, 10),
+        'halo_reach_invasion': rank_func(request, 'playlist', 'halo_reach_invasion', 'Reach: Team Invasion', 0, 10),
+        'h4_squad_battle': rank_func(request, 'playlist', 'h4_squad_battle', 'H4 Squad Battle', 0, 10),
 
         'recent_donations': json.dumps(list(RecentDonations.objects.all().values(amount=F('player__donation'), gamertag=F('player__gamertag'), player_id=F('player__id'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb')).order_by('-id')[0:5]))
     }
@@ -361,6 +361,7 @@ def profile(request, gt):
         season3 = Season3.objects.filter(player=player_obj)
         season4 = Season4.objects.filter(player=player_obj)
         season5 = Season5.objects.filter(player=player_obj)
+        season6 = Season6.objects.filter(player=player_obj)
 
         if season1.exists():
             player['season'] = model_to_dict(season1[0])
@@ -387,6 +388,10 @@ def profile(request, gt):
         else:
             player['season5'] = model_to_dict(Season5.objects.create(player=player_obj))
 
+        if season6.exists():
+            player['season6'] = model_to_dict(season6[0])
+        else:
+            player['season6'] = model_to_dict(Season6.objects.create(player=player_obj))
     else:
         player = {
             "wl": 0,
@@ -463,6 +468,22 @@ def profile(request, gt):
                 "playtime": "0h"
             },
             'season5': {
+                "wl": 0,
+                "kills": 0,
+                "deaths": 0,
+                "matches": 0,
+                "wins": 0,
+                "losses": 0,
+                "player": 10,
+                "epoch": 0,
+                "score": 0,
+                "kd": 0,
+                "assists": 0,
+                "betrayals": 0,
+                "headshots": 0,
+                "playtime": "0h"
+            },
+            'season6': {
                 "wl": 0,
                 "kills": 0,
                 "deaths": 0,
