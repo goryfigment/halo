@@ -65,7 +65,11 @@ function serviceRecordSuccess(response) {
         's_kd': (response['season6']['kd'] - prevDetails['season6']['kd']).toFixed(2)
     };
 
-    $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'total_50s': globals.total_50s}));
+    console.log(JSON.stringify(response))
+
+    var totalMCCS = response['season']['score'] + response['season2']['score'] + response['season3']['score'] + response['season4']['score'] + response['season5']['score'] + response['season6']['score'];
+
+    $playerDetails.append(playerDetailsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'total_50s': globals.total_50s, 'total_mccs': totalMCCS}));
     $statsWrapper.append(statsTemplate({'change': change, 'player': response, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
 
     console.log(JSON.stringify(response));
@@ -168,8 +172,10 @@ $(document).ready(function() {
     }
 
     if(!$.isEmptyObject(globals.player)) {
+        var totalMCCS = globals.player['season']['score'] + globals.player['season2']['score'] + globals.player['season3']['score'] + globals.player['season4']['score'] + globals.player['season5']['score'] + globals.player['season6']['score'];
+
         $('#service-record').append(serviceRecordTemplate({highest_rank: highest_rank, 'gt': globals.gamertag, 'record': globals.player}));
-        $('#player-details').append(playerDetailsTemplate({'player': globals.player, 'leaderboard': globals.leaderboard, 'total_50s': total_50s}));
+        $('#player-details').append(playerDetailsTemplate({'player': globals.player, 'leaderboard': globals.leaderboard, 'total_50s': total_50s, 'total_mccs': totalMCCS}));
         $('#stats-wrapper').append(statsTemplate({'player': globals.player, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
     }
 
