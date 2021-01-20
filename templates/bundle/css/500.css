@@ -548,7 +548,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    /*display: none;*/
+    display: none;
     margin-top: 15px;
     height: 205px;
     -webkit-box-orient: vertical;

@@ -768,8 +768,8 @@ ol span {
 /*}*/
 
 #lol-wrapper {
-    display: flex;
-    /*display: none;*/
+    /*display: flex;*/
+    display: none;
     margin-top: 10px;
     height: 226px;
     /*height: 320px;*/
