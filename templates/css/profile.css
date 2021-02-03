@@ -243,6 +243,7 @@ footer {
     border-radius: 4px;
     width: 115px;
     height: fit-content;
+    cursor: default;
 }
 
 .stat-item div:first-child {

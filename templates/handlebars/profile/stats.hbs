@@ -2,7 +2,7 @@
     <h5>Stats</h5>
 
     <ol>
-        <li class="tab" id="all-tab" data-type="all-wrapper"><b>All</b></li>
+        <li class="tab active" id="all-tab" data-type="all-wrapper"><b>All</b></li>
         <span>|</span>
         <li class="tab" id="s1-tab" data-type="season1-wrapper"><b>S1</b></li>
         <span>|</span>
@@ -14,7 +14,7 @@
         <span>|</span>
         <li class="tab" id="s5-tab" data-type="season5-wrapper"><b>S5</b></li>
         <span>|</span>
-        <li class="tab active" id="s6-tab" data-type="season6-wrapper"><b>S6</b></li>
+        <li class="tab" id="s6-tab" data-type="season6-wrapper"><b>S6</b></li>
     </ol>
 </div>
 
@@ -846,12 +846,12 @@
 </div>
 
 <!--SEASON6-->
-<div class="tab-wrapper active-tab" id="season6-wrapper">
+<div class="tab-wrapper" id="season6-wrapper">
     <div class="stat-container">
         <div class="stat-item" id="score-item">
             <div>MCC Score</div>
             <span>{{numCommaFormat player.season6.score}}</span>
-            {{#ifCond change.score '>' 0}}<span class="change {{#ifCond change.score '<' 0}}neg{{/ifCond}}">{{#ifCond change.score '>' 0}}+{{else}}-{{/ifCond}}{{change.score}}</span>{{/ifCond}}
+            <!--{{#ifCond change.score '>' 0}}<span class="change {{#ifCond change.score '<' 0}}neg{{/ifCond}}">{{#ifCond change.score '>' 0}}+{{else}}-{{/ifCond}}{{change.score}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.s6_score '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -880,7 +880,7 @@
         <div class="stat-item">
             <div>Total Matches</div>
             <span>{{numCommaFormat player.season6.matches}}</span>
-            {{#ifCond change.matches '>' 0}}<span class="change {{#ifCond change.matches '<' 0}}neg{{/ifCond}}">{{#ifCond change.matches '>' 0}}+{{else}}-{{/ifCond}}{{change.matches}}</span>{{/ifCond}}
+            <!--{{#ifCond change.matches '>' 0}}<span class="change {{#ifCond change.matches '<' 0}}neg{{/ifCond}}">{{#ifCond change.matches '>' 0}}+{{else}}-{{/ifCond}}{{change.matches}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.s6_matches '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -897,7 +897,7 @@
         <div class="stat-item">
             <div>Wins</div>
             <span>{{numCommaFormat player.season6.wins}}</span>
-            {{#ifCond change.wins '>' 0}}<span class="change {{#ifCond change.wins '<' 0}}neg{{/ifCond}}">{{#ifCond change.wins '>' 0}}+{{else}}-{{/ifCond}}{{change.wins}}</span>{{/ifCond}}
+            <!--{{#ifCond change.wins '>' 0}}<span class="change {{#ifCond change.wins '<' 0}}neg{{/ifCond}}">{{#ifCond change.wins '>' 0}}+{{else}}-{{/ifCond}}{{change.wins}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.s6_wins '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -912,7 +912,7 @@
         <div class="stat-item">
             <div>Losses</div>
             <span>{{numCommaFormat player.season6.losses}}</span>
-            {{#ifCond change.losses '>' 0}}<span class="change {{#ifCond change.losses '<' 0}}neg{{/ifCond}}">{{#ifCond change.losses '>' 0}}+{{else}}-{{/ifCond}}{{change.losses}}</span>{{/ifCond}}
+            <!--{{#ifCond change.losses '>' 0}}<span class="change {{#ifCond change.losses '<' 0}}neg{{/ifCond}}">{{#ifCond change.losses '>' 0}}+{{else}}-{{/ifCond}}{{change.losses}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.s6_losses '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -927,7 +927,7 @@
         <div class="stat-item">
             <div>W/L Ratio</div>
             <span>{{player.season6.wl}}</span>
-            {{#ifCond change.s_wl '>' 0}}<span class="change {{#ifCond change.s_wl '<' 0}}neg{{/ifCond}}">{{#ifCond change.s_wl '>' 0}}+{{else}}-{{/ifCond}}{{change.s_wl}}</span>{{/ifCond}}
+            <!--{{#ifCond change.s_wl '>' 0}}<span class="change {{#ifCond change.s_wl '<' 0}}neg{{/ifCond}}">{{#ifCond change.s_wl '>' 0}}+{{else}}-{{/ifCond}}{{change.s_wl}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.s6_wl '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -944,7 +944,7 @@
         <div class="stat-item">
             <div>Kills</div>
             <span>{{numCommaFormat player.season6.kills}}</span>
-            {{#ifCond change.kills '>' 0}}<span class="change {{#ifCond change.kills '<' 0}}neg{{/ifCond}}">{{#ifCond change.kills '>' 0}}+{{else}}-{{/ifCond}}{{change.kills}}</span>{{/ifCond}}
+            <!--{{#ifCond change.kills '>' 0}}<span class="change {{#ifCond change.kills '<' 0}}neg{{/ifCond}}">{{#ifCond change.kills '>' 0}}+{{else}}-{{/ifCond}}{{change.kills}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.s6_kills '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -959,7 +959,7 @@
         <div class="stat-item">
             <div>Deaths</div>
             <span>{{numCommaFormat player.season6.deaths}}</span>
-            {{#ifCond change.deaths '>' 0}}<span class="change {{#ifCond change.deaths '<' 0}}neg{{/ifCond}}">{{#ifCond change.deaths '>' 0}}+{{else}}-{{/ifCond}}{{change.deaths}}</span>{{/ifCond}}
+            <!--{{#ifCond change.deaths '>' 0}}<span class="change {{#ifCond change.deaths '<' 0}}neg{{/ifCond}}">{{#ifCond change.deaths '>' 0}}+{{else}}-{{/ifCond}}{{change.deaths}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.s6_deaths '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -974,7 +974,7 @@
         <div class="stat-item">
             <div>K/D Ratio</div>
             <span>{{player.season6.kd}}</span>
-            {{#ifCond change.s_kd '>' 0}}<span class="change {{#ifCond change.s_kd '<' 0}}neg{{/ifCond}}">{{#ifCond change.s_kd '>' 0}}+{{else}}-{{/ifCond}}{{change.s_kd}}</span>{{/ifCond}}
+            <!--{{#ifCond change.s_kd '>' 0}}<span class="change {{#ifCond change.s_kd '<' 0}}neg{{/ifCond}}">{{#ifCond change.s_kd '>' 0}}+{{else}}-{{/ifCond}}{{change.s_kd}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.s6_kd '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -991,7 +991,7 @@
         <div class="stat-item">
             <div>Headshots</div>
             <span>{{numCommaFormat player.season6.headshots}}</span>
-            {{#ifCond change.headshots '>' 0}}<span class="change {{#ifCond change.headshots '<' 0}}neg{{/ifCond}}">{{#ifCond change.headshots '>' 0}}+{{else}}-{{/ifCond}}{{change.headshots}}</span>{{/ifCond}}
+            <!--{{#ifCond change.headshots '>' 0}}<span class="change {{#ifCond change.headshots '<' 0}}neg{{/ifCond}}">{{#ifCond change.headshots '>' 0}}+{{else}}-{{/ifCond}}{{change.headshots}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.s6_headshots '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1021,7 +1021,7 @@
         <div class="stat-item">
             <div>Betrayals</div>
             <span>{{numCommaFormat player.season6.betrayals}}</span>
-            {{#ifCond change.betrayals '>' 0}}<span class="change {{#ifCond change.betrayals '<' 0}}neg{{/ifCond}}">{{#ifCond change.betrayals '>' 0}}+{{else}}-{{/ifCond}}{{change.betrayals}}</span>{{/ifCond}}
+            <!--{{#ifCond change.betrayals '>' 0}}<span class="change {{#ifCond change.betrayals '<' 0}}neg{{/ifCond}}">{{#ifCond change.betrayals '>' 0}}+{{else}}-{{/ifCond}}{{change.betrayals}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.s6_betrayals '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1037,7 +1037,7 @@
 <!--SEASON6-->
 
 <!--ALL-->
-<div class="tab-wrapper" id="all-wrapper">
+<div class="tab-wrapper active-tab" id="all-wrapper">
     <div class="stat-container">
         <div class="stat-item" id="playtime-item">
             <div>Playtime</div>
@@ -1056,7 +1056,7 @@
         <div class="stat-item">
             <div>Total Matches</div>
             <span>{{numCommaFormat player.matches}}</span>
-            {{#ifCond change.matches '>' 0}}<span class="change {{#ifCond change.matches '<' 0}}neg{{/ifCond}}">{{#ifCond change.matches '>' 0}}+{{/ifCond}}{{change.matches}}</span>{{/ifCond}}
+            <!--{{#ifCond change.matches '>' 0}}<span class="change {{#ifCond change.matches '<' 0}}neg{{/ifCond}}">{{#ifCond change.matches '>' 0}}+{{/ifCond}}{{change.matches}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.matches '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1071,7 +1071,7 @@
         <div class="stat-item tippy" data-title="1st Place is rewarded to players<br>when they are on the top<br>slayers/objective of the lobby.">
             <div>Total 1<sup>st</sup> Place</div>
             <span>{{numCommaFormat player.first_place}}</span>
-            {{#ifCond change.first_place '>' 0}}<span class="change {{#ifCond change.first_place '<' 0}}neg{{/ifCond}}">{{#ifCond change.first_place '>' 0}}+{{/ifCond}}{{change.first_place}}</span>{{/ifCond}}
+            <!--{{#ifCond change.first_place '>' 0}}<span class="change {{#ifCond change.first_place '<' 0}}neg{{/ifCond}}">{{#ifCond change.first_place '>' 0}}+{{/ifCond}}{{change.first_place}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.first_place '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1088,7 +1088,7 @@
         <div class="stat-item">
             <div>Wins</div>
             <span>{{numCommaFormat player.wins}}</span>
-            {{#ifCond change.wins '>' 0}}<span class="change {{#ifCond change.wins '<' 0}}neg{{/ifCond}}">{{#ifCond change.wins '>' 0}}+{{/ifCond}}{{change.wins}}</span>{{/ifCond}}
+            <!--{{#ifCond change.wins '>' 0}}<span class="change {{#ifCond change.wins '<' 0}}neg{{/ifCond}}">{{#ifCond change.wins '>' 0}}+{{/ifCond}}{{change.wins}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.wins '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1103,7 +1103,7 @@
         <div class="stat-item">
             <div>Losses</div>
             <span>{{numCommaFormat player.losses}}</span>
-            {{#ifCond change.losses '>' 0}}<span class="change {{#ifCond change.losses '<' 0}}neg{{/ifCond}}">{{#ifCond change.losses '>' 0}}+{{/ifCond}}{{change.losses}}</span>{{/ifCond}}
+            <!--{{#ifCond change.losses '>' 0}}<span class="change {{#ifCond change.losses '<' 0}}neg{{/ifCond}}">{{#ifCond change.losses '>' 0}}+{{/ifCond}}{{change.losses}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.losses '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1118,7 +1118,7 @@
         <div class="stat-item">
             <div>W/L Ratio</div>
             <span>{{player.wl}}</span>
-            {{#ifCond change.wl '>' 0}}<span class="change {{#ifCond change.wl '<' 0}}neg{{/ifCond}}">{{#ifCond change.wl '>' 0}}+{{/ifCond}}{{change.wl}}</span>{{/ifCond}}
+            <!--{{#ifCond change.wl '>' 0}}<span class="change {{#ifCond change.wl '<' 0}}neg{{/ifCond}}">{{#ifCond change.wl '>' 0}}+{{/ifCond}}{{change.wl}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.wl '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1135,7 +1135,7 @@
         <div class="stat-item">
             <div>Kills</div>
             <span>{{numCommaFormat player.kills}}</span>
-            {{#ifCond change.kills '>' 0}}<span class="change {{#ifCond change.kills '<' 0}}neg{{/ifCond}}">{{#ifCond change.kills '>' 0}}+{{/ifCond}}{{change.kills}}</span>{{/ifCond}}
+            <!--{{#ifCond change.kills '>' 0}}<span class="change {{#ifCond change.kills '<' 0}}neg{{/ifCond}}">{{#ifCond change.kills '>' 0}}+{{/ifCond}}{{change.kills}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.kills '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1150,7 +1150,7 @@
         <div class="stat-item">
             <div>Deaths</div>
             <span>{{numCommaFormat player.deaths}}</span>
-            {{#ifCond change.deaths '>' 0}}<span class="change {{#ifCond change.deaths '<' 0}}neg{{/ifCond}}">{{#ifCond change.deaths '>' 0}}+{{/ifCond}}{{change.deaths}}</span>{{/ifCond}}
+            <!--{{#ifCond change.deaths '>' 0}}<span class="change {{#ifCond change.deaths '<' 0}}neg{{/ifCond}}">{{#ifCond change.deaths '>' 0}}+{{/ifCond}}{{change.deaths}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.deaths '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1165,7 +1165,7 @@
         <div class="stat-item">
             <div>K/D Ratio</div>
             <span>{{player.kd}}</span>
-            {{#ifCond change.kd '>' 0}}<span class="change {{#ifCond change.kd '<' 0}}neg{{/ifCond}}">{{#ifCond change.kd '>' 0}}+{{/ifCond}}{{change.kd}}</span>{{/ifCond}}
+            <!--{{#ifCond change.kd '>' 0}}<span class="change {{#ifCond change.kd '<' 0}}neg{{/ifCond}}">{{#ifCond change.kd '>' 0}}+{{/ifCond}}{{change.kd}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.kd '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1182,7 +1182,7 @@
         <div class="stat-item">
             <div>Headshots</div>
             <span>{{numCommaFormat player.headshots}}</span>
-            {{#ifCond change.headshots '>' 0}}<span class="change {{#ifCond change.headshots '<' 0}}neg{{/ifCond}}">{{#ifCond change.headshots '>' 0}}+{{/ifCond}}{{change.headshots}}</span>{{/ifCond}}
+            <!--{{#ifCond change.headshots '>' 0}}<span class="change {{#ifCond change.headshots '<' 0}}neg{{/ifCond}}">{{#ifCond change.headshots '>' 0}}+{{/ifCond}}{{change.headshots}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.headshots '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1197,7 +1197,7 @@
         <div class="stat-item">
             <div>Assists</div>
             <span>{{numCommaFormat player.assists}}</span>
-            {{#ifCond change.assists '>' 0}}<span class="change {{#ifCond change.assists '<' 0}}neg{{/ifCond}}">{{#ifCond change.assists '>' 0}}+{{/ifCond}}{{change.assists}}</span>{{/ifCond}}
+            <!--{{#ifCond change.assists '>' 0}}<span class="change {{#ifCond change.assists '<' 0}}neg{{/ifCond}}">{{#ifCond change.assists '>' 0}}+{{/ifCond}}{{change.assists}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.assists '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1212,7 +1212,7 @@
         <div class="stat-item">
             <div>Betrayals</div>
             <span>{{player.betrayals}}</span>
-            {{#ifCond change.betrayals '>' 0}}<span class="change {{#ifCond change.betrayals '<' 0}}neg{{/ifCond}}">{{#ifCond change.betrayals '>' 0}}+{{/ifCond}}{{change.betrayals}}</span>{{/ifCond}}
+            <!--{{#ifCond change.betrayals '>' 0}}<span class="change {{#ifCond change.betrayals '<' 0}}neg{{/ifCond}}">{{#ifCond change.betrayals '>' 0}}+{{/ifCond}}{{change.betrayals}}</span>{{/ifCond}}-->
             {{#ifCond leaderboard.betrayals '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>

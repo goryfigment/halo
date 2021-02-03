@@ -652,6 +652,7 @@ footer {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
+    cursor: default;
 }
 
 .stat-item div:first-child {
