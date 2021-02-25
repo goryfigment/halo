@@ -820,15 +820,20 @@ footer {
 
 /*PRIVATE PROFILE*/
 #private-tutorial {
-    height: 245px;
-    border: white solid 2px;
     cursor: pointer;
+    max-width: 370px;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #404040;
 }
 
 #private-message {
     text-align: center;
-    line-height: 27px;
-    margin: 10px;
+    line-height: 25px;
+    margin: 45px 30px;
+    font-size: 25px;
+    font-family: 'Rajdhani', 'Roboto', sans-serif;
+    color: #dedede;
 }
 /*PRIVATE PROFILE*/
 

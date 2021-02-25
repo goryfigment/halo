@@ -230,7 +230,7 @@ footer p {
 
 #overlay img {
     animation: uploadModalBounce .4s linear;
-    height: 400px;
+    max-width: calc(100vw - 50px);
 }
 /* OVERLAY */
 

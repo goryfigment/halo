@@ -179,10 +179,13 @@ $(document).ready(function() {
         $('#stats-wrapper').append(statsTemplate({'player': globals.player, 'leaderboard': globals.leaderboard, 'player_count': globals.player_count}));
     }
 
+    var $donatorWrapper = $('#donator-wrapper');
     if(globals.player['donation'] > 0) {
-        var $donatorWrapper = $('#donator-wrapper');
+        $donatorWrapper.show();
         //$donatorWrapper.empty();
         $donatorWrapper.prepend(donatorTemplate(globals.player));
+    } else {
+        $donatorWrapper.hide();
     }
 
     $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'player_count': globals.player_count, 'player': globals.player}));
