@@ -19,7 +19,7 @@ from halo.controllers import site, profile, leaderboard, donate, account_handler
 
 urlpatterns = [
     url(r'^$', site.home, name='home'),
-    # url(r'^donate/$', site.donate, name='donate'),
+    url(r'^donate/$', site.donate, name='donate'),
     url(r'^profile/(?P<gt>.*)', site.profile),
     url(r'^404/$', site.error_page, name='404'),
     url(r'^500/$', site.server_error, name='500'),
