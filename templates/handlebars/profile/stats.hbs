@@ -1044,7 +1044,7 @@
         <div class="stat-item" id="score-item">
             <div>MCC Score</div>
             <span>{{numCommaFormat player.season7.score}}</span>
-            <!--{{#ifCond change.score '>' 0}}<span class="change {{#ifCond change.score '<' 0}}neg{{/ifCond}}">{{#ifCond change.score '>' 0}}+{{else}}-{{/ifCond}}{{change.score}}</span>{{/ifCond}}-->
+            {{#ifCond change.score '>' 0}}<span class="change {{#ifCond change.score '<' 0}}neg{{/ifCond}}">{{#ifCond change.score '>' 0}}+{{else}}-{{/ifCond}}{{change.score}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s7_score '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1073,7 +1073,7 @@
         <div class="stat-item">
             <div>Total Matches</div>
             <span>{{numCommaFormat player.season7.matches}}</span>
-            <!--{{#ifCond change.matches '>' 0}}<span class="change {{#ifCond change.matches '<' 0}}neg{{/ifCond}}">{{#ifCond change.matches '>' 0}}+{{else}}-{{/ifCond}}{{change.matches}}</span>{{/ifCond}}-->
+            {{#ifCond change.matches '>' 0}}<span class="change {{#ifCond change.matches '<' 0}}neg{{/ifCond}}">{{#ifCond change.matches '>' 0}}+{{else}}-{{/ifCond}}{{change.matches}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s7_matches '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1090,7 +1090,7 @@
         <div class="stat-item">
             <div>Wins</div>
             <span>{{numCommaFormat player.season7.wins}}</span>
-            <!--{{#ifCond change.wins '>' 0}}<span class="change {{#ifCond change.wins '<' 0}}neg{{/ifCond}}">{{#ifCond change.wins '>' 0}}+{{else}}-{{/ifCond}}{{change.wins}}</span>{{/ifCond}}-->
+            {{#ifCond change.wins '>' 0}}<span class="change {{#ifCond change.wins '<' 0}}neg{{/ifCond}}">{{#ifCond change.wins '>' 0}}+{{else}}-{{/ifCond}}{{change.wins}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s7_wins '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1105,7 +1105,7 @@
         <div class="stat-item">
             <div>Losses</div>
             <span>{{numCommaFormat player.season7.losses}}</span>
-            <!--{{#ifCond change.losses '>' 0}}<span class="change {{#ifCond change.losses '<' 0}}neg{{/ifCond}}">{{#ifCond change.losses '>' 0}}+{{else}}-{{/ifCond}}{{change.losses}}</span>{{/ifCond}}-->
+            {{#ifCond change.losses '>' 0}}<span class="change {{#ifCond change.losses '<' 0}}neg{{/ifCond}}">{{#ifCond change.losses '>' 0}}+{{else}}-{{/ifCond}}{{change.losses}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s7_losses '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1120,7 +1120,7 @@
         <div class="stat-item">
             <div>W/L Ratio</div>
             <span>{{player.season7.wl}}</span>
-            <!--{{#ifCond change.s_wl '>' 0}}<span class="change {{#ifCond change.s_wl '<' 0}}neg{{/ifCond}}">{{#ifCond change.s_wl '>' 0}}+{{else}}-{{/ifCond}}{{change.s_wl}}</span>{{/ifCond}}-->
+            {{#ifCond change.s_wl '>' 0}}<span class="change {{#ifCond change.s_wl '<' 0}}neg{{/ifCond}}">{{#ifCond change.s_wl '>' 0}}+{{else}}-{{/ifCond}}{{change.s_wl}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s7_wl '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1137,7 +1137,7 @@
         <div class="stat-item">
             <div>Kills</div>
             <span>{{numCommaFormat player.season7.kills}}</span>
-            <!--{{#ifCond change.kills '>' 0}}<span class="change {{#ifCond change.kills '<' 0}}neg{{/ifCond}}">{{#ifCond change.kills '>' 0}}+{{else}}-{{/ifCond}}{{change.kills}}</span>{{/ifCond}}-->
+            {{#ifCond change.kills '>' 0}}<span class="change {{#ifCond change.kills '<' 0}}neg{{/ifCond}}">{{#ifCond change.kills '>' 0}}+{{else}}-{{/ifCond}}{{change.kills}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s7_kills '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1152,7 +1152,7 @@
         <div class="stat-item">
             <div>Deaths</div>
             <span>{{numCommaFormat player.season7.deaths}}</span>
-            <!--{{#ifCond change.deaths '>' 0}}<span class="change {{#ifCond change.deaths '<' 0}}neg{{/ifCond}}">{{#ifCond change.deaths '>' 0}}+{{else}}-{{/ifCond}}{{change.deaths}}</span>{{/ifCond}}-->
+            {{#ifCond change.deaths '>' 0}}<span class="change {{#ifCond change.deaths '<' 0}}neg{{/ifCond}}">{{#ifCond change.deaths '>' 0}}+{{else}}-{{/ifCond}}{{change.deaths}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s7_deaths '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1167,7 +1167,7 @@
         <div class="stat-item">
             <div>K/D Ratio</div>
             <span>{{player.season7.kd}}</span>
-            <!--{{#ifCond change.s_kd '>' 0}}<span class="change {{#ifCond change.s_kd '<' 0}}neg{{/ifCond}}">{{#ifCond change.s_kd '>' 0}}+{{else}}-{{/ifCond}}{{change.s_kd}}</span>{{/ifCond}}-->
+            {{#ifCond change.s_kd '>' 0}}<span class="change {{#ifCond change.s_kd '<' 0}}neg{{/ifCond}}">{{#ifCond change.s_kd '>' 0}}+{{else}}-{{/ifCond}}{{change.s_kd}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s7_kd '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1184,7 +1184,7 @@
         <div class="stat-item">
             <div>Headshots</div>
             <span>{{numCommaFormat player.season7.headshots}}</span>
-            <!--{{#ifCond change.headshots '>' 0}}<span class="change {{#ifCond change.headshots '<' 0}}neg{{/ifCond}}">{{#ifCond change.headshots '>' 0}}+{{else}}-{{/ifCond}}{{change.headshots}}</span>{{/ifCond}}-->
+            {{#ifCond change.headshots '>' 0}}<span class="change {{#ifCond change.headshots '<' 0}}neg{{/ifCond}}">{{#ifCond change.headshots '>' 0}}+{{else}}-{{/ifCond}}{{change.headshots}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s7_headshots '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1199,7 +1199,7 @@
         <div class="stat-item">
             <div>Assists</div>
             <span>{{numCommaFormat player.season7.assists}}</span>
-            <!--{{#ifCond change.assists '>' 0}}<span class="change {{#ifCond change.assists '<' 0}}neg{{/ifCond}}">{{#ifCond change.assists '>' 0}}+{{else}}-{{/ifCond}}{{change.assists}}</span>{{/ifCond}}-->
+            {{#ifCond change.assists '>' 0}}<span class="change {{#ifCond change.assists '<' 0}}neg{{/ifCond}}">{{#ifCond change.assists '>' 0}}+{{else}}-{{/ifCond}}{{change.assists}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s7_assists '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
@@ -1214,7 +1214,7 @@
         <div class="stat-item">
             <div>Betrayals</div>
             <span>{{numCommaFormat player.season7.betrayals}}</span>
-            <!--{{#ifCond change.betrayals '>' 0}}<span class="change {{#ifCond change.betrayals '<' 0}}neg{{/ifCond}}">{{#ifCond change.betrayals '>' 0}}+{{else}}-{{/ifCond}}{{change.betrayals}}</span>{{/ifCond}}-->
+            {{#ifCond change.betrayals '>' 0}}<span class="change {{#ifCond change.betrayals '<' 0}}neg{{/ifCond}}">{{#ifCond change.betrayals '>' 0}}+{{else}}-{{/ifCond}}{{change.betrayals}}</span>{{/ifCond}}
             {{#ifCond leaderboard.s7_betrayals '>' 0}}
                 {{#if player.ban}}
                     <div class="percent">NOT RANKED</div>
