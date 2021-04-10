@@ -60,9 +60,9 @@ function serviceRecordSuccess(response) {
         'first_place': response['first_place'] - prevDetails['first_place'],
         'kd': (response['kd'] - prevDetails['kd']).toFixed(2),
         'wl': (response['wl'] - prevDetails['wl']).toFixed(2),
-        'score': response['season6']['score'] - prevDetails['season6']['score'],
-        's_wl': (response['season6']['wl'] - prevDetails['season6']['wl']).toFixed(2),
-        's_kd': (response['season6']['kd'] - prevDetails['season6']['kd']).toFixed(2)
+        'score': response['season7']['score'] - prevDetails['season7']['score'],
+        's_wl': (response['season7']['wl'] - prevDetails['season7']['wl']).toFixed(2),
+        's_kd': (response['season7']['kd'] - prevDetails['season7']['kd']).toFixed(2)
     };
 
     console.log(JSON.stringify(response))
