@@ -501,7 +501,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
 
 #lol-wrapper {
     display: flex;
-    display: none;
+    /*display: none;*/
     margin-top: 15px;
     height: 205px;
     flex-direction: column;
@@ -512,15 +512,16 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
 #lol-wrapper h2 {
     position: absolute;
     top: 0;
+    margin: 10px 0;
 }
 
 #lol-wrapper img {
-    width: 390px;
+    height: 220px;
 }
 
 #lol-wrapper p {
     text-align: center;
-    top: 30px;
+    top: 15px;
     position: absolute;
     font-size: 27px;
     font-weight: bold;
@@ -531,7 +532,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span {
     color: aqua;
     text-decoration: none;
     display: block;
-    margin: 10px 0;
+    margin: 4px 0;
 }
 
 #lol-wrapper a:hover {

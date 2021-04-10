@@ -186,6 +186,7 @@ $(document).ready(function() {
         $donatorWrapper.prepend(donatorTemplate(globals.player));
     } else {
         $donatorWrapper.hide();
+        $donatorWrapper.show();
     }
 
     $('#xbox-rank-wrapper').append(haloRanksTemplate({'ranks': sorted_xbl_ranks, 'player_count': globals.player_count, 'player': globals.player}));

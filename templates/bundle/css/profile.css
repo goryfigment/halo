@@ -1272,8 +1272,10 @@ ol span {
 /*}*/
 
 #lol-wrapper {
-    /*display: flex;*/
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /*display: none;*/
     margin-top: 10px;
     height: 226px;
     /*height: 320px;*/
@@ -1295,7 +1297,7 @@ ol span {
 }
 
 #lol-wrapper img {
-    width: 390px;
+    height: 240px;
 }
 
 #lol-wrapper p {
@@ -1313,7 +1315,7 @@ ol span {
     color: aqua;
     text-decoration: none;
     display: block;
-    margin: 10px 0;
+    margin: 4px 0;
 }
 
 #lol-wrapper a:hover {

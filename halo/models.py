@@ -517,7 +517,7 @@ class Season5Record(models.Model):
         db_table = "season5_record"
 
 
-# For S5 leaderboards
+# For S6 leaderboards
 class Season6(models.Model):
     player = models.ForeignKey(Player, default=None)
     score = models.IntegerField(default=0)
@@ -555,3 +555,43 @@ class Season6Record(models.Model):
 
     class Meta:
         db_table = "season6_record"
+
+
+# For S7 leaderboards
+class Season7(models.Model):
+    player = models.ForeignKey(Player, default=None)
+    score = models.IntegerField(default=0)
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
+    epoch = models.IntegerField(default=0)
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    kd = models.FloatField(default=0)
+    wl = models.FloatField(default=0)
+    assists = models.IntegerField(default=0)
+    betrayals = models.IntegerField(default=0)
+    headshots = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "season7"
+
+
+# Screenshot of that given day stats to subtract from
+class Season7Record(models.Model):
+    player = models.ForeignKey(Player, default=None)
+
+    playtime = models.CharField(max_length=255, default='0 days 0 hours')
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    epoch = models.IntegerField(default=0)
+    assists = models.IntegerField(default=0)
+    betrayals = models.IntegerField(default=0)
+    headshots = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "season7_record"

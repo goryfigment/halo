@@ -429,6 +429,7 @@ footer p {
     border: 1px solid #282828;
     font-family: 'Rajdhani', sans-serif;
     font-weight: bold;
+    font-size: 11px !important;
 }
 
 /*LEADERBOARD*/

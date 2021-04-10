@@ -2,7 +2,7 @@ import json
 from django.shortcuts import render
 from base import sort_list, get_base_url, models_to_dict
 from django.db.models import F
-from halo.models import Player, Ranks, Leaderboard, PcRanks, Season1, Season2, Season3, Season4, Season5, Season6, NewRanks, NewPcRanks
+from halo.models import Player, Ranks, Leaderboard, PcRanks, Season1, Season2, Season3, Season4, Season5, Season6, Season7, NewRanks, NewPcRanks
 from django.http import JsonResponse
 
 
@@ -1296,3 +1296,109 @@ def s6_headshots(request):
 
 def s6_playtime(request):
     return render(request, 'leaderboard.html', season6_playtime_func(request, 0, 100))
+
+
+def season7_func(request, handlebars, amount_type, title, first=None, last=None):
+    if first is not None and last is not None:
+        first_record = first
+        last_record = last
+    else:
+        first_record = 0
+        last_record = 100
+
+    data = {
+        'type': 's7_' + amount_type,
+        'handlebars': handlebars,
+        'title': title,
+        'base_url': get_base_url(),
+        'page': 1,
+        'rank': 0,
+        'season': 5
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+    if amount_type == 'wl' or amount_type == 'kd':
+        data['leaderboard'] = json.dumps(list(Season7.objects.filter(matches__gte=250, player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), highest_rank=F('player__highest_skill'), rgb=F('player__rgb')).order_by('-amount', '-exp')[first_record:last_record]))
+    else:
+        data['leaderboard'] = json.dumps(list(Season7.objects.filter(player__ban=False).values(amount=F(amount_type), gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), highest_rank=F('player__highest_skill'), rgb=F('player__rgb')).order_by('-amount', '-exp')[first_record:last_record]))
+    data['index'] = first_record
+
+    return data
+
+
+def season7_playtime_func(request, first, last):
+    first_record = first
+    last_record = last
+
+    data = {
+        'type': 's7_playtime',
+        'handlebars': 'playtime',
+        'title': '(Season 7) Playtime',
+        'base_url': get_base_url(),
+        'page': 1,
+        'rank': 0
+    }
+
+    if 'page' in request.GET:
+        page = int(request.GET['page'])
+        first_record += (page - 1) * 100
+        last_record += (page - 1) * 100
+        data['page'] = page
+
+    leaderboards = Season7.objects.filter(player__ban=False).order_by('-epoch')[first_record:last_record]
+    data['index'] = first_record
+    data['leaderboard'] = json.dumps(list(leaderboards.values('playtime', gamertag=F('player__gamertag'), player_id=F('player__id'), exp=F('wins'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb'))))
+
+    return data
+
+
+def s7_score(request):
+    return render(request, 'leaderboard.html', season7_func(request, 'mccs', 'score', '(Season 7) MCC Score'))
+
+
+def s7_kills(request):
+    return render(request, 'leaderboard.html', season7_func(request, 'season1', 'kills', '(Season 7) Kills'))
+
+
+def s7_deaths(request):
+    return render(request, 'leaderboard.html', season7_func(request, 'season1', 'deaths', '(Season 7) Deaths'))
+
+
+def s7_wins(request):
+    return render(request, 'leaderboard.html', season7_func(request, 'season1', 'wins', '(Season 7) Wins'))
+
+
+def s7_losses(request):
+    return render(request, 'leaderboard.html', season7_func(request, 'season1', 'losses', '(Season 7) Losses'))
+
+
+def s7_matches(request):
+    return render(request, 'leaderboard.html', season7_func(request, 'season1', 'matches', '(Season 7) Matches'))
+
+
+def s7_wl(request):
+    return render(request, 'leaderboard.html', season7_func(request, 'season1_ratio', 'wl', '(Season 7) W/L Ratio'))
+
+
+def s7_kd(request):
+    return render(request, 'leaderboard.html', season7_func(request, 'season1_ratio', 'kd', '(Season 7) K/D Ratio'))
+
+
+def s7_assists(request):
+    return render(request, 'leaderboard.html', season7_func(request, 'season1', 'assists', '(Season 7) Assists'))
+
+
+def s7_betrayals(request):
+    return render(request, 'leaderboard.html', season7_func(request, 'season1', 'betrayals', '(Season 7) Betrayals'))
+
+
+def s7_headshots(request):
+    return render(request, 'leaderboard.html', season7_func(request, 'season1', 'headshots', '(Season 7) Headshots'))
+
+
+def s7_playtime(request):
+    return render(request, 'leaderboard.html', season7_playtime_func(request, 0, 100))
