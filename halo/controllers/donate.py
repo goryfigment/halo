@@ -50,7 +50,7 @@ def donate_email(request):
     s.login(GMAIL, GMAIL_PASSWORD)
 
     # sendmail function takes 3 arguments: sender's address, recipient's address
-    s.sendmail(from_email, GMAIL, msg.as_string())
+    s.sendmail(from_email, "mccstats.com@gmail.com", msg.as_string())
     s.quit()
 
     return JsonResponse({'success': True}, safe=False)
