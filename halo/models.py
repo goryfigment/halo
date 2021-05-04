@@ -91,6 +91,7 @@ class NewRanks(models.Model):
     halo_reach_team_hardcore = models.IntegerField(default=1)
     halo_reach_invasion = models.IntegerField(default=1)
     h4_squad_battle = models.IntegerField(default=1)
+    h3_hardcore_doubles = models.IntegerField(default=1)
 
     v_h3_recon_slayer = models.BooleanField(default=0)
     v_h3_team_slayer = models.BooleanField(default=0)
@@ -102,6 +103,7 @@ class NewRanks(models.Model):
     v_hce_hardcore_doubles = models.BooleanField(default=0)
     v_h2a_team_hardcore = models.IntegerField(default=0)
     v_h4_squad_battle = models.IntegerField(default=0)
+    v_h3_hardcore_doubles = models.IntegerField(default=0)
 
     class Meta:
         db_table = "new_ranks"
@@ -265,6 +267,7 @@ class Leaderboard(models.Model):
     new_halo_reach_invasion = models.IntegerField(default=0)
     new_h2a_team_hardcore = models.IntegerField(default=0)
     new_h4_squad_battle = models.IntegerField(default=0)
+    new_h3_hardcore_doubles = models.IntegerField(default=0)
 
     new_pc_h3_recon_slayer = models.IntegerField(default=0)
     new_pc_h3_team_slayer = models.IntegerField(default=0)

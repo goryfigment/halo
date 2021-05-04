@@ -51,6 +51,7 @@ def home(request):
         'halo_reach_team_hardcore': rank_func(request, 'playlist', 'halo_reach_team_hardcore', 'Reach: Team Hardcore', 0, 10),
         'halo_reach_invasion': rank_func(request, 'playlist', 'halo_reach_invasion', 'Reach: Team Invasion', 0, 10),
         'h4_squad_battle': rank_func(request, 'playlist', 'h4_squad_battle', 'H4 Squad Battle', 0, 10),
+        'h3_hardcore_doubles': rank_func(request, 'playlist', 'h3_hardcore_doubles', 'H3 Hardcore Doubles', 0, 10),
 
         'recent_donations': json.dumps(list(RecentDonations.objects.all().values(amount=F('player__donation'), gamertag=F('player__gamertag'), player_id=F('player__id'), emblem=F('player__emblem'), donation=F('player__donation'), twitch=F('player__twitch'), youtube=F('player__youtube'), twitter=F('player__twitter'), notes=F('player__notes'), color=F('player__color'),  social=F('player__social'), mixer=F('player__mixer'), glow=F('player__glow'), rgb=F('player__rgb')).order_by('-id')[0:5]))
     }

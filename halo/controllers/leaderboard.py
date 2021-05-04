@@ -648,6 +648,10 @@ def h4_squad_battle(request):
     return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h4_squad_battle', 'H4: Squad Battle', 0, 100))
 
 
+def h3_hardcore_doubles(request):
+    return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'h3_hardcore_doubles', 'H3: Hardcore Doubles', 0, 100))
+
+
 # PC
 def pc_h3_recon_slayer(request):
     return render(request, 'leaderboard.html', rank_func(request, 'playlist', 'pc_h3_recon_slayer', '(PC) Halo 3: Recon Slayer', 0, 100))
