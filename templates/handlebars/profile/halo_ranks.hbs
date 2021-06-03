@@ -4,9 +4,9 @@
         <h3>{{rank}}</h3>
         <img class="halo-rank" src="{{concat 'base_url' '/templates/bundle/assets/ranks/' (calcMajorRank rank record.wins) '.png'}}" />
 
-        {{#if verified}}
-            <span class="verified-icon tippy" data-title="Verified">&#10004;</span>
-        {{/if}}
+        <!--{{#if verified}}-->
+            <!--<span class="verified-icon tippy" data-title="Verified">&#10004;</span>-->
+        <!--{{/if}}-->
 
         {{#ifCond leaderboard '>' 0}}
             {{#if ../player.ban}}

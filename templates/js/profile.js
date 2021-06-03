@@ -122,7 +122,7 @@ $(document).ready(function() {
                 'playlist': playlist,
                 'rank': rank,
                 'leaderboard': globals.leaderboard['new_' + key],
-                'verified': globals.saved_ranks['xbox']['v_' + key]
+                //'verified': globals.saved_ranks['xbox']['v_' + key]
             });
 
             if(rank == 50) {
@@ -149,7 +149,7 @@ $(document).ready(function() {
                 'playlist': pc_playlist,
                 'rank': rank,
                 'leaderboard': globals.leaderboard['new_pc_' + key],
-                'verified': globals.saved_ranks['pc']['v_' + key]
+                //'verified': globals.saved_ranks['pc']['v_' + key]
             });
 
             if(rank == 50) {
@@ -216,7 +216,7 @@ function prevRankshandler(xbox_ranks, pc_ranks) {
             'playlist': playlist_name,
             'rank': xbox_ranks[key],
             'leaderboard': globals.leaderboard['old_' + key],
-            'verified': xbox_ranks['v_' + key]
+            //'verified': xbox_ranks['v_' + key]
         });
     }
 
@@ -232,7 +232,7 @@ function prevRankshandler(xbox_ranks, pc_ranks) {
             'playlist': playlist_name,
             'rank': pc_ranks[key],
             'leaderboard': globals.leaderboard['old_pc_' + key],
-            'verified': pc_ranks['v_' + key]
+            //'verified': pc_ranks['v_' + key]
         });
     }
 
