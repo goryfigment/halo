@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from base import sort_list, get_base_url, models_to_dict
+from .base import sort_list, get_base_url, models_to_dict
 from django.db.models import F
 from halo.models import Player, Ranks, Leaderboard, PcRanks, Season1, Season2, Season3, Season4, Season5, Season6, Season7, NewRanks, NewPcRanks
 from django.http import JsonResponse
@@ -38,7 +38,7 @@ def update_leaderboard(request):
 
         record_leaderboard(player_id, query_request['type'], index)
 
-    print query_request['type']
+    print(query_request['type'])
 
     return JsonResponse({'success': True}, safe=False)
 
@@ -49,7 +49,7 @@ def database_leaderboard(request, type):
 
     rank = ['hce_hardcore_doubles', 'h2c_team_hardcore', 'h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'halo_reach_team_hardcore', 'halo_reach_invasion', 'halo_reach_team_slayer']
 
-    print type
+    print(type)
 
     if type in rank:
         leaderboards = list(Ranks.objects.all().values('player__id', 'player__matches', 'hce_hardcore_doubles', 'h2c_team_hardcore', 'h3_team_slayer', 'h3_team_hardcore', 'h3_team_doubles', 'ms_2v2_series', 'halo_reach_team_hardcore', 'halo_reach_invasion', 'halo_reach_team_slayer').order_by('-' + type, '-player__matches'))

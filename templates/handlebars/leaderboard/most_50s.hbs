@@ -19,7 +19,7 @@
                         {{tieHandler fifty}}
                     </td>
                     <td>
-                        <a href="/profile/{{player__gamertag}}"><img class="emblem" src="{{player__emblem}}" /><span class="gamertag {{donateStyle player__donation}}" style="color: {{player__color}}">
+                        <a href="/profile/{{player__gamertag}}"><img class="emblem" src="{{concat 'base_url' '/templates/bundle/assets/emblem.png'}}" /><span class="gamertag {{donateStyle player__donation}}" style="color: {{player__color}}">
                             {{#if player__rgb}}
                                 {{rgbFont player__gamertag}}
                             {{else}}

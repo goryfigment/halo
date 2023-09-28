@@ -12,7 +12,7 @@
         {{#each this}}
             <tr>
                 <td>
-                    <a href="/profile/{{gamertag}}"><img class="emblem" src="{{emblem}}" /><span class="gamertag {{donateStyle donation}}" style="color: {{color}}">
+                    <a href="/profile/{{gamertag}}"><img class="emblem" src="{{concat 'base_url' '/templates/bundle/assets/emblem.png'}}" /><span class="gamertag {{donateStyle donation}}" style="color: {{color}}">
                         {{#if rgb}}
                             {{rgbFont gamertag}}
                         {{else}}

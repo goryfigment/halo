@@ -24,7 +24,7 @@ def register(request):
 
     # Check username
     if len(username) <= 2 or len(username) >= 16:
-        print username
+        print(username)
         data = {'success': False,  'error_msg': 'Username must be between 3 to 15 characters.'}
         return HttpResponseBadRequest(json.dumps(data), 'application/json')
 

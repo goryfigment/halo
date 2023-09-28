@@ -7,7 +7,7 @@ def login_required(function):
         if request.user.is_authenticated():
             return function(request, *args, **kwargs)
         else:
-            print 'User not login'
+            print('User not login')
             raise PermissionDenied('User not login.')
     wrap.__doc__ = function.__doc__
     wrap.__name__ = function.__name__
@@ -36,7 +36,7 @@ def data_required(required_data, request_type):
                         if data in request.POST:
                             continue
 
-                    print data + ' does not exist!'
+                    print(data + ' does not exist!')
                     raise PermissionDenied(data + ' does not exist!')
             return function(request, *args, **kwargs)
         wrap.__doc__ = function.__doc__

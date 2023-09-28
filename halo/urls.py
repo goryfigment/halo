@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.views.generic import TemplateView
-from halo.controllers import site, profile, leaderboard, donate, account_handler, xbox_handler, halo_handler
+from halo.controllers import site, profile, leaderboard, donate, account_handler, xbox_handler
+from halo import halo_handler
 
 urlpatterns = [
     url(r'^$', site.home, name='home'),

@@ -1,10 +1,10 @@
 import xbox, json
-from .. import settings_secret
+from halo.settings_secret import USERNAME, PASSWORD
 from django.http import JsonResponse, HttpResponseBadRequest
 
 
 def xbox_authenticate():
-    xbox.client.authenticate(login=settings_secret.USERNAME, password=settings_secret.PASSWORD)
+    xbox.client.authenticate(login=USERNAME, password=PASSWORD)
 
 
 def xbox_clips(request):

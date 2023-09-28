@@ -29,7 +29,7 @@
                         {{/ifCond}}
                     </td>
                     <td>
-                        <a href="/profile/{{p_gamertag}}"><img class="emblem" src="{{p_emblem}}" /><span class="gamertag {{donateStyle p_donation}}" style="color: {{p_color}}">
+                        <a href="/profile/{{p_gamertag}}"><img class="emblem" src="{{concat 'base_url' '/templates/bundle/assets/emblem.png'}}" /><span class="gamertag {{donateStyle p_donation}}" style="color: {{p_color}}">
                             {{#if p_rgb}}
                                 {{rgbFont p_gamertag}}
                             {{else}}

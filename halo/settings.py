@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import sys
-from settings_secret import *
+from .settings_secret import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -34,7 +34,7 @@ if DEBUG:
     HOST_PORT = '8000'
     BASE_URL = HTTPS + '://' + HOST_NAME + ':' + HOST_PORT
 else:
-    BASE_URL = 'https://www.mccstats.com'
+    BASE_URL = 'https://www.mccstats.site'
 
 # Application definition
 
