@@ -91,8 +91,8 @@ function serviceRecordError() {
     console.log("Service Record error!");
     var $wrapper = $('#player-details');
 
-    $wrapper.empty();
-    $wrapper.append(privateTemplate({}));
+    //$wrapper.empty();
+    //$wrapper.append(privateTemplate({}));
 }
 
 $(document).ready(function() {
