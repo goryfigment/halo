@@ -1,9 +1,9 @@
 import json
-from halo.halo_handler import halo_matches, service_record as halo_service_record, upd_emblem
+from halo_handler import halo_matches, service_record as halo_service_record, upd_emblem
 from django.http import JsonResponse
 from halo.decorators import login_required, data_required
 from halo.models import Player, NewRanks, NewPcRanks
-from .base import model_to_dict
+from base import model_to_dict
 
 
 def service_record(request):
