@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .base import get_base_url, model_to_dict
 from django.db.models import F
 from django.http import HttpResponseRedirect
-from ..halo_handler import get_xbox_auth, halo_ranks, service_record
+from halo.halo_handler import get_xbox_auth, halo_ranks, service_record
 from halo.models import Player, Leaderboard, User, Season1, RecentDonations, Season2, Ranks, PcRanks, Season3, NewRanks, NewPcRanks, Season4, Season5, Season6, Season7
 from halo.controllers.leaderboard import season7_func, season7_playtime_func, rank_func
 from django.http import HttpResponse
