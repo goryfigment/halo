@@ -141,7 +141,7 @@
                 <i class='fas fa-clock tier-4 tippy' data-title="60 DAYS" style="{{#ifCond player.epoch '<' 5184000}}opacity:0.2;{{/ifCond}}"></i>
                 <i class='fas fa-clock tier-5 tippy' data-title="75 DAYS" style="{{#ifCond player.epoch '<' 6480000}}opacity:0.2;{{/ifCond}}"></i>
                 <span class="progress" style="width: {{mathMax (math player.epoch '/' 6480000) '*' 100 100}}%"></span>
-                <span class="progress-number">{{player.playtime}} / 75d</span>
+                <span class="progress-number">{{hoursToDay player.playtime}} / 75d</span>
             </span>
         </div>
     </div>
