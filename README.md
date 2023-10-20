@@ -21,7 +21,7 @@ Given that [**HaloWaypoint**](https://www.halowaypoint.com/) had player stats, t
 * Shows individual leaderboards for each respective category.
 * Hosted seasonal leaderboards that displayed players progress and stats that they accumulated throughout the season.
 * Pulls recent Xbox clips from any player that has their privacy turned on.
-* Consitantly pulled over [**1 Million Hits**](https://twitter.com/MccStats/status/1289617124814499844) per month
+* Consistantly pulled over [**1 Million Hits**](https://twitter.com/MccStats/status/1289617124814499844) per month
 
 ## 💻 Technologies
 * HTML5
