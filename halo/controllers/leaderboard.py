@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from base import sort_list, get_base_url, models_to_dict
+from .base import sort_list, get_base_url, models_to_dict
 from django.db.models import F
 from halo.models import Player, Ranks, Leaderboard, PcRanks, Season1, Season2, Season3, Season4, Season5, Season6, Season7, NewRanks, NewPcRanks
 from django.http import JsonResponse
